@@ -1,0 +1,78 @@
+/* #container div.contentBox ul.boardList {width:100%; font-size:15px; color:#555; font-size:14px; font-weight:600; border-bottom:1px solid #dbdbdb; margin:0; padding:0 0 0 0;}
+#container div.contentBox ul.boardList li.top {width:100%; height:50px; border-top:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb;}
+#container div.contentBox ul.boardList li div.numW {width:74px; float:left;}
+#container div.contentBox ul.boardList li div.titleW {width:586px; float:left;}
+#container div.contentBox ul.boardList li div.nameW {width:112px; float:left;}
+#container div.contentBox ul.boardList li div.dateW {width:67px; float:left;}
+#container div.contentBox ul.boardList li div.hitsW {width:95px; float:left;}
+#container div.contentBox ul.boardList li.top div {height:100%; background:url('/img/text.png') no-repeat; text-indent:-999em; line-height:55px; border-right:1px solid #dbdbdb; }
+#container div.contentBox ul.boardList li.top div.num {background-position:-1147px -245px;}
+#container div.contentBox ul.boardList li.top div.title {background-position:-886px -294px;}
+#container div.contentBox ul.boardList li.top div.name {background-position:-1124px -344px;}
+#container div.contentBox ul.boardList li.top div.date {background-position:-1148px -394px;}
+#container div.contentBox ul.boardList li.top div.hits {background-position:-1131px -444px; border-right:none;}
+#container div.contentBox ul.boardList li.none {height:20px;  text-align:center; padding:15px 0;}
+#container div.contentBox ul.boardList li.list {height:20px; padding:15px 0;}
+#container div.contentBox ul.boardList li.list div {text-align:center;}
+#container div.contentBox ul.boardList li.list div.title {text-align:left;}
+#container div.contentBox ul.boardList li.list div.date {font-size:13px; font-weight:500; letter-spacing:-1px;}
+#container div.contentBox ul.boardList li.list div.hits {font-size:13px; font-weight:500;}
+#container div.contentBox ul.boardList li.list div span {display:inline;}
+#container div.contentBox ul.boardList li.list div span a {display:block;}
+#container div.contentBox ul.boardList li.list div span a nobr{text-overflow:ellipsis; display:block; width:550px; overflow:hidden; float:left;}
+#container div.contentBox ul.boardList li.list span.num {width:50px; color:#747474; font-size:15px; text-align:right; font-weight:bold; margin:0 21px 0 0; display:block;float:left;}
+#container div.contentBox ul.boardList li.list div.title span.title {color:#555;display:block;width:400px; margin-left:15px; float:left;}
+#container div.contentBox ul.boardList li.list div.title span.title a {color:#555;}
+#container div.contentBox ul.boardList li.list div.title span.reply {margin:0 0 0 5px; color:#555;}
+#container div.contentBox ul.boardList li.bottomLine {width:100%; height:8px; border-bottom:4px solid #d9d9d9; position:relative;}
+#container div.contentBox ul.boardList li.bottom {width:100%; height:45px; margin:10px 0 0 0;}
+#container div.contentBox ul.boardList li.bottom button.myRp {width:130px; height:45px; background:url('/img/imgAll.png') no-repeat; background-position:-378px -722px; text-indent:-999em; float:left;}
+#container div.contentBox ul.boardList li.bottom button.myPb {width:130px; height:45px; background:url('/img/imgAll.png') no-repeat; background-position:-378px -666px; text-indent:-999em; float:left;}
+#container div.contentBox ul.boardList li.bottom button.viewAll {width:130px; height:45px; background:url('/img/imgAll.png') no-repeat; background-position:-378px -776px; text-indent:-999em; float:left;}
+
+#container div.contentBox ul.boardList li.bottom button.cheer {width:130px; height:45px; background:url('/img/imgAll.png') no-repeat; background-position:-527px -722px; text-indent:-999em; float:right;}
+#container div.contentBox ul.boardList li.bottom button.writePb {width:130px; height:45px; background:url('/img/imgAll.png') no-repeat; background-position:-527px -666px; text-indent:-999em;  float:right;}
+#container div.contentBox ul.boardList li.bottom div.page {margin:18px 0 0 0;}
+#container div.contentBox ul.boardList li.bottom div.page button {float:left; padding:0; margin:0 3px;}
+#container div.contentBox ul.boardList li.bottom div.page button.first {width:13px; height:19px; background:url('/img/imgAll.png') no-repeat;  background-position:-286px -24px; text-indent:-999em;}
+#container div.contentBox ul.boardList li.bottom div.page button.prev {width:7px; height:19px; background:url('/img/imgAll.png') no-repeat;  background-position:-300px -24px; text-indent:-999em;}
+#container div.contentBox ul.boardList li.bottom div.page button.next {width:7px; height:19px; background:url('/img/imgAll.png') no-repeat;  background-position:-330px -24px; text-indent:-999em;}
+#container div.contentBox ul.boardList li.bottom div.page button.end {width:13px; height:19px; background:url('/img/imgAll.png') no-repeat;  background-position:-338px -24px; text-indent:-999em;}
+#container div.contentBox ul.boardList li.bottom div.page ul {font-size:14px; float:left; margin:0 5px; padding:0; float:left; }
+#container div.contentBox ul.boardList li.bottom div.page ul li {float:left; margin:0 5px;}
+#container div.contentBox ul.boardList li.bottom div.page ul li a {font-weight:bold; color:#646464; padding:1px 0 0 0;}
+#container div.contentBox ul.boardList li.bottom div.page ul li.on {background:url('/img/pageEnd.png') repeat-x right 0;}
+#container div.contentBox ul.boardList li.bottom div.page ul li.on a {height:18px; background:url('/img/pageFront.png') no-repeat left 0; padding:1px 5px 0 5px; color:#fff;}
+
+
+#container div.contentBox div.boardBottom{width:858px; height:60px; color:#5d5d5d; font-size:23px; font-weight:700; letter-spacing:-1px; margin-top:20px; text-align:center; padding:0 40px; position:relative;}
+#container div.contentBox div.boardBottom div.page {top:23px;}
+#container div.contentBox div.boardBottom button.btn {width:95px; height:30px; background:url('/img/img.png') no-repeat; text-indent:-999em; }
+
+#container div.contentBox div.boardBottom button.write { background-position:-1px -334px; float:right;}
+
+
+#container div.boardDetail div.contentTop {border-bottom:1px solid #dbdbdb; padding:30px 40px 40px;}
+#container div.boardDetail div.contentTop span.title {color:#363636; font-size:25px; font-weight:600;}
+#container div.boardDetail div.contentTop div.info {color:#4b4b4b; font-size:14px; font-weight:600; margin-top:10px;}
+#container div.boardDetail div.contentTop div.info span.name {float:left;}
+#container div.boardDetail div.contentTop div.info span.reply {float:right;}
+#container div.boardDetail div.contentTop div.info span.hits {float:right; margin-right:15px;} */
+
+
+
+
+span.selectM {width:108px; height:38px !important; background-position:-362px -1096px;}
+span.selectM button span{width:106px; height:28px !important; padding:10px 2px 0 0; background-position:23px 18px;}
+span.selectM button{background:url('/img/img.png') no-repeat -510px -948px;  !important;}
+span.selectM ul{width:108px;}
+span.selectM ul li:last-child{background:url('/img/selectSmall.png') no-repeat;}
+
+span.selectL {width:218px; height:38px !important; background-position:-362px -1096px;}
+span.selectL button{background:url('/img/img.png') no-repeat  -416px -1471px  !important;}
+span.selectL button span{width:60px; height:20px !important; padding-right:2px; background-position:23px 18px;}
+span.selectL ul {width:218px;}
+span.selectL ul li:last-child{background:url('/img/selectSmall.png') no-repeat;}
+
+
+

@@ -1,0 +1,117 @@
+<html>
+<head>
+<title>테스트</title>
+
+<link rel='stylesheet' type='text/css' href='/css/misung.css' />
+<link rel='stylesheet' type='text/css' href='/css/select.css' />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript" src="/js/function.js"></script>
+</head>
+<body style="text-align:center;">
+<div id="wrap">
+	<div id="header">
+		<h1>파랑새 도서관</h1>
+		<div class="gnb">
+			<ul>
+				<li><a href="javascript:;">사람도서관</a></li>
+				<li><a href="javascript:;">사람책</a></li>
+				<li><a href="javascript:;">일정</a></li>
+				<li><a href="javascript:;">게시판</a></li>
+				<li><a href="javascript:;">방명록</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="container">
+		
+		<div class="test">  </div>		
+
+
+	</div>
+
+	<div id="footer">
+	</div>
+
+	<div class="bottomimg"></div>
+</div>
+
+
+<script>
+
+
+
+
+
+function select(){
+	var input		  = $(this).find("input.value");		//실제 제출되는 값
+	var inputDefault  = $(this).find("input.inputDefault"); //값이 비었을때 기본값
+	var button		  = $(this).find("button");				//클릭 영역 버튼
+	var text		  = button.find("span");				//실제 선택된걸 보여주는 텍스트
+	var ul			  = $(this).find("ul");					//리스트 영역
+	var li			  = ul.find("li");						//리스트
+	var back		  =	$(this).find("div.bg");
+	var cls			  = $(this).attr("class");
+	var clsSw		  = false;
+	if(cls.indexOf("selectS") > 0){
+		clsSw = true;
+	}
+	if(input.val()){
+		text.text(input.val());
+		text.css("background","none");
+	}else if(inputDefault.val()){
+		input.val(inputDefault.val());
+		text.text(input.val());		
+		text.css("background","none");
+	}
+	button.click(function(){
+		$("span.select").each(function(){
+			autherUl = $(this).find("ul");
+			if(autherUl.attr("global")!="on"){
+				autherUl.css("display","none");
+			}
+		});
+		if(ul.css("display")=="none"){	
+			ul.css("display","");
+			ul.attr("global","on");
+			//text.css("background","url('images/arrowUp.png') no-repeat right center");
+			back.css("display","");
+		}else{
+			ul.css("display","none");
+			ul.attr("global","");
+			//text.css("background","url('images/arrowDown.png') no-repeat right center");
+			back.css("display","none");
+		};
+		
+	});
+	$(this).mouseleave(function(){
+		back.css("display","none");
+		ul.css("display","none");
+		ul.attr("global","");
+		//text.css("background","url('images/arrowDown.png') no-repeat right center");
+	});
+	li.each(function(){
+		var a = $(this).find("a");
+		a.click(function(){
+			if(a.attr("global")){
+				input.val(a.attr("global"));
+			}else{
+				input.val(a.text());
+			}
+			text.text(a.text());
+			ul.css("display","none");
+			if(back){
+				back.css("display","none");
+			}
+			if(clsSw==true){
+				text.css("background","none");
+			}
+			input.change();
+		});
+	});
+}
+$("span.select").each(select);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+div.h2App {width:1002px; height:27px; margin:64px auto 25px;}
+div.h2App h2 {font-size:31px; font-weight:900; color:#3d8e93; float:left; }
+div.h2App div.h2Note {width:437px; height:29px; background:url('/img/img.png') no-repeat; background-position:0px -2595px; text-indent:-999em; margin:4px 0 0 20px ; float:left; }
+div.h2App button.xls{width:175px; height:42px; background:url('/img/img.png') -638px -3244px no-repeat; float:right;}
+
+ul.appView {width:1002px; font-size:16px; color:#838383; font-weight:700; margin:0 auto 100px; padding:0 0 20px 0; clear:both;}
+
+
+ul.appView li.top {width:100%; height:67px; background:url('/img/bgBoardListTop.png') no-repeat;}
+ul.appView li div.chkW {width:57px; float:left;}
+ul.appView li div.nameW {width:100px; float:left;}
+ul.appView li div.sexW {width:30px; float:left;}
+ul.appView li div.phoneW {width:155px; float:left;}
+ul.appView li div.emailW {width:260px; float:left; word-wrap:break-word;}
+ul.appView li div.ageW {width:50px; float:left;}
+ul.appView li div.jobW {width:105px; float:left;}
+ul.appView li div.routeW {width:100px; float:left;}
+ul.appView li div.noteW {width:140px; float:left;}
+ul.appView li.top div {height:100%; line-height:67px;}
+ul.appView li.top div span {margin:24px auto 0;}
+ul.appView li.top div.chk label {margin:21px 21px 0 26px;}
+ul.appView li div.chk label {width:23px; height:21px; background:url('/img/img.png') no-repeat; background-position:1px -1653px; text-indent:-999em; margin:0 21px 0 26px;}
+
+ul.appView li.top div span {height:17px;  background:url('/img/img.png') no-repeat; text-indent:-999em;}
+ul.appView li.top div.name span{width:31px; background-position:-467px -2359px;}
+ul.appView li.top div.sex span{width:31px; background-position:-467px -2535px;}
+ul.appView li.top div.phone span{width:44px; background-position:-466px -2387px;}
+ul.appView li.top div.email span{width:44px; background-position:-467px -2413px;}
+ul.appView li.top div.age span{width:28px; background-position:-469px -2462px;}
+ul.appView li.top div.job span{width:31px; background-position:-467px -2437px;}
+ul.appView li.top div.route span{width:60px; background-position:-468px -2485px;}
+ul.appView li.top div.note span{width:29px; background-position:-470px -2509px;}
+
+ul.appView li.none {height:20px;  text-align:center; padding:15px 0;}
+ul.appView li.list {height:50px; }
+ul.appView li.appr {color:#3d8e93}
+ul.appView li.list div {height:20px; text-align:center; padding:15px 0;}
+ul.appView li.list div.email {text-align:left;}
+ul.appView li.list div.email span {margin:0 0 0 20px;}
+ul.appView li.list div.group {height:44px; padding:6px 0 0 0;}
+
+
+ul.appView li.bottomLine {width:100%; height:4px; background:url('/img/bgDotLineGray.png') repeat-x; background-position:3px 0; margin:6px 0 0 0; position:relative;}
+ul.appView li.bottom {width:100%; height:45px; margin:25px 0 0 0; position:relative;}
+ul.appView li.bottom button {height:42px; background:url('/img/img.png') no-repeat; text-indent:-999em;}
+ul.appView li.bottom button.delete {width:82px; background-position:-449px -420px;  float:left;}
+ul.appView li.bottom button.appr {width:82px; background-position:-457px -1966px;  margin:0 0 0 8px; float:right;}
+ul.appView li.bottom button.apprCancle {width:117px; background-position:-456px -1917px; float:right;}
+
+ul.appView li.bottom div.page {margin:10px 0 0 0;}
+ul.appView li.bottom div.page button {float:left; padding:0; margin:0 3px;}
+ul.appView li.bottom div.page button.first {width:18px; height:18px; background:url('/img/img.png') no-repeat;  background-position:-0px -1869px; text-indent:-999em;}
+ul.appView li.bottom div.page button.prev {width:18px; height:18px; background:url('/img/img.png') no-repeat;  background-position:-32px -1869px; text-indent:-999em;}
+ul.appView li.bottom div.page button.next {width:18px; height:18px; background:url('/img/img.png') no-repeat;  background-position:-65px -1869px; text-indent:-999em;}
+ul.appView li.bottom div.page button.end {width:18px; height:18px; background:url('/img/img.png') no-repeat;  background-position:-96px -1869px; text-indent:-999em;}
+ul.appView li.bottom div.page ul {font-size:14px; float:left; margin:0 5px; padding:0; float:left; }
+ul.appView li.bottom div.page ul li {float:left; margin:0 5px;}
+ul.appView li.bottom div.page ul li a {font-weight:bold; color:#646464; padding:1px 0 0 0;}
+ul.appView li.bottom div.page ul li.on {background:url('/img/img.png') repeat-x right 0;}
+ul.appView li.bottom div.page ul li.on a {height:18px; font-weight:900; color:#3d8e93; padding:1px 0 0 0;}

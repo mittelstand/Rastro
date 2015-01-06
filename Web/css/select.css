@@ -1,0 +1,62 @@
+span.select {background:#fafafb;  float:left; position:relative; Box-sizing: border-box;}
+span.select button{width:100%; height:100%; }
+span.select button span{width:100%; height:100%; background:url('/img/arrow.png') no-repeat right 18px;  font-size:13px !important; Box-sizing: border-box;}
+span.select div.bg{ z-index:9998; background-color:#FFF;}
+span.select ul{position:absolute; z-index:999999999999;   left:0; margin:0 !important;}
+span.select ul li{width:100% !important;  Box-sizing: border-box;line-height:25px; background-color:#FFF; float:left; margin:0 !important;}
+span.select ul li a{width:100%; height:100%; Box-sizing: border-box; text-indent:0; text-align:center; font-size:13px !important; display:block;}
+span.select ul li a:hover{background-color:#daf3f4;}
+
+span.select div.bg{width:60px; height:150px; background:url('/img/ulback.png') no-repeat 0 -100px; position:absolute;}
+span.select ul.limitL{height:145px; overflow:auto;}
+span.select ul.limitL{
+	scrollbar-face-color:#F7F7F7;
+	scrollbar-shadow-color:#FFFFFF;
+	scrollbar-highlight-color:#ffffff;
+	scrollbar-3dlight-color:#FFFFFF;
+	scrollbar-darkshadow-color:#ffffff;
+	scrollbar-track-color:#FFFFFF;
+	scrollbar-arrow-color:#84d7dc;
+}span.select1 {width:122px; height:37px !important; background:url('/img/select/select1.png') no-repeat;}
+span.select1 button span{padding:6px 0px 0 0px; background:url('/img/select/select1_arrow.') no-repeat 1px 16px;text-align:center; }
+span.select1 ul{width:100%; top:15px}
+span.select1 ul li{width:100% !important; height:37px !important; background:url('/img/select/select1_repeat.png') repeat-y !important;}
+span.select1 ul li a{padding:6px 0px 0 0px; text-align:center;}
+span.select1 ul li:last-child a{height:37px !important;}
+span.select1 ul li:last-child{height:60px !important; background:url('/img/select/select1_last.png') no-repeat !important;}span.selectbox {width:154px; height:36px !important; background:url('/img/select/selectbox.gif') no-repeat;}
+span.selectbox button span{padding:6px 0px 0 0px; background:url('/img/select/selectbox_arrow.') no-repeat 1px 15px;text-align:center; }
+span.selectbox ul{width:100%; top:26px}
+span.selectbox ul li{width:100% !important; height:36px !important; background:url('/img/select/selectbox_repeat.gif') repeat-y !important;}
+span.selectbox ul li a{padding:6px 0px 0 0px; text-align:center;}
+span.selectbox ul li:last-child a{height:36px !important;}
+span.selectbox ul li:last-child{height:47px !important; background:url('/img/select/selectbox_last.gif') no-repeat !important;}span.selectH {width:132px; height:32px !important; background:url('/img/select/selectH.png') no-repeat;}
+span.selectH button span{padding:4px 0px 0 0px; ; }
+span.selectH ul{width:100%; top:24px}
+span.selectH ul li{width:100% !important; height:32px !important; background:url('/img/select/selectH_repeat.png') repeat-y !important;}
+span.selectH ul li a{padding:4px 0px 0 0px; ;}
+span.selectH ul li:last-child a{height:32px !important;}
+span.selectH ul li:last-child{height:41px !important; background:url('/img/select/selectH_last.png') no-repeat !important;}span.selectH2 {width:202px; height:32px !important; background:url('/img/select/selectH2.png') no-repeat;}
+span.selectH2 button span{padding:4px 0px 0 0px; background:url('/img/select/selectH2_arrow.') no-repeat 0px 0px;text-align:center; }
+span.selectH2 ul{width:100%; top:26px}
+span.selectH2 ul li{width:100% !important; height:32px !important; background:url('/img/select/selectH2_repeat.png') repeat-y !important;}
+span.selectH2 ul li a{padding:4px 0px 0 0px; text-align:center;}
+span.selectH2 ul li:last-child a{height:32px !important;}
+span.selectH2 ul li:last-child{height:39px !important; background:url('/img/select/selectH2_last.png') no-repeat !important;}span.선택하세요 {width:0px; height:0px !important; background:url('/img/select/선택하세요.') no-repeat;}
+span.선택하세요 button span{padding:-12px 0px 0 0px; ; }
+span.선택하세요 ul{width:100%; top:10px}
+span.선택하세요 ul li{width:100% !important; height:0px !important; background:url('/img/select/선택하세요_repeat.') repeat-y !important;}
+span.선택하세요 ul li a{padding:-12px 0px 0 0px; ;}
+span.선택하세요 ul li:last-child a{height:0px !important;}
+span.선택하세요 ul li:last-child{height:-9px !important; background:url('/img/select/선택하세요_last.') no-repeat !important;}span.ykselect {width:234px; height:73px !important; background:url('/img/select/ykselect.png') no-repeat;}
+span.ykselect button span{padding:24px 0px 0 0px; ; }
+span.ykselect ul{width:100%; top:56px}
+span.ykselect ul li{width:100% !important; height:73px !important; background:url('/img/select/ykselect_repeat.png') repeat-y !important;}
+span.ykselect ul li a{padding:24px 0px 0 0px; ;}
+span.ykselect ul li:last-child a{height:73px !important;}
+span.ykselect ul li:last-child{height:91px !important; background:url('/img/select/ykselect_last.png') no-repeat !important;}span.selectR {width:100px; height:45px !important; background:url('/img/select/selectR.png') no-repeat;}
+span.selectR button span{padding:10px 0px 0 0px; ; }
+span.selectR ul{width:100%; top:38px}
+span.selectR ul li{width:100% !important; height:45px !important; background:url('/img/select/selectR_repeat.png') repeat-y !important;}
+span.selectR ul li a{padding:10px 0px 0 0px; ;}
+span.selectR ul li:last-child a{height:45px !important;}
+span.selectR ul li:last-child{height:53px !important; background:url('/img/select/selectR_last.png') no-repeat !important;}

@@ -1,0 +1,26 @@
+
+div.adminInfo {width:1002px; margin:55px auto;}
+div.adminInfo div.info {width:946px; height:210px; background:url('/img/bgAdminInfoBox.png') no-repeat; padding:42px 0 0 56px; margin:0 0 30px 0; clear:both;}
+div.adminInfo div.accountInfo {width:946px; height:210px; background:url('/img/bgAdminInfoBox.png') no-repeat; padding:42px 0 0 56px; margin:0 0 30px 0;  clear:both;}
+
+div.adminInfo div span.title {height:43px; background:url('/img/img.png') no-repeat; text-indent:-999em; margin:0 0 30px 0;}
+div.adminInfo div.info span.title {width:139px; background-position:0px -2883px;}
+div.adminInfo div.accountInfo span.title {width:212px; background-position:1px -2926px;}
+
+
+div.adminInfo div div.box {width:373px; height:43px; margin:15px 0 0 0;}
+div.adminInfo div div.fLeft {float:left;}
+div.adminInfo div div.leftMargin {margin-left:26px;}
+div.adminInfo div div.box span.tit{height:22px; background:url('/img/img.png') no-repeat; text-indent:-999em; margin-top:11px; float:left;} 
+div.adminInfo div div.box div.input{width:255px; height:43px; background:url('/img/img.png') no-repeat; background-position:-600px -1944px; margin:0 0 0 17px; float:left;} 
+div.adminInfo div div.box div.input input {width:245px; height:43px; padding-left:10px; }
+
+div.adminInfo div div.email span.tit{width:49px; background-position:-179px -935px; margin-left:52px;}
+div.adminInfo div div.pw span.tit{width:65px; background-position:-179px -966px; margin-left:36px;} 
+div.adminInfo div div.rePw span.tit{width:101px; background-position:-263px -966px; margin-left:0px;} 
+div.adminInfo div div.bank span.tit{width:33px; background-position:-381px -966px; margin-left:68px;} 
+div.adminInfo div div.depositor span.tit{width:49px; background-position:-431px -966px; margin-left:52px;} 
+div.adminInfo div div.account span.tit{width:65px; background-position:-497px -966px; margin-left:36px;} 
+
+
+div.adminInfo div button {width:82px; height:42px; background:url('/img/img.png') no-repeat; background-position:-152px -109px; text-indent:-999em;  margin:15px 0 0 21px; float:left;} 

@@ -1,0 +1,32 @@
+==EditPlus & Borland C/C++ 환경설정==
+
+1. Compile
+명령 : C:\Borland\BCC55\Bin\bcc32.exe
+인수 : -v -IC:\Borland\bcc55\Include -v -LC:\Borland\bcc55\Lib -n"$(FileDir)""$(FilePath)"
+디렉토리 : C:\Borland\bcc55\Bin
+
+2. Run
+명령 : C:\Windows\System32\cmd.exe
+인수 : /c $(FileNameNoExt)
+디렉토리 : $(FileDir)
+
+3. Run with args
+명령 : C:\Windows\System32\cmd.exe
+인수 : /c $(FileNameNoExt) $(Prompt)
+디렉토리 : $(FileDir)
+
+==JAVA 환경설정==
+1. Compile
+명령 : javac.exe
+인수 : $(FileName)
+디렉토리 : $(FileDir)
+
+2. Run
+명령 : java.exe
+인수 : $(FileNameNoExt)
+디렉토리 : $(FileDir)
+
+3. Run with args
+명령 : java.exe
+인수 : $(FileNameNoExt) $(Prompt)
+디렉토리 : $(FileDir)

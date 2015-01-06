@@ -1,0 +1,90 @@
+
+#container div.applyWrite {width:1000px; margin:50px auto;}
+
+#container div.applyWrite ul.mainForm {width:100%; }
+#container div.applyWrite ul.mainForm li {margin:0 0 33px 0;}
+#container div.applyWrite ul.mainForm ul.selectUl2 li{margin-bottom:0;}
+#container div.applyWrite ul.mainForm li label {text-indent:-999em;}
+#container div.applyWrite ul.mainForm li span.tit {height:23px; background:url('/img/img.png') no-repeat; text-indent:-999em; margin: 0 0 15px 0; }
+#container div.applyWrite ul.mainForm li span.bar {width:9px; height:43px; background:url('/img/img.png') no-repeat; background-position:-141px -1168px; margin:0 11px; text-indent:-999em; float:left; }
+#container div.applyWrite ul.mainForm li div.input {width:990px; margin:0 0 0 0; float:left;}
+#container div.applyWrite ul.mainForm li span.caption {background:url('/img/img.png') no-repeat; text-indent:-999em; float:left;}
+#container div.applyWrite ul.mainForm li div.bigInput {width:718px; height:43px; background:url('/img/bgInputBig.png') no-repeat; }
+#container div.applyWrite ul.mainForm li div.bigInput input {width:718px; height:100%; padding-left:10px;  background:none;}
+
+
+#container div.applyWrite ul.mainForm li div ul.period {width:469px; height:44px;}
+#container div.applyWrite ul.mainForm li div ul.start {float:left;}
+#container div.applyWrite ul.mainForm li div ul.end {float:left;}
+#container div.applyWrite ul.mainForm li div ul.period>li {background:url('/img/img.png') no-repeat; float:left;}
+#container div.applyWrite ul.mainForm li div ul.period li.month {width:83px; background-position:-586px -318px;  margin:0 20px 0 0;}
+#container div.applyWrite ul.mainForm li div ul.period li.theDay {width:82px; background-position:-586px -359px; margin:0 21px 0 0; }
+#container div.applyWrite ul.mainForm li div ul.period li.dayOfWeek {width:95px; background-position:-586px -277px; margin:0 20px 0 0;}
+#container div.applyWrite ul.mainForm li div ul.period li.year {width:95px; background-position:-586px -277px; margin:0 20px 0 0;}
+#container div.applyWrite ul.mainForm li div ul.period li.time {width:148px; background-position:-586px -398px;}
+#container div.applyWrite ul.mainForm li div ul.period li.time span.hour {margin:0 24px 0 0;}
+
+#container div.applyWrite ul.mainForm li.choice {height:30px; margin:0 0 50px 0;}
+#container div.applyWrite ul.mainForm li.choice ul.radio {float:left;}
+#container div.applyWrite ul.mainForm li.choice ul.radio li{float:left;}
+#container div.applyWrite ul.mainForm li.choice ul.radio li label{background:url('/img/img.png') no-repeat; text-indent:-999em; margin:0 0 0 14px;} 
+#container div.applyWrite ul.mainForm li.choice ul.radio li.open label{ width:68px; height:28px; background-position:-841px -1263px; margin:0;} 
+#container div.applyWrite ul.mainForm li.choice ul.radio li.end label{ width:95px; height:28px; background-position:-920px -1263px; }
+
+#container div.applyWrite ul.mainForm li.title {height:76px;}
+#container div.applyWrite ul.mainForm li.title span.tit {width:34px; background-position:-656px -86px;}
+#container div.applyWrite ul.mainForm li.title span.caption {width:84px; height:43px; margin-left:10px; background-position:-656px -118px;}
+
+#container div.applyWrite ul.mainForm li.content {height:76px;}
+#container div.applyWrite ul.mainForm li.content span.tit {width:34px; background-position:-377px -60px;}
+
+#container div.applyWrite ul.mainForm li.addPic {height:100px;}
+#container div.applyWrite ul.mainForm li.addPic label {width:165px; height:100px; background:url('/img/img.png') no-repeat; background-position:-656px -1130px; float:left;}
+#container div.applyWrite ul.mainForm li.addPic span.caption {width:150px; height:21px; background-position:-656px -618px; margin:41px 0 0 32px;}
+
+#container div.applyWrite ul.mainForm li.eventPer {height:76px;}
+#container div.applyWrite ul.mainForm li.eventPer span.tit {width:66px; background-position:-656px -209px;}
+
+#container div.applyWrite ul.mainForm li.applyPer {height:76px;}
+#container div.applyWrite ul.mainForm li.applyPer span.tit {width:66px; background-position:-656px -249px;}
+
+#container div.applyWrite ul.mainForm li.addr {height:76px;}
+#container div.applyWrite ul.mainForm li.addr span.tit {width:34px; background-position:-656px -495px;}
+
+#container div.applyWrite ul.mainForm li.place {height:76px;}
+#container div.applyWrite ul.mainForm li.place span.tit {width:34px; background-position:-656px -577px;}
+#container div.applyWrite ul.mainForm li.place span.caption{width:255px; background-position:-656px -618px; margin:13px 0 0 10px;}
+#container div.applyWrite ul.mainForm li.people {height:76px;}
+#container div.applyWrite ul.mainForm li.people span.tit {width:34px; background-position:-656px -659px;}
+#container div.applyWrite ul.mainForm li.people div.input {width:178px; height:44px; background:url('/img/img.png') no-repeat; background-position:-492px -686px;}
+#container div.applyWrite ul.mainForm li.people div.input span.input{width:160px; height:45px; background:url('/img/img.png') no-repeat -690px -1056px;}
+#container div.applyWrite ul.mainForm li.people div.input span.input input{width:170px; height:100%; padding-left:10px; background:none;}
+#container div.applyWrite ul.mainForm li.cost {height:81px;}
+#container div.applyWrite ul.mainForm li.cost span.tit {width:34px; background-position:-656px -740px}
+#container div.applyWrite ul.mainForm li.cost ul.radio {float:left;}
+#container div.applyWrite ul.mainForm li.cost ul.radio li {margin-top:6px; float:left;}
+#container div.applyWrite ul.mainForm li.cost ul.radio li label {background:url('/img/img.png') no-repeat; text-indent:-999em; margin:0 0 0 0;}
+#container div.applyWrite ul.mainForm li.cost ul.radio li.free label { width:68px; height:28px; background-position:-653px -1263px; margin:0 33px 0 0;}
+#container div.applyWrite ul.mainForm li.cost ul.radio li.charged label { width:68px; height:28px; background-position:-753px -1263px; }
+#container div.applyWrite ul.mainForm li.cost span.cost {width:194px; height:45px; background:url('/img/img.png') no-repeat; background-position:-656px -770px; margin:0 0 0 40px; padding:0 0 0 61px; float:left;}
+#container div.applyWrite ul.mainForm li.cost span.cost input {background:none; height:100%;}
+
+#container div.applyWrite ul.mainForm li.cost span.msg {width:488px; height:43px; background:url('/img/img.png') no-repeat; background-position:1px -870px; margin:0 13px 0 0; padding:0 0 0 25px; float:left;}
+#container div.applyWrite ul.mainForm li.cost span.msg input {background:none; height:100%;}
+
+#container div.applyWrite ul.mainForm li.cost div.chargedBox {margin:65px 0 0 0;}
+#container div.applyWrite ul.mainForm li.cost span.discountBox {width:227px; height:45px; background:url('/img/img.png') no-repeat; background-position:-614px -849px; margin:0 0 0 169px; }
+#container div.applyWrite ul.mainForm li.cost span.discountBox span.discount {margin:0 0 0 92px;}
+#container div.applyWrite ul.mainForm li.cost div.discountOption {width:470px; margin:20px 0 0 261px;}
+#container div.applyWrite ul.mainForm li.cost div.discountOption div span.minusCost {width:218px; height:45px;position:relative; background:url('/img/img.png') no-repeat; background-position:-656px -1056px; padding:0 0 0 45px;}
+#container div.applyWrite ul.mainForm li.cost div.discountOption div span.minusCost input {background:none; height:100%;position:absolute; top:0; left:45px;}
+#container div.applyWrite ul.mainForm li.cost div.discountOption div.earlyBird {}
+#container div.applyWrite ul.mainForm li.cost div.discountOption div.earlyBird span.tit {width:76px; background-position:-656px -943px;}
+#container div.applyWrite ul.mainForm li div.discountOption ul.period {margin:0 0 20px 0;}
+
+#container div.applyWrite ul.mainForm li.cost div.discountOption div.partnerDiscount {border-top:1px solid #c5dee0; margin:15px 0 0 0; padding:15px 0 0 0; clear:both;}
+#container div.applyWrite ul.mainForm li.cost div.discountOption div.partnerDiscount span.tit {width:66px; background-position:-656px -985px;}
+
+#container div.applyWrite ul.mainForm li.submit {height:85px; padding:100px 0 0 0; clear:both;}
+#container div.applyWrite ul.mainForm li.submit button {width:540px; height:85px; background:url('/img/img.png') no-repeat; background-position:-0px -1719px; text-indent:-999em;  margin:0 auto;}
+

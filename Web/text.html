@@ -1,0 +1,225 @@
+
+<html>
+<head>
+<title>테스트</title>
+
+<link rel='stylesheet' type='text/css' href='/css/misung.css' />
+<link rel='stylesheet' type='text/css' href='/css/select.css' />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript" src="/js/function.js"></script>
+</head>
+<body style="text-align:center;">
+<div id="wrap">
+	<div id="header">
+		<h1>파랑새 도서관</h1>
+		<div class="gnb">
+			<ul>
+				<li><a href="javascript:;">사람도서관</a></li>
+				<li><a href="javascript:;">사람책</a></li>
+				<li><a href="javascript:;">일정</a></li>
+				<li><a href="javascript:;">게시판</a></li>
+				<li><a href="javascript:;">방명록</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="container">
+		<div class="title"> </div>	
+	 
+		<div class="contents">
+
+			<div class="topimage"> </div>
+			<div class="Y">
+				<ul>
+					<li> <span class="tit">행사장소</span> <span class="con">대구 북구 광역시 대현동 254-4번지 2층</span> </li>
+					<li> <span class="tit">행사날짜</span> <span class="con">2014.06.06 ~ 2014.06.08</span></li>					
+				</ul>
+				<div class="bar"></div>
+			</div>
+			<div class="titimg"><span>2014년을 여는 제 2회 사람도서관 정모:)</span><br><br></br><img src='images/titimg.gif'/><div class="bar"></div></div>
+				
+			<form action="proc.html" method="get">
+				<div class="apply">
+					<span class="tit1">신청하기</span>
+					
+					<ul>
+						<li class="pwd">
+							<span class="label2"><label for="password">비밀번호 확인</label></span>
+							<span class="input">
+								<input type="password" id="password"/>
+							</span>
+						</li>
+						
+						<li class="name"><span class="label">이름</span>
+							<span class="input">
+								<input type="text" class="name2"/>
+							</span>
+						</li>
+						
+
+						<li class="grade">
+							<span class="label">학년</span>
+							<span class="select selectbox" style="z-index:3;">
+								<input type="hidden" name="emailFooter" id="emailSelect" class="value" value=""/>
+								<button type="button" class="selectBtn">
+									<span>선택</span>
+
+								</button>
+								<ul class="selectUl1" style="display:none;">
+									<li><a href="javascript:;">1</a></li>
+									<li><a href="javascript:;">2</a></li>
+									<li><a href="javascript:;">3</a></li>
+									<li><a href="javascript:;">4</a></li>
+									<li><a href="javascript:;">5</a></li>
+									<li><a href="javascript:;">6</a></li>
+									<li><a href="javascript:;">7</a></li>
+								</ul>
+							</span>						
+						</li>
+					
+						
+
+
+						<li class="classnum"><span class="label">반</span>
+						<span class="select selectbox" style="z-index:2;">
+							<input type="hidden" name="emailFooter" id="emailSelect" class="value" value=""/>
+							<button type="button" class="selectBtn">
+								<span>선택</span>
+
+							</button>
+							<ul class="selectUl1" style="display:none;">
+								<li><a href="javascript:;">1</a></li>
+								<li><a href="javascript:;">2</a></li>
+								<li><a href="javascript:;">3</a></li>
+								<li><a href="javascript:;">4</a></li>
+								<li><a href="javascript:;">5</a></li>
+								<li><a href="javascript:;">6</a></li>
+								<li><a href="javascript:;">7</a></li>
+							</ul>
+						</span>		
+						
+						
+						
+						
+						
+						</li>
+
+
+
+						<li class="stnumber"><span class="label">번호</span>
+							<span class="select selectbox" style="z-index:1;">
+								<input type="hidden" name="emailFooter" id="emailSelect" class="value" value=""/>
+								<button type="button" class="selectBtn">
+									<span>선택</span>
+
+								</button>
+								<ul class="selectUl1" style="display:none; ">
+									<li><a href="javascript:;">1</a></li>
+									<li><a href="javascript:;">2</a></li>
+									<li><a href="javascript:;">3</a></li>
+									<li><a href="javascript:;">4</a></li>
+									<li><a href="javascript:;">5</a></li>
+									<li><a href="javascript:;">6</a></li>
+									<li><a href="javascript:;">7</a></li>
+								</ul>
+						
+						
+							</span> 
+						</li>
+					</ul>					
+				</div>
+				<div class="button">
+					<button type="button" class="back"></button>
+					<button type="submit" class="complete"></button>
+				</div>
+			</form>
+			
+			<div class="bottomimg"></div>
+
+	
+
+	<div id="footer">
+	</div>
+
+</div>
+
+
+<script>
+
+
+
+
+
+function select(){
+	var input		  = $(this).find("input.value");		//실제 제출되는 값
+	var inputDefault  = $(this).find("input.inputDefault"); //값이 비었을때 기본값
+	var button		  = $(this).find("button");				//클릭 영역 버튼
+	var text		  = button.find("span");				//실제 선택된걸 보여주는 텍스트
+	var ul			  = $(this).find("ul");					//리스트 영역
+	var li			  = ul.find("li");						//리스트
+	var back		  =	$(this).find("div.bg");
+	var cls			  = $(this).attr("class");
+	var clsSw		  = false;
+	if(cls.indexOf("selectS") > 0){
+		clsSw = true;
+	}
+	if(input.val()){
+		text.text(input.val());
+		text.css("background","none");
+	}else if(inputDefault.val()){
+		input.val(inputDefault.val());
+		text.text(input.val());		
+		text.css("background","none");
+	}
+	button.click(function(){
+		$("span.select").each(function(){
+			autherUl = $(this).find("ul");
+			if(autherUl.attr("global")!="on"){
+				autherUl.css("display","none");
+			}
+		});
+		if(ul.css("display")=="none"){	
+			ul.css("display","");
+			ul.attr("global","on");
+			//text.css("background","url('images/arrowUp.png') no-repeat right center");
+			back.css("display","");
+		}else{
+			ul.css("display","none");
+			ul.attr("global","");
+			//text.css("background","url('images/arrowDown.png') no-repeat right center");
+			back.css("display","none");
+		};
+		
+	});
+	$(this).mouseleave(function(){
+		back.css("display","none");
+		ul.css("display","none");
+		ul.attr("global","");
+		//text.css("background","url('images/arrowDown.png') no-repeat right center");
+	});
+	li.each(function(){
+		var a = $(this).find("a");
+		a.click(function(){
+			if(a.attr("global")){
+				input.val(a.attr("global"));
+			}else{
+				input.val(a.text());
+			}
+			text.text(a.text());
+			ul.css("display","none");
+			if(back){
+				back.css("display","none");
+			}
+			if(clsSw==true){
+				text.css("background","none");
+			}
+			input.change();
+		});
+	});
+}
+$("span.select").each(select);
+</script>
+
+</body>
+</html>

@@ -267,7 +267,7 @@ public class JoinForm extends Activity {
 	@Override
 	public void onBackPressed() {
 		// TODO Auto-generated method stub
-		super.onBackPressed();
+		
 		bpch.onBackPressed();
 	}
 

@@ -25,7 +25,7 @@ public class profileForm extends Activity{
 	EditText editEmail,editName,editBirth;
 	RadioGroup sexRbg;
 	RadioButton rbMan,rbWoMan;
-	
+	Intent intent;
 	String idx,result="",name,dob,sex,email;
 	String url="http://rastro.kr/app/appProfile.php";
 	TextView tv;
@@ -37,7 +37,7 @@ public class profileForm extends Activity{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.profileform);
-		Intent intent = getIntent();
+		intent = getIntent();
 		String name=intent.getStringExtra("name");
 		String email=intent.getStringExtra("email");
 		String dob=intent.getStringExtra("dob");
@@ -53,6 +53,8 @@ public class profileForm extends Activity{
 		editName.setText(name);
 		editEmail.setText(email);
 		editBirth.setText(dob);
+		sexChk();
+			
 //		editEmail.setText(pref.getValue("email", ""));
 		sexRbg.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			
@@ -158,7 +160,15 @@ public class profileForm extends Activity{
 //		}
 //	
 //	}
-	
+	public void sexChk(){
+		String sex=intent.getStringExtra("sex");
+		
+		if(sex.equals("남성")){
+			rbMan.setChecked(true);
+		}else if(sex.equals("여성")){
+			rbWoMan.setChecked(true);
+		}
+	}
 	Handler mHandler = new Handler(){
 		public void handleMessage(Message msg){ 
 			if(msg.what==0){

@@ -55,6 +55,7 @@ public class loginForm extends Activity{
 			}
 		});
 	}
+	//페이스북 로그인연동부분
 	public void FacebookLogin(){
 		Session.openActiveSession(loginForm.this,true, new Session.StatusCallback() {	
 			@Override

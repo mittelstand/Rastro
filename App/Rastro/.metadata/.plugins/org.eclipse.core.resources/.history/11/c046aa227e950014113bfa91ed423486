@@ -1,0 +1,49 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    tools:context="${relativePackage}.${activityClass}" >
+
+  <TextView
+        android:id="@+id/pwchangeform"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:textColor="#028ad9"
+        android:text="@string/pwchange" 
+        android:textSize="20dp"
+        android:gravity="center"/>
+	
+   
+    <EditText
+        android:id="@+id/editPwd"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:background="#dff2f7" 
+        android:layout_below="@+id/pwchangeform"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="50dp"
+        android:imeOptions="actionNext" />
+	  <EditText
+        android:id="@+id/editPwd"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:background="#dff2f7" 
+        android:layout_below="@+id/pwchangeform"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="20dp"
+        android:imeOptions="actionNext" />
+
+     <Button
+         android:id="@+id/memberModify"
+         android:layout_width="200dp"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/sexRbg"
+         android:layout_centerHorizontal="true"
+         android:layout_marginTop="20dp"
+         android:text="수정" />
+
+</RelativeLayout>

@@ -1,0 +1,6 @@
+<resources>
+<string-array name="logout">
+    <item>로그아웃</item>
+   
+</string-array>
+</resources>

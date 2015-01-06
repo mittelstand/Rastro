@@ -1,0 +1,6 @@
+<resources>
+<string-array name="menu">
+    <item>로그아웃</item>
+   	<item>비밀번호 설정/변경</item>
+</string-array>
+</resources>

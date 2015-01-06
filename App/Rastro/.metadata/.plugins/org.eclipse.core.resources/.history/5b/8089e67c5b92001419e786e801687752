@@ -1,0 +1,17 @@
+package Thread;
+
+import android.os.*;
+
+public class FacebookLoginThread extends Thread{
+	String name,email,dob;
+	Handler handler;
+	public FacebookLoginThread(String name, String email,String dob,Handler handler) {
+		// TODO Auto-generated constructor stub
+		this.name=name;
+		this.email=email;
+		this.dob =dob;
+		this.handler =handler;
+		
+	}
+	
+}

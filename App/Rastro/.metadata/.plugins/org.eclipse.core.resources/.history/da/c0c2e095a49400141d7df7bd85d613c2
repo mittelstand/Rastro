@@ -1,0 +1,165 @@
+package com.example.rastro;
+
+import java.io.*;
+import java.util.*;
+
+import org.apache.http.*;
+import org.apache.http.client.*;
+import org.apache.http.client.entity.*;
+import org.apache.http.client.methods.*;
+import org.apache.http.impl.client.*;
+import org.apache.http.message.*;
+import org.apache.http.params.*;
+import org.json.*;
+
+import Thread.*;
+import android.app.*;
+import android.content.*;
+import android.os.*;
+import android.view.*;
+import android.view.View.OnClickListener;
+import android.widget.*;
+
+public class profileForm extends Activity{
+	EditText editEmail,editName,editBirth;
+	RadioGroup sexRbg;
+	RadioButton rbMan,rbWoMan;
+	
+	String idx,result="",name,dob,sex,email;
+	String url="http://rastro.kr/app/appProfile.php";
+	TextView tv;
+	Button logoutbtn;
+	RbPreference pref;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.profileform);
+		Intent intent = getIntent();
+		idx = intent.getStringExtra("i");
+		editEmail = (EditText)findViewById(R.id.editEmail);
+		editName=(EditText)findViewById(R.id.editName);
+		editBirth=(EditText)findViewById(R.id.editBirth);
+		sexRbg = (RadioGroup)findViewById(R.id.sexRbg);
+		
+		logoutbtn = (Button)findViewById(R.id.logoutbtn);
+		
+		logoutbtn.setOnClickListener(new OnClickListener() {
+	
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				pref = new RbPreference(profileForm.this);
+				pref.put("email", "");
+				pref.put("pwd", "");
+				pref.put("id", "");
+				startActivity(new Intent(profileForm.this,JoinForm.class));
+				
+				
+				finish();
+				
+				
+			}
+		});
+		new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				Looper.prepare();
+				profile();
+				
+				Looper.loop();
+				
+			}
+		}).start();
+		
+		
+	
+	}
+	void profile(){
+		InputStream is = null;
+		HttpClient httpclient = new DefaultHttpClient();
+		try{
+			
+			ArrayList<NameValuePair> post = new ArrayList<NameValuePair>();
+			post.add(new BasicNameValuePair("idx", idx));
+			
+			
+			
+			
+			//파라미터를 얻어와서
+			HttpParams params = httpclient.getParams();
+			HttpConnectionParams.setConnectionTimeout(params, 3000);
+			//3초이상 연결안되면 끊어지게
+			System.out.println("연결되나요?");
+			
+			System.out.println(url);
+			HttpPost httppost = new HttpPost(url);
+			//Post 방식의 요청
+			UrlEncodedFormEntity entityRequest = new UrlEncodedFormEntity(post,"UTF-8");
+			
+			httppost.setEntity(entityRequest);
+			System.out.println("못받나요?");
+			
+			HttpResponse response = httpclient.execute(httppost);
+			System.out.println("안되나요?");
+			HttpEntity entityResponse = response.getEntity();
+			is=entityResponse.getContent();
+			
+			BufferedReader reader = new BufferedReader(new InputStreamReader(is,"UTF-8"),8);
+			StringBuilder sb=new StringBuilder();
+			String line = null;
+			while((line = reader.readLine())!=null){
+				sb.append(line);
+			}
+			
+			is.close();
+			result=sb.toString();
+			
+			
+//			System.out.println(sb);
+//			System.out.println("온다");
+			System.out.println("여기까지는 되네");
+			jsonParsing();
+			
+			
+		
+			
+			
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+	
+	}
+	public void jsonParsing(){
+		try{
+			
+			System.out.println(result);
+			JSONArray ja = new JSONArray(result);
+			for(int i=0; i<ja.length(); i++){
+				JSONObject jo = ja.getJSONObject(i);
+				name = jo.getString("name");
+				dob = jo.getString("dob");
+				sex = jo.getString("sex");
+				email = jo.getString("email");
+//				tv.setText("E-mail : "+email+"\n"+"이름 : "+name + "\n"+"생년월일 : "+dob + "\n"+"성별 : "+sex + "\n" );
+				editName.setText(name);
+				editEmail.setText(email);
+				editBirth.setText(dob);
+				
+			} 	
+		}catch(JSONException e){
+			
+		}
+		
+	}
+	@Override
+	protected void onStop() {
+		// TODO Auto-generated method stub
+		super.onStop();
+		Thread.interrupted();
+		
+	}
+}

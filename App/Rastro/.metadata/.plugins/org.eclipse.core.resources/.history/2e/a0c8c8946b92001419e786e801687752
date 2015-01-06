@@ -1,0 +1,14 @@
+package Thread;
+
+import android.os.*;
+
+public class FacebookLoginThread extends Thread{
+	String url,id;
+	Handler handler;
+	public FacebookLoginThread(Handler handler,String url,String id) {
+		// TODO Auto-generated constructor stub
+		this.handler =handler;
+		this.id=id;
+		this.url = url;
+	}
+}

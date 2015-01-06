@@ -1,0 +1,40 @@
+package com.example.rastro;
+
+import com.facebook.*;
+import com.facebook.model.*;
+
+import android.app.*;
+import android.content.pm.LauncherApps.Callback;
+import android.os.*;
+import android.widget.*;
+
+public class fbLogin extends Activity{
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.fblogin);
+		Session.openActiveSession(this,true, new Session.StatusCallback() {	
+			@Override
+			public void call(Session session, SessionState state, Exception exception) {
+				// TODO Auto-generated method stub
+				if(session.isOpened()){
+					Request.executeMeRequestAsync(session, new Request.GraphUserCallback() {
+						
+						@Override
+						public void onCompleted(GraphUser user, Response response) {
+							// TODO Auto-generated method stub
+							if(user!=null){
+								TextView tv = (TextView)findViewById(R.id.fblogin);
+								tv.setText(user.toString());
+								
+							}
+						}
+					});
+				}
+			}
+		});
+		
+	}
+
+}

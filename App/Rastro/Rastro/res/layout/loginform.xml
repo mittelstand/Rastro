@@ -28,7 +28,7 @@
         android:layout_marginLeft="80dp"
         android:inputType="textEmailAddress"
         android:hint="@string/EmailInputLimit"
-        
+        android:paddingLeft="5dp"
         android:layout_marginTop="100dp"
         android:imeOptions="actionNext" >
     </EditText>
@@ -41,6 +41,7 @@
         android:hint="@string/PwdInputLimit"
         android:layout_marginLeft="80dp"
         android:layout_marginTop="20dp"
+        android:paddingLeft="5dp"
         android:imeOptions="actionNext"
         android:password="true" />
 

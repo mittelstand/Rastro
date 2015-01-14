@@ -23,7 +23,7 @@ public class JoinForm extends Activity {
 	ArrayAdapter<CharSequence> adspin;
 	
 	Button joinBtn,fbloginBtn;
-	TextView loginTv;
+	TextView loginTv,clause1;
 	String sex,name,email,pwd,dob,year,month,day;
 	String emailRegex="^[a-zA-Z0-9-_]+@[a-zA-Z0-9-_]+(.[a-zA-Z0-9-_]+)*$";
 	String pwdRegex = "^(?=.*[a-zA-Z])(?=.*[0-9]).{8,16}$";
@@ -47,6 +47,7 @@ public class JoinForm extends Activity {
 		editPwd = (EditText)findViewById(R.id.editPwd);
 		editName = (EditText)findViewById(R.id.editName);
 		fbloginBtn = (Button)findViewById(R.id.fbBtn);
+		clause1 =(TextView)findViewById(R.id.clause1);
 		bpch=new BackPressCloseHandler(JoinForm.this);
 		
 		
@@ -75,7 +76,6 @@ public class JoinForm extends Activity {
 		});
 		//비밀번호 영문/숫자조합8~16자리
 		editPwd.setOnFocusChangeListener(new OnFocusChangeListener() {
-			
 			@Override
 			public void onFocusChange(View v, boolean hasFocus) {
 				// TODO Auto-generated method stub
@@ -103,10 +103,7 @@ public class JoinForm extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				
-				
 				startActivity(new Intent(JoinForm.this,loginForm.class));
-				finish();
 			}
 		});
 		//회원가입(DB에 데이터 저장)
@@ -138,8 +135,15 @@ public class JoinForm extends Activity {
 				 jT.start();
 			}
 		});
-		fbloginBtn.setOnClickListener(new OnClickListener() {
+		clause1.setOnClickListener(new OnClickListener() {
 			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				startActivity(new Intent(JoinForm.this,ToS.class));
+			}
+		});
+		fbloginBtn.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
@@ -270,5 +274,5 @@ public class JoinForm extends Activity {
 		
 		bpch.onBackPressed();
 	}
-
+	
 }

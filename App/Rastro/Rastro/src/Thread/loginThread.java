@@ -92,6 +92,7 @@ public class loginThread extends Thread{
 					bundle.putString("sex",jo.getString("sex"));
 					bundle.putString("email",jo.getString("email"));
 					bundle.putString("idx", jo.getString("idx"));
+					bundle.putString("Ps", jo.getString("Ps"));
 					System.out.println(bundle.getString("name"));
 				} 
 				msg.setData(bundle);		

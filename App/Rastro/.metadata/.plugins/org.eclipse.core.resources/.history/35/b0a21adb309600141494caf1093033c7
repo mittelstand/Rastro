@@ -1,0 +1,137 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#4bbcdf"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <TextView
+        android:id="@+id/memberjoin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:layout_marginTop="45dp"
+        android:textColor="#ffffff"
+        android:text="@string/memberjoin" >
+    </TextView>
+
+ 
+
+    <EditText
+        android:id="@+id/editName"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:background="#dff2f7"
+        android:hint="@string/NameInputLimit"
+        android:layout_below="@+id/memberjoin"
+        android:layout_centerHorizontal="true"
+        
+        android:layout_marginTop="45dp"
+        android:imeOptions="actionNext" />
+
+    
+
+    <EditText
+        android:id="@+id/editEmail"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/editName"
+        android:background="#dff2f7"
+        android:layout_marginLeft="80dp"
+        android:hint="@string/EmailInputLimit"
+        android:layout_marginTop="30dp"
+        android:inputType="textEmailAddress"
+        android:imeOptions="actionNext" >
+    </EditText>
+	
+
+    <EditText
+        android:id="@+id/editPwd"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:background="#dff2f7"
+        android:layout_below="@+id/editEmail"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="30dp"
+       	android:hint="@string/PwdInputLimit"
+        android:maxLength="16"
+        android:imeOptions="actionNext"
+        android:password="true" />
+    <TextView 
+        android:id="@+id/pwdMix"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/editPwd"
+        android:text="@string/pwdmix"
+        />
+    <Button
+        android:id="@+id/joinBtn"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editEmail"
+        android:layout_alignRight="@+id/editEmail"
+        android:layout_below="@+id/pwdMix"
+        android:background="@drawable/join"
+        android:layout_marginTop="10dp"
+         />
+
+    <Button
+        android:id="@+id/fbBtn"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/joinBtn"
+        android:layout_alignRight="@+id/joinBtn"
+        android:background="@drawable/fbjoin"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/joinBtn"
+         />
+
+    <TextView
+        android:id="@+id/joinok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/fbBtn"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/fbBtn"
+        android:layout_marginTop="15dp"
+        android:text="@string/joinok" />
+
+    <TextView
+        android:id="@+id/login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/joinok"
+        android:layout_alignBottom="@+id/joinok"
+        android:textColor="#ffffff"
+        android:layout_alignRight="@+id/fbBtn"
+        android:text="@string/loginForm" />
+
+	<TextView
+	    android:id="@+id/clause1"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignBaseline="@+id/clause"
+	    android:layout_alignBottom="@+id/clause"
+	    android:layout_alignLeft="@+id/login"
+	    android:layout_marginTop="20dp"
+	    android:layout_marginLeft="20dp"
+	    android:onClick="mOnClick"
+	    android:textColor="#ffffff"
+	    android:text="@string/tospprea" />
+
+	<TextView
+	    android:id="@+id/clause"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignRight="@+id/login"
+	    android:layout_below="@+id/joinok"
+	    android:layout_marginRight="53dp"
+	    android:layout_marginTop="19dp"
+	    android:textColor="#ffffff"
+	    android:text="@string/tospre" />
+
+</RelativeLayout>

@@ -1,10 +1,10 @@
 package com.example.rastro;
 
+import utility.*;
 import Thread.*;
 import android.app.*;
 import android.content.*;
 import android.os.*;
-import android.widget.*;
 
 public class Intro extends Activity{
 	ProgressDialog dialog = null;
@@ -60,6 +60,7 @@ public class Intro extends Activity{
 				intent.putExtra("dob",bundle.getString("dob"));
 				intent.putExtra("sex",bundle.getString("sex"));
 				intent.putExtra("idx",bundle.getString("idx"));
+				intent.putExtra("Ps",bundle.getString("Ps"));
 				startActivity(intent);
 				finish();
 //				dialog.dismiss();
@@ -77,6 +78,7 @@ public class Intro extends Activity{
 				intent.putExtra("dob",bundle.getString("dob"));
 				intent.putExtra("sex",bundle.getString("sex"));
 				intent.putExtra("idx",bundle.getString("idx"));
+				intent.putExtra("Ps",bundle.getString("Ps"));
 				startActivity(intent);
 				finish();
 //				dialog.dismiss();

@@ -2,9 +2,7 @@ package com.example.rastro;
 
 import java.util.*;
 
-import com.facebook.*;
-import com.facebook.model.*;
-
+import utility.*;
 import Thread.*;
 import android.app.*;
 import android.content.*;
@@ -12,6 +10,9 @@ import android.os.*;
 import android.view.*;
 import android.view.View.OnClickListener;
 import android.widget.*;
+
+import com.facebook.*;
+import com.facebook.model.*;
 
 public class loginForm extends Activity{
 	String email,pwd,id;
@@ -127,6 +128,7 @@ public class loginForm extends Activity{
 				intent.putExtra("dob",bundle.getString("dob"));
 				intent.putExtra("sex",bundle.getString("sex"));
 				intent.putExtra("idx",bundle.getString("idx"));
+				intent.putExtra("Ps",bundle.getString("Ps"));
 				startActivity(intent);
 				finish();
 				dialog.dismiss();
@@ -144,6 +146,7 @@ public class loginForm extends Activity{
 				intent.putExtra("dob",bundle.getString("dob"));
 				intent.putExtra("sex",bundle.getString("sex"));
 				intent.putExtra("idx",bundle.getString("idx"));
+				intent.putExtra("Ps",bundle.getString("Ps"));
 				startActivity(intent);
 				finish();
 				dialog.dismiss();

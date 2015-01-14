@@ -1,0 +1,19 @@
+package utility;
+
+import java.util.zip.*;
+
+import android.app.*;
+import android.net.*;
+import android.view.*;
+import android.view.View.OnClickListener;
+import android.widget.*;
+
+import com.example.rastro.*;
+
+public class ImageCrop extends Activity{
+	public  AlertDialog mDialog;
+	public Uri mImageCap;
+	
+	
+	
+}

@@ -24,5 +24,10 @@
 			<type>2</type>
 			<location>D:/Android/sources/android-16</location>
 		</link>
+		<link>
+			<name>.link3</name>
+			<type>2</type>
+			<location>D:/Android/sources/android-19</location>
+		</link>
 	</linkedResources>
 </projectDescription>

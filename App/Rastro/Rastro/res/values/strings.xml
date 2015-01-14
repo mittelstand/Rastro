@@ -32,6 +32,10 @@
 	<string name="Emailoverlap">이메일이 중복입니다. 다시 입력하세요.</string>
 	<string name="joinok">이미 가입 하셨나요?</string>
 	<string name="pwchange">비밀번호 설정/변경</string>
-	
+	<string name="pwchangeLimit">새 비밀번호를 입력하세요</string>
+	<string name="pwNosame">비밀번호가 같지 않습니다.</string>
+	<string name="tos"><b>이용약관</b></string>
+	<string name="tospre">이용약관/개인정보취급방침</string>
+	<string name="tospprea"><u>약관보기</u></string>
 	
 </resources>

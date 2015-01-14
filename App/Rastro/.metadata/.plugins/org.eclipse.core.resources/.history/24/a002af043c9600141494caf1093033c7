@@ -1,0 +1,43 @@
+package utility;
+
+import java.util.zip.*;
+
+import android.app.*;
+import android.net.*;
+import android.view.*;
+import android.view.View.OnClickListener;
+import android.widget.*;
+
+import com.example.rastro.*;
+
+public class ImageCrop extends Activity{
+	public  AlertDialog mDialog;
+	public Uri mImageCap;
+	
+	public AlertDialog createDialog(){
+		LayoutInflater inflater=ImageCrop.this.getLayoutInflater();
+		
+		View innerView = inflater.inflate(R.layout.image_crop, null);
+		Button camera = (Button)findViewById(R.id.came);
+		Button gellary  =(Button)findViewById(R.id.gellary);
+		camera.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				setDismiss(mDialog);
+			}
+		});
+		 AlertDialog.Builder ab = new AlertDialog.Builder(this);
+        ab.setTitle("이미지 Crop");
+        ab.setView(innerView);
+		return ab.create();
+		
+	}
+	public void setDismiss(AlertDialog dialog){
+		if(dialog!=null&& dialog.isShowing()){
+			dialog.dismiss();
+		}
+	}
+	
+}

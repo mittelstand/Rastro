@@ -12,8 +12,7 @@ import org.apache.http.message.*;
 import org.apache.http.params.*;
 import org.json.*;
 
-import com.example.rastro.*;
-
+import utility.*;
 import android.os.*;
 
 public class FacebookLoginThread extends Thread{
@@ -90,7 +89,9 @@ public class FacebookLoginThread extends Thread{
 					bundle.putString("sex",jo.getString("sex"));
 					bundle.putString("email",jo.getString("email"));
 					bundle.putString("idx", jo.getString("idx"));
-					System.out.println(bundle.getString("name"));
+					bundle.putString("Ps", jo.getString("Ps"));
+				
+					System.out.println(bundle.getString("Ps"));
 				} 
 				Message msg = handler.obtainMessage();
 				

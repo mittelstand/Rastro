@@ -22,12 +22,10 @@ import android.widget.*;
 public class JoinForm extends Activity {
 	ArrayAdapter<CharSequence> adspin;
 	
-	Button joinBtn,fbloginBtn;
+	
 	TextView loginTv,clause1;
 	String sex,name,email,pwd,dob,year,month,day;
-	String emailRegex="^[a-zA-Z0-9-_]+@[a-zA-Z0-9-_]+(.[a-zA-Z0-9-_]+)*$";
-	String pwdRegex = "^(?=.*[a-zA-Z])(?=.*[0-9]).{8,16}$";
-	String pwdRegex2 = "^[0-9]*$";
+	String emailRegex="^[a-zA-Z0-9-_]+@[a-zA-Z0-9-_]+(.[a-zA-Z0-9-_]+)*$",pwdRegex = "^(?=.*[a-zA-Z])(?=.*[0-9]).{8,16}$";
 	EditText editName,editEmail,editPwd,editYear,editMonth,editDay;
 	ProgressDialog dialog = null;
 	loginThread lT;
@@ -42,11 +40,11 @@ public class JoinForm extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.joinform);
 		loginTv = (TextView)findViewById(R.id.login);
-		joinBtn = (Button)findViewById(R.id.joinBtn);
+		
 		editEmail = (EditText)findViewById(R.id.editEmail);
 		editPwd = (EditText)findViewById(R.id.editPwd);
 		editName = (EditText)findViewById(R.id.editName);
-		fbloginBtn = (Button)findViewById(R.id.fbBtn);
+		
 		clause1 =(TextView)findViewById(R.id.clause1);
 		bpch=new BackPressCloseHandler(JoinForm.this);
 		
@@ -83,56 +81,23 @@ public class JoinForm extends Activity {
 					if(hasFocus==false){
 						Pattern pattern = Pattern.compile(pwdRegex);
 						Matcher matcher = pattern.matcher(editPwd.getText().toString());
-						if(matcher.matches()){
-							
+						if(matcher.matches()){	
 						}else{
-							
 							Toast.makeText(JoinForm.this, getString(R.string.pwdRegex), Toast.LENGTH_SHORT).show();
-							
 							editPwd.setText("");
-							
 						}
 							
 					}
 			}
 			}
 		});
-		//로그인화면으로 전환
 		loginTv.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				startActivity(new Intent(JoinForm.this,loginForm.class));
-			}
-		});
-		//회원가입(DB에 데이터 저장)
-		joinBtn.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-			
-				 
-				 name = editName.getText().toString();
-				 email = editEmail.getText().toString();
-				 pwd = editPwd.getText().toString();
-				 if(name.length()<=0){
-					Toast.makeText(JoinForm.this, getString(R.string.NameInputLimit),Toast.LENGTH_SHORT).show();
-					return;
-				 }
-				 if(email.length()<=0){
-						Toast.makeText(JoinForm.this, getString(R.string.EmailInputLimit),Toast.LENGTH_SHORT).show();
-						return;
-				}
-				
-
-				dialog = ProgressDialog.show(JoinForm.this, "", "Loading.....");
-				 String  URL = "http://rastro.kr/app/appJoinInsert.php";
-//				 String URL = "http://rastro.kr/mailTest.php";
-				 
-				 joinThread jT = new joinThread(name,email,pwd,mHandler,URL);
-				 jT.start();
+				finish();
 			}
 		});
 		clause1.setOnClickListener(new OnClickListener() {
@@ -143,15 +108,36 @@ public class JoinForm extends Activity {
 				startActivity(new Intent(JoinForm.this,ToS.class));
 			}
 		});
-		fbloginBtn.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				FacebookLogin();
-			}
-		});
+	
 		
 	}//결과값 표시?
+	
+	public void joinform(View v){
+		switch (v.getId()) {
+		case R.id.joinBtn:
+			 name = editName.getText().toString();
+			 email = editEmail.getText().toString();
+			 pwd = editPwd.getText().toString();
+			 if(name.length()<=0){
+				Toast.makeText(JoinForm.this, getString(R.string.NameInputLimit),Toast.LENGTH_SHORT).show();
+				return;
+			 }
+			 if(email.length()<=0){
+					Toast.makeText(JoinForm.this, getString(R.string.EmailInputLimit),Toast.LENGTH_SHORT).show();
+					return;
+			}
+			dialog = ProgressDialog.show(JoinForm.this, "", "Loading.....");
+			 String  URL = "http://rastro.kr/app/appJoinInsert.php";
+			 joinThread jT = new joinThread(name,email,pwd,mHandler,URL);
+			 jT.start();
+			break;
+		case R.id.fbBtn:
+			FacebookLogin();
+			break;
+		}
+	}
+	
+	
 	Handler mHandler = new Handler(){
 		public void handleMessage(Message msg){
 			if(msg.what==0){
@@ -221,18 +207,11 @@ public class JoinForm extends Activity {
 			public void call(Session session, SessionState state, Exception exception) {
 				// TODO Auto-generated method stub
 				if(session.isOpened()){
-					
-
 					if(!session.getPermissions().contains("email")) {
-
 					String[] PERMISSION_ARRAY_READ = {"email","user_birthday"};
-
 					List<String> PERMISSION_LIST=Arrays.asList(PERMISSION_ARRAY_READ);
-
 					session.requestNewReadPermissions(
-
 					new Session.NewPermissionsRequest(JoinForm.this, PERMISSION_LIST));
-
 					}
 					Request.executeMeRequestAsync(session, new Request.GraphUserCallback() {
 						

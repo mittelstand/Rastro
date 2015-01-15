@@ -24,7 +24,7 @@ import com.jeremyfeinstein.slidingmenu.lib.*;
 import com.jeremyfeinstein.slidingmenu.lib.app.*;
 
 public class profileForm extends SlidingActivity{
-	String mCurrentPhotoPath;
+	
 	Bitmap bitmap;
 	Uri contentUri;
 	
@@ -38,14 +38,14 @@ public class profileForm extends SlidingActivity{
 	RadioButton rbMan,rbWoMan;
 	Intent intent;
 	String idx,result="",name,dob,sex,email;
-	String url="http://rastro.kr/app/appProfile.php",url1;
+	String url="http://rastro.kr/app/appProfile.php",url1,mCurrentPhotoPath;
 	ListView menuListView;
 	Button logoutbtn,memberModifyBtn;
 	MemberModifyThread memberModify;
 	RbPreference pref;
 	ArrayAdapter<CharSequence> adapter;
 	ImageView Image;
-	
+	BackPressCloseHandler bpch;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -53,7 +53,7 @@ public class profileForm extends SlidingActivity{
 		setContentView(R.layout.profileform);
 		setBehindContentView(R.layout.profileform_menu);
 		final String[] menu=getResources().getStringArray(R.array.menu);
-		
+		bpch=new BackPressCloseHandler(profileForm.this); 
 		pref = new RbPreference(profileForm.this);
 		getSlidingMenu().setBehindOffset(200);
 		getSlidingMenu().setMode(SlidingMenu.LEFT);
@@ -375,5 +375,11 @@ public class profileForm extends SlidingActivity{
 		uri = Uri.fromFile(new File(storageDir,url));
 		return uri;
 		
+	}
+	@Override
+	public void onBackPressed() {
+		// TODO Auto-generated method stub
+		
+		bpch.onBackPressed();
 	}
 }

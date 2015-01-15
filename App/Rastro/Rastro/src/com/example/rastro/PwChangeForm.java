@@ -46,9 +46,7 @@ public class PwChangeForm extends Activity{
 						}else{
 							Toast.makeText(PwChangeForm.this, getString(R.string.pwdRegex), Toast.LENGTH_SHORT).show();
 							editPwd1.setText("");
-						
-						}
-							
+						}		
 					}
 			}
 			}
@@ -67,7 +65,6 @@ public class PwChangeForm extends Activity{
 							dialog = ProgressDialog.show(PwChangeForm.this, "", "Loading.....");
 							url = "http://rastro.kr/app/appPwChange.php";
 							pct=new PwChangeThread(idx,editPwd1.getText().toString(),url,mHandler);
-							
 							pct.start();
 					}else{
 						Toast.makeText(PwChangeForm.this, getString(R.string.pwNosame), Toast.LENGTH_SHORT).show();
@@ -84,7 +81,7 @@ public class PwChangeForm extends Activity{
 				pref.put("pwd", pwd);
 				dialog.dismiss();
 				Toast.makeText(PwChangeForm.this, "수정이 완료 되었습니다.", Toast.LENGTH_SHORT).show();
-				
+				pct.interrupt();
 				finish();
 			}
 			if(msg.what==5){

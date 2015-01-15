@@ -1,8 +1,0 @@
-package utility;
-
-public class Snippet {
-	public static void main(String[] args) {
-		Toast.makeText(profileForm.this, "name_str : "+name_str, Toast.LENGTH_LONG).show();
-	}
-}
-

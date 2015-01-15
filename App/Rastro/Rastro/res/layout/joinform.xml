@@ -79,6 +79,7 @@
         android:layout_below="@+id/pwdMix"
         android:background="@drawable/join"
         android:layout_marginTop="10dp"
+        android:onClick="joinform"
          />
 
     <Button
@@ -90,6 +91,7 @@
         android:background="@drawable/fbjoin"
         android:layout_marginTop="15dp"
         android:layout_below="@+id/joinBtn"
+        android:onClick="joinform"
          />
 
     <TextView
@@ -110,7 +112,9 @@
         android:layout_alignBottom="@+id/joinok"
         android:textColor="#ffffff"
         android:layout_alignRight="@+id/fbBtn"
-        android:text="@string/loginForm" />
+        android:text="@string/loginForm" 
+        android:onClick="joinform"
+        />
 
 	<TextView
 	    android:id="@+id/clause1"
@@ -121,7 +125,7 @@
 	    android:layout_alignLeft="@+id/login"
 	    android:layout_marginTop="20dp"
 	    android:layout_marginLeft="20dp"
-	    android:onClick="mOnClick"
+	    android:onClick="joinform"
 	    android:textColor="#ffffff"
 	    android:text="@string/tospprea" />
 

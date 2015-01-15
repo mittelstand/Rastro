@@ -19,9 +19,11 @@ public class loginForm extends Activity{
 	EditText editEmail,editPwd;
 	Button login,fblogin;
 	loginThread lT;
+	TextView joinTv;
 	RbPreference pref;
 	FacebookLoginThread Flt;
 	ProgressDialog dialog = null;
+	BackPressCloseHandler bpch;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -29,32 +31,32 @@ public class loginForm extends Activity{
 		setContentView(R.layout.loginform);
 		 editPwd = (EditText)findViewById(R.id.editPwd);
 		 editEmail = (EditText)findViewById(R.id.editEmail);
-		 fblogin = (Button)findViewById(R.id.fblogin);
-		 
-		 login = (Button)findViewById(R.id.login);
-		 login.setOnClickListener(new OnClickListener() {
-			
+		 joinTv = (TextView)findViewById(R.id.joinTv);
+		 bpch=new BackPressCloseHandler(loginForm.this); 
+		 joinTv.setOnClickListener(new OnClickListener() {
+
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				
-				email = editEmail.getText().toString();
-				pwd = editPwd.getText().toString();
-				String url = "http://rastro.kr/app/loginChk.php";
-				dialog = ProgressDialog.show(loginForm.this, "", "Loading.....");
-				lT = new loginThread(email, pwd, url, mHandler,dialog);
-				lT.start();
+				startActivity(new Intent(loginForm.this,JoinForm.class));
+				finish();
 			}
 		});
-		fblogin.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				dialog = ProgressDialog.show(loginForm.this, "", "Loading.....");
-				FacebookLogin();
-			}
-		});
+	}
+	public void loginform(View v){
+		switch (v.getId()) {
+		case R.id.login:
+			email = editEmail.getText().toString();
+			pwd = editPwd.getText().toString();
+			String url = "http://rastro.kr/app/loginChk.php";
+			dialog = ProgressDialog.show(loginForm.this, "", "Loading.....");
+			lT = new loginThread(email, pwd, url, mHandler,dialog);
+			lT.start();
+			break;
+		case R.id.fblogin:
+			dialog = ProgressDialog.show(loginForm.this, "", "Loading.....");
+			FacebookLogin();
+		}
 	}
 	//페이스북 로그인연동부분
 	public void FacebookLogin(){
@@ -63,8 +65,6 @@ public class loginForm extends Activity{
 			public void call(Session session, SessionState state, Exception exception) {
 				// TODO Auto-generated method stub
 				if(session.isOpened()){
-					
-
 					if(!session.getPermissions().contains("email")) {
 
 					String[] PERMISSION_ARRAY_READ = {"email","user_birthday"};
@@ -159,4 +159,11 @@ public class loginForm extends Activity{
 			}
 		}
 	};
+	
+	@Override
+	public void onBackPressed() {
+		// TODO Auto-generated method stub
+		
+		bpch.onBackPressed();
+	}
 }

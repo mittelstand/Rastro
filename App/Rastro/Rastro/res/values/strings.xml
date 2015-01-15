@@ -36,6 +36,7 @@
 	<string name="pwNosame">비밀번호가 같지 않습니다.</string>
 	<string name="tos"><b>이용약관</b></string>
 	<string name="tospre">이용약관/개인정보취급방침</string>
+	<string name="joinTv"><u>가입하기</u></string>
 	<string name="tospprea"><u>약관보기</u></string>
 	
 </resources>

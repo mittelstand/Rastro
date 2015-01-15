@@ -1,8 +1,0 @@
-package Thread;
-
-public class PwChangeThread extends Thread{
-	
-	public PwChangeThread() {
-		// TODO Auto-generated constructor stub
-	}
-}

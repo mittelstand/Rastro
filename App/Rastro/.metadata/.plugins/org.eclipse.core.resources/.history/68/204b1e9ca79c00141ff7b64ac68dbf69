@@ -1,0 +1,19 @@
+package Thread;
+
+public class prizeInsertThread extends Thread{
+	String Pname,Pinst,Pdetails;
+	
+	public prizeInsertThread(String Pname,String Pinst, String Pdetails) {
+		// TODO Auto-generated constructor stub
+		this.Pname = Pname;
+		this.Pinst = Pinst;
+		this.Pdetails = Pdetails;
+		
+	}
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		super.run();
+		
+	}
+}

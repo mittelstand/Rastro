@@ -1,0 +1,7 @@
+package Adapter;
+
+public class license {
+	public license(String Pname, String Pinst,String Pbreakdown) {
+		// TODO Auto-generated constructor stub
+	}
+}

@@ -27,7 +27,7 @@ public class profileForm extends SlidingActivity{
 	
 	Bitmap bitmap;
 	Uri contentUri;
-	
+	prizeSelect ps;
 	Bundle bundle;
 	private static final int REQUEST_IMAGE_CAPTURE = 1;
 	private static final int REQUEST_IMAGE_ALBUM = 2;
@@ -37,7 +37,7 @@ public class profileForm extends SlidingActivity{
 	RadioGroup sexRbg;
 	RadioButton rbMan,rbWoMan;
 	Intent intent;
-	String idx,result="",name,dob,sex,email;
+	String idx,result="",name,dob,sex,email,pname,pinst,pfidx,pidx,Pdetails;
 	String url="http://rastro.kr/app/appProfile.php",url1,mCurrentPhotoPath;
 	ListView menuListView;
 	Button logoutbtn,memberModifyBtn;
@@ -53,6 +53,7 @@ public class profileForm extends SlidingActivity{
 		setContentView(R.layout.profileform);
 		setBehindContentView(R.layout.profileform_menu);
 		final String[] menu=getResources().getStringArray(R.array.menu);
+		
 		bpch=new BackPressCloseHandler(profileForm.this); 
 		pref = new RbPreference(profileForm.this);
 		getSlidingMenu().setBehindOffset(200);
@@ -62,8 +63,8 @@ public class profileForm extends SlidingActivity{
 		String name=intent.getStringExtra("name");
 		String email=intent.getStringExtra("email");
 		String dob=intent.getStringExtra("dob");
-		if(intent.getStringExtra("Ps")==null){
-			
+		if(intent.getStringExtra("Ps").equals("")){
+			System.out.println("1111");
 		}else{
 		String[] tmUrl = intent.getStringExtra("Ps").split("/");
 		url1 ="http://"+ tmUrl[2]+"/"+tmUrl[4]+"/"+tmUrl[5];
@@ -86,7 +87,7 @@ public class profileForm extends SlidingActivity{
 		}).start();
 		
 		
-		System.out.println(url1);
+	
 		
 		}
 		idx=intent.getStringExtra("idx");
@@ -128,8 +129,11 @@ public class profileForm extends SlidingActivity{
 					startActivity(intent);
 				}
 				if(menu[position].equals("수상 기록")){
-					intent=new Intent(profileForm.this,licenseForm.class);
-					startActivity(intent);
+					ps = new prizeSelect(idx, mHandler);
+					ps.start();
+					
+					
+					
 				}
 			}
 		});	
@@ -182,7 +186,16 @@ public class profileForm extends SlidingActivity{
 			if(msg.what==0){
 				Toast.makeText(profileForm.this, "수정이 완료 되었습니다.", Toast.LENGTH_SHORT).show();
 			}
-			
+			if(msg.what==1){
+				Bundle bundle = msg.getData();
+				
+				intent=new Intent(profileForm.this,licenseForm.class);
+				intent.putExtra("idx", idx);
+				intent.putExtra("json", bundle.getString("json"));
+				intent.putExtra("name", editName.getText().toString());
+				startActivity(intent);
+				ps.interrupt();
+			}
 		}
 		
 	};

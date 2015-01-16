@@ -19,8 +19,9 @@ public class MainActivity extends Activity {
 	AlertDialog ab;
 	EditText editText1,editText2,editText3;
 	ArrayList<license>  license;
-	ListView list,list1;
 	MyListAdapter adapter;
+	ListView list,list1;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

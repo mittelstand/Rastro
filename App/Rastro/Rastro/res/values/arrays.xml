@@ -9,7 +9,10 @@
    	<item>앨범에서 가져오기</item>
    	<item>사진 촬영</item>
 </string-array>
-
+<string-array name="del">
+    <item>수정</item>
+   	<item>삭제</item>
+</string-array>
 
 
 </resources>

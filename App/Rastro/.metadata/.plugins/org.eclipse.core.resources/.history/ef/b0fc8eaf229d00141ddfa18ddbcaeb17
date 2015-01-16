@@ -1,0 +1,20 @@
+package Thread;
+
+import android.os.*;
+
+public class prizeupdate_deleteThread extends Thread{
+	String Pname,Pinst,Pdetails,idx,name,i,division;
+	Handler handler;
+	public prizeupdate_deleteThread(String Pname,String Pinst, String Pdetails,String name,String idx, Handler handler,String fidx,String division) {
+	// TODO Auto-generated constructor stub
+		this.Pname = Pname;
+		this.Pinst = Pinst;
+		this.name = name;
+		this.idx=idx;
+		this.i=i;
+		this.division = division;
+		this.Pdetails = Pdetails;
+		this.handler = handler;
+	
+	}
+}

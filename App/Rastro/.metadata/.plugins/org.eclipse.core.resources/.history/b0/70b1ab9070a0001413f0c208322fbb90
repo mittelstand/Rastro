@@ -1,0 +1,43 @@
+    
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:background="#f0f8ff"
+    sliding : viewAbove = "@layout/YOUR_ABOVE_VIEW "
+    tools:context="${relativePackage}.${activityClass}" >
+
+  <TextView
+        android:id="@+id/profileform"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="테스트입니다." 
+        android:textSize="20dp"
+        android:gravity="center"/>
+
+  <ListView
+      android:id="@+id/menuListView"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      
+      android:layout_below="@+id/photo"
+       >
+  </ListView>
+
+  <ImageView
+      android:id="@+id/photo"
+      android:layout_width="100dp"
+      android:layout_height="100dp"
+      android:layout_centerHorizontal="true"
+      android:layout_marginTop="20dp"
+      
+      android:layout_below="@+id/profileform"
+      android:src="@drawable/ic_launcher" />
+
+</RelativeLayout>
+
+    

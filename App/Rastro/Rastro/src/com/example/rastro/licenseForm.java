@@ -36,7 +36,9 @@ public class licenseForm extends Activity{
 		idx = intent.getStringExtra("idx");
 		name = intent.getStringExtra("name");
 		json=intent.getStringExtra("json").trim();
-			
+		getActionBar().setTitle("수상기록");
+		getActionBar().setDisplayHomeAsUpEnabled(true);
+		getActionBar().setHomeButtonEnabled(true);
 		 license = new ArrayList<license>();
 		 list  = (ListView)findViewById(R.id.listView1);
 		 if(json==null){
@@ -93,7 +95,7 @@ public class licenseForm extends Activity{
 							  new AlertDialog.Builder(licenseForm.this)
 								.setTitle("삭제")
 								.setMessage("삭제 하시겠습니까?")
-								.setNegativeButton("확인", new OnClickListener() {
+								.setPositiveButton("확인", new OnClickListener() {
 									
 									@Override
 									public void onClick(DialogInterface dialog, int which) {
@@ -105,7 +107,7 @@ public class licenseForm extends Activity{
 										adapter.notifyDataSetChanged();
 									}
 								})
-								.setPositiveButton("취소", null).show();
+								.setNegativeButton("취소", null).show();
 						}
 						if(del[position1].equals("수정")){
 							ab.dismiss();
@@ -198,5 +200,19 @@ public class licenseForm extends Activity{
 		}
 		
 	};
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// TODO Auto-generated method stub
+		
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			finish();
+			break;
+
+		default:
+			break;
+		}
+		return true;
+	}
 		
 }

@@ -1,8 +1,9 @@
 <resources>
 <string-array name="menu">
-    <item>로그아웃</item>
    	<item>비밀번호 설정/변경</item>
    	<item>수상 기록</item>
+   	<item>설정</item>
+   	<item>로그아웃</item>
 </string-array>
 <string-array name="photo">
   	

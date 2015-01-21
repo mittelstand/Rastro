@@ -29,6 +29,8 @@ public class profileForm extends SlidingActivity{
 	Uri contentUri;
 	prizeSelect ps;
 	Bundle bundle;
+	ActionBar ab;
+	
 	private static final int REQUEST_IMAGE_CAPTURE = 1;
 	private static final int REQUEST_IMAGE_ALBUM = 2;
 	private static final int REQUEST_IMAGE_CROP = 3,REQUEST_IMAGE_CROP1=4;
@@ -45,6 +47,7 @@ public class profileForm extends SlidingActivity{
 	RbPreference pref;
 	ArrayAdapter<CharSequence> adapter;
 	ImageView Image;
+	ProgressDialog dialog = null;
 	BackPressCloseHandler bpch;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -53,44 +56,39 @@ public class profileForm extends SlidingActivity{
 		setContentView(R.layout.profileform);
 		setBehindContentView(R.layout.profileform_menu);
 		final String[] menu=getResources().getStringArray(R.array.menu);
-		
 		bpch=new BackPressCloseHandler(profileForm.this); 
 		pref = new RbPreference(profileForm.this);
+		
+		getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);
 		getSlidingMenu().setBehindOffset(200);
 		getSlidingMenu().setMode(SlidingMenu.LEFT);
 		getSlidingMenu().setFadeDegree(0.35f);
+		getSlidingMenu().toggle(false);
 		intent = getIntent();
 		String name=intent.getStringExtra("name");
 		String email=intent.getStringExtra("email");
 		String dob=intent.getStringExtra("dob");
 		if(intent.getStringExtra("Ps").equals("")){
-			System.out.println("1111");
+			//프로필사진
 		}else{
-		String[] tmUrl = intent.getStringExtra("Ps").split("/");
-		url1 ="http://"+ tmUrl[2]+"/"+tmUrl[4]+"/"+tmUrl[5];
-		
-		new Thread(new Runnable() {
-			
-			@Override
-			public void run() {
-				// TODO Auto-generated method stub
-				
-				bitmap = getImageFromURL(url1);
-				  runOnUiThread(new Runnable() {
-                      public void run() {
-        				Image.setImageBitmap(bitmap);
-                      }
-                  });    
+			String[] tmUrl = intent.getStringExtra("Ps").split("/");
+			url1 ="http://"+ tmUrl[2]+"/"+tmUrl[4]+"/"+tmUrl[5];
 
-			}
-			
-		}).start();
-		
-		
-	
-		
+			new Thread(new Runnable() {
+				@Override
+				public void run() {
+					// TODO Auto-generated method stub
+					
+					bitmap = getImageFromURL(url1);
+					  runOnUiThread(new Runnable() {
+	                      public void run() {
+	        				Image.setImageBitmap(bitmap);
+	                      }
+	                  });    
+				}
+			}).start();	
 		}
-		idx=intent.getStringExtra("idx");
+		idx=intent.getStringExtra("idx");//idx값
 		editEmail = (EditText)findViewById(R.id.editEmail);
 		editName=(EditText)findViewById(R.id.editName);
 		editBirth=(EditText)findViewById(R.id.editBirth);
@@ -105,23 +103,31 @@ public class profileForm extends SlidingActivity{
 		editName.setText(name);
 		editEmail.setText(email);
 		editBirth.setText(dob);
+		sexChk();//성별체크
 		
-		sexChk();
 		menuListView.setOnItemClickListener(new OnItemClickListener() {
-
+			//슬라이드메뉴리스트
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
 				if(menu[position].equals("로그아웃")){
-					
-					pref.put("email", "");
-					pref.put("pwd", "");
-					pref.put("id", "");
-					pref.put("img", "");
-					startActivity(new Intent(profileForm.this,JoinForm.class));
-					finish();
-				
+					new AlertDialog.Builder(profileForm.this)
+					.setTitle("로그아웃")
+					.setMessage("로그아웃을 하시겠습니까?")
+					.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+						
+						public void onClick(DialogInterface dialog, int which) {
+							// TODO Auto-generated method stub
+							pref.put("email", "");
+							pref.put("pwd", "");
+							pref.put("id", "");
+							pref.put("img", "");
+							startActivity(new Intent(profileForm.this,JoinForm.class));
+							finish();
+						}
+					})
+					.setNegativeButton("취소",null).show();
 				}
 				if(menu[position].equals("비밀번호 설정/변경")){
 					intent=new Intent(profileForm.this,PwChangeForm.class);
@@ -129,17 +135,18 @@ public class profileForm extends SlidingActivity{
 					startActivity(intent);
 				}
 				if(menu[position].equals("수상 기록")){
+					dialog = ProgressDialog.show(profileForm.this, "", "Loading.....");
 					ps = new prizeSelect(idx, mHandler);
 					ps.start();
-					
-					
-					
+				}
+				if(menu[position].equals("설정")){
+					intent = new Intent(profileForm.this,SettingsActivity.class);
+					startActivity(intent);
 				}
 			}
 		});	
-//		editEmail.setText(pref.getValue("email", ""));
 		sexRbg.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-			
+			//성별선택
 			@Override
 			public void onCheckedChanged(RadioGroup group, int checkedId) {
 				// TODO Auto-generated method stub
@@ -155,14 +162,14 @@ public class profileForm extends SlidingActivity{
 				}
 			}
 		});
-		
-
 	memberModifyBtn.setOnClickListener(new OnClickListener() {
+		//수정
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
 			
 			String url = "http://rastro.kr/app/appMemberModify.php";
+			dialog = ProgressDialog.show(profileForm.this, "", "Loading.....");
 			memberModify = new MemberModifyThread(idx,editEmail.getText().toString(),editName.getText().toString(),editBirth.getText().toString(),sex,url,mHandler);
 			memberModify.start();
 			
@@ -184,9 +191,11 @@ public class profileForm extends SlidingActivity{
 	Handler mHandler = new Handler(){
 		public void handleMessage(Message msg){ 
 			if(msg.what==0){
+				dialog.dismiss();
 				Toast.makeText(profileForm.this, "수정이 완료 되었습니다.", Toast.LENGTH_SHORT).show();
 			}
 			if(msg.what==1){
+				dialog.dismiss();
 				Bundle bundle = msg.getData();
 				
 				intent=new Intent(profileForm.this,licenseForm.class);
@@ -196,9 +205,26 @@ public class profileForm extends SlidingActivity{
 				startActivity(intent);
 				ps.interrupt();
 			}
+			if(msg.what==2){
+				dialog.dismiss();
+				
+			}
 		}
 		
 	};
+	public void menuButton(View v){
+		switch (v.getId()) {
+		case R.id.menuButton:
+			getSlidingMenu().setBehindOffset(200);
+			getSlidingMenu().setMode(SlidingMenu.LEFT);
+			getSlidingMenu().setFadeDegree(0.35f);
+			getSlidingMenu().toggle(false);
+			break;
+
+		default:
+			break;
+		}
+	}
 	  public static Bitmap getImageFromURL(String imageURL){
 	        Bitmap imgBitmap = null;
 	        HttpURLConnection conn = null;
@@ -237,7 +263,7 @@ public class profileForm extends SlidingActivity{
 		}
 	}
 
-
+	//프로필사진 
 	public AlertDialog createDialog(){
 		ArrayAdapter<CharSequence> adapter;
 		final String[] photo=getResources().getStringArray(R.array.photo);
@@ -317,6 +343,7 @@ public class profileForm extends SlidingActivity{
 			String photo_path = full_path.substring(29,full_path.length());
 			Bitmap photo = BitmapFactory.decodeFile(full_path);
 			Image.setImageBitmap(photo);
+			dialog = ProgressDialog.show(profileForm.this, "", "Loading.....");
 			FileTransmi Ft = new FileTransmi(full_path,idx,mHandler,photo_path);
 			Ft.start();
 			break;
@@ -331,6 +358,7 @@ public class profileForm extends SlidingActivity{
 			storeCropImage(photo1, filePath);
 			Image.setImageBitmap(photo1);
 			System.out.println(filePath);
+			dialog = ProgressDialog.show(profileForm.this, "", "Loading.....");
 			FileTransmi Ft1 = new FileTransmi(filePath,idx,mHandler,photo_path1);
 			Ft1.start();
 		}
@@ -369,7 +397,7 @@ public class profileForm extends SlidingActivity{
 	private void storeCropImage(Bitmap bitmap, String filePath) {
 		File copyFile = new File(filePath);
 		BufferedOutputStream out = null;
-
+		
 		try {
 		copyFile.createNewFile();
 		out = new BufferedOutputStream(new FileOutputStream(copyFile));

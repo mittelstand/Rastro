@@ -16,12 +16,16 @@ import android.os.*;
 
 public class FileTransmi extends Thread{
 	String uri,idx,fName;
+	Handler handler;
+	
 	int serverResponseCode = 0;
 	public FileTransmi(String uri,String idx,Handler handler,String fName) {
 		// TODO Auto-generated constructor stub
 		this.uri = uri;
 		this.fName = fName;
 		this.idx = idx;
+		this.handler = handler;
+		
 	}
 	@Override
 	public void run() {
@@ -122,6 +126,9 @@ public class FileTransmi extends Thread{
     			is.close();
     			result=sb.toString();
     			System.out.println(result);
+    			Message msg = handler.obtainMessage();
+				msg.what=2;
+				handler.sendMessage(msg);
 		}catch(Exception e){
 			
 		}

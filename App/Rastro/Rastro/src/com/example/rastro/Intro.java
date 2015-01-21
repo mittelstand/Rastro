@@ -22,8 +22,8 @@ public class Intro extends Activity{
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub
-				
 				autoLogin();
+				
 				finish();
 			}
 		}, 1000);

@@ -21,15 +21,11 @@ import android.widget.*;
 
 public class JoinForm extends Activity {
 	ArrayAdapter<CharSequence> adspin;
-	
-	
 	TextView loginTv,clause1;
 	String sex,name,email,pwd,dob,year,month,day;
 	String emailRegex="^[a-zA-Z0-9-_]+@[a-zA-Z0-9-_]+(.[a-zA-Z0-9-_]+)*$",pwdRegex = "^(?=.*[a-zA-Z])(?=.*[0-9]).{8,16}$";
-	EditText editName,editEmail,editPwd,editYear,editMonth,editDay;
+	EditText editName,editEmail,editPwd;
 	ProgressDialog dialog = null;
-	loginThread lT;
-	FacebookLoginThread Flt;
 	RbPreference pref;
 	RadioGroup radiogroup;
 	RadioButton rbMan,rbWoman;
@@ -40,12 +36,10 @@ public class JoinForm extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.joinform);
 		loginTv = (TextView)findViewById(R.id.login);
-		
 		editEmail = (EditText)findViewById(R.id.editEmail);
 		editPwd = (EditText)findViewById(R.id.editPwd);
 		editName = (EditText)findViewById(R.id.editName);
-		
-		clause1 =(TextView)findViewById(R.id.clause1);
+		clause1 =(TextView)findViewById(R.id.clause1);//이용약관
 		bpch=new BackPressCloseHandler(JoinForm.this);
 		
 		
@@ -56,18 +50,13 @@ public class JoinForm extends Activity {
 				// TODO Auto-generated method stub
 					if(editEmail.getText().toString().length()>0){
 						if(hasFocus==false){
-							Pattern pattern = Pattern.compile(emailRegex);
+							Pattern pattern = Pattern.compile(emailRegex);//정규식
 							Matcher matcher = pattern.matcher(editEmail.getText().toString());
-							if(matcher.matches()){
-								
+							if(matcher.matches()){	
 							}else{
-								
 								Toast.makeText(JoinForm.this, getString(R.string.emailRegex), Toast.LENGTH_SHORT).show();
-								
 								editEmail.setText("");
-								
-							}
-								
+							}	
 						}
 				}
 			}
@@ -85,14 +74,13 @@ public class JoinForm extends Activity {
 						}else{
 							Toast.makeText(JoinForm.this, getString(R.string.pwdRegex), Toast.LENGTH_SHORT).show();
 							editPwd.setText("");
-						}
-							
+						}	
 					}
 			}
 			}
 		});
+		//로그인 화면으로 이동
 		loginTv.setOnClickListener(new OnClickListener() {
-			
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
@@ -100,39 +88,41 @@ public class JoinForm extends Activity {
 				finish();
 			}
 		});
+		//이용약관으로 이동
 		clause1.setOnClickListener(new OnClickListener() {
-			
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				startActivity(new Intent(JoinForm.this,ToS.class));
 			}
-		});
-	
-		
-	}//결과값 표시?
+		});	
+	}
 	
 	public void joinform(View v){
 		switch (v.getId()) {
-		case R.id.joinBtn:
+		case R.id.joinBtn://회원가입버튼
 			 name = editName.getText().toString();
 			 email = editEmail.getText().toString();
 			 pwd = editPwd.getText().toString();
-			 if(name.length()<=0){
+			 if(name.length()<=0){//이름 입력확인
 				Toast.makeText(JoinForm.this, getString(R.string.NameInputLimit),Toast.LENGTH_SHORT).show();
 				return;
 			 }
-			 if(email.length()<=0){
-					Toast.makeText(JoinForm.this, getString(R.string.EmailInputLimit),Toast.LENGTH_SHORT).show();
-					return;
+			 if(email.length()<=0){//이메일 입력확인
+				Toast.makeText(JoinForm.this, getString(R.string.EmailInputLimit),Toast.LENGTH_SHORT).show();
+				return;
 			}
-			dialog = ProgressDialog.show(JoinForm.this, "", "Loading.....");
-			 String  URL = "http://rastro.kr/app/appJoinInsert.php";
-			 joinThread jT = new joinThread(name,email,pwd,mHandler,URL);
+			if(pwd.length()<=0){//비밀번호 입력확인
+				Toast.makeText(JoinForm.this, getString(R.string.pwchangeLimit), Toast.LENGTH_SHORT).show();
+				return;
+			}
+			dialog = ProgressDialog.show(JoinForm.this, "", "Loading.....");//로딩창
+			 String  URL = "http://rastro.kr/app/appJoinInsert.php";//주소
+			 joinThread jT = new joinThread(name,email,pwd,mHandler,URL);//회원가입쓰레드 
 			 jT.start();
 			break;
 		case R.id.fbBtn:
-			FacebookLogin();
+			FacebookLogin();//페이스북 로그인연동
 			break;
 		}
 	}
@@ -140,75 +130,70 @@ public class JoinForm extends Activity {
 	
 	Handler mHandler = new Handler(){
 		public void handleMessage(Message msg){
+			//회원가입이 정상적으로 되었을때
 			if(msg.what==0){
 				editName.setText("");
 				editEmail.setText("");
 				editPwd.setText("");
-				
 				editName.setFocusable(true);
 				editName.requestFocus();
 				dialog.dismiss();
 				new AlertDialog.Builder(JoinForm.this)
 				.setMessage(getString(R.string.joinchk))
 				.setCancelable(false)
-				.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
-					
+				.setNegativeButton(R.string.close, new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						// TODO Auto-generated method stub
 						startActivity(new Intent(JoinForm.this,loginForm.class));
-							
 					}
 				})
 			.show();
 				
 			}
-			if(msg.what==1){
+			if(msg.what==1){//이메일이 중복 일때 
 				editEmail.setText("");
 				dialog.dismiss();
 				new AlertDialog.Builder(JoinForm.this)
 				.setMessage(getString(R.string.Emailoverlap))
 				.setCancelable(false)
-				.setNegativeButton("닫기", null)
+				.setNegativeButton(R.string.close, null)
 				.show();
 			}
-			if(msg.what==2){
-				dialog.dismiss();
-			}
+			
 		
-			if(msg.what==4){
-				
+			if(msg.what==4){//페이스북으로 가입 되었을때 	
 				dialog.dismiss();
 				new AlertDialog.Builder(JoinForm.this)
-				.setMessage("페이스북으로 가입이 되었습니다.")
+				.setMessage(getString(R.string.Facebookjoin))
 				.setCancelable(false)
-				.setNegativeButton("닫기", null)
+				.setNegativeButton(R.string.close, null)
 				.show();
 			}
-			if(msg.what==5){
+			if(msg.what==5){//연결 실패
 				dialog.dismiss();
-				Toast.makeText(JoinForm.this, "연결 실패", Toast.LENGTH_SHORT).show();
+				Toast.makeText(JoinForm.this, getString(R.string.noConnection), Toast.LENGTH_SHORT).show();
 			}
 			if(msg.what==6){
 				dialog.dismiss();
 				new AlertDialog.Builder(JoinForm.this)
-				.setMessage("페이스북으로 이미 가입하였습니다.")
+				.setMessage(getString(R.string.Fbalreadyjoin))
 				.setCancelable(false)
-				.setNegativeButton("닫기", null)
+				.setNegativeButton(R.string.close, null)
 				.show();
 			}
 	
 		}
 	};
 	
-	public void FacebookLogin(){
+	public void FacebookLogin(){//페이스북 로그인 연동 메소드
 		Session.openActiveSession(JoinForm.this,true, new Session.StatusCallback() {	
 			@Override
 			public void call(Session session, SessionState state, Exception exception) {
 				// TODO Auto-generated method stub
 				if(session.isOpened()){
-					if(!session.getPermissions().contains("email")) {
-					String[] PERMISSION_ARRAY_READ = {"email","user_birthday"};
+					if(!session.getPermissions().contains("email")) {//페이스정보중에서 이메일 찾는부분
+					String[] PERMISSION_ARRAY_READ = {"email","user_birthday"};//이메일/생년월일
 					List<String> PERMISSION_LIST=Arrays.asList(PERMISSION_ARRAY_READ);
 					session.requestNewReadPermissions(
 					new Session.NewPermissionsRequest(JoinForm.this, PERMISSION_LIST));
@@ -222,7 +207,7 @@ public class JoinForm extends Activity {
 								String email2 = user.getProperty("email").toString();
 								String name2 = user.getName().toString();
 								String id = user.getId().toString();
-								String url ="http://rastro.kr/app/appFbInsert.php";
+								String url ="http://rastro.kr/app/appFbInsert.php";//페이스북에서 가지고 온 정보를 DB에 저장
 								String[] a=null;
 								String dob;
 								if(user.getBirthday()!=null){
@@ -232,7 +217,7 @@ public class JoinForm extends Activity {
 								dob = "";
 								}
 								dialog = ProgressDialog.show(JoinForm.this, "", "Loading.....");
-								FacebookJoinThread Flt = new FacebookJoinThread(name2, email2, dob,mHandler, url,id);
+								FacebookJoinThread Flt = new FacebookJoinThread(name2, email2, dob,mHandler, url,id);//페이스북가입쓰레드
 								Flt.start();
 							}
 						}
@@ -250,7 +235,7 @@ public class JoinForm extends Activity {
 	@Override
 	public void onBackPressed() {
 		// TODO Auto-generated method stub
-		
+		//back키 두번 눌렀을때 종료 
 		bpch.onBackPressed();
 	}
 	

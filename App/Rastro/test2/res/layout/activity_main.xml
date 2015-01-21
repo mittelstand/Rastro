@@ -1,26 +1,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="${relativePackage}.${activityClass}" >
-
-    <ListView
-        android:id="@+id/listView1"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_alignParentTop="true"
-        
-        android:layout_centerHorizontal="true" >
-    </ListView>
-
-    <Button
-        android:id="@+id/addbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/listView1"
-        android:layout_centerHorizontal="true"
-        android:onClick="mOnClick"
-        android:layout_marginTop="23dp"
-        android:text="추가" />
-
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+	<Button 
+	    android:id="@+id/aa"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:onClick="mOnclick"
+	 	android:text="버튼"
+	    ></Button>"
 </RelativeLayout>

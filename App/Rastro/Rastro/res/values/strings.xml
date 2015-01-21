@@ -38,5 +38,9 @@
 	<string name="tospre">이용약관/개인정보취급방침</string>
 	<string name="joinTv"><u>가입하기</u></string>
 	<string name="tospprea"><u>약관보기</u></string>
+	<string name="close">닫기</string>
+	<string name="Facebookjoin">페이스북으로 가입이 되었습니다.</string>
+	<string name="noConnection">연결이 실패 되었습니다.</string>
+	<string name="Fbalreadyjoin">페이스북으로 이미 가입 하였습니다.</string>
 	
 </resources>

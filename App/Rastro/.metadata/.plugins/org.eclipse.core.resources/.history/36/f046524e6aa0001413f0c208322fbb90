@@ -1,0 +1,139 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    tools:context="${relativePackage}.${activityClass}" >
+
+
+  <TextView
+        android:id="@+id/profileform"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:textColor="#028ad9"
+        android:text="@string/memberModify" 
+        android:textSize="20dp"
+        android:gravity="center"/>
+	<TextView 
+	    android:id="@+id/tvEmail"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@+id/profileform"
+	    android:layout_marginLeft="80dp"
+	    android:textColor="#485676"
+	    android:layout_marginTop="45dp"
+	    android:text="@string/memberEmail"/>
+	<EditText
+        android:id="@+id/editEmail"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/tvEmail"
+        android:background="#dff2f7"
+        android:paddingLeft="5dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="10dp"
+        android:inputType="textEmailAddress"
+        android:imeOptions="actionNext" >
+    </EditText>
+    <TextView 
+	    android:id="@+id/tvName"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@+id/editEmail"
+	    android:layout_marginLeft="80dp"
+	    android:paddingLeft="5dp"
+	    android:textColor="#485676"
+	    android:layout_marginTop="20dp"
+	    android:text="@string/memberName"/>
+    <EditText
+        android:id="@+id/editName"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:background="#dff2f7" 
+        android:layout_below="@+id/tvName"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="10dp"
+        android:imeOptions="actionNext" />
+	<TextView 
+	    android:id="@+id/tvBirth"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@+id/editName"
+	    android:layout_marginLeft="80dp"
+	    android:textColor="#485676"
+	    
+	    android:layout_marginTop="20dp"
+	    android:text="@string/memberDob"/>
+	 <EditText
+        android:id="@+id/editBirth"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:background="#dff2f7" 
+        android:layout_below="@+id/tvBirth"
+        android:layout_marginLeft="80dp"
+        android:paddingLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:imeOptions="actionNext" />
+	 <TextView 
+	     android:id="@+id/tvSex"
+	     android:layout_width="wrap_content"
+	     android:layout_height="wrap_content"
+	     android:layout_below="@+id/editBirth"
+	     android:layout_marginLeft="80dp"
+	     android:layout_marginTop="10dp"
+	     android:text="@string/memberSex"/>
+	 <RadioGroup 
+	     android:id="@+id/sexRbg"
+	     android:layout_width="wrap_content"
+	     android:layout_height="wrap_content"
+	     android:orientation="horizontal"
+	     android:layout_marginLeft="80dp"
+	     
+	     android:layout_below="@+id/tvSex">
+	     
+	<RadioButton 
+	     android:id="@+id/rbMan"
+	     android:layout_width="wrap_content"
+	     android:layout_height="wrap_content"
+	     android:text="@string/man"
+	 />
+	<RadioButton 
+	    android:id="@+id/rbWoMan"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="@string/woman"/>
+	 </RadioGroup>
+
+     <Button
+         android:id="@+id/memberModify"
+         android:layout_width="200dp"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/sexRbg"
+         android:layout_centerHorizontal="true"
+         android:layout_marginTop="20dp"
+         android:text="수정" />
+
+     <FrameLayout
+         android:layout_width="match_parent"
+         android:layout_height="35dp"
+         android:background="#4bbcdf"
+         android:layout_alignParentTop="true" >
+
+         <Button
+			 android:id="@+id/menuButton"
+			 android:layout_marginTop="3dp"
+             android:layout_width="20dp"
+             android:layout_height="20dp"
+             android:background="@drawable/menu_toggle"
+             android:onClick="menuButton"
+             />
+		
+     </FrameLayout>
+
+</RelativeLayout>
+    
+ 
+

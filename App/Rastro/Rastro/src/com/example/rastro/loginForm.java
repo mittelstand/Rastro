@@ -32,9 +32,10 @@ public class loginForm extends Activity{
 		 editPwd = (EditText)findViewById(R.id.editPwd);
 		 editEmail = (EditText)findViewById(R.id.editEmail);
 		 joinTv = (TextView)findViewById(R.id.joinTv);
-		 bpch=new BackPressCloseHandler(loginForm.this); 
+		 bpch= new BackPressCloseHandler(loginForm.this); 
+		 
 		 joinTv.setOnClickListener(new OnClickListener() {
-
+			 //가입화면으로 가기
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
@@ -45,15 +46,15 @@ public class loginForm extends Activity{
 	}
 	public void loginform(View v){
 		switch (v.getId()) {
-		case R.id.login:
+		case R.id.login://일반 로그인 버튼
 			email = editEmail.getText().toString();
 			pwd = editPwd.getText().toString();
 			String url = "http://rastro.kr/app/loginChk.php";
 			dialog = ProgressDialog.show(loginForm.this, "", "Loading.....");
-			lT = new loginThread(email, pwd, url, mHandler,dialog);
+			lT = new loginThread(email, pwd, url, mHandler,dialog);//일반 로그인 쓰레드
 			lT.start();
 			break;
-		case R.id.fblogin:
+		case R.id.fblogin: //페이스북 로그인 버튼
 			dialog = ProgressDialog.show(loginForm.this, "", "Loading.....");
 			FacebookLogin();
 		}
@@ -65,17 +66,17 @@ public class loginForm extends Activity{
 			public void call(Session session, SessionState state, Exception exception) {
 				// TODO Auto-generated method stub
 				if(session.isOpened()){
-					if(!session.getPermissions().contains("email")) {
-
-					String[] PERMISSION_ARRAY_READ = {"email","user_birthday"};
-
-					List<String> PERMISSION_LIST=Arrays.asList(PERMISSION_ARRAY_READ);
-
-					session.requestNewReadPermissions(
-
-					new Session.NewPermissionsRequest(loginForm.this, PERMISSION_LIST));
-
-					}
+//					if(!session.getPermissions().contains("email")) {
+//
+//					String[] PERMISSION_ARRAY_READ = {"email","user_birthday"};
+//
+//					List<String> PERMISSION_LIST=Arrays.asList(PERMISSION_ARRAY_READ);
+//
+//					session.requestNewReadPermissions(
+//
+//					new Session.NewPermissionsRequest(loginForm.this, PERMISSION_LIST));
+//
+//					}
 					Request.executeMeRequestAsync(session, new Request.GraphUserCallback() {
 						
 						@Override
@@ -103,25 +104,23 @@ public class loginForm extends Activity{
 	}
 	Handler mHandler = new Handler(){
 		public void handleMessage(Message msg){ 
-			if(msg.what==0){
+			if(msg.what==0){//아이디나 비밀번호가 틀렸을때
 				Toast.makeText(loginForm.this,getString(R.string.loginerror),Toast.LENGTH_SHORT).show();
-				
 				editEmail.setText("");
 				editPwd.setText("");
 				editEmail.setFocusable(true);
 				editEmail.requestFocus();
 				dialog.dismiss();
-			
+				lT.interrupt();
 				
 			}
-			if(msg.what==3){
+			if(msg.what==3){//일반 로그인 되었을때
 				pref = new RbPreference(loginForm.this);
 				pref.put("email", email);
 				pref.put("pwd", pwd);
-				pref.put("id", id);
-				Bundle bundle = msg.getData();
-
 				
+				//자동로그인 될수 있도록 어플에 저장
+				Bundle bundle = msg.getData();
 				Intent intent = new Intent(loginForm.this,profileForm.class);
 				intent.putExtra("name",bundle.getString("name"));
 				intent.putExtra("email",bundle.getString("email"));
@@ -135,11 +134,10 @@ public class loginForm extends Activity{
 				lT.interrupt();
 				
 			}
-			if(msg.what==7){
+			if(msg.what==7){//페이스북으로 로그인되었을때
 				pref = new RbPreference(loginForm.this);
 				Bundle bundle = msg.getData();
-				
-				pref.put("id", id);				
+				pref.put("id", id);//페이스북 고유ID				
 				Intent intent = new Intent(loginForm.this,profileForm.class);
 				intent.putExtra("name",bundle.getString("name"));
 				intent.putExtra("email",bundle.getString("email"));

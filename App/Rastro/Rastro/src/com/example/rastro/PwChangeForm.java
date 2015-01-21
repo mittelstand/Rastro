@@ -14,22 +14,43 @@ import android.widget.*;
 
 public class PwChangeForm extends Activity{
 	Button pwchangeBtn;
-	EditText editPwd1,editPwd2;
+	EditText editPwd1,editPwd2,noweditPwd;
 	String pwdRegex = "^(?=.*[a-zA-Z])(?=.*[0-9]).{8,16}$",url,idx,pwd;
 	PwChangeThread pct;
 	Intent intent;
 	ProgressDialog dialog = null;
+	
 	RbPreference pref;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.pwchangeform);
-		pwchangeBtn =(Button)findViewById(R.id.pwchangeBtn);
-		editPwd1 =(EditText)findViewById(R.id.editPwd1);
-		editPwd2 =(EditText)findViewById(R.id.editPwd2);
+		setContentView(R.layout.fbpwchangeform);
+		pref = new RbPreference(PwChangeForm.this);
 		intent=getIntent();
 		idx=intent.getStringExtra("idx");
+		getActionBar().setTitle("비밀번호 설정");
+		getActionBar().setDisplayHomeAsUpEnabled(true);
+		getActionBar().setHomeButtonEnabled(true);
+		
+		
+		
+//		if(pref.getValue("id", "")==""){
+//			setContentView(R.layout.pwchangeform);
+//			pwchangeBtn =(Button)findViewById(R.id.pwchangeBtn);
+//			editPwd1 =(EditText)findViewById(R.id.editPwd1);
+//			noweditPwd = (EditText)findViewById(R.id.noweditPwd);
+//			editPwd2 =(EditText)findViewById(R.id.editPwd2);
+//				
+//		}else{
+		
+			pwchangeBtn =(Button)findViewById(R.id.pwchangeBtn);
+			
+			editPwd1 =(EditText)findViewById(R.id.editPwd1);
+			editPwd2 =(EditText)findViewById(R.id.editPwd2);
+				
+//		}
+		
 		
 		//비밀번호 영문/숫자조합8~16자리
 		editPwd1.setOnFocusChangeListener(new OnFocusChangeListener() {
@@ -56,20 +77,21 @@ public class PwChangeForm extends Activity{
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				//일반로그인시
 				
-				if(editPwd1.getText().toString().length()<=0 || editPwd2.getText().toString().length()<=0){
-					Toast.makeText(PwChangeForm.this, getString(R.string.pwchangeLimit), Toast.LENGTH_SHORT).show();	
-				}else{
-					
-					if(editPwd1.getText().toString().equals(editPwd2.getText().toString())){
-							dialog = ProgressDialog.show(PwChangeForm.this, "", "Loading.....");
-							url = "http://rastro.kr/app/appPwChange.php";
-							pct=new PwChangeThread(idx,editPwd1.getText().toString(),url,mHandler);
-							pct.start();
+					if(editPwd1.getText().toString().length()<=0 || editPwd2.getText().toString().length()<=0){
+						Toast.makeText(PwChangeForm.this, getString(R.string.pwchangeLimit), Toast.LENGTH_SHORT).show();	
 					}else{
-						Toast.makeText(PwChangeForm.this, getString(R.string.pwNosame), Toast.LENGTH_SHORT).show();
+						
+						if(editPwd1.getText().toString().equals(editPwd2.getText().toString())){
+								dialog = ProgressDialog.show(PwChangeForm.this, "", "Loading.....");
+								url = "http://rastro.kr/app/appPwChange.php";
+								pct=new PwChangeThread(idx,editPwd1.getText().toString(),url,mHandler,"일반");
+								pct.start();
+						}else{
+							Toast.makeText(PwChangeForm.this, getString(R.string.pwNosame), Toast.LENGTH_SHORT).show();
+						}
 					}
-				}
 			}
 		});
 	}
@@ -84,10 +106,25 @@ public class PwChangeForm extends Activity{
 				pct.interrupt();
 				finish();
 			}
+			
 			if(msg.what==5){
 				dialog.dismiss();
 				Toast.makeText(PwChangeForm.this, "연결 실패", Toast.LENGTH_SHORT).show();
 			}
 		}
 	};
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// TODO Auto-generated method stub
+		
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			finish();
+			break;
+
+		default:
+			break;
+		}
+		return true;
+	}
 }

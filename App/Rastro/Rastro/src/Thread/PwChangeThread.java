@@ -14,14 +14,15 @@ import org.apache.http.params.*;
 import android.os.*;
 
 public class PwChangeThread extends Thread{
-	String idx,url,pwd;
+	String idx,url,pwd,type;
 	Handler handler;
-	public PwChangeThread(String idx, String pwd, String url,Handler handler) {
+	public PwChangeThread(String idx, String pwd, String url,Handler handler,String type) {
 		// TODO Auto-generated constructor stub
 		this.idx = idx;
 		this.url = url;
 		this.pwd = pwd;
 		this.handler =handler;
+		this.type=type;
 	}
 	@Override
 	public void run() {
@@ -32,9 +33,11 @@ public class PwChangeThread extends Thread{
 		try{
 			
 			ArrayList<NameValuePair> post = new ArrayList<NameValuePair>();
+			if(type.equals("일반")){
+				post.add(new BasicNameValuePair("pwd", pwd));
+				post.add(new BasicNameValuePair("idx", idx));	
+			}
 			
-			post.add(new BasicNameValuePair("pwd", pwd));
-			post.add(new BasicNameValuePair("idx", idx));
 
 			System.out.println(post);
 			String result="";
@@ -80,8 +83,6 @@ public class PwChangeThread extends Thread{
 				Message msg = handler.obtainMessage();
 				msg.what=0;
 				handler.sendMessage(msg);
-				
-			
 			}
 		}catch(Exception e){
 			Message msg = handler.obtainMessage();

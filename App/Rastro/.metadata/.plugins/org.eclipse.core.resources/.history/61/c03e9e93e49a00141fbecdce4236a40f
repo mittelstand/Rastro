@@ -1,9 +1,0 @@
-package FileTransmi;
-
-public class getImageFromURL {
-	String 
-	
-	public getImageFromURL() {
-		// TODO Auto-generated constructor stub
-	}
-}

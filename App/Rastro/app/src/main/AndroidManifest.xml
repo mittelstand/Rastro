@@ -33,7 +33,7 @@
         <activity android:name="com.example.rastro.PwChangeForm" android:theme="@style/AppAction"></activity>
         <activity android:name="com.example.rastro.licenseForm" android:theme="@style/AppAction"></activity>
         <activity android:name="com.example.rastro.SettingsActivity" android:theme="@style/AppAction"></activity>
-        <activity android:name="com.example.rastro.prizePopup"  android:theme="@android:style/Theme.Holo.Light.Dialog"></activity>
+        <activity android:name="com.example.rastro.Prizedetail" android:theme="@style/AppAction"></activity>
         <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/app_id"/>
     </application>
 

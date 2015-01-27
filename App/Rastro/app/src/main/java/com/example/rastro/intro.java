@@ -34,23 +34,23 @@ public class intro extends Activity {
             }
         }, 1000);
     }
-    public void autoLogin(){
+    public void autoLogin(){//자동로그인 기능
         pref = new RbPreference(intro.this);
         if(pref.getValue("pwd", "")=="" && pref.getValue("id", "")==""){
             Intent intent = new Intent(intro.this,JoinForm.class);
             startActivity(intent);
-        }if(pref.getValue("pwd","")!=""){
+        }if(pref.getValue("pwd","")!=""){//일반로그인 체크(비밀번호가 존재하면)
             String email1 = pref.getValue("email", "");
             String pwd1 = pref.getValue("pwd", "");
             String url = "http://rastro.kr/app/loginChk.php";
 //			dialog = ProgressDialog.show(Intro.this, "", "Loading.....");
-            lT = new loginThread(email1, pwd1, url, mHandler,dialog);
+            lT = new loginThread(email1, pwd1, url, mHandler,dialog);//로그인쓰레드
             lT.start();
-        }if(pref.getValue("id", "")!=""){
+        }if(pref.getValue("id", "")!=""){//페이스북으로 로그인체크(페이스북ID 존재하면)
             String id1 = pref.getValue("id", "");
             String url="http://rastro.kr/app/appFbLoginChk.php";
 //			dialog = ProgressDialog.show(Intro.this, "", "Loading.....");
-            Flt = new FacebookLoginThread(mHandler, url,id1);
+            Flt = new FacebookLoginThread(mHandler, url,id1);//페이스북쓰레드
             Flt.start();
         }
     }

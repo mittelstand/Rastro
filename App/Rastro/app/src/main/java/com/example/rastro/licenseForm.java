@@ -40,7 +40,7 @@ public class licenseForm extends Activity{
 	prizeInsertThread PIT;
 	EditText PName,Pinst,Pdetails;
 	prizeupdate_deleteThread PUDT;
-	
+	final static int Prize_Detail=0;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -83,9 +83,6 @@ public class licenseForm extends Activity{
 
                  adapter = new MyListAdapter(licenseForm.this, R.layout.customlist, license);
 //					adapter = new ExpandableAdapter(licenseForm.this, license,R.layout.customlist,R.layout.customlist_child);
-
-
-
                  list.setAdapter(adapter);
 
 //					 Elv.setAdapter(adapter);
@@ -181,7 +178,7 @@ public class licenseForm extends Activity{
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(licenseForm.this, prizePopup.class);
+                Intent intent = new Intent(licenseForm.this, Prizedetail.class);
                 intent.putExtra("pName", license.get(position).Pname.toString());
                 intent.putExtra("pinst",license.get(position).Pinst.toString());
                 intent.putExtra("pd",license.get(position).Pbreakdown.toString());
@@ -190,7 +187,7 @@ public class licenseForm extends Activity{
                 intent.putExtra("name",name);
                 intent.putExtra("position",position);
 
-                startActivity(intent);
+                startActivityForResult(intent,Prize_Detail);
             }
         });
 	}
@@ -271,4 +268,39 @@ public class licenseForm extends Activity{
 //		return true;
 //		
 //	}
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if(data ==null){
+            return;
+        }else {
+            switch (requestCode) {
+                case Prize_Detail:
+                    if (resultCode == 2) {
+
+                    } else if (resultCode == 0) {
+                        String Pname = data.getStringExtra("Pname");
+                        String Pinst = data.getStringExtra("Pinst");
+                        String Pdetail = data.getStringExtra("Pdetail");
+                        String i = data.getStringExtra("i");
+                        int Position = data.getExtras().getInt("position");
+                        license li = new license(Pname, Pinst, Pdetail, i);
+                        license.add(li);
+                        adapter = new MyListAdapter(licenseForm.this, R.layout.customlist, license);
+                        list.setAdapter(adapter);
+                        license.remove(Position);
+                        adapter.notifyDataSetChanged();
+                    } else if (resultCode == 1) {
+                        int Position = data.getExtras().getInt("position");
+                        license.remove(Position);
+                        list.clearChoices();
+                        adapter.notifyDataSetChanged();
+                    }
+                    break;
+
+
+            }
+        }
+    }
 }

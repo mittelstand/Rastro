@@ -110,14 +110,14 @@ public class loginForm extends Activity{
                                     for(int i=0; i<ja.length(); i++){
                                         JSONObject jo = ja.getJSONObject(i);
                                         email2 = jo.getString("email");
-
+                                        id = jo.getString("id");
                                     }
                                 }catch(JSONException e){
                                     e.printStackTrace();
                                 }
 
 								String url ="http://rastro.kr/app/appFbLoginChk.php";
-								//페이스북로그인 확인체크(고유ID가 DB에 없으면 로그인 되지않음)
+								//페이스북로그인 확인체크(email DB에 없으면 로그인 되지않음)
 								Flt = new FacebookLoginThread(mHandler, url,email2);
 								Flt.start();
 							}
@@ -179,8 +179,10 @@ public class loginForm extends Activity{
 			if(msg.what==7){//페이스북으로 로그인되었을때
 				pref = new RbPreference(loginForm.this);
 				Bundle bundle = msg.getData();
-				pref.put("email", email2);//페이스북 고유ID(자동로그인 위하여 저장)
+				pref.put("id", bundle.getString("fbcode"));//페이스북 고유ID(자동로그인 위하여 저장)
+                pref.put("email",bundle.getString("email"));
 				Intent intent = new Intent(loginForm.this,profileForm.class);//프로필로 이동
+                intent.putExtra("fbcode",bundle.getString("fbcode"));
 				intent.putExtra("name",bundle.getString("name"));
 				intent.putExtra("email",bundle.getString("email"));
 				intent.putExtra("dob",bundle.getString("dob"));

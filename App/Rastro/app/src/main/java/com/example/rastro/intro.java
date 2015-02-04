@@ -52,13 +52,14 @@ public class intro extends Activity {
 //			dialog = ProgressDialog.show(Intro.this, "", "Loading.....");
             lT = new loginThread(email1, pwd1, url, mHandler,dialog);//로그인쓰레드
             lT.start();
-        }if(pref.getValue("email", "")!=""){//페이스북으로 로그인체크(페이스북ID 존재하면)
+        }if(pref.getValue("id", "")!=""){//페이스북으로 로그인체크(페이스북ID 존재하면)
             String email = pref.getValue("email", "");
             String url="http://rastro.kr/app/appFbLoginChk.php";
 //			dialog = ProgressDialog.show(Intro.this, "", "Loading.....");
             Flt = new FacebookLoginThread(mHandler, url,email);//페이스북쓰레드
             Flt.start();
         }
+
     }
 
     Handler mHandler;
@@ -67,7 +68,7 @@ public class intro extends Activity {
         mHandler = new Handler() {
             public void handleMessage(Message msg) {
 
-                if (msg.what == 3) {
+                if (msg.what == 3) {//일반로그인
                     //성공 하였을때 JSON파싱했는 값 들고와서  보내기
                     Bundle bundle = msg.getData();
                     Intent intent = new Intent(intro.this, profileForm.class);
@@ -76,6 +77,7 @@ public class intro extends Activity {
                     intent.putExtra("dob", bundle.getString("dob"));
                     intent.putExtra("sex", bundle.getString("sex"));
                     intent.putExtra("idx", bundle.getString("idx"));
+                    intent.putExtra("fbcode",bundle.getString("fbcode"));
                     intent.putExtra("Ps", bundle.getString("Ps"));
                     startActivity(intent);
                     finish();
@@ -85,7 +87,7 @@ public class intro extends Activity {
                 }
 
                 if (msg.what == 7) {
-
+                    //페이스북으로 로그인
                     Bundle bundle = msg.getData();
                     //성공 하였을때 JSON파싱했는 값 들고와서  보내기
                     Intent intent = new Intent(intro.this, profileForm.class);
@@ -95,6 +97,7 @@ public class intro extends Activity {
                     intent.putExtra("sex", bundle.getString("sex"));
                     intent.putExtra("idx", bundle.getString("idx"));
                     intent.putExtra("Ps", bundle.getString("Ps"));
+                    intent.putExtra("fbcode",bundle.getString("fbcode"));
                     startActivity(intent);
                     finish();
 //				dialog.dismiss();

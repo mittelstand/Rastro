@@ -9,6 +9,7 @@
   	
    	<item>@string/Album</item>
    	<item>@string/Camera</item>
+    <item>페이스북에서 사진 가져오기</item>
 </string-array>
 <string-array name="del">
     <item>@string/modify</item>

@@ -25,11 +25,15 @@ import com.facebook.Session;
 import com.facebook.SessionState;
 import com.facebook.model.GraphUser;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+import Thread.FacebookJoinThread;
 import Thread.joinThread;
 import utility.BackPressCloseHandler;
 import utility.RbPreference;
@@ -44,6 +48,7 @@ public class JoinForm extends Activity {
 	RbPreference pref;
 	RadioGroup radiogroup;
 	RadioButton rbMan,rbWoman;
+
 	BackPressCloseHandler bpch;
 	
 	@Override
@@ -169,6 +174,8 @@ public class JoinForm extends Activity {
 			}
 			if(msg.what==1){//이메일이 중복 일때 
 				editEmail.setText("");//이메일입력값 초기화
+                editPwd.setText("");
+                editEmail.requestFocus();
 				dialog.dismiss();
 				new AlertDialog.Builder(JoinForm.this)
 				.setMessage(getString(R.string.Emailoverlap))
@@ -219,38 +226,38 @@ public class JoinForm extends Activity {
                             // TODO Auto-generated method stub
                             if (user != null) {
                                 String email2=null,id=null,name2=null;
-                                    Toast.makeText(JoinForm.this,user.getInnerJSONObject().toString(),Toast.LENGTH_LONG).show();
 
-//                                try{
-//                                    //json형태 데이터를 문자열로 바꿔주는 작업
-//                                    JSONArray ja = new JSONArray("["+user.getInnerJSONObject().toString()+"]");
-//                                    for(int i=0; i<ja.length(); i++){
-//                                        JSONObject jo = ja.getJSONObject(i);
-//                                        email2 = jo.getString("email");
-//                                        id = jo.getString("id");
-//                                        name2 = jo.getString("name");
-//
-//
-//
-//
-//                                    }
-//                                    String[] a = null;
-//                                String dob;
-//                                if (user.getBirthday() != null) {
-//                                    a = user.getBirthday().split("/");
-//                                    dob = a[2] + "-" + a[0] + "-" + a[1];
-//                                } else {
-//                                    dob = "";
-//                                }
-//
-//                                }catch(JSONException e){
-//                                    e.printStackTrace();
-//                                }
 
-//
+                                try{
+                                    //json형태 데이터를 문자열로 바꿔주는 작업
+                                    JSONArray ja = new JSONArray("["+user.getInnerJSONObject().toString()+"]");
+                                    for(int i=0; i<ja.length(); i++){
+                                        JSONObject jo = ja.getJSONObject(i);
+                                        email2 = jo.getString("email");
+                                        id = jo.getString("id");
+                                        name2 = jo.getString("name");
+
+
+
+
+                                    }
+                                    String[] a = null;
+                                String dob;
+                                if (user.getBirthday() != null) {
+                                    a = user.getBirthday().split("/");
+                                    dob = a[2] + "-" + a[0] + "-" + a[1];
+                                } else {
+                                    dob = "";
+                                }
+
+                                }catch(JSONException e){
+                                    e.printStackTrace();
+                                }
+
+
 //                                String name2 = user.getName().toString();
 //                                String id = user.getId().toString();
-//                                String url = "http://rastro.kr/app/appFbInsert.php";//페이스북에서 가지고 온 정보를 DB에 저장주소
+                                String url = "http://rastro.kr/app/appFbInsert.php";//페이스북에서 가지고 온 정보를 DB에 저장주소
 //                                //yyyy/mm/dd --> split 이용하여 yyyy-mm-dd 바꾸는 작업
 //                                String[] a = null;
 //                                String dob;
@@ -260,9 +267,9 @@ public class JoinForm extends Activity {
 //                                } else {
 //                                    dob = "";
 //                                }
-//								dialog = ProgressDialog.show(JoinForm.this, "", "Loading.....");//로딩창
-//								FacebookJoinThread Flt = new FacebookJoinThread(name2, email2, dob,mHandler, url,id);//페이스북가입쓰레드
-//								Flt.start();
+								dialog = ProgressDialog.show(JoinForm.this, "", "Loading.....");//로딩창
+								FacebookJoinThread Flt = new FacebookJoinThread(name2, email2, dob,mHandler, url,id);//페이스북가입쓰레드
+								Flt.start();
                             }
                         }
                     });

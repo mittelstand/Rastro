@@ -1,19 +1,27 @@
 package Thread;
 
-import java.io.*;
-import java.util.*;
+import android.app.ProgressDialog;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 
-import org.apache.http.*;
-import org.apache.http.client.*;
-import org.apache.http.client.entity.*;
-import org.apache.http.client.methods.*;
-import org.apache.http.impl.client.*;
-import org.apache.http.message.*;
-import org.apache.http.params.*;
-import org.json.*;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
-import android.app.*;
-import android.os.*;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class loginThread extends Thread{
 	String email,pwd,url;
@@ -93,6 +101,7 @@ public class loginThread extends Thread{
 					bundle.putString("email",jo.getString("email"));
 					bundle.putString("idx", jo.getString("idx"));
 					bundle.putString("Ps", jo.getString("Ps"));
+                    bundle.putString("fbcode",jo.getString("fbcode"));
 					System.out.println(bundle.getString("name"));
 				} 
 				msg.setData(bundle);		

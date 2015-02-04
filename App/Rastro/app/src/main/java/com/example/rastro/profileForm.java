@@ -50,7 +50,7 @@ import utility.RbPreference;
 
 public class profileForm extends SlidingActivity{
 	
-	Bitmap bitmap;
+	Bitmap bitmap,bt;
 	Uri contentUri;
 	prizeSelect ps;
 	Bundle bundle;
@@ -73,6 +73,7 @@ public class profileForm extends SlidingActivity{
 	ArrayAdapter<CharSequence> adapter;
 	ImageView Image;
 	ProgressDialog dialog = null;
+    String fbcode;
 	BackPressCloseHandler bpch;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -88,6 +89,7 @@ public class profileForm extends SlidingActivity{
 		String name=intent.getStringExtra("name");
 		String email=intent.getStringExtra("email");
 		String dob=intent.getStringExtra("dob");
+        fbcode = intent.getStringExtra("fbcode");
 		if(intent.getStringExtra("Ps").equals("")){
 			//프로필사진(DB에 있는 저장경로 들고와서 이미지뷰에 넣기?
 		}else{
@@ -297,7 +299,7 @@ public class profileForm extends SlidingActivity{
 	}
 
 	//프로필사진(이미지뷰에 표시하고 서버에 이미지 저장)
-	public AlertDialog createDialog(){//사진 촬영/앨범에서 가져오기
+	public AlertDialog createDialog(){//사진 촬영/앨범에서 가져오기/페이스북
 		ArrayAdapter<CharSequence> adapter;
 		final String[] photo=getResources().getStringArray(R.array.photo);
 		View innerView=getLayoutInflater().inflate(R.layout.image_crop,null);
@@ -309,7 +311,7 @@ public class profileForm extends SlidingActivity{
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 		//		 TODO Auto-generated method stub
-				if(photo[position].equals("사진 촬영")){
+				if(position==1){//카메라
 					Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 			        contentUri = createSaveCropFile();
                     // Crop된 이미지를 저장할 파일의 경로를 생성
@@ -318,14 +320,32 @@ public class profileForm extends SlidingActivity{
 				    setDismiss(mDialog);
 				}
 				
-				if(photo[position].equals("앨범에서 가져오기")){
+				if(position==0){//앨범에서 가져오기
 					Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 					intent.setType(android.provider.MediaStore.Images.Media.CONTENT_TYPE);
 					startActivityForResult(intent, REQUEST_IMAGE_ALBUM);		
 					
 					setDismiss(mDialog);
 				}
-				
+				if(position==2){//페이스북에서 가져오기
+                    setDismiss(mDialog);
+
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            // TODO Auto-generated method stub
+
+                            bt =  getImageFromURL("https://graph.facebook.com/"+fbcode+"/picture");
+                            runOnUiThread(new Runnable() {
+                                public void run() {
+                                    Image.setImageBitmap(bt);
+                                }
+                            });
+                        }
+                    }).start();
+
+
+                }
 			}
 		});
 		AlertDialog.Builder ab = new AlertDialog.Builder(profileForm.this);

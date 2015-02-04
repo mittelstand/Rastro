@@ -99,6 +99,7 @@ public class FacebookLoginThread extends Thread{
 					bundle.putString("email",jo.getString("email"));
 					bundle.putString("idx", jo.getString("idx"));
 					bundle.putString("Ps", jo.getString("Ps"));
+                    bundle.putString("fbcode",jo.getString("fbcode"));
 
 					System.out.println(bundle.getString("Ps"));
 				}

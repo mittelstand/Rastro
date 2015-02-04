@@ -1,3 +1,5 @@
+//프로필 화면(임시페이지)
+
 package com.example.rastro;
 
 import android.app.ActionBar;
@@ -81,18 +83,13 @@ public class profileForm extends SlidingActivity{
 		final String[] menu=getResources().getStringArray(R.array.menu);
 		bpch=new BackPressCloseHandler(profileForm.this); 
 		pref = new RbPreference(profileForm.this);
-		
-		getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);
-		getSlidingMenu().setBehindOffset(200);
-		getSlidingMenu().setMode(SlidingMenu.LEFT);
-		getSlidingMenu().setFadeDegree(0.35f);
-		getSlidingMenu().toggle(false);
+        Image =(ImageView)findViewById(R.id.photo);
 		intent = getIntent();
 		String name=intent.getStringExtra("name");
 		String email=intent.getStringExtra("email");
 		String dob=intent.getStringExtra("dob");
 		if(intent.getStringExtra("Ps").equals("")){
-			//프로필사진
+			//프로필사진(DB에 있는 저장경로 들고와서 이미지뷰에 넣기?
 		}else{
 			String[] tmUrl = intent.getStringExtra("Ps").split("/");
 			url1 ="http://"+ tmUrl[2]+"/"+tmUrl[4]+"/"+tmUrl[5];
@@ -118,10 +115,10 @@ public class profileForm extends SlidingActivity{
 		sexRbg = (RadioGroup)findViewById(R.id.sexRbg);
 		rbMan = (RadioButton)findViewById(R.id.rbMan);
 		rbWoMan = (RadioButton)findViewById(R.id.rbWoMan);
-		adapter=ArrayAdapter.createFromResource(profileForm.this, R.array.menu, android.R.layout.simple_list_item_1);
+		adapter=ArrayAdapter.createFromResource(profileForm.this, R.array.menu, android.R.layout.simple_list_item_1);//슬라이드메뉴 정보
 		menuListView = (ListView)findViewById(R.id.menuListView);
 		menuListView.setAdapter(adapter);
-		Image =(ImageView)findViewById(R.id.photo);
+
 		memberModifyBtn = (Button)findViewById(R.id.memberModify);
 		editName.setText(name);
 		editEmail.setText(email);
@@ -133,15 +130,18 @@ public class profileForm extends SlidingActivity{
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
+                //슬라이드메뉴 클릭시
+
 				// TODO Auto-generated method stub
-				if(menu[position].equals("로그아웃")){
-					new AlertDialog.Builder(profileForm.this)
-					.setTitle("로그아웃")
-					.setMessage("로그아웃을 하시겠습니까?")
-					.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+				if(position==3){//로그아웃 경우
+					new AlertDialog.Builder(profileForm.this)//다이얼로그
+					.setTitle(R.string.logout)
+					.setMessage(R.string.logoutCheck)
+					.setPositiveButton(R.string.Ok, new DialogInterface.OnClickListener() {
 						
 						public void onClick(DialogInterface dialog, int which) {
 							// TODO Auto-generated method stub
+                            //프리퍼런스 초기화(화면 이동간 데이터 손실을 방지하기위하여 사용되는 자료형)
 							pref.put("email", "");
 							pref.put("pwd", "");
 							pref.put("id", "");
@@ -150,28 +150,28 @@ public class profileForm extends SlidingActivity{
 							finish();
 						}
 					})
-					.setNegativeButton("취소",null).show();
+					.setNegativeButton(R.string.close,null).show();
 				}
-				if(menu[position].equals("비밀번호 설정/변경")){
+				if(position==0){//비밀번호 설정/변경 일 경우
 					intent=new Intent(profileForm.this,PwChangeForm.class);
-					intent.putExtra("idx", idx);
+					intent.putExtra("idx", idx);//화면이동하면서 idx값도 같이 이동
 					startActivity(intent);
 				}
-				if(menu[position].equals("수상 기록")){
+				if(position==1){//수상 기록 일 경우
 					dialog = ProgressDialog.show(profileForm.this, "", "Loading.....");
-					ps = new prizeSelect(idx, mHandler);
+					ps = new prizeSelect(idx, mHandler);// 수상기록 정보 쓰레드(DB값 들고 오는)
 					ps.start();
 				}
-				if(menu[position].equals("설정")){
+				if(position==2){//설정
 					intent = new Intent(profileForm.this,SettingsActivity.class);
-					startActivity(intent);
+					startActivity(intent);//설정 화면으로 이동
 				}
 			}
 		});	
 		sexRbg.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			//성별선택
 			@Override
-			public void onCheckedChanged(RadioGroup group, int checkedId) {
+			public void onCheckedChanged(RadioGroup group, int checkedId) {//성별 선택
 				// TODO Auto-generated method stub
 				if(group.getId()==R.id.sexRbg){
 					switch (checkedId) {
@@ -190,7 +190,7 @@ public class profileForm extends SlidingActivity{
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
-			
+			//수정 버튼
 			String url = "http://rastro.kr/app/appMemberModify.php";
 			dialog = ProgressDialog.show(profileForm.this, "", "Loading.....");
 			memberModify = new MemberModifyThread(idx,editEmail.getText().toString(),editName.getText().toString(),editBirth.getText().toString(),sex,url,mHandler);
@@ -205,39 +205,49 @@ public class profileForm extends SlidingActivity{
 			// TODO Auto-generated method stub
 			mDialog =createDialog();
 			mDialog.show();
-			
-			
-			
+            //프로필사진
 		}
 	});
 	}
-	Handler mHandler = new Handler(){
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+		getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);
+		getSlidingMenu().setBehindOffset(200);
+		getSlidingMenu().setMode(SlidingMenu.LEFT);
+		getSlidingMenu().setFadeDegree(0.35f);
+		getSlidingMenu().toggle(false);
+    }
+
+    Handler mHandler = new Handler(){
 		public void handleMessage(Message msg){ 
-			if(msg.what==0){
+			if(msg.what==0){ //수정이 되었을때(DB값 변경)
 				dialog.dismiss();
-				Toast.makeText(profileForm.this, "수정이 완료 되었습니다.", Toast.LENGTH_SHORT).show();
+				Toast.makeText(profileForm.this, R.string.ModifyCompletion, Toast.LENGTH_SHORT).show();
 			}
-			if(msg.what==1){
+			if(msg.what==1){//수상 기록
 				dialog.dismiss();
 				Bundle bundle = msg.getData();
-				
-				intent=new Intent(profileForm.this,licenseForm.class);
+				intent=new Intent(profileForm.this,licenseForm.class);//수상 기록 화면으로 이동
 				intent.putExtra("idx", idx);
 				intent.putExtra("json", bundle.getString("json"));
 				intent.putExtra("name", editName.getText().toString());
 				startActivity(intent);
 				ps.interrupt();
 			}
-			if(msg.what==2){
+			if(msg.what==2){//
 				dialog.dismiss();
-				
+				Toast.makeText(profileForm.this,R.string.Registration,Toast.LENGTH_SHORT).show();
 			}
 		}
 		
 	};
 	public void menuButton(View v){
+        //메뉴버튼(액션바부분 버튼)
 		switch (v.getId()) {
-		case R.id.menuButton:
+		case R.id.menuButton: //슬라이드 이동
 			getSlidingMenu().setBehindOffset(200);
 			getSlidingMenu().setMode(SlidingMenu.LEFT);
 			getSlidingMenu().setFadeDegree(0.35f);
@@ -248,7 +258,7 @@ public class profileForm extends SlidingActivity{
 			break;
 		}
 	}
-	  public static Bitmap getImageFromURL(String imageURL){
+	  public static Bitmap getImageFromURL(String imageURL){//프로필 DB에 있는 저장경로 가지고 이미지뷰에 이미지 넣는 메소드
 	        Bitmap imgBitmap = null;
 	        HttpURLConnection conn = null;
 	        BufferedInputStream bis = null;
@@ -276,7 +286,7 @@ public class profileForm extends SlidingActivity{
 	        
 	        return imgBitmap;
 	    }
-	public void sexChk(){
+	public void sexChk(){//라디오버튼에 표시
 		String sex=intent.getStringExtra("sex");
 		
 		if(sex.equals("남성")){
@@ -286,8 +296,8 @@ public class profileForm extends SlidingActivity{
 		}
 	}
 
-	//프로필사진 
-	public AlertDialog createDialog(){
+	//프로필사진(이미지뷰에 표시하고 서버에 이미지 저장)
+	public AlertDialog createDialog(){//사진 촬영/앨범에서 가져오기
 		ArrayAdapter<CharSequence> adapter;
 		final String[] photo=getResources().getStringArray(R.array.photo);
 		View innerView=getLayoutInflater().inflate(R.layout.image_crop,null);
@@ -301,8 +311,8 @@ public class profileForm extends SlidingActivity{
 		//		 TODO Auto-generated method stub
 				if(photo[position].equals("사진 촬영")){
 					Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-			        // Crop된 이미지를 저장할 파일의 경로를 생성
 			        contentUri = createSaveCropFile();
+                    // Crop된 이미지를 저장할 파일의 경로를 생성
 			        intent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT, contentUri);
 			        startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
 				    setDismiss(mDialog);
@@ -334,16 +344,16 @@ public class profileForm extends SlidingActivity{
 			return;
 		}
 		switch(requestCode){
-		case REQUEST_IMAGE_ALBUM:
-			contentUri = data.getData();
+		case REQUEST_IMAGE_ALBUM://앨범 일 경우
+			contentUri = data.getData();//경로
 			System.out.println(contentUri.getPath().toString());
-			Intent intent1  = new Intent("com.android.camera.action.CROP");
-			intent1.setDataAndType(contentUri, "image/*");
-			intent1.putExtra("aspectX", 1);
-			intent1.putExtra("aspectY", 1);
-			intent1.putExtra("outputX", 300);
-			intent1.putExtra("outputY", 300);
-			intent1.putExtra("return-data", true);
+			Intent intent1  = new Intent("com.android.camera.action.CROP");//이미지캡 화면으로 넘기기(크기조절)
+			intent1.setDataAndType(contentUri, "image/*");//파일연결?
+			intent1.putExtra("aspectX", 1);//최소x값
+			intent1.putExtra("aspectY", 1);//최소y값
+			intent1.putExtra("outputX", 300);//고정값?
+			intent1.putExtra("outputY", 300);//고정값?
+			intent1.putExtra("return-data", true);//
 //			intent1.putExtra("output", contentUri);
 			startActivityForResult(intent1, REQUEST_IMAGE_CROP1);
 			
@@ -357,7 +367,7 @@ public class profileForm extends SlidingActivity{
 			intent.putExtra("outputX", 300);
 			intent.putExtra("outputY", 300);
 			
-			intent.putExtra("output", contentUri);
+			intent.putExtra("output", contentUri);//캡 했는거 삭제
 			startActivityForResult(intent, REQUEST_IMAGE_CROP);
 			break;
 		case REQUEST_IMAGE_CROP:
@@ -443,7 +453,7 @@ public class profileForm extends SlidingActivity{
 	@Override
 	public void onBackPressed() {
 		// TODO Auto-generated method stub
-		
+		//Back버튼 두번 눌렀을때 종료
 		bpch.onBackPressed();
 	}
 }

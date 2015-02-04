@@ -1,3 +1,4 @@
+//비밀번호 변경 화면
 package com.example.rastro;
 
 import android.app.Activity;

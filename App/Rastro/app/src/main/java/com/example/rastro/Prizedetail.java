@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -36,12 +37,14 @@ public class Prizedetail extends Activity{
         pname = intent.getStringExtra("pName");
         pinst = intent.getStringExtra("pinst");
         pdetail = intent.getStringExtra("pd");
-        Position = intent.getExtras().getInt("position");
+        Position = intent.getExtras().getInt("position");//이전 액티비티에 있는 리스트뷰 인덱스값
         i = intent.getStringExtra("i");
         idx = intent.getStringExtra("idx");
         name = intent.getStringExtra("name");
         license = new ArrayList<license>();
-
+        getActionBar().setTitle("상세 보기");
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getActionBar().setHomeButtonEnabled(true);
         Pname = (EditText)findViewById(R.id.EditpName);
         Pinst=(EditText)findViewById(R.id.Editpinst);
         Pdetail = (EditText)findViewById(R.id.EditpDetail);
@@ -55,17 +58,17 @@ public class Prizedetail extends Activity{
         switch (v.getId()){
             case R.id.modify:
                 PUDT = new prizeupdate_deleteThread(Pname.getText().toString(),Pinst.getText().toString(),Pdetail.getText().toString(),name,i,mHandler,idx,"modify");
-                PUDT.start();
+                PUDT.start();//수정일때 쓰레드
                    break;
             case R.id.Delete:
                 PUDT = new prizeupdate_deleteThread(Pname.getText().toString(),Pinst.getText().toString(),Pdetail.getText().toString(),name,i,mHandler,idx,"del");
-                PUDT.start();
+                PUDT.start();//삭제일때 쓰레드
         }
 
     }
     Handler mHandler = new Handler(){
         public void handleMessage(Message msg){
-        if(msg.what==3){
+        if(msg.what==3){//수정이 되었을때
            Intent intent = new Intent();
             intent.putExtra("Pname",Pname.getText().toString());
             intent.putExtra("Pinst",Pinst.getText().toString());
@@ -77,7 +80,8 @@ public class Prizedetail extends Activity{
             Toast.makeText(Prizedetail.this, "수정이 완료 되었습니다.", Toast.LENGTH_SHORT).show();
 
         }
-        if(msg.what==2){
+        if(msg.what==2){//삭제가 되었을때
+
             Intent intent = new Intent();
             intent.putExtra("position",Position);
             intent.putExtra("i",i);
@@ -90,4 +94,20 @@ public class Prizedetail extends Activity{
         }
 
     };
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // TODO Auto-generated method stub
+
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                break;
+//		case R.id.menu_search:
+//
+//			break;
+
+        }
+        return false;
+
+    }
 }

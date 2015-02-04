@@ -1,18 +1,28 @@
 package FileTransmi;
 
-import java.io.*;
-import java.net.*;
-import java.util.*;
+import android.os.Handler;
+import android.os.Message;
 
-import org.apache.http.*;
-import org.apache.http.client.*;
-import org.apache.http.client.entity.*;
-import org.apache.http.client.methods.*;
-import org.apache.http.impl.client.*;
-import org.apache.http.message.*;
-import org.apache.http.params.*;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
 
-import android.os.*;
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
 
 public class FileTransmi extends Thread{
 	String uri,idx,fName;
@@ -130,7 +140,9 @@ public class FileTransmi extends Thread{
 				msg.what=2;
 				handler.sendMessage(msg);
 		}catch(Exception e){
-			
+            Message msg = handler.obtainMessage();
+            msg.what=3;
+            handler.sendMessage(msg);
 		}
 	 return serverResponseCode;
 		

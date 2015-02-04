@@ -1,3 +1,5 @@
+//수상 기록(임시페이지)
+
 package com.example.rastro;
 
 import android.app.Activity;
@@ -51,20 +53,20 @@ public class licenseForm extends Activity{
 		idx = intent.getStringExtra("idx");
 		name = intent.getStringExtra("name");
 		json=intent.getStringExtra("json").trim();
-		getActionBar().setTitle("수상기록");
-		getActionBar().setDisplayHomeAsUpEnabled(true);
-		getActionBar().setHomeButtonEnabled(true);
+		getActionBar().setTitle("수상기록");//액션바 이름
+		getActionBar().setDisplayHomeAsUpEnabled(true); //홈키 아이콘
+		getActionBar().setHomeButtonEnabled(true);//액션바버튼 사용할수 있도록
 		 license = new ArrayList<license>();
 //		 pdetail = new ArrayList<String>();
 //		 pdetail = new ArrayList<ArrayList<pdetail>>();
 //		 Elv  = (ExpandableListView)findViewById(R.id.Elv);
         list = (ListView)findViewById(R.id.list);
 		 if(json==null){
-			
+			//json변수에 null일때
 		 }else{
-			 System.out.println("2222");
+
 			 try{
-				 System.out.println(json);
+                    //json형태 데이터를 문자열로 바꿔주는 작업
 				 JSONArray ja = new JSONArray(json);
 					for(int i=0; i<ja.length(); i++){
 						JSONObject jo = ja.getJSONObject(i);
@@ -81,9 +83,9 @@ public class licenseForm extends Activity{
 						
 					}
 
-                 adapter = new MyListAdapter(licenseForm.this, R.layout.customlist, license);
+                 adapter = new MyListAdapter(licenseForm.this, R.layout.customlist, license);//커스텀리스트뷰를 쓰기 위하여 어뎁터에 저장
 //					adapter = new ExpandableAdapter(licenseForm.this, license,R.layout.customlist,R.layout.customlist_child);
-                 list.setAdapter(adapter);
+                 list.setAdapter(adapter);//리스트뷰에 연결
 
 //					 Elv.setAdapter(adapter);
 			 }catch(JSONException e){
@@ -177,7 +179,7 @@ public class licenseForm extends Activity{
 //		});
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) { //수상 상세정보
                 Intent intent = new Intent(licenseForm.this, Prizedetail.class);
                 intent.putExtra("pName", license.get(position).Pname.toString());
                 intent.putExtra("pinst",license.get(position).Pinst.toString());
@@ -186,14 +188,13 @@ public class licenseForm extends Activity{
                 intent.putExtra("idx",idx);
                 intent.putExtra("name",name);
                 intent.putExtra("position",position);
-
                 startActivityForResult(intent,Prize_Detail);
             }
         });
 	}
 	public void licenselist(View v){
 		switch (v.getId()) {
-		case R.id.addBtn:
+		case R.id.addBtn://추가버튼
 			final View innerView=getLayoutInflater().inflate(R.layout.add,null);
 			new AlertDialog.Builder(licenseForm.this)
 			.setTitle("수상 기록하기")

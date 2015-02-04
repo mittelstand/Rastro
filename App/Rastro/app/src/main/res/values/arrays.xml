@@ -1,18 +1,18 @@
 <resources>
 <string-array name="menu">
-   	<item>비밀번호 설정/변경</item>
-   	<item>수상 기록</item>
-   	<item>설정</item>
-   	<item>로그아웃</item>
+   	<item>@string/PasswordSetting</item>
+   	<item>@string/Prizerecodrd</item>
+   	<item>@string/Setting</item>
+   	<item>@string/logout</item>
 </string-array>
 <string-array name="photo">
   	
-   	<item>앨범에서 가져오기</item>
-   	<item>사진 촬영</item>
+   	<item>@string/Album</item>
+   	<item>@string/Camera</item>
 </string-array>
 <string-array name="del">
-    <item>수정</item>
-   	<item>삭제</item>
+    <item>@string/modify</item>
+   	<item>@string/Delete</item>
 </string-array>
 
 

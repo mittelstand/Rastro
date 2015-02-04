@@ -24,4 +24,14 @@
         android:layout_marginTop="203dp"
         android:background="@drawable/intro" />
 
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/progressBar"
+        android:layout_below="@+id/introText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:indeterminate="false" />
+
 </RelativeLayout>

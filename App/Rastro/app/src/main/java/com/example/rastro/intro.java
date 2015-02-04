@@ -1,3 +1,4 @@
+//인트로
 package com.example.rastro;
 
 import android.app.Activity;
@@ -22,35 +23,40 @@ public class intro extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.intro);
-        Handler handler =new android.os.Handler();
-        handler.postDelayed(new Runnable() {
+        pref = new RbPreference(intro.this);
+        if (pref.getValue("pwd", "") == "" && pref.getValue("email", "") == "") {
+            Handler handler = new android.os.Handler();
+            handler.postDelayed(new Runnable() {
 
-            @Override
-            public void run() {
-                // TODO Auto-generated method stub
-                autoLogin();
+                @Override
+                public void run() {
+                    // TODO Auto-generated method stub
+                    Intent intent = new Intent(intro.this, JoinForm.class);
+                    startActivity(intent);
 
-                finish();
-            }
-        }, 1000);
+                    finish();
+                }
+            }, 1000);
+        }
+        autoLogin();
     }
     public void autoLogin(){//자동로그인 기능
-        pref = new RbPreference(intro.this);
-        if(pref.getValue("pwd", "")=="" && pref.getValue("id", "")==""){
-            Intent intent = new Intent(intro.this,JoinForm.class);
-            startActivity(intent);
-        }if(pref.getValue("pwd","")!=""){//일반로그인 체크(비밀번호가 존재하면)
+
+//        if(pref.getValue("pwd", "")=="" && pref.getValue("id", "")==""){
+//            Intent intent = new Intent(intro.this,JoinForm.class);
+//            startActivity(intent);
+        if(pref.getValue("pwd","")!=""){//일반로그인 체크(비밀번호가 존재하면)
             String email1 = pref.getValue("email", "");
             String pwd1 = pref.getValue("pwd", "");
             String url = "http://rastro.kr/app/loginChk.php";
 //			dialog = ProgressDialog.show(Intro.this, "", "Loading.....");
             lT = new loginThread(email1, pwd1, url, mHandler,dialog);//로그인쓰레드
             lT.start();
-        }if(pref.getValue("id", "")!=""){//페이스북으로 로그인체크(페이스북ID 존재하면)
-            String id1 = pref.getValue("id", "");
+        }if(pref.getValue("email", "")!=""){//페이스북으로 로그인체크(페이스북ID 존재하면)
+            String email = pref.getValue("email", "");
             String url="http://rastro.kr/app/appFbLoginChk.php";
 //			dialog = ProgressDialog.show(Intro.this, "", "Loading.....");
-            Flt = new FacebookLoginThread(mHandler, url,id1);//페이스북쓰레드
+            Flt = new FacebookLoginThread(mHandler, url,email);//페이스북쓰레드
             Flt.start();
         }
     }
@@ -62,7 +68,7 @@ public class intro extends Activity {
             public void handleMessage(Message msg) {
 
                 if (msg.what == 3) {
-
+                    //성공 하였을때 JSON파싱했는 값 들고와서  보내기
                     Bundle bundle = msg.getData();
                     Intent intent = new Intent(intro.this, profileForm.class);
                     intent.putExtra("name", bundle.getString("name"));
@@ -81,7 +87,7 @@ public class intro extends Activity {
                 if (msg.what == 7) {
 
                     Bundle bundle = msg.getData();
-
+                    //성공 하였을때 JSON파싱했는 값 들고와서  보내기
                     Intent intent = new Intent(intro.this, profileForm.class);
                     intent.putExtra("name", bundle.getString("name"));
                     intent.putExtra("email", bundle.getString("email"));

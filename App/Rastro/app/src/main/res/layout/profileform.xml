@@ -114,7 +114,7 @@
          android:layout_below="@+id/sexRbg"
          android:layout_centerHorizontal="true"
          android:layout_marginTop="20dp"
-         android:text="수정" />
+         android:text="@string/modify" />
 
      <FrameLayout
          android:id="@+id/actionbar"

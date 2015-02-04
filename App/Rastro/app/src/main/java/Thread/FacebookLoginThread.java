@@ -1,28 +1,37 @@
 package Thread;
 
-import java.io.*;
-import java.util.*;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 
-import org.apache.http.*;
-import org.apache.http.client.*;
-import org.apache.http.client.entity.*;
-import org.apache.http.client.methods.*;
-import org.apache.http.impl.client.*;
-import org.apache.http.message.*;
-import org.apache.http.params.*;
-import org.json.*;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
-import utility.*;
-import android.os.*;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+import utility.RbPreference;
 
 public class FacebookLoginThread extends Thread{
-	String url,id;
+	String url,email;
 	Handler handler;
 	RbPreference pref;
-	public FacebookLoginThread(Handler handler,String url,String id) {
+	public FacebookLoginThread(Handler handler,String url,String email) {
 		// TODO Auto-generated constructor stub
 		this.handler =handler;
-		this.id=id;
+		this.email=email;
 		this.url = url;
 	}
 	@Override
@@ -35,7 +44,7 @@ public class FacebookLoginThread extends Thread{
 			
 			ArrayList<NameValuePair> post = new ArrayList<NameValuePair>();
 			
-			post.add(new BasicNameValuePair("id", id));
+			post.add(new BasicNameValuePair("email", email));
 			
 			
 			
@@ -74,7 +83,7 @@ public class FacebookLoginThread extends Thread{
 			if(result.indexOf("fail")!=-1){
 					
 				Message msg = handler.obtainMessage();
-				msg.what=0;
+				msg.what=6;
 				handler.sendMessage(msg);
 				
 			}else{
@@ -90,11 +99,11 @@ public class FacebookLoginThread extends Thread{
 					bundle.putString("email",jo.getString("email"));
 					bundle.putString("idx", jo.getString("idx"));
 					bundle.putString("Ps", jo.getString("Ps"));
-				
+
 					System.out.println(bundle.getString("Ps"));
-				} 
+				}
 				Message msg = handler.obtainMessage();
-				
+
 				msg.setData(bundle);
 				msg.what=7;
 				handler.sendMessage(msg);

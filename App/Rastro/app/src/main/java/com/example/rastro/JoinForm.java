@@ -1,3 +1,4 @@
+//회원가입 화면(일반 가입/페이스북으로 가입)
 package com.example.rastro;
 
 import android.app.Activity;
@@ -29,11 +30,9 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import Thread.FacebookJoinThread;
 import Thread.joinThread;
 import utility.BackPressCloseHandler;
 import utility.RbPreference;
-
 
 public class JoinForm extends Activity {
 	ArrayAdapter<CharSequence> adspin;
@@ -68,6 +67,7 @@ public class JoinForm extends Activity {
 						if(hasFocus==false){
 							Pattern pattern = Pattern.compile(emailRegex);//정규식
 							Matcher matcher = pattern.matcher(editEmail.getText().toString());
+                            //이메일 형식 검사
 							if(matcher.matches()){	
 							}else{
 								Toast.makeText(JoinForm.this, getString(R.string.emailRegex), Toast.LENGTH_SHORT).show();
@@ -77,7 +77,7 @@ public class JoinForm extends Activity {
 				}
 			}
 		});
-		//비밀번호 영문/숫자조합8~16자리
+		//비밀번호 영문/숫자조합8~16자리 검사
 		editPwd.setOnFocusChangeListener(new OnFocusChangeListener() {
 			@Override
 			public void onFocusChange(View v, boolean hasFocus) {
@@ -104,7 +104,7 @@ public class JoinForm extends Activity {
 				finish();
 			}
 		});
-		//이용약관으로 이동
+		//이용약관으로 이동(임시)
 		clause1.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -168,7 +168,7 @@ public class JoinForm extends Activity {
 				
 			}
 			if(msg.what==1){//이메일이 중복 일때 
-				editEmail.setText("");
+				editEmail.setText("");//이메일입력값 초기화
 				dialog.dismiss();
 				new AlertDialog.Builder(JoinForm.this)
 				.setMessage(getString(R.string.Emailoverlap))
@@ -190,7 +190,7 @@ public class JoinForm extends Activity {
 				dialog.dismiss();
 				Toast.makeText(JoinForm.this, getString(R.string.noConnection), Toast.LENGTH_SHORT).show();
 			}
-			if(msg.what==6){
+			if(msg.what==6){//페이스북으로 이미 가입 되었을대
 				dialog.dismiss();
 				new AlertDialog.Builder(JoinForm.this)
 				.setMessage(getString(R.string.Fbalreadyjoin))
@@ -201,47 +201,76 @@ public class JoinForm extends Activity {
 	
 		}
 	};
-	
-	public void FacebookLogin(){//페이스북 로그인 연동 메소드
-		Session.openActiveSession(JoinForm.this,true, new Session.StatusCallback() {	
-			@Override
-			public void call(Session session, SessionState state, Exception exception) {
-				// TODO Auto-generated method stub
-				if(session.isOpened()){
-					if(!session.getPermissions().contains("email")) {//페이스정보중에서 이메일 찾는부분
-					String[] PERMISSION_ARRAY_READ = {"email","user_birthday"};//이메일/생년월일
-					List<String> PERMISSION_LIST=Arrays.asList(PERMISSION_ARRAY_READ);
-					session.requestNewReadPermissions(
-					new Session.NewPermissionsRequest(JoinForm.this, PERMISSION_LIST));
-					}
-					Request.executeMeRequestAsync(session, new Request.GraphUserCallback() {
-						
-						@Override
-						public void onCompleted(GraphUser user, Response response) {
-							// TODO Auto-generated method stub
-							if(user!=null){
-								String email2 = user.getProperty("email").toString();
-								String name2 = user.getName().toString();
-								String id = user.getId().toString();
-								String url ="http://rastro.kr/app/appFbInsert.php";//페이스북에서 가지고 온 정보를 DB에 저장
-								String[] a=null;
-								String dob;
-								if(user.getBirthday()!=null){
-								a = user.getBirthday().split("/");
-								dob = a[2]+"-"+a[0]+"-"+a[1];
-								}else{
-								dob = "";
-								}
-								dialog = ProgressDialog.show(JoinForm.this, "", "Loading.....");
-								FacebookJoinThread Flt = new FacebookJoinThread(name2, email2, dob,mHandler, url,id);//페이스북가입쓰레드
-								Flt.start();
-							}
-						}
-					});
-				}
-			}
-		});
-	}
+    public void FacebookLogin() {//페이스북 로그인 연동 메소드
+        Session.openActiveSession(JoinForm.this,true,new Session.StatusCallback() {
+            @Override
+            public void call(Session session, SessionState state, Exception exception) {
+                // TODO Auto-generated method stub
+                if (session.isOpened()) {
+                    if (!session.getPermissions().contains("email")) {//페이스정보중에서 이메일 찾는부분
+                        String[] PERMISSION_ARRAY_READ = {"email","user_birthday"};//이메일/생년월일
+                        List<String> PERMISSION_LIST = Arrays.asList(PERMISSION_ARRAY_READ);
+                        session.requestNewReadPermissions(
+                                new Session.NewPermissionsRequest(JoinForm.this, PERMISSION_LIST));
+                    }
+                    Request.executeMeRequestAsync(session, new Request.GraphUserCallback() {
+                        @Override
+                        public void onCompleted(GraphUser user, Response response) {
+                            // TODO Auto-generated method stub
+                            if (user != null) {
+                                String email2=null,id=null,name2=null;
+                                    Toast.makeText(JoinForm.this,user.getInnerJSONObject().toString(),Toast.LENGTH_LONG).show();
+
+//                                try{
+//                                    //json형태 데이터를 문자열로 바꿔주는 작업
+//                                    JSONArray ja = new JSONArray("["+user.getInnerJSONObject().toString()+"]");
+//                                    for(int i=0; i<ja.length(); i++){
+//                                        JSONObject jo = ja.getJSONObject(i);
+//                                        email2 = jo.getString("email");
+//                                        id = jo.getString("id");
+//                                        name2 = jo.getString("name");
+//
+//
+//
+//
+//                                    }
+//                                    String[] a = null;
+//                                String dob;
+//                                if (user.getBirthday() != null) {
+//                                    a = user.getBirthday().split("/");
+//                                    dob = a[2] + "-" + a[0] + "-" + a[1];
+//                                } else {
+//                                    dob = "";
+//                                }
+//
+//                                }catch(JSONException e){
+//                                    e.printStackTrace();
+//                                }
+
+//
+//                                String name2 = user.getName().toString();
+//                                String id = user.getId().toString();
+//                                String url = "http://rastro.kr/app/appFbInsert.php";//페이스북에서 가지고 온 정보를 DB에 저장주소
+//                                //yyyy/mm/dd --> split 이용하여 yyyy-mm-dd 바꾸는 작업
+//                                String[] a = null;
+//                                String dob;
+//                                if (user.getBirthday() != null) {
+//                                    a = user.getBirthday().split("/");
+//                                    dob = a[2] + "-" + a[0] + "-" + a[1];
+//                                } else {
+//                                    dob = "";
+//                                }
+//								dialog = ProgressDialog.show(JoinForm.this, "", "Loading.....");//로딩창
+//								FacebookJoinThread Flt = new FacebookJoinThread(name2, email2, dob,mHandler, url,id);//페이스북가입쓰레드
+//								Flt.start();
+                            }
+                        }
+                    });
+                }
+            }
+        });
+    }
+
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		// TODO Auto-generated method stub

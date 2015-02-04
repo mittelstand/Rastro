@@ -3,6 +3,8 @@ package utility;
 import android.app.*;
 import android.widget.*;
 
+import com.example.rastro.R;
+
 public class BackPressCloseHandler {
 
 	 private long backKeyPressedTime = 0;
@@ -26,8 +28,8 @@ public class BackPressCloseHandler {
 	        }
 	    }
 	    public void showGuide() {
-	        toast = Toast.makeText(activity,
-	                "\'뒤로\'버튼을 한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT);
+//            String cont = "\'"+R.string.Back+"\'"+R.string.BackButton;
+	        toast = Toast.makeText(activity,R.string.BackButton,Toast.LENGTH_SHORT);
 	        toast.show();
 	    }
 }

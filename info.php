@@ -10,7 +10,7 @@ if(strlen($_SESSION['idx']) <= 0){
 	
 	$db = new Dbcon();
 	$db->table = "member";
-	$db->field = "email, name, dob, sex";
+	$db->field = "email, name, dob, sex, Ps";
 	$db->where = "idx=".$_SESSION["idx"];
 	$rel= $db->Select();
 	$array = mysql_fetch_assoc($rel);
@@ -22,14 +22,33 @@ if(strlen($_SESSION['idx']) <= 0){
 	/*body{background-color:#ededed;}*/
 </style>
 <div style = "clear:both"></div>
-<form method="post" action="infoModify.php" class = "infoForm">
+<form method="post" action="infoModify.php" class = "infoForm" enctype = "multipart/form-data">
 	<span class = "modify">회원정보수정</span>
 	<ul class="modiForm">
+		<li class="email list">
+			<span class="lab">프로필 사진</span>
+			<label for="picture" class="pic">
+				<input type="file" name="picture" id="picture" value="<? echo $array["Ps"]=="" ? "":str_replace("/HCK/messagebox.co.kr/public_html","",$array['Ps'])?>"/>
+			</label>
+			<? if($array['Ps']){ ?>
+			<input type="hidden" name="imgModi" value="y" />
+			<script>
+				imagef = new Image();
+				imagef.src = '<?=str_replace("/HCK/rastro.kr/public_html","",$array['Ps'])?>';
+				$("label[for='picture']").css("background","url('<?=str_replace("/HCK/rastro.kr/public_html","",$array['Ps'])?>') no-repeat 0 0");
+				
+				if(imagef.width > imagef.height){
+					$("label[for='picture']").css('background-size',"auto 100%");
+				}else{
+					$("label[for='picture']").css('background-size',"100% auto");
+				}
+			</script>
+			<? } ?>
+		</li>
 		<li class="email list">
 			<span class="lab">이메일</span>
 			<span class="modify"><input type="text" name="email" id="mEmail" value = "<?= $array["email"]?>"/></span>
 		</li>
-
 		<li class="name list">
 			<span class="lab">이름</span> 
 			<span class="modify"><input type="text" name="name" id="mName" value = "<?= $array["name"]?>"/></span>
@@ -130,7 +149,21 @@ function Nchk(m)
 		return (!st2);
 	}
 }
-
+function readURL(input,obj) { 
+	if (input.files && input.files[0]) {
+		var image =  new Image();
+		var reader = new FileReader(); 
+		reader.onload = function (e) {
+			image.src = e.target.result;
+			//alert(obj.attr(""))
+			obj.css('background',"url('"+image.src+"') no-repeat");
+			
+			obj.css('background-size',"100% auto");
+		} 
+		reader.readAsDataURL(input.files[0]);
+	}
+	$("#imgModi").val("n");
+}
 
 $("form.infoForm").submit(function(){
 	if(trim($("#mEmail").val())==""){
@@ -283,6 +316,9 @@ function readURL(input,obj) {
 	$("#imgModi").val("n");
 };
 $(document).ready(function(){
+	$("#picture").change(function(){ 
+		readURL(this,$("label[for='picture']")); 
+	});
 	var eventSY = $("ul.start li.year span.select");
 	var eventSM = $("ul.start li.month span.select");
 	var eventSD = $("ul.start li.theDay span.select");

@@ -19,13 +19,13 @@ if ($user) {
 	$db->field = "idx";
 	$_SESSION['idx'] = $row['idx'];
   }else if($user_profile['email']){
-    $db->field = "email,name,dob,sex,fbcode";
+    $db->field = "email,name,dob,sex,fbcode,Ps";
 	$sex = ($user_profile['gender']=="male") ? "남성" : "여성";
 	if($user_profile['birthday']){
 		$b = explode("/",$user_profile['birthday']);
 		$birthday = $b[2]."-".$b[0]."-".$b[1];
 	}	
-	$db->value = "'".$user_profile['email']."','".($user_profile['last_name'].$user_profile['first_name'])."','".$birthday."','".$sex."','".$user_profile['id']."'";
+	$db->value = "'".$user_profile['email']."','".($user_profile['last_name'].$user_profile['first_name'])."','".$birthday."','".$sex."','".$user_profile['id']."','https://graph.facebook.com/".$user."/picture?type=large'";
 	$_SESSION['idx'] = $db->Insert();
   }
   unset($db);

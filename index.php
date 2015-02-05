@@ -20,13 +20,13 @@ if ($user) {
 	$db->field = "idx";
 	$_SESSION['idx'] = $row['idx'];
   }else if($user_profile['email']){
-    $db->field = "email,name,dob,sex,fbcode";
+    $db->field = "email,name,dob,sex,fbcode,Ps";
 	$sex = ($user_profile['gender']=="male") ? "남성" : "여성";
 	if($user_profile['birthday']){
 		$b = explode("/",$user_profile['birthday']);
 		$birthday = $b[2]."-".$b[0]."-".$b[1];
 	}	
-	$db->value = "'".$user_profile['email']."','".($user_profile['last_name'].$user_profile['first_name'])."','".$birthday."','".$sex."','".$user_profile['id']."'";
+	$db->value = "'".$user_profile['email']."','".($user_profile['last_name'].$user_profile['first_name'])."','".$birthday."','".$sex."','".$user_profile['id']."','https://graph.facebook.com/".$user."/picture?type=large'";
 	$_SESSION['idx'] = $db->Insert();
   }
   unset($db);
@@ -120,7 +120,7 @@ exit();
 		<button type="submit" class="btnRegist">라스트로 시작하기</button>
 		<button type="button" class="btnFJoin" onclick="location.href='<?=$loginUrl?>'">페이스북으로 가입하기</button>
 		<span class="agreeDesc">‘라스트로 등록하기’를 클릭하시면 라스트로의 <a href="terms" style="color:#FFF; display:inline;"><b>이용약관</b></a>과<br/>
-<a href="personal" style="color:#FFF; display:inline;"><b>개인정보취급방침</b></a>에 동의하시는 것으로 간주합니다.</span>
+<a href="policy" style="color:#FFF; display:inline;"><b>개인정보취급방침</b></a>에 동의하시는 것으로 간주합니다.</span>
 		
 		<!--span class="loginQ textQ">이미 가입하셨나요? <a href="login.php">로그인하기</a></span-->
 	</div>

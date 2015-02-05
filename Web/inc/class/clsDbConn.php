@@ -10,8 +10,8 @@
 */
 Class Dbcon {
     private $_dbHost = "localhost";
-    private $_dbName = "webiblos";
-    private $_dbUser = "webiblos";
+    private $_dbName = "rastro";
+    private $_dbUser = "rastro";
     private $_dbPass = "Together1!";
     private $_dbConn = null;
     
@@ -78,7 +78,7 @@ Class Dbcon {
                                 (($this->page > 0 and $this->block) > 0 ? (" limit ".(($this->page - 1) * $this->block).", ".$this->block." ") : "");
             };
         };
-		//echo  $this->query;
+		//echo $this->query;
         $result = mysql_query($this->query);
         if($result) $this->query = ""; else $this->Err();        
         return $result;
@@ -131,6 +131,30 @@ Class Dbcon {
         }
         
     }
+	/*
+    함수명     : ExportJson
+    최종수정일 : 2014.12.24
+    설명       : Select 문을 Json형태로 출력
+    */
+
+    function ExportJson(){
+        $query = $this->Select();
+        echo "[";
+		$conma = "";
+		$conma2 = "";
+        while($tagname = mysql_fetch_assoc($query)){
+            $key = array_keys($tagname);
+            echo $conma."{";
+            for($i=0 ; $i < sizeof($key) ; $i++){
+				echo $conma2."\"".$key[$i]."\":"."\"".$tagname[$key[$i]]."\"";
+				$conma2 = ",";
+            }
+			$conma2 = "";
+			$conma = ",";
+            echo "}";
+        }
+		echo "]";        
+    }
     /*
     함수명     : Delete
     최종수정일 : 2013.08.14
@@ -159,7 +183,7 @@ Class Dbcon {
                                 ((strlen($this->where) > 0) ? " where ".$this->where : "");
             };
         };
-		//	echo $this->query;
+		//echo $this->query;
          $result = mysql_query($this->query);
          if($result) $this->query = ""; else $this->Err();
     }
@@ -173,7 +197,7 @@ Class Dbcon {
     function Insert() {
         if (strlen($this->query) <= 0) {
 			//echo $this->table."-".$this->field."-".$this->value;
-            if ($this->table == "" or $this->field == "" or $this->value == "") die($this->table.",".$this->field.",".$this->value);
+            if ($this->table == "" or $this->field == "" or $this->value == "") die("Insert에 필요한 항목이 누락되었습니다");
             else {
                 $this->query = "insert into ". $this->table ." (".
                                     $this->field.

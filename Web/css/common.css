@@ -1,220 +1,24 @@
-@import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
-body {height:100%;min-width:764px; font-family:"Helvetica Neue", "Apple SD 산돌고딕 Neo", "Apple SD Gothic Neo", "나눔고딕", "Nanum Gothic", "돋움", "Dotum", Helvetica, Arial, sans-serif; margin:0; padding:0; background:url('/img/bg.gif') repeat; }
-ul {margin:0; padding:0;}
-ul li, ul ol {list-style:none;}
-button {display:block; padding:0; margin:0; border:0;  border:none; selector-dummy:expression(this.hideFocus=true); cursor:pointer; background:none;}
-span.select button{text-indent:0;}
-
-a {outline:none; selector-dummy:expression(this.hideFocus=true); text-decoration: none;  cursor:pointer; font-family:"Helvetica Neue", "Apple SD 산돌고딕 Neo", "Apple SD Gothic Neo", "나눔고딕", "Nanum Gothic", "돋움", "Dotum", Helvetica, Arial, sans-serif;}
-span {display:block; font-family:"Helvetica Neue", "Apple SD 산돌고딕 Neo", "Apple SD Gothic Neo", "나눔고딕", "Nanum Gothic", "돋움", "Dotum", Helvetica, Arial, sans-serif;}
-span > a, li > a {display:block; width:100%; text-align:left;}
-input, select, textarea{ font-family:"Helvetica Neue", "Apple SD 산돌고딕 Neo", "Apple SD Gothic Neo", "나눔고딕", "Nanum Gothic", "돋움", "Dotum", Helvetica, Arial, sans-serif; font-size:14px; color:#777; border:none; resize:none; background:none;}
-input {padding-left:8px;}
-textarea {padding:8px; width:820px; height:430px; margin:20px 0 140px 43px;}
-
-
-.copy{display:none;}
-html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend,  p, blockquote, th, td, img {margin:0; padding:0; }
-html {width:100%; height:100%;}
-img, fieldset{border:none; vertical-align:top; }
-
-a, a:link, a:visited   { color:#000; text-decoration:none;}
-a:active               {text-decoration:none;}
-
-
-
-table{border-spacing:0; border:0; border-collapse:collapse; }
-th, td {border:0;}
-legend { height:0;  display:block; text-indent:-9999em; }
-caption { visibility:hidden; position:absolute; left:-1000px; top:-1000px; height:0; width:0; display:none; }
-strike{text-decoration:none; background:url('/img/line.png') no-repeat 0 center; padding:0 3px 1px 3px;}
-div.contentBox{padding:40px 0 70px 0; min-height:457px;}
-div.bottom{clear:both;}
-
-/*헤더*/
-
-#header li.logOut{float:right; margin-left:10px;}
-#header li.admin{float:right;}
-#header li.info{float:right; margin-left:10px;}
-#header li.join{float:right; margin-left:10px;}
-#header li.login{float:right;}
-#header ul.menu li{float:left;}
-#header li.adminboard{margin-left:20px;}
-#header li.nlcboard{margin-left:20px;}
-/*footer*/
-
-
-/*회원가입 input/제목 전체*/
-span.input input{ border:1px solid #000000; float:left; height:30px;}
-span.at{width:20px;height:20px;float:left; margin:8px 0 0 10px;}
-span.hyphen{width:20px;height:20px;float:left; margin-left:10px; margin:8px 0 0 10px;}
-span.label{float:left; width:115px; margin-top:8px;}
-ul.joinwrite{width:700px; margin:0 auto;}
-ul.joinwrite li{clear:both; height:40px;margin-bottom:10px;}
-div.joinTit{width:100%; height:auto; text-align:center; margin-bottom:50px;}
-div.joinbtn{width:240px;clear:both; margin: 0 auto;}
-div.joinbtn button.join{width:115px; height:38px;float:left;}
-div.joinbtn button.back{width:115px; height:38px;float:left;margin-left:10px;}
-
-/*로그인페이지*/
-div.loginWrap{width:700px; margin:0 auto;}
-div.loginInput div{clear:both; height:40px;}
-div.chkGroup div.idSave{float:left;}
-div.chkGroup div.autoLogin{float:left;}
-div.chkGroup span.chkLab{float:left;}
-div.loginText{clear:both;}
-
-
-/*테두리에 줄 주려고 */
-#container > div.contentBox > div.conBox {padding:15px; margin-top:15px; border:1px solid #dbdbdb; border-size:box;} /*디테일 페이지*/
-#container > div.contentBox > form > div.conBox {padding:30px 15px 120px 59px; margin-top:15px; border:1px solid #dbdbdb; border-size:box;} /*글쓰기 페이지*/
-
-/*게시판 글쓰기*/
-div.tit{text-align:center;}
-ul.write li{clear:both; height:auto;margin-bottom:10px;}
-ul.write li.btnl button.btnW{float:left; width:120px; height:40px;}
-ul.write li.inputW{margin:0 0 10px 45px; float:left;}
-
-#container ul.cmtOutput li div.head button.cmtD { margin-left:5px; display:inline;}
-div.input > span.inputT > input.off{width:820px; height:40px; background:url('/img/boardImage.png') no-repeat -24px -872px; float:left; margin-bottom:15px}
-div.input > span.inputT > input.on{width:820px; height:40px; background:url('/img/boardImage.png') no-repeat -24px -918px; float:left; margin-bottom:15px}
-ul.write > li.btnl > button{text-indent:-1000em;}
-ul.write > li.btnl > button.regist{width:75px; height:24px; background:url('/img/boardImage.png') no-repeat -560px -129px; float:left;}
-ul.write > li.btnl> button.btnList{width:110px; height:34px; background:url('/img/boardImage.png') no-repeat -559px -164px; float:right;}
-
-
-
-/*댓글판(로그인없는)*/
-#container ul.cmtOutput li div.head {clear:both; }
-#container ul.cmtOutput li div.head span{float:left;}
-#container ul.cmtOutput li div.head > span.name {font-weight: bold; color:#2f2f2f;}
-#container ul.cmtOutput li div.head > span.cdate {margin-top:3px; font-size:0.9em;}
-#container ul.cmtOutput li div.head > span.text {margin-top:10px;}
-button.c{width:13px; height:14px; background:url('/img/boardImage.png') no-repeat -307px -209px; text-indent:-1000em; float:right; margin-right:80px; }
-
-#container ul.cmtOutput span.cdate{margin-left:10px;}
-#container ul.cmtOutput div.text{float:left; width:700px;}
-#container ul.cmtOutput span.text{word-break:break-all; max-width:500px;}
-#container ul.cmtOutput button.cmtD{width:30px;}
-#container ul.cmtOutput button.cmtC{width:10px;float:right;}
-#container ul.cmtOutput div.pwBox{}
-#container ul.cmtOutput button.pwbtn{float:right;}
-/* #container ul.cmtOutput button.pwbtn{idth:55px; height:30px; margin:15px 0 0 8px; background:none} */
-#container ul.cmtOutput div.pwBox input{border:2px solid #000000}
-#container ul.cmtInput li *{float:left;}
-#container ul.cmtOutput span.cdate{ padding-right:35px;}
-/*이용약관*/
-#container{clear:both; width:938px; margin:0 auto;}
-#container div.memberWrite div.agreeBox{width:776px;  margin:0 auto 0;}
-#container div.memberWrite div.agreeBox h3{height:20px; margin:0 auto 17px;}
-#container div.memberWrite div.agreeBox h3.provision{width:106px; }
-#container div.memberWrite div.agreeBox h3.personal{width:160px; }
-#container div.memberWrite div.agreeBox label.agree{width:96px; height:17px; margin:17px 0 37px; }
-#container div.memberWrite div.agreeBox div{width:778px; height:329px; border:1px solid #d5d5d5; padding:10px; Box-sizing:border-box; overflow: auto;}
-#container div.memberWrite div.agreeBox div span{display:inline;}
-#container div.memberWrite div.agreeBox div a{display:inline;}
-#container div.memberWrite button.next{width:95px; height:30px;  margin:0 auto;}
-
-/*나의 정보 */
-#container div.inputBox span.clear{clear:both;}
-
-/*회원 관리 */
-#container div.member{float:left;text-align:center;}
-#container li.list{clear:both;}
-#container div.nameMemW{width:60px;}
-#container div.gradeW{width:130px;}
-#container div.idW{width:120px;}
-#container div.emailMemW{width:230px;}
-#container div.phoneMemW{width:150px;}
-#container div.joinDateW{width:150px;}
-#container div.deatilBottom{clear:both; position:relative;}
-
-*/
-
-/*검색바*/
-div.searchBox{height:38px; border:1px solid #d5d5d5; background-color:#fafafb;}
-div.searchBox input {width:195px; padding-left:5px; height:100%; border:none; float:left; background:url('/img/text.png') no-repeat 5px -1455px; Box-sizing: border-box}
-div.searchBox input.off {background:url('/img/text.png') no-repeat 5px -1455px;}
-div.searchBox input.on {background:none;}
-div.searchBox button{width:18px; height:100%;height:100%;height:100%; float:left; background:url('/img/img.png') no-repeat -356px -95px;}
-
-#footer{font-family:"나눔고딕"; width:100%; height:auto;line-height:54px; clear:both; text-align:center; margin:50px 0 50px;}
-
-span.selectS {width:62px; height:45px; background:url('/img/img.png') no-repeat;  background-position:-362px -1096px;}
-span.selectS button span{width:60px; padding-right:2px; background-position:23px 18px;}
-span.selectS ul{width:60px;}
-span.selectS ul li:last-child{background:url('/img/selectSmall.png') no-repeat;}
-
-
-ul.mainForm > li{clear:both;}
-ul.mainForm > li input[type='text']{border:1px solid #000;}
-ul.mainForm li.addPic {height:100px;}
-ul.mainForm li.addPic label {width:165px; height:100px; background:url('/img/img.png') no-repeat; background-position:-656px -1130px; float:left; text-indent:-1000em; cursor:pointer;}
-ul.mainForm li.addPic span.caption {width:150px; height:21px; background-position:-656px -618px; margin:41px 0 0 32px;}
-div.gnb > ul.menu {float:left;}
-#header {width:940px; margin:50px auto 0 ;}
-div.top{height:65px;}
-div.top > h1{float:left;}
-div.top > ul.tnb {margin-top:10px; float:right;}
-div.gnb > ul.menu > li a{ text-indent:-1000em;}
-li.login{width:75px; height:24px; background:url('/img/boardImage.png') no-repeat -301px -25px; text-indent:-1000em;}
-li.join{width:75px; height:24px; background:url('/img/boardImage.png') no-repeat -385px -25px; text-indent:-1000em;}
-li.info{width:75px; height:24px; background:url('/img/boardImage.png') no-repeat -560px -89px; text-indent:-1000em;}
-li.logOut{width:75px; height:24px; background:url('/img/boardImage.png') no-repeat -644px -89px; text-indent:-1000em;}
-
-div.gnb > ul.menu > li.home a{width:79px; height:75px; background:url('/img/boardImage.png') no-repeat -25px -454px;}
-div.gnb > ul.menu > li.board1 a{width:95px; height:75px; background:url('/img/boardImage.png') no-repeat -109px -454px;}
-div.gnb > ul.menu > li.board2 a{width:91px; height:75px; background:url('/img/boardImage.png') no-repeat -209px -454px;}
-div.gnb > ul.menu > li.gallery a{width:115px; height:75px; background:url('/img/boardImage.png') no-repeat -305px -454px;}
-div.gnb > ul.menu > li.bin {width:560px; height:75px; background:url('/img/boardImage.png') no-repeat -427px -454px;}
-
-div.gnb > ul.menu > li.home a:hover{width:79px; height:75px; background:url('/img/boardImage.png') no-repeat -25px -540px;}
-div.gnb > ul.menu > li.board1 a:hover{width:95px; height:75px; background:url('/img/boardImage.png') no-repeat -109px -540px;}
-div.gnb > ul.menu > li.board2 a:hover{width:91px; height:75px; background:url('/img/boardImage.png') no-repeat -207px -540px;}
-div.gnb > ul.menu > li.gallery a:hover{width:115px; height:75px; background:url('/img/boardImage.png') no-repeat -301px -540px;}
-
-div.top h1{width:155px; height:44px;}
-div.top h1 a{width:100%; height:100%; background:url('/img/boardImage.png') no-repeat -69px -64px; display:block;  text-indent:-1000em;}
-div.topImg {width:940px; height:104px; background:url('/img/boardImage.png') no-repeat -48px -320px;}
+/* info */
+form.infoForm{margin: 0 auto; width:910px; height:802px; background-color:#FFFFFF; padding:20px;}
+form.infoForm > span.modify{color:#028ad9; font-size:27px; margin-top:52px; text-align:center; Box-sizing: border-box;}
+form.infoForm > ul.modiForm{width:770px; margin: 70px auto 0;}
+form.infoForm > ul.modiForm > li{margin-top:25px;}
+form.infoForm > ul.modiForm > li > span.lab{font-weight: bold; font-size:16px; color:#485676; margin:0 0 10px 12px; width:50%;}
+form.infoForm > ul.modiForm > li > span.modify > input[type='text']{ width:770px; height:40px; background:url('/img/inputBar.png') no-repeat;}
+form.infoForm > ul.modiForm > li:last-child{margin-top:68px;}
  
-/*디테일 */
-div.comment{margin-left:28px;}
+form.infoForm > ul.modiForm > li:last-child > span.radio {width:100%; margin-top:23px;}
+form.infoForm > ul.modiForm > li:last-child > span.radio > label.chk2 {float:left; }
+form.infoForm > ul.modiForm > li:last-child > span.radio > label.chm {margin-left:19px;}
+form.infoForm > ul.modiForm > li:last-child > span.radio > label.chf {margin-left:52px;}
+form.infoForm > ul.modiForm > li:last-child > span.radio >span.labR{float:left; margin-left:9px;}
 
+form.infoForm > button{text-indent:-1000em; margin-top:128px; }
+div.btn{width:284px; margin:0 auto;}
+div.btn > button{text-indent:-1000em; margin-top:128px; }
+button.mPass{width:132px; height:40px; background:url('/img/infoButton.png') no-repeat; float:left; margin-left:0;}
+button.infoSave{width:132px; height:40px; background:url('/img/infoButton.png') no-repeat -152px 0; float:left; margin-left:20px;}
 
-li.btn{float:right; margin:10px 37px 0 0;}
-li.btn > button.cmtBtn{width:77px; height:11px; background:url('/img/boardImage.png') no-repeat -69px -197px; text-indent:-1000em;}
-span.input textarea.off{width:820px; height:66px; background:url('/img/boardImage.png') no-repeat -24px -637px; text-indent:-1000em; margin:26px 0 0 15px;}
-span.input textarea.on{width:820px; height:66px; background:url('/img/boardImage.png') no-repeat -24px -718px; margin:8px 0 0 15px;}
-
-button.icon{float:left;}
-
-button.golist {width:75px; height:24px; background:url('/img/boardImage.png') no-repeat -560px -129px; text-indent:-1000em;}
-button.del {width:75px; height:24px; background:url('/img/boardImage.png') no-repeat -56px -244px; text-indent:-1000em; margin-left:7px}
-button.admindel {width:75px; height:24px; background:url('/img/boardImage.png') no-repeat -56px -244px; text-indent:-1000em; margin:25px 0 0 7px}
-button.modify {width:75px; height:24px; background:url('/img/boardImage.png') no-repeat -140px -244px; text-indent:-1000em; margin-left:7px;}
-/*button.write {float:right; width:95px; height:34px; background:url('/img/boardImage.png') no-repeat -307px -239px; text-indent:-1000em; margin-left:7px;}*/
-
-span.cmtCount{margin-left:20px;}
-ul.cmtOutput > li {margin:30px;}
-
-span.conOutput{min-height:400px; margin-top:22px;}
-div.title>span.title{margin-left:30px;}
-div.rightWriter{float:right; margin-right:25px;}
-ul.cmtInput{height:120px;}
-
-/*로그인*/
-div.loginBox > div.loginInput > div.idpwd > ul{float:left; width:600px;}
-div.loginBox > ul > li{clear:both;}
-div.loginBox > div.loginInput > div.idpwd > ul > li:first-child > span.inputT > input.loginOff{width:216px; height:35px; background:url('/img/boardImage.png') no-repeat -682px -210px; float:left;}
-div.loginBox > div.loginInput > div.idpwd > ul > li:nth-child(2) > span.inputT > input.loginOff{width:216px; height:35px; background:url('/img/boardImage.png') no-repeat -682px -253px; margin-left:115px;}
-
-div.loginBox > div.loginInput > div.idpwd > ul > li:first-child > span.inputT > input.loginOn{width:216px; height:35px; background:url('/img/boardImage.png') no-repeat -24px -963px; float:left;}
-div.loginBox > div.loginInput > div.idpwd > ul > li:nth-child(2) > span.inputT > input.loginOn{width:216px; height:35px; background:url('/img/boardImage.png') no-repeat -24px -963px; margin-left:115px;}
-
-div.chkGroup{clear:both; margin:60px 0 0 119px; }
-div.loginBox > div.loginInput > div.idpwd >  button{width:90px; height:78px; background:url('/img/boardImage.png') no-repeat -559px -215px; text-indent:-1000em; float:left; margin:3px 0 0 5px;}
-div.loginText{margin-left:119px;}
-div.loginText > ul > li{float:left; text-indent:-1000em; margin-top:15px;}
-div.loginText > ul > li:first-child >  span.ans{width:55px; height:12px; background:url('/img/boardImage.png') no-repeat -688px -134px;}
-div.loginText > ul > li:nth-child(2) >  span.ans{width:60px; height:12px; background:url('/img/boardImage.png') no-repeat -757px -134px; margin-left:18px;}
-div.loginText > ul > li:last-child >  span.ans{width:65px; height:12px; background:url('/img/boardImage.png') no-repeat -831px -134px; margin-left:18px; }
+ul.period > li.month > span.birthselect{margin-left:25px;}
+ul.period > li.theDay > span.birthselect{margin-left:25px;}
+div.message{position:relative; width:945px; height:50px; clear:both; margin-bottom:20px;}

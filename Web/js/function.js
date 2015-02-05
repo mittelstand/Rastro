@@ -859,30 +859,66 @@ function appendNum(obj,startNum,endNum,selectNum,step){
 	var ul	   = obj.find("ul");
 	var back   = obj.find("div.bg");
 	ul.empty();
-	for(var i = startNum; i <= endNum; i=i+step ){
-		var aText = $("<a href='javascript:;'>"+AddZero(i,2)+"</a>");		
+	if(input.val()){
+		selectNum = input.val();
+	}
+	if(step > 0){
+		for(var i = startNum; i <= endNum; i=i+step ){
+			var aText = $("<a href='javascript:;'>"+AddZero(i,2)+"</a>");		
 
-		aText.click(function(){				
-			input.val($(this).text());
-			text.text($(this).text());
-			ul.css("display","none");
-			back.css("display","none");			
-			input.change();
-		});
-		var li = $("<li></li>");
-		li.append(aText);
-		ul.append(li);
-	}
-	if(startNum > selectNum){
-		input.val(AddZero(startNum,2));
-		text.text(AddZero(startNum,2));
-	}else if(endNum < selectNum){			
-		input.val(AddZero(endNum,2));
-		text.text(AddZero(endNum,2));
+			aText.click(function(){				
+				input.val($(this).text());
+				text.text($(this).text());
+				ul.css("display","none");
+				back.css("display","none");			
+				input.change();
+			});
+			var li = $("<li></li>");
+			li.append(aText);
+			ul.append(li);
+		}
+		if(selectNum!=""){
+			if(startNum > selectNum){
+				input.val(AddZero(startNum,2));
+				text.text(AddZero(startNum,2));
+			}else if(endNum < selectNum){			
+				input.val(AddZero(endNum,2));
+				text.text(AddZero(endNum,2));
+			}else{
+				input.val(AddZero(selectNum,2));
+				text.text(AddZero(selectNum,2));
+			}
+		}
 	}else{
-		input.val(AddZero(selectNum,2));
-		text.text(AddZero(selectNum,2));
+		for(var i = startNum; i >= endNum; i=i+step ){
+			var aText = $("<a href='javascript:;'>"+AddZero(i,2)+"</a>");		
+
+			aText.click(function(){				
+				input.val($(this).text());
+				text.text($(this).text());
+				ul.css("display","none");
+				back.css("display","none");			
+				input.change();
+			});
+			var li = $("<li></li>");
+			li.append(aText);
+			ul.append(li);
+		}
+		if(selectNum!=""){
+			if(startNum < selectNum){
+				input.val(AddZero(startNum,2));
+				text.text(AddZero(startNum,2));
+			}else if(endNum > selectNum){			
+				input.val(AddZero(endNum,2));
+				text.text(AddZero(endNum,2));
+			}else{
+				input.val(AddZero(selectNum,2));
+				text.text(AddZero(selectNum,2));
+			}
+		}
+	
 	}
+	
 	text.css("background","none");
 };
 
@@ -928,4 +964,42 @@ function getMatNum(s){
 	if (!re.test(s)) return null;
 	r = s.match(re);
 	return(r);	
+}
+
+function MAlert(msg, pat){
+console.log(pat);
+	var newDiv, newEnd, newButton;
+	
+	
+	$("span.msgBox").remove();
+	$("button.msgButton").remove();
+	//newDiv = document.createElement("span");
+	pat.attr("class", "inputOn");
+	newDiv = $("<span class='msgBox'></span>");
+	newDiv.css({"width":"100%", "height":"50px", "padding-left":"10px","box-sizing":"border-box", "line-height":"50px", "background":"url('/img/longOne.png') no-repeat"});
+
+	newButton = $("<button class = 'msgButton'></button>");
+	newButton.text("삭제");
+	newButton.css({"width":"30px", "height":"30px", "background":"url('/img/x.png') no-repeat", "text-indent":"-1000em", "position":"absolute", "top":"10px", "right":"10px"});
+
+	newEnd = $("<span class='msgEnd'></span>");
+	newEnd.text(msg);
+	newDiv.append(newEnd);
+	newEnd.css({"width":"100%", "height":"100%", "background":"url('/img/longTwo.png') right 0 no-repeat", "display":"block", "color":"#FF3636"});
+
+	$("div.message").append(newDiv);
+	$("div.message").append(newButton);
+
+	newButton.click(function(){
+		newDiv.remove();
+		newButton.remove();
+		pat.attr("class", "input");
+	});
+	
+	setTimeout(function(){
+		newDiv.remove();
+		newButton.remove();		
+		pat.attr("class", "input");
+	}, 5000);
+	
 }

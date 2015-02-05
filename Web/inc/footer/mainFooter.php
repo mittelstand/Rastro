@@ -1,3 +1,4 @@
+	<div style="clear:both;"></div>
 </div>
 <script>
 function chn(){
@@ -17,9 +18,9 @@ function chn(){
 		text.css("background","none");
 	}
 }
-/* $("textarea").each(function(){ 
+$("textarea").each(function(){
 	//$(this).focus();
-});*/
+});
 $(window).scrollTop(0);
 function select(){
 	var input		  = $(this).find("input.value");		//실제 제출되는 값
@@ -44,14 +45,12 @@ function select(){
 	}
 	button.click(function(){
 		$(this).unbind("mouseleave");
-		
 		$(window).unbind("click");
 		$(this).unbind("hover");
 		$("span.select").each(function(){
 			autherUl = $(this).find("ul");
-			if(autherUl.attr("global")!="on"){
-				autherUl.css("display","none");
-			}
+			autherUl.css("display","none");
+			$(this).find("div.bg").css("display","none");
 		});
 		if(ul.css("display")=="none"){	
 			ul.css("display","");
@@ -64,8 +63,6 @@ function select(){
 			//text.css("background","url('/img/arrowDown.png') no-repeat right center");
 			back.css("display","none");
 		};
-		
-	
 		$(this).mouseleave(function(){
 			$(window).click(function(){
 				back.css("display","none");
@@ -75,10 +72,11 @@ function select(){
 			$(this).hover(function(){
 				$(window).unbind("click");		
 			});	
-				//text.css("background","url('/img/arrowDown.png') no-repeat right center");
 			//text.css("background","url('/img/arrowDown.png') no-repeat right center");
 		});
+			
 	});
+	
 	li.each(function(){
 		var a = $(this).find("a");
 		a.click(function(){
@@ -96,6 +94,7 @@ function select(){
 				text.css("background","none");
 			}
 			input.change();
+			$(window).unbind("click");	
 		});
 	});
 }
@@ -119,9 +118,50 @@ $("#emailSelect").change(function(){
 });
 var gap = 34;
 $(document).ready(function(){
-	$("[type='radio']").change(function(){
+	$("[type='checkbox']").each(function(){
+		$(this).change(function(){
+		
+			if($(this).attr("class")=="box"){
+				chkChnage($(this),30);
+			}else{					
+				chkChnage($(this),25);
+			}
+		});
+		if($(this).attr("global")!="-881"){
+			$(this).change();
+		}else{
+		}
+		
+	});
+	ret = 1;	
+
+
+	$("#checkAll").change(function(){
+		if($(this).is(":checked")){
+			$("#mainForm input.ckBox").each(function(){
+				$(this).prop("checked",true);
+				chkChnage($(this),25);
+			});
+		}else{
+			$("#mainForm input.ckBox").each(function(){
+				$(this).prop("checked",false);
+				chkChnage($(this),25);
+			});
+		}
+	});
+	$("#mainForm input.ckBox").each(function(){
+		$(this).change(function(){
+			if($(this).is(":checked")){
+			}else{
+				$("#checkAll").attr("checked",false);
+				chkChnage($("#checkAll"),25);
+			}
+			
+		});
+	});	
+$("[type='radio']").change(function(){
 		$("[name='"+$(this).attr("name")+"']").each(function(){
-			radioChnage($(this),33);
+			radioChnage($(this),21);
 						
 		});		
 	});			 
@@ -132,11 +172,7 @@ $(document).ready(function(){
 	$("li.groupradio").hide();
 	
 	$(window).scrollTop(0);
-})
-
-
-
-
+});
 </script>
 
 <?

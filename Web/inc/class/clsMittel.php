@@ -119,8 +119,6 @@ Class Mittel{
 						$date = explode("-",$div[0]);
 						$time = explode(":",$div[1]);
 						$col[$fild2[$key]]['all'] = $div[0];
-						$col[$fild2[$key]]['allTime'] = $div[0]." ".substr($div[1],0,5);
-						$col[$fild2[$key]]['all'] = $div[0];
 						$col[$fild2[$key]]['y'] = $date[0];
 						$col[$fild2[$key]]['m'] = $date[1];
 						$col[$fild2[$key]]['d'] = $date[2];
@@ -146,7 +144,7 @@ Class Mittel{
 					case "member":
 						$col[$fild2[$key]]['id'] = $val;
 						$db->table = "member";
-						$db->field = "id,name,email,pwd,phone,mdate,cdate,sex";
+						$db->field = "id,name,email,pwd,phone,job,mdate,cdate";
 						$db->where = "id = '".$val."'";
 						$db->orderBy = "";
 						$mSel = $db->Select();
@@ -289,8 +287,8 @@ Class Mittel{
 					case "member":
 						$col[$fild2[$key]]['id'] = $val;
 						$db->table = "member";
-						$db->field = "id,name,email,pwd,phone,mdate,cdate,sex";
-						$db->where = "idx = '".$val."'";
+						$db->field = "id,name,email,pwd,phone,job,mdate,cdate";
+						$db->where = "id = '".$val."'";
 						$db->orderBy = "";
 						$mSel = $db->Select();
 						$mRow = mysql_fetch_array($mSel);

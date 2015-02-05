@@ -29,8 +29,9 @@ span.selectbox ul{width:100%; top:26px}
 span.selectbox ul li{width:100% !important; height:36px !important; background:url('/img/select/selectbox_repeat.gif') repeat-y !important;}
 span.selectbox ul li a{padding:6px 0px 0 0px; text-align:center;}
 span.selectbox ul li:last-child a{height:36px !important;}
-span.selectbox ul li:last-child{height:47px !important; background:url('/img/select/selectbox_last.gif') no-repeat !important;}span.selectH {width:132px; height:32px !important; background:url('/img/select/selectH.png') no-repeat;}
-span.selectH button span{padding:4px 0px 0 0px; ; }
+span.selectbox ul li:last-child{height:47px !important; background:url('/img/select/selectbox_last.gif') no-repeat !important;}
+span.selectH {width:132px; height:32px !important; background:url('/img/select/selectH.png') no-repeat;}
+span.selectH button span{padding:8px 0px 0 0px; ; }
 span.selectH ul{width:100%; top:24px}
 span.selectH ul li{width:100% !important; height:32px !important; background:url('/img/select/selectH_repeat.png') repeat-y !important;}
 span.selectH ul li a{padding:4px 0px 0 0px; ;}
@@ -41,22 +42,35 @@ span.selectH2 ul{width:100%; top:26px}
 span.selectH2 ul li{width:100% !important; height:32px !important; background:url('/img/select/selectH2_repeat.png') repeat-y !important;}
 span.selectH2 ul li a{padding:4px 0px 0 0px; text-align:center;}
 span.selectH2 ul li:last-child a{height:32px !important;}
-span.selectH2 ul li:last-child{height:39px !important; background:url('/img/select/selectH2_last.png') no-repeat !important;}span.ì„ íƒí•˜ì„¸ìš” {width:0px; height:0px !important; background:url('/img/select/ì„ íƒí•˜ì„¸ìš”.') no-repeat;}
-span.ì„ íƒí•˜ì„¸ìš” button span{padding:-12px 0px 0 0px; ; }
-span.ì„ íƒí•˜ì„¸ìš” ul{width:100%; top:10px}
-span.ì„ íƒí•˜ì„¸ìš” ul li{width:100% !important; height:0px !important; background:url('/img/select/ì„ íƒí•˜ì„¸ìš”_repeat.') repeat-y !important;}
-span.ì„ íƒí•˜ì„¸ìš” ul li a{padding:-12px 0px 0 0px; ;}
-span.ì„ íƒí•˜ì„¸ìš” ul li:last-child a{height:0px !important;}
-span.ì„ íƒí•˜ì„¸ìš” ul li:last-child{height:-9px !important; background:url('/img/select/ì„ íƒí•˜ì„¸ìš”_last.') no-repeat !important;}span.ykselect {width:234px; height:73px !important; background:url('/img/select/ykselect.png') no-repeat;}
+span.selectH2 ul li:last-child{height:39px !important; background:url('/img/select/selectH2_last.png') no-repeat !important;}span.¼±ÅÃÇÏ¼¼¿ä {width:0px; height:0px !important; background:url('/img/select/¼±ÅÃÇÏ¼¼¿ä.') no-repeat;}
+span.¼±ÅÃÇÏ¼¼¿ä button span{padding:-12px 0px 0 0px; ; }
+span.¼±ÅÃÇÏ¼¼¿ä ul{width:100%; top:0px}
+span.¼±ÅÃÇÏ¼¼¿ä ul li{width:100% !important; height:0px !important; background:url('/img/select/¼±ÅÃÇÏ¼¼¿ä_repeat.') repeat-y !important;}
+span.¼±ÅÃÇÏ¼¼¿ä ul li a{padding:-12px 0px 0 0px; ;}
+span.¼±ÅÃÇÏ¼¼¿ä ul li:last-child a{height:0px !important;}
+span.¼±ÅÃÇÏ¼¼¿ä ul li:last-child{height:1px !important; background:url('/img/select/¼±ÅÃÇÏ¼¼¿ä_last.') no-repeat !important;}span.ykselect {width:234px; height:73px !important; background:url('/img/select/ykselect.png') no-repeat;}
 span.ykselect button span{padding:24px 0px 0 0px; ; }
 span.ykselect ul{width:100%; top:56px}
 span.ykselect ul li{width:100% !important; height:73px !important; background:url('/img/select/ykselect_repeat.png') repeat-y !important;}
 span.ykselect ul li a{padding:24px 0px 0 0px; ;}
 span.ykselect ul li:last-child a{height:73px !important;}
-span.ykselect ul li:last-child{height:91px !important; background:url('/img/select/ykselect_last.png') no-repeat !important;}span.selectR {width:100px; height:45px !important; background:url('/img/select/selectR.png') no-repeat;}
+span.ykselect ul li:last-child{height:91px !important; background:url('/img/select/ykselect_last.png') no-repeat !important;}
+
+span.selectR {width:100px; height:45px !important; background:url('/img/select/selectR.png') no-repeat;}
 span.selectR button span{padding:10px 0px 0 0px; ; }
-span.selectR ul{width:100%; top:38px}
-span.selectR ul li{width:100% !important; height:45px !important; background:url('/img/select/selectR_repeat.png') repeat-y !important;}
+span.selectR ul{width:100%; height:197px !important; top:45px;}
+span.selectR div.bg{width:100%; height:202px; background:url('/img/select/selectR_back.png') no-repeat; top:45px;}
+span.selectR ul li{width:100% !important; height:45px !important;}
 span.selectR ul li a{padding:10px 0px 0 0px; ;}
 span.selectR ul li:last-child a{height:45px !important;}
-span.selectR ul li:last-child{height:53px !important; background:url('/img/select/selectR_last.png') no-repeat !important;}
+span.selectR ul li:last-child{height:53px !important; }
+
+span.birthselect {width:240px; height:40px !important; background:url('/img/select/birthselect.png') no-repeat;}
+span.birthselect button span{padding:8px 0px 0 0px; }
+span.birthselect ul{width:100%; height:197px !important; top:40px}
+span.birthselect div.bg{width:100%; height:202px; background:url('/img/select/birth_back.png') no-repeat; top:40px;}
+span.birthselect ul li{width:100% !important; height:40px !important; }
+span.birthselect ul li a{padding:8px 0px 0 0px; ;}
+span.birthselect ul li:last-child a{height:40px !important;}
+span.birthselect ul li:last-child{height:51px !important; }
+

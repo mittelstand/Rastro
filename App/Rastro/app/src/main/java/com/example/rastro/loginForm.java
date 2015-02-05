@@ -30,7 +30,6 @@ import java.util.List;
 import Thread.FacebookLoginThread;
 import Thread.loginThread;
 import utility.BackPressCloseHandler;
-import utility.NetworkConnectionCheck;
 import utility.RbPreference;
 
 public class loginForm extends Activity{
@@ -43,8 +42,7 @@ public class loginForm extends Activity{
 	FacebookLoginThread Flt;
 	ProgressDialog dialog = null;
 	BackPressCloseHandler bpch;
-    NetworkConnectionCheck NCC;
-    @Override
+	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
@@ -52,8 +50,8 @@ public class loginForm extends Activity{
 		 editPwd = (EditText)findViewById(R.id.editPwd);
 		 editEmail = (EditText)findViewById(R.id.editEmail);
 		 joinTv = (TextView)findViewById(R.id.joinTv);
-		 bpch= new BackPressCloseHandler(loginForm.this);
-
+		 bpch= new BackPressCloseHandler(loginForm.this); 
+		 
 		 joinTv.setOnClickListener(new OnClickListener() {
 			 //가입화면으로 가기
 			@Override
@@ -63,38 +61,24 @@ public class loginForm extends Activity{
 				finish();
 			}
 		});
-
-
-
 	}
 	public void loginform(View v){
 		switch (v.getId()) {
 		case R.id.login://일반 로그인 버튼
-
-
-            email = editEmail.getText().toString();
+			email = editEmail.getText().toString();
 			pwd = editPwd.getText().toString();
-
 			String url = "http://rastro.kr/app/loginChk.php";
-
 			dialog = ProgressDialog.show(loginForm.this, "", "Loading.....");
-            NCC = new NetworkConnectionCheck(loginForm.this,dialog);
-            NCC.isNetworkStat();
-
 			lT = new loginThread(email, pwd, url, mHandler,dialog);//일반 로그인 쓰레드
 			lT.start();
 			break;
 		case R.id.fblogin: //페이스북 로그인 버튼
-
 			dialog = ProgressDialog.show(loginForm.this, "", "Loading.....");
-            NCC = new NetworkConnectionCheck(loginForm.this,dialog);
-            NCC.isNetworkStat();
 			FacebookLogin();
 		}
 	}
 	//페이스북 로그인연동부분
 	public void FacebookLogin(){
-
 		Session.openActiveSession(loginForm.this,true, new Session.StatusCallback() {	
 			@Override
 			public void call(Session session, SessionState state, Exception exception) {
@@ -212,10 +196,10 @@ public class loginForm extends Activity{
 				Flt.interrupt();
 				
 			}
-//			if(msg.what==5){//연결 실패
-//			dialog.dismiss();
-//			Toast.makeText(loginForm.this, R.string.noConnection, Toast.LENGTH_SHORT).show();
-//			}
+			if(msg.what==5){//연결 실패
+			dialog.dismiss();
+			Toast.makeText(loginForm.this, R.string.noConnection, Toast.LENGTH_SHORT).show();
+			}
 		}
 	};
 	

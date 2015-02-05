@@ -335,14 +335,10 @@ public class profileForm extends SlidingActivity{
                         public void run() {
                             // TODO Auto-generated method stub
 
-
-
-                            bt =  getImageFromURL("https://graph.facebook.com/"+fbcode+"/picture?type=large");
+                            bt =  getImageFromURL("https://graph.facebook.com/"+fbcode+"/picture");
                             runOnUiThread(new Runnable() {
                                 public void run() {
-                                    Image.setScaleType(ImageView.ScaleType.FIT_CENTER);
-                                            Image.setImageBitmap(bt);
-
+                                    Image.setImageBitmap(bt);
                                 }
                             });
                         }

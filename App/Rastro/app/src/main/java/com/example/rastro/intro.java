@@ -2,20 +2,14 @@
 package com.example.rastro;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 
 import Thread.FacebookLoginThread;
 import Thread.loginThread;
-import utility.NetworkConnectionCheck;
 import utility.RbPreference;
 /**
  * Created by 아연이 on 2015-01-23.
@@ -25,7 +19,6 @@ public class intro extends Activity {
     loginThread lT;
     FacebookLoginThread Flt;
     RbPreference pref;
-    NetworkConnectionCheck NCC;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,15 +50,12 @@ public class intro extends Activity {
             String pwd1 = pref.getValue("pwd", "");
             String url = "http://rastro.kr/app/loginChk.php";
 //			dialog = ProgressDialog.show(Intro.this, "", "Loading.....");
-            isNetworkStat(intro.this);
             lT = new loginThread(email1, pwd1, url, mHandler,dialog);//로그인쓰레드
             lT.start();
         }if(pref.getValue("id", "")!=""){//페이스북으로 로그인체크(페이스북ID 존재하면)
             String email = pref.getValue("email", "");
             String url="http://rastro.kr/app/appFbLoginChk.php";
-            isNetworkStat(intro.this);
 //			dialog = ProgressDialog.show(Intro.this, "", "Loading.....");
-
             Flt = new FacebookLoginThread(mHandler, url,email);//페이스북쓰레드
             Flt.start();
         }
@@ -116,39 +106,6 @@ public class intro extends Activity {
                 }
             }
         };
-    }
-    public boolean isNetworkStat(final Context context) {//네트워크 연결 체크
-        ConnectivityManager manager =
-                (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo mobile = manager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
-        NetworkInfo wifi = manager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
-        NetworkInfo lte_4g = manager.getNetworkInfo(ConnectivityManager.TYPE_WIMAX);
-        boolean blte_4g = false;
-        if(lte_4g != null)
-            blte_4g = lte_4g.isConnected();
-        if( mobile != null ) {
-            if (mobile.isConnected() || wifi.isConnected() || blte_4g)
-
-                return true;
-        } else {
-            if ( wifi.isConnected() || blte_4g )
-
-                return true;
-        }
-
-        AlertDialog.Builder dlg = new AlertDialog.Builder(context);
-        dlg.setTitle("네트워크 오류");
-        dlg.setMessage("네트워크 상태를 확인해 주십시요.");
-
-        dlg.setNegativeButton("확인", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                dialog.dismiss();
-                finish();
-
-            }
-        });
-        dlg.show();
-        return false;
     }
 }
 

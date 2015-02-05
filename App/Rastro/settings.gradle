@@ -1,3 +1,0 @@
-include ':app', ':library'
-include ':libraries:facebook'
-include ':libraries:library'

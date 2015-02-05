@@ -36,6 +36,7 @@ import java.util.regex.Pattern;
 import Thread.FacebookJoinThread;
 import Thread.joinThread;
 import utility.BackPressCloseHandler;
+import utility.NetworkConnectionCheck;
 import utility.RbPreference;
 
 public class JoinForm extends Activity {
@@ -48,7 +49,7 @@ public class JoinForm extends Activity {
 	RbPreference pref;
 	RadioGroup radiogroup;
 	RadioButton rbMan,rbWoman;
-
+    NetworkConnectionCheck NCC;
 	BackPressCloseHandler bpch;
 	
 	@Override
@@ -137,12 +138,19 @@ public class JoinForm extends Activity {
 				Toast.makeText(JoinForm.this, getString(R.string.pwchangeLimit), Toast.LENGTH_SHORT).show();
 				return;
 			}
+
 			dialog = ProgressDialog.show(JoinForm.this, "", "Loading.....");//로딩창
+
+            NCC = new NetworkConnectionCheck(JoinForm.this,dialog);
+            NCC.isNetworkStat();
 			 String  URL = "http://rastro.kr/app/appJoinInsert.php";//주소
 			 joinThread jT = new joinThread(name,email,pwd,mHandler,URL);//회원가입쓰레드 
 			 jT.start();
 			break;
 		case R.id.fbBtn:
+            dialog = ProgressDialog.show(JoinForm.this, "", "Loading.....");//로딩창
+            NCC = new NetworkConnectionCheck(JoinForm.this,dialog);
+            NCC.isNetworkStat();
 			FacebookLogin();//페이스북 로그인연동
 			break;
 		}

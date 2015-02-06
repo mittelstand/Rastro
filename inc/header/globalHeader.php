@@ -12,13 +12,13 @@ if((strpos($_SERVER["HTTP_HOST"],"www.rastro")===0)){
 	<?
 	exit;
 }
-if($_SERVER["HTTP_HOST"]=="solive.kr"){
+//if($_SERVER["HTTP_HOST"]=="solive.kr"){
 ?>
 	<script>
-		location.href = "http://www.solive.kr";
+		//location.href = "http://www.solive.kr";
 	</script>
 <?
-	exit();
+	//exit();
 }
 
 

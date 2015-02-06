@@ -10,7 +10,7 @@ if(strlen($_SESSION['idx']) <= 0){
 	
 	$db = new Dbcon();
 	$db->table = "member";
-	$db->field = "email, name, dob, sex, Ps";
+	$db->field = "email, name, dob, sex, fbcode, Ps";
 	$db->where = "idx=".$_SESSION["idx"];
 	$rel= $db->Select();
 	$array = mysql_fetch_assoc($rel);
@@ -31,6 +31,16 @@ if(strlen($_SESSION['idx']) <= 0){
 			<label for="picture" class="pic">
 				<input type="file" name="picture" id="picture" value="<? echo $array["Ps"]=="" ? "":str_replace("/HCK/rastro.kr/public_html","",$array['Ps'])?>"/>
 			</label>
+			<?
+				if($array["fbcode"] != "NULL"){
+			?>
+			<button type = "button">페이스북 사진<button>
+			<script>
+				
+			</script>
+			<?
+				}
+			?>
 			<? if($array['Ps']){ ?>
 			<input type="hidden" name="imgModi" value="y" />
 			<script>

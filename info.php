@@ -27,9 +27,9 @@ if(strlen($_SESSION['idx']) <= 0){
 	<ul class="modiForm">
 		<li class="email list">
 			<span class="lab">프로필 사진</span>
-			<input type="text" name="lastPic" value="<? echo $array["Ps"]=="" ? "":str_replace("/HCK/messagebox.co.kr/public_html","",$array['Ps'])?>" />
+			<input type="text" name="lastPic" value="<? echo $array["Ps"]=="" ? "":str_replace("/HCK/rastro.kr/public_html","",$array['Ps'])?>" />
 			<label for="picture" class="pic">
-				<input type="file" name="picture" id="picture" value="<? echo $array["Ps"]=="" ? "":str_replace("/HCK/messagebox.co.kr/public_html","",$array['Ps'])?>"/>
+				<input type="file" name="picture" id="picture" value="<? echo $array["Ps"]=="" ? "":str_replace("/HCK/rastro.kr/public_html","",$array['Ps'])?>"/>
 			</label>
 			<? if($array['Ps']){ ?>
 			<input type="hidden" name="imgModi" value="y" />

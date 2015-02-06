@@ -3,11 +3,11 @@
 
 include $dir."/inc/header/inc.php";
 
-
-if((strpos($_SERVER["HTTP_HOST"],"admin.solive")===0) and ($_SESSION['amin']!="admin") and !(strpos($_SERVER["HTTP_REFERER"],"/adminLogin.php"))){	
+//if((strpos($_SERVER["HTTP_HOST"],"www.solive")===0) and ($_SESSION['amin']!="admin") and !(strpos($_SERVER["HTTP_REFERER"],"/adminLogin.php"))){
+if((strpos($_SERVER["HTTP_HOST"],"www.rastro")===0)){	
 	?>
 	<script>
-		location.href = "/adminLogin.php";
+		location.href = "/";
 	</script>
 	<?
 	exit;

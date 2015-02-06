@@ -6,10 +6,10 @@
 	$db = new Dbcon();
 	$db->table = "member";
 	$birth = $_POST["birthYear"]."-".$_POST["birthMonth"]."-".$_POST["birthDay"];
-	$uploadDir = $dir."/file/Ps/";
+	$uploadDir = $dir."/file/";
 
 	if($_FILES["picture"]){
-		unlink("'".str_replace("/HCK/rastro.kr/public_html",$_POST['lastPic'])."'");
+		unlink("'".$_POST['lastPic'])"'");
 		$exp = explode(".",$_FILES["picture"]["name"]);
 
 		$newName = $uploadDir.time().$_SESSION["idx"].".".$exp[1];

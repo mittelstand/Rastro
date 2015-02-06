@@ -45,7 +45,7 @@ h2{width:321px; text-align:center; font-size:25px; margin:50px auto 35px; color:
 div.leftObj{width:100%;   Box-sizing: border-box; clear:both;  text-align:center; font-weight:bold; color:#FFF; margin-bottom:57px;}
 div.leftObj span span{display:inline;}
 div.leftObj span.text1{font-weight:bold; font-size:29px; color:#323232; text-align:center;}
-div.leftObj span.text2{font-size:16px; color:#323232; margin:40px 0 20px; text-align:center; line-height:30px;}
+div.leftObj span.text2{font-size:16px; color:#323232; margin:40px 0 10px; text-align:center; line-height:25px;}
 div.leftObj span.text2 span.b{font-size:17px; color:#be3f3f; text-decoration:underline;}
 div.leftObj span.text3{font-size:21px; color:#00078b; margin-top:53px; text-align:center;}
 

@@ -16,7 +16,7 @@ if($cnt<=0){
 	echo "fail";
 }else{
 
-$db->field = "email,dob,name,sex,idx,Ps,pwd";
+$db->field = "email,dob,name,sex,idx,Ps,pw";
 $db->where = "idx='".$row['idx']."'";
 $db->ExportJson();
 

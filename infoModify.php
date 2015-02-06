@@ -9,7 +9,7 @@
 	$uploadDir = $dir."/file/";
 
 	if($_FILES["picture"]){
-		unlink("'".$_POST['lastPic'])"'");
+		unlink($_POST['lastPic']));
 		$exp = explode(".",$_FILES["picture"]["name"]);
 
 		$newName = $uploadDir.time().$_SESSION["idx"].".".$exp[1];

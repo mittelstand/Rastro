@@ -33,6 +33,7 @@ if ($user) {
 } else {
   $loginUrl = $facebook->getLoginUrl(array('scope'=>'user_birthday,email'));
 }
+//ㄴㅇㄴㅇㄴㅇ
 unset($facebook);
 if($_SESSION['idx']){
 ?>

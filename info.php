@@ -40,7 +40,7 @@ if(strlen($_SESSION['idx']) <= 0){
 				if($array["fbcode"]){
 			?>
 			<button type = "button" id = "fbImg">페이스북 사진</button>
-			<input type = "hidden" name="fbChange" id = "fbChange" value="sdsfsdf"/>
+			<input type = "hidden" name="fbChange" id = "fbChange" value="sdsfsdf" value = ""/>
 			<?
 				}
 			?>

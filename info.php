@@ -40,6 +40,7 @@ if(strlen($_SESSION['idx']) <= 0){
 				if($array["fbcode"]){
 			?>
 			<button type = "button" id = "fbImg">페이스북 사진<button>
+			<input type = "hidden" name="fbChange" id = "fbChange" value=""/>
 			<?
 				}
 			?>
@@ -182,6 +183,7 @@ $("#fbImg").click(function(){
 	var fbImage = new Image();
 	fbImage.src = "https://graph.facebook.com/<?=$array['fbcode']?>/picture";
 	$("label[for='picture']").css("background","url('https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large') no-repeat 0 0");
+	$("#fbChange").attr("value","https://graph.facebook.com/<?=$array['fbcode']?>/picture");
 				
 	if(fbImage.width > fbImage.height){
 		$("label[for='picture']").css('background-size',"auto 100%");

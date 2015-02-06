@@ -34,13 +34,13 @@ if(strlen($_SESSION['idx']) <= 0){
 			<span class="lab">프로필 사진</span>
 			<input type="hidden" name="lastPic" value="<? echo $array["Ps"]=="" ? "":str_replace("/HCK/rastro.kr/public_html","",$array['Ps'])?>" />
 			<label for="picture" class="pic">
-				<input type="file" name="picture" id="picture"/>
+				<input type="file" name="picture" id="picture" value=""/>
 			</label>
 			<?
 				if($array["fbcode"]){
 			?>
 			<button type = "button" id = "fbImg">페이스북 사진</button>
-			<input type = "hidden" name="fbChange" id = "fbChange" value="sdsfsdf" value = ""/>
+			<input type = "hidden" name="fbChange" id = "fbChange" value="sdsfsdf"/>
 			<?
 				}
 			?>

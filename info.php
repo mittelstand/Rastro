@@ -174,8 +174,8 @@ function readURL(input,obj) {
 }
 
 $("#fbImg").click(function(){
-	imagef = new Image();
-	imagef.src = "https://graph.facebook.com/<?=$array['fbcode']?>/picture";
+	var fbImage = new Image();
+	fbImage.src = "https://graph.facebook.com/<?=$array['fbcode']?>/picture";
 	$("label[for='picture']").css("background","url('https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large' no-repeat 0 0");
 				
 	if(imagef.width > imagef.height){

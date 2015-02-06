@@ -6,7 +6,7 @@ $uploadDir = $dir."/file/";
 $fileName = $_POST['fName'];
 
 
-$uploadFile = $uploadDir.time()."_".$_FILES['uploadedfile']['name'];
+$uploadFile = $uploadDir.time().$_FILES['uploadedfile']['name'];
 	$db = new Dbcon();
 	$db->table = "member";
 	$db->field="Ps";

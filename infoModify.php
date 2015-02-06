@@ -7,15 +7,18 @@
 	$db->table = "member";
 	$birth = $_POST["birthYear"]."-".$_POST["birthMonth"]."-".$_POST["birthDay"];
 	$uploadDir = $dir."/file/Ps/";
-	if($_FILES["picture"]){
-		unlink(str_replace("/HCK/rastro.kr/public_html",$_POST['lastPic']));
 
-		$newName = $uploadDir.time().$_FILES["picture"]["name"];
+	if($_FILES["picture"]){
+		unlink("'".str_replace("/HCK/rastro.kr/public_html",$_POST['lastPic'])."'");
+		$exp = explode(".",$_FILES["picture"]["name"]);
+
+		$newName = $uploadDir.time().$_SESSION["idx"].$exp[1];
 		$db->field = "email = '".$_POST["email"]."', name='".$_POST["name"]."', dob='".$birth."', sex='".$_POST["sex"]."', Ps='".$newName."'";
 		move_uploaded_file($_FILES['picture']['tmp_name'], $newName);
 	}else{
 		$db->field = "email = '".$_POST["email"]."', name='".$_POST["name"]."', dob='".$birth."', sex='".$_POST["sex"]."'";
 	}
+	
 	$db->where = "idx=".$_SESSION['idx'];	
 	$db->Update();
 ?>

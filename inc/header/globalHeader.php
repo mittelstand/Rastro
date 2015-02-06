@@ -1,9 +1,11 @@
 <?include $dir."/inc/header/inc.php";
 //if((strpos($_SERVER["HTTP_HOST"],"www.solive")===0) and ($_SESSION['amin']!="admin") and !(strpos($_SERVER["HTTP_REFERER"],"/adminLogin.php"))){
-if((strpos($_SERVER["HTTP_HOST"],"www.rastro")===0)){	
+if((strpos($_SERVER["HTTP_HOST"],"www.rastro")===0)){
+	$location = str_replace("www.rastro.kr","",$_SERVER["HTTP_HOST"]);
+	$location = str_replace("/","",$location);
 	?>
 	<script>
-		location.href = "http://rastro.kr";
+		location.href = "http://rastro.kr/<?=$location?>";
 	</script>
 	<?
 	exit;

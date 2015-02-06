@@ -3,9 +3,10 @@
 if((strpos($_SERVER["HTTP_HOST"],"www.rastro")===0)){
 	$location = str_replace("www.rastro.kr","",$_SERVER["HTTP_HOST"]);
 	$location = str_replace("/","",$location);
+	$location = str_replace("http:","",$location);
 	?>
 	<script>
-		location.href = "http://rastro.kr/<?=$location?>";
+		location.href = "http://rastro.kr<?=str_replace('.php','',$_SERVER['PHP_SELF'])?>";
 	</script>
 	<?
 	exit;

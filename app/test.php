@@ -14,7 +14,7 @@ $uploadFile = $uploadDir.time().".jpg";
 	$sel = $db->Select();
 	$row =mysql_fetch_array($sel);
 	unlink($row['Ps']);
-	$db->field = "Ps='".$uploadFile.$fileName."'";
+	$db->field = "Ps='".$uploadFile."'";
 	$db->where = "idx='".$_POST['idx']."'";
 	$db->Update();
 

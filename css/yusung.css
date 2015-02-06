@@ -42,9 +42,10 @@ h2{width:321px; text-align:center; font-size:25px; margin:50px auto 35px; color:
 #header div.logOutBox div.button{position:absolute; right:0; top:0;}
 #header button.btnTopLogin{float:right; text-align:center;}
 #container{width:996px; margin: 28px auto 0; padding-bottom:100px; padding:0 20px; Box-sizing: border-box;}
-div.leftObj{width:100%;   Box-sizing: border-box; clear:both;  text-align:center;}
-div.leftObj span.text1{font-weight:bold; font-size:38px; color:#FFF; text-align:center;}
-div.leftObj span.text2{font-size:18px; color:#FFF; margin-top:20px; text-align:center;}
+div.leftObj{width:100%;   Box-sizing: border-box; clear:both;  text-align:center; font-weight:bold; color:#FFF;}
+div.leftObj span.text1{font-weight:bold; font-size:29px; color:#323232; text-align:center;}
+div.leftObj span.text2{font-size:16px; color:#323232; margin-top:20px; text-align:center;}
+div.leftObj span.text2 span.b{font-size:17px; color:#be3f3f;}
 div.leftObj span.text3{font-size:21px; color:#00078b; margin-top:53px; text-align:center;}
 
 div.rightObj{width:100%; clear:both;}
@@ -68,7 +69,7 @@ ul.joinForm li.births ul.start li{float:left; margin-right:4px;}
 ul.joinForm li.births ul.start li.theDay{margin-right:0px; float:right;}
 ul.joinForm li.births ul.start li span.select{margin-right:4px;}
 ul.joinForm li.births ul.start li span.lab{margin-top:7px;}
-span.agreeDesc{font-size:13px; color:#FFF; margin-top:15px;}
+span.agreeDesc{width:352px; font-size:13px; color:#FFF; margin-top:15px;}
 
 div.loginBox{width:350px; margin:0 auto;}
 div.loginBox ul.joinForm li.list{width:100%;}
@@ -77,11 +78,11 @@ div.loginBox ul.joinForm li.list{width:100%;}
 
 span.copyRight a{display:inline; color:#dfdfdf;}
 
-button.btnJoin{width:321px; height:50px; text-indent:-1000em; background:url('/img/btnJoin.png') no-repeat; clear:both; margin:32px auto 0;}
-button.btnFJoin{width:321px; height:54px; text-indent:-1000em; background:url('/img/btnFJoin.png') no-repeat; clear:both; margin:15px auto 0; clear:both;}
-button.btnLogin{width:350px; height:50px; text-align:center; font-weight:bold; font-size:15px; color:#FFF; background:url('/img/btnRegist.png') no-repeat; clear:both; margin:32px auto 0;}
+button.btnJoin{width:351px; height:50px; text-indent:-1000em; background:url('/img/btnJoin.png') no-repeat; clear:both; margin:32px auto 0;}
+button.btnFJoin{width:351px; height:54px; text-indent:-1000em; background:url('/img/btnFJoin.png') no-repeat; clear:both; margin:15px auto 0; clear:both;}
+button.btnLogin{width:351px; height:50px; text-align:center; font-weight:bold; font-size:15px; color:#FFF; background:url('/img/btnRegist.png') no-repeat; clear:both; margin:32px auto 0;}
 button.btnTopLogin{width:32px; height:50px; padding-top:2px; background:url('/img/btnTopLogin.png') no-repeat; vertical-align:middel; position:relative; text-indent:-1000em;}
-button.btnFlogin{width:321px; height:53px; text-indent:-1000em; background:url('/img/btnFlogin.png') no-repeat; clear:both; margin:15px auto 0; clear:both;}
+button.btnFlogin{width:351px; height:53px; text-indent:-1000em; background:url('/img/btnFlogin.png') no-repeat; clear:both; margin:15px auto 0; clear:both;}
 button.btnRegist{width:352px; height:52px; text-align:center; font-weight:bold; font-size:15px; color:#FFF; background:url('/img/btnRegist.png') no-repeat; clear:both; margin:29px auto 0; clear:both;}
 button.btnBack{width:132px; height:52px; text-align:center; font-weight:bold; font-size:15px; color:#FFF; background:url('/img/btnBack.png') no-repeat; clear:both; margin:29px auto 100px; clear:both; }
 

@@ -34,18 +34,7 @@ if(strlen($_SESSION['idx']) <= 0){
 			<?
 				if($array["fbcode"]){
 			?>
-			<button type = "button">페이스북 사진<button>
-			<script>
-				imagef = new Image();
-				imagef.src = 'https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large';
-				$("label[for='picture']").css("background","url('https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large') no-repeat 0 0");
-				
-				if(imagef.width > imagef.height){
-					$("label[for='picture']").css('background-size',"auto 100%");
-				}else{
-					$("label[for='picture']").css('background-size',"100% auto");
-				}
-			</script>
+			<button type = "button" id = "fbImg">페이스북 사진<button>
 			<?
 				}
 			?>
@@ -183,6 +172,20 @@ function readURL(input,obj) {
 	}
 	$("#imgModi").val("n");
 }
+
+$("#fbImg").click(function(){
+	var fbImage = new Image();
+	fbImage.src = "https://graph.facebook.com/<?=$array['fbcode']?>/picture";
+	$("label[for='picture']").css("background","url('https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large' no-repeat 0 0");
+				
+	if(fbImage.width > fbImage.height){
+		$("label[for='picture']").css('background-size',"auto 100%");
+	}else{
+		$("label[for='picture']").css('background-size',"100% auto");
+	}	
+
+	console.log(fbImage);
+});
 
 $("form.infoForm").submit(function(){
 	if(trim($("#mEmail").val())==""){

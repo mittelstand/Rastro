@@ -37,8 +37,9 @@ label.chk2{width:16px; height:16px; background:url('/img/radioSet2.png') no-repe
 h1{width:109px; height:57px; background:url('/img/h1.png') no-repeat 0 0; float:left; margin-top:2px;}
 h2{width:321px; text-align:center; font-size:25px; margin:50px auto 35px; color:#FFF;}
 #wrap{Box-sizing: border-box; position:relative; min-width:996px ;}
-#header{width:100%; min-width:996px ; height:92px; background:url('/img/bgMainTop.png') repeat-x; position:relative; }
-#header div.logOutBox{width:996px; height:100%; margin: 0 auto; padding:15px 20px 0; Box-sizing: border-box; position:absolute;}
+#header{width:100%; min-width:996px ; height:92px; background:url('/img/bgMainTop.png') repeat-x;  }
+#header div.logOutBox{width:996px; height:100%; margin: 0 auto; padding:15px 20px 0; Box-sizing: border-box; position:relative; }
+#header div.logOutBox div.button{position:absolute; right:0;}
 #header button.btnTopLogin{float:right; text-align:center; text-indent:0;}
 #container{width:996px; margin: 28px auto 0; padding-bottom:100px; padding:0 20px; Box-sizing: border-box;}
 div.leftObj{width:594px; float:left;  Box-sizing: border-box; }

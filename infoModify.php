@@ -20,6 +20,7 @@
 			echo $_POST["fbChange"];
 		}else{
 			$db->field = "email = '".$_POST["email"]."', name='".$_POST["name"]."', dob='".$birth."', sex='".$_POST["sex"]."'";
+			echo $_POST["fbChange"];
 		}
 	}
 	

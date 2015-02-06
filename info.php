@@ -182,9 +182,7 @@ function readURL(input,obj) {
 $("#fbImg").click(function(){
 
 	$("label[for='picture']").css("background","url('https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large' no-repeat 0 0");
-				
 
-	console.log(fbImage);
 });
 
 $("form.infoForm").submit(function(){

@@ -7,7 +7,7 @@ include $dir."/inc/header/inc.php";
 if((strpos($_SERVER["HTTP_HOST"],"www.rastro")===0)){	
 	?>
 	<script>
-		location.href = "/";
+		location.href = "http://rastro.kr";
 	</script>
 	<?
 	exit;

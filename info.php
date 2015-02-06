@@ -32,8 +32,7 @@ if(strlen($_SESSION['idx']) <= 0){
 				<input type="file" name="picture" id="picture" value="<? echo $array["Ps"]=="" ? "":str_replace("/HCK/rastro.kr/public_html","",$array['Ps'])?>"/>
 			</label>
 			<?
-				similar_text($array["fbcode"],"NULL",$sim);
-				if($sim == 1){
+				if($array["fbcode"]){
 			?>
 			<button type = "button">페이스북 사진<button>
 			<script>

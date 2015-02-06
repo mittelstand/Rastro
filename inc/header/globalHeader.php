@@ -1,8 +1,4 @@
-<?
-
-
-include $dir."/inc/header/inc.php";
-
+<?include $dir."/inc/header/inc.php";
 //if((strpos($_SERVER["HTTP_HOST"],"www.solive")===0) and ($_SESSION['amin']!="admin") and !(strpos($_SERVER["HTTP_REFERER"],"/adminLogin.php"))){
 if((strpos($_SERVER["HTTP_HOST"],"www.rastro")===0)){	
 	?>
@@ -13,11 +9,7 @@ if((strpos($_SERVER["HTTP_HOST"],"www.rastro")===0)){
 	exit;
 }
 //if($_SERVER["HTTP_HOST"]=="solive.kr"){
-?>
-	<script>
-		//location.href = "http://www.solive.kr";
-	</script>
-<?
+
 	//exit();
 //}
 

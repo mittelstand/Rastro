@@ -3,12 +3,6 @@ $title = "회원정보수정";
 $dir = $_SERVER["DOCUMENT_ROOT"];
 include $dir."/inc/header/mainHeader.php";
 
-$facebook = new Facebook(array(
-  'appId'  => '782151931875268',
-  'secret' => '0f67e1e25529fedaaa368e26e7e23331',
-));
-$user = $facebook->getUser();
-
 if(strlen($_SESSION['idx']) <= 0){
 	MsgBox("로그인 해주세요.","login.php");
 	exit();
@@ -180,9 +174,17 @@ function readURL(input,obj) {
 }
 
 $("#fbImg").click(function(){
+	var fbImage = new Image();
+	fbImage.src = "https://graph.facebook.com/<?=$array['fbcode']?>/picture";
+	$("label[for='picture']").css("background","url('https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large') no-repeat 0 0");
+				
+	if(fbImage.width > fbImage.height){
+		$("label[for='picture']").css('background-size',"auto 100%");
+	}else{
+		$("label[for='picture']").css('background-size',"100% auto");
+	}	
 
-	$("label[for='picture']").css("background","url('https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large')");
-
+	console.log();
 });
 
 $("form.infoForm").submit(function(){

@@ -33,7 +33,7 @@ if(strlen($_SESSION['idx']) <= 0){
 			</label>
 			<?
 				similar_text($array["fbcode"],"NULL",$sim);
-				if($sim == 1){
+				if($$sim != 1){
 			?>
 			<button type = "button">페이스북 사진<button>
 			<script>

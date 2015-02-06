@@ -3,23 +3,23 @@
 
 include $dir."/inc/header/inc.php";
 
-
-if((strpos($_SERVER["HTTP_HOST"],"admin.solive")===0) and ($_SESSION['amin']!="admin") and !(strpos($_SERVER["HTTP_REFERER"],"/adminLogin.php"))){	
+//if((strpos($_SERVER["HTTP_HOST"],"www.solive")===0) and ($_SESSION['amin']!="admin") and !(strpos($_SERVER["HTTP_REFERER"],"/adminLogin.php"))){
+if((strpos($_SERVER["HTTP_HOST"],"www.rastro")===0)){	
 	?>
 	<script>
-		location.href = "/adminLogin.php";
+		location.href = "http://rastro.kr";
 	</script>
 	<?
 	exit;
 }
-if($_SERVER["HTTP_HOST"]=="solive.kr"){
+//if($_SERVER["HTTP_HOST"]=="solive.kr"){
 ?>
 	<script>
-		location.href = "http://www.solive.kr";
+		//location.href = "http://www.solive.kr";
 	</script>
 <?
-	exit();
-}
+	//exit();
+//}
 
 
 ?>

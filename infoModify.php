@@ -8,7 +8,7 @@
 	$birth = $_POST["birthYear"]."-".$_POST["birthMonth"]."-".$_POST["birthDay"];
 	$uploadDir = $dir."/file/Ps/";
 	if($_FILES["picture"]){
-		unlink(str_replace("/HCK/messagebox.co.kr/public_html",$_POST['lastPic']));
+		unlink(str_replace("/HCK/rastro.kr/public_html",$_POST['lastPic']));
 
 		$newName = $uploadDir.time().$_FILES["picture"]["name"];
 		$db->field = "email = '".$_POST["email"]."', name='".$_POST["name"]."', dob='".$birth."', sex='".$_POST["sex"]."', Ps='".$newName."'";

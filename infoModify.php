@@ -13,15 +13,13 @@
 
 		$newName = $uploadDir.time().$_SESSION["idx"].".".$exp[1];
 		$db->field = "email = '".$_POST["email"]."', name='".$_POST["name"]."', dob='".$birth."', sex='".$_POST["sex"]."', Ps='".$newName."'";
-		$db->field = "email = '".$_POST["email"]."', name='".$_POST["name"]."', dob='".$birth."', sex='".$_POST["sex"]."', Ps='".$_POST["fbChange"]."'";
 		move_uploaded_file($_FILES['picture']['tmp_name'], $newName);
 	}else{
 
 			//$db->field = "email = '".$_POST["email"]."', name='".$_POST["name"]."', dob='".$birth."', sex='".$_POST["sex"]."'";
 
 			$db->field = "email = '".$_POST["email"]."', name='".$_POST["name"]."', dob='".$birth."', sex='".$_POST["sex"]."', Ps='".$_POST["fbChange"]."'";
-			echo $db-field;
-			echo $_POST["fbChange"];
+
 
 	}
 	$db->where = "idx=".$_SESSION['idx'];	

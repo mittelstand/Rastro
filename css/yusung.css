@@ -80,7 +80,7 @@ div.loginBox ul.joinForm li.list{width:100%;}
 span.copyRight a{display:inline; color:#dfdfdf;}
 
 button.btnJoin{width:351px; height:50px; text-indent:-1000em; background:url('/img/btnJoin.png') no-repeat; clear:both; margin:32px auto 0;}
-button.btnFJoin{width:351px; height:54px; text-align:center; font-weight:bold; font-size:15px; color:#FFF; background:url('/img/btnFJoin.png') no-repeat; clear:both; margin:15px auto 0; clear:both;}
+button.btnFJoin{width:351px; height:54px; text-align:center; font-weight:bold; font-size:15px; color:#FFF; background:url('/img/btnFJoin.png') no-repeat; clear:both; margin:15px auto 0; clear:both; padding-left:55px;}
 button.btnLogin{width:351px; height:50px; text-align:center; font-weight:bold; font-size:15px; color:#FFF; background:url('/img/btnRegist.png') no-repeat; clear:both; margin:32px auto 0;}
 button.btnTopLogin{width:32px; height:50px; padding-top:2px; background:url('/img/btnTopLogin.png') no-repeat; vertical-align:middel; position:relative; text-indent:-1000em;}
 button.btnFlogin{width:351px; height:53px; text-indent:-1000em;font-weight:bold; font-size:15px; color:#FFF; background:url('/img/btnFlogin.png') no-repeat; clear:both; margin:15px auto 0; clear:both;}

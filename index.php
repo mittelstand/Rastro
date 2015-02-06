@@ -45,6 +45,7 @@ exit();
 <div class = "message"></div>
 <form method="post" action="/joinInsert.php" id="joinForm">
 	<div class="leftObj">
+		<span class="text1">팀장님 바보</span>
 		<span class="text1">손쉽게 이력서를 작성하세요.</span>
 		<span class="text2">단순한 기록 방식, 다양한 항목 저장, 안전한 보관 및 관리<br/>	
 							그리고 중요한 항목만 추출하여 작성하는 나만의 이력서가 필요하신가요?

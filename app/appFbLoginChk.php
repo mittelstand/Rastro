@@ -13,7 +13,7 @@ $row =mysql_fetch_array($sel);
 if($cnt<=0){
 	echo "fail";
 }else{
-$db->field = "email,dob,name,sex,idx,Ps,fbcode";
+$db->field = "email,dob,name,sex,idx,Ps,fbcode,pwd";
 $db->where = "idx='".$row['idx']."'";
 $db->ExportJson();
 }

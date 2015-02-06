@@ -43,6 +43,7 @@ h2{width:321px; text-align:center; font-size:25px; margin:50px auto 35px; color:
 #header button.btnTopLogin{float:right; text-align:center;}
 #container{width:996px; margin: 28px auto 0; padding-bottom:100px; padding:0 20px; Box-sizing: border-box;}
 div.leftObj{width:100%;   Box-sizing: border-box; clear:both;  text-align:center; font-weight:bold; color:#FFF;}
+div.leftObj span span{display:inline;}
 div.leftObj span.text1{font-weight:bold; font-size:29px; color:#323232; text-align:center;}
 div.leftObj span.text2{font-size:16px; color:#323232; margin-top:20px; text-align:center;}
 div.leftObj span.text2 span.b{font-size:17px; color:#be3f3f;}
@@ -69,7 +70,7 @@ ul.joinForm li.births ul.start li{float:left; margin-right:4px;}
 ul.joinForm li.births ul.start li.theDay{margin-right:0px; float:right;}
 ul.joinForm li.births ul.start li span.select{margin-right:4px;}
 ul.joinForm li.births ul.start li span.lab{margin-top:7px;}
-span.agreeDesc{width:352px; font-size:13px; color:#FFF; margin-top:15px;}
+span.agreeDesc{width:352px; font-size:13px; color:#FFF; margin:15px auto 0;}
 
 div.loginBox{width:350px; margin:0 auto;}
 div.loginBox ul.joinForm li.list{width:100%;}

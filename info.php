@@ -31,6 +31,16 @@ if(strlen($_SESSION['idx']) <= 0){
 			<label for="picture" class="pic">
 				<input type="file" name="picture" id="picture" value="<? echo $array["Ps"]=="" ? "":str_replace("/HCK/rastro.kr/public_html","",$array['Ps'])?>"/>
 			</label>
+			<?
+				if($array["fbcode"] != "NULL"){
+			?>
+			<button type = "button">페이스북 사진<button>
+			<script>
+				
+			</script>
+			<?
+				}
+			?>
 			<? if($array['Ps']){ ?>
 			<input type="hidden" name="imgModi" value="y" />
 			<script>

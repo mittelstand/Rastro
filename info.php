@@ -29,7 +29,7 @@ if(strlen($_SESSION['idx']) <= 0){
 			<span class="lab">프로필 사진</span>
 			<input type="hidden" name="lastPic" value="<? echo $array["Ps"]=="" ? "":str_replace("/HCK/rastro.kr/public_html","",$array['Ps'])?>" />
 			<label for="picture" class="pic">
-				<input type="file" name="picture" id="picture" value="<? echo $array["Ps"]=="" ? "":str_replace("/HCK/rastro.kr/public_html","",$array['Ps'])?>"/>
+				<input type="file" name="picture" id="picture"/>
 			</label>
 			<?
 				if($array["fbcode"]){
@@ -37,7 +37,7 @@ if(strlen($_SESSION['idx']) <= 0){
 			<button type = "button">페이스북 사진<button>
 			<script>
 				imagef = new Image();
-				imagef.src = 'https://graph.facebook.com/<?= ?>/picture';
+				imagef.src = 'https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large';
 				$("label[for='picture']").css("background","url('https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large') no-repeat 0 0");
 				
 				if(imagef.width > imagef.height){

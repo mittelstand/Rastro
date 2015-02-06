@@ -181,7 +181,7 @@ function readURL(input,obj) {
 
 $("#fbImg").click(function(){
 
-	$("label[for='picture']").css("background-image,'https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large'");
+	$("label[for='picture']").css("background","url('https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large')");
 
 });
 

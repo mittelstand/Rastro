@@ -2,7 +2,7 @@
 $dir = $_SERVER["DOCUMENT_ROOT"];
 include $dir."/inc/header/inc.php";
 $pwd = md5($_POST['pwd']);
-$nopwd = md5($_POST['nopwd']);
+$nopwd = md5($_POST['nowpwd']);
 
 $db = new Dbcon();
 $db->table = "member";
@@ -16,7 +16,7 @@ if($_POST['type']=="not"){
 	$db->where = "idx='".$_POST['idx']."'";
 	$sel = $db->Select();
 	$row =mysql_fetch_array($sel);
-	if($row==$nopwd){
+	if($row!=$nopwd){
 		echo fail;
 	}else{
 	$db->field = "pwd='".$pwd."'";

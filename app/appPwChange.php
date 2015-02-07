@@ -4,10 +4,27 @@ include $dir."/inc/header/inc.php";
 $pwd = md5($_POST['pwd']);
 $db = new Dbcon();
 $db->table = "member";
-$db->field = "pwd='".$pwd."'";
-$db->where = "idx='".$_POST['idx']."'";
-$db->Update();
-echo success;
+if($_POST['type']=="not"){
+	$db->field = "pwd='".$pwd."'";
+	$db->where = "idx='".$_POST['idx']."'";
+	$db->Update();
+	echo success;	
+}else{
+	$db->field ="pwd";
+	$db->where = "idx='".$_POST['idx']."'";
+	$sel = $db->Select();
+	$row =mysql_fetch_array($sel);
+	if($row==$pwd){
+		echo fail;
+	}else{
+	$db->field = "pwd='".$pwd."'";
+	$db->where = "idx='".$_POST['idx']."'";
+	$db->Update();	
+	echo success;
+	}
+}
+
+
 unset($db);
   
 ?>

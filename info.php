@@ -6,8 +6,7 @@ $facebook = new Facebook(array(
   'appId'  => '782151931875268',
   'secret' => '0f67e1e25529fedaaa368e26e7e23331',
 ));
-$user = $facebook->getUser();
-$user_profile = $facebook->api('/me');
+
 if(strlen($_SESSION['idx']) <= 0){
 	MsgBox("로그인 해주세요.","login.php");
 	exit();
@@ -25,7 +24,7 @@ if(strlen($_SESSION['idx']) <= 0){
 	/*body{background-color:#ededed;}*/
 </style>
 <div style = "clear:both"></div>
-<?=$user_profile["email"]?>
+
 <form method="post" action="infoModify.php" class = "infoForm" enctype = "multipart/form-data">
 	<span class = "modify">회원정보수정</span>
 	<ul class="modiForm">

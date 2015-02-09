@@ -9,16 +9,7 @@ $facebook = new Facebook(array(
 ));
 $user = $facebook->getUser();
 if ($user) {
-  $user_profile = $facebook->api('/me');
-
-  if($user_profile["email"] == ""){
-  ?>
-<script>
-	location.href="/exceptionEmail";  	
-</script>
-  <?
-		exit();
-  }else{
+	$user_profile = $facebook->api('/me');
 	$logoutUrl = $facebook->getLogoutUrl();
 	$db = new Dbcon();
 	$db->table = "member";
@@ -37,6 +28,13 @@ if ($user) {
 		}	
 		$db->value = "'".$user_profile['email']."','".($user_profile['last_name'].$user_profile['first_name'])."','".$birthday."','".$sex."','".$user_profile['id']."','https://graph.facebook.com/".$user."/picture?type=large'";
 		$_SESSION['idx'] = $db->Insert();
+		if($user_profile['email'] == ""){
+?>
+<script>
+	location.href="exceptionEmail";	
+</script>			
+<?
+		}
 	  }
 	  unset($db);
   }
@@ -191,7 +189,7 @@ $("#joinForm").submit(function(){
 		return false;
 	};
 	if(Nchk($("#Nname").val())==false){
-		alert("올바른 실명 형식이 아닙니다.");
+		MAlert("올바른 실명 형식이 아닙니다.", $("#Nname").parent());
 		return false;	
 	};
 	if(trim($("#email").val())==""){
@@ -199,7 +197,7 @@ $("#joinForm").submit(function(){
 		return false;
 	};
 	if(Echk($("#email").val())==false){
-		alert("올바른 이메일 형식이 아닙니다.");
+		MAlert("올바른 이메일 형식이 아닙니다.", $("#email").parent());
 		return false;
 	};
 	if(trim($("#pwd").val())==""){
@@ -207,7 +205,7 @@ $("#joinForm").submit(function(){
 		return false;
 	}
 	if(Pchk($("#pwd").val())==false){
-		alert("올바른 비밀번호 형식이 아닙니다.");
+		MAlert("올바른 비밀번호 형식이 아닙니다.", $("#pwd").parent());
 		return false;	
 	}
 	sw = 0

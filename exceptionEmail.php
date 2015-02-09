@@ -7,6 +7,16 @@ $facebook = new Facebook(array(
   'secret' => '0f67e1e25529fedaaa368e26e7e23331',
 ));
 $user = $facebook->getUser();
+
+
+	$db = new Dbcon();
+	$db->table = "member";
+	$db->field = "email, name, dob, sex, fbcode, Ps";
+	$db->where = "idx=".$_SESSION["idx"];
+	$rel= $db->Select();
+	$array = mysql_fetch_assoc($rel);
+	$birth = explode("-",$array["dob"]);
+
 ?>
 <style>
 	/*body{background-color:#ededed;}*/

@@ -80,12 +80,19 @@ div.loginBox ul.joinForm li.list{width:100%;}
 
 span.copyRight a{display:inline; color:#dfdfdf;}
 
+button.btnJoin{width:351px; height:50px; text-indent:-1000em; background:url('/img/btnJoin.png') no-repeat; clear:both; margin:32px auto 0;}
+
+button.btnLogin{width:351px; height:54px; text-align:center; font-weight:bold; font-size:15px; color:#FFF; background:url('/img/btnRegist.png') no-repeat; clear:both; margin:32px auto 0;}
 button.btnTopLogin{width:42px; height:50px; padding-top:2px; vertical-align:middel; position:relative;}
 button.btnTopLogOut{width:59px; height:50px; float:right;}
 button.btnTopMyPage{width:50px; height:50px; float:right;}
+button.btnFlogin{width:351px; height:53px; text-indent:-1000em;font-weight:bold; font-size:15px; color:#FFF; background:url('/img/btnFlogin.png') no-repeat; clear:both; margin:15px auto 0; clear:both;}
+button.btnRegist{width:352px; height:52px; text-align:center; font-weight:bold; font-size:15px; color:#FFF; border-radius:4px; background-color:#010101; clear:both; margin:29px auto 0; clear:both;}
+button.btnBack{width:132px; height:52px; text-align:center; font-weight:bold; font-size:15px; color:#FFF; background:url('/img/btnBack.png') no-repeat; clear:both; margin:29px auto 100px; clear:both; }
+button.btnClose{width:14px; height:14px; background:url('/img/xButton.png') no-repeat; display:none;}
 
 
-
+button.btnFJoin{width:351px; height:54px; text-align:center; font-weight:bold; font-size:15px; color:#FFF; background:url('/img/btnFJoin.png') no-repeat; clear:both; margin:15px auto 0; clear:both; padding-left:55px;}
 span.textQ{width:321px; color:#FFF; margin:15px auto 0; text-align:center; }
 span.textQ a{display:inline; color:#FFF; font-weight:bold; }
 /*

@@ -66,15 +66,18 @@ exit();
 			<li class="name list">
 				<!--span class="lab">이름</span--> 
 				<span class="input"><input type="text" name="name" id="Nname" placeholder="실명을 입력하세요."/></span><div style="clear:both"></div>
+				<button type="button" class="btnClose"></button>
 			</li>
 			<li class="email list">
 				<!--span class="lab">E-mail</span-->
 				<span class="input"><input type="text" name="email" id="email" placeholder="이메일을 입력하세요."/></span><div style="clear:both"></div>
+				<button type="button" class="btnClose"></button>
 			</li>
 			<li class="password list">
 				<!--span class="lab">비밀번호</span-->
 				<span class="input"><input type="password" name="pwd" id="pwd" placeholder="비밀번호를 입력하세요."/></span>
 				<span class="desc" style="clear:both">비밀번호는 영문/숫자 포함하여 8 ~ 16자리</span><div style="clear:both"></div>
+				<button type="button" class="btnClose"></button>
 			</li>
 			
 			<!--li class="births list">

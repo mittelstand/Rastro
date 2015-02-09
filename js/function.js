@@ -975,6 +975,8 @@ console.log(pat);
 	$("button.msgButton").remove();
 	//newDiv = document.createElement("span");
 	pat.attr("class", "inputOn");
+	var btnClose = pat.parent().find("button.btnClose");
+	btnClose.show();
 	/*
 	newDiv = $("<span class='msgBox'></span>");
 	newDiv.css({"width":"100%", "height":"50px", "padding-left":"10px","box-sizing":"border-box", "line-height":"50px", "background":"url('/img/longOne.png') no-repeat"});
@@ -1001,6 +1003,7 @@ console.log(pat);
 	//	newDiv.remove();
 	//	newButton.remove();		
 		pat.attr("class", "input");
+		btnClose.hide();
 		clearTimeout(tCnt);
 	}, 5000);
 	tCnt

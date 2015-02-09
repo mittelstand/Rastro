@@ -8,8 +8,8 @@
 	$birth = $_POST["birthYear"]."-".$_POST["birthMonth"]."-".$_POST["birthDay"];
 	$uploadDir = $dir."/file/";
 
-	echo $_FILE["picture"];
-	echo $_POST["picChange"];
+	echo $_FILES["picture"];
+	echo $_POST["fbChange"];
 
 
 ?>

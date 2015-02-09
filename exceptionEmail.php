@@ -60,6 +60,7 @@ if(strlen($_SESSION['idx']) <= 0){
 		</li>
 		<li class="email list">
 			<span class="lab">이메일</span>
+			<span class="lab">죄송합니다! 이메일을 다시 한번 입력해주세요!</span>
 			<span class="modify"><input type="text" name="email" id="mEmail" value = "<?= $array["email"]?>"/></span>
 		</li>
 		<li class="name list">

@@ -1006,3 +1006,4 @@ console.log(pat);
 	tCnt
 	
 }
+사고사고

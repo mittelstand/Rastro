@@ -14,7 +14,7 @@ if ($user) {
   if($user_profile["email"] == ""){
   ?>
 	<script>
-		location.href="/exceptionEmain.php";  
+		location.href="/neEmailinfo";  
     </script>
   <?
   }else{

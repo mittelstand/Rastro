@@ -47,11 +47,11 @@ exit();
 		<ul class="joinForm">
 			<li class="email list">
 				<!--span class="lab">E-mail</span-->
-				<span class="input"><input type="text" name="email" id="email" placeholder="이메일을 입력하세요."/></span>
+				<span class="input"><input type="text" name="email" id="email" placeholder="이메일을 입력하세요."/></span><div style="clear:both"></div>
 			</li>
 			<li class="password list">
 				<!--span class="lab">비밀번호</span-->
-				<span class="input"><input type="password" name="pwd" id="pwd" placeholder="비밀번호를 입력하세요."/></span>
+				<span class="input"><input type="password" name="pwd" id="pwd" placeholder="비밀번호를 입력하세요."/></span><div style="clear:both"></div>
 				<!--span class="desc">비밀번호는 영문/숫자 포함하여 8 ~ 16자리</span-->
 			</li>
 			<!--li class="gender list">

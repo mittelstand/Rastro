@@ -806,8 +806,8 @@ function mAlert(obj,code){
 	var alt = par.find("span.alert");
 	alt.css("background-position",position);
 	alt.css("width",width);
-	alt.text(text);
-	alt.css("display","block");
+	//alt.text(text);
+	//alt.css("display","block");
 };
 
 
@@ -968,13 +968,14 @@ function getMatNum(s){
 
 function MAlert(msg, pat){
 console.log(pat);
-	var newDiv, newEnd, newButton;
+	var newDiv, newEnd, newButton,tCnt;
 	
 	
 	$("span.msgBox").remove();
 	$("button.msgButton").remove();
 	//newDiv = document.createElement("span");
 	pat.attr("class", "inputOn");
+	/*
 	newDiv = $("<span class='msgBox'></span>");
 	newDiv.css({"width":"100%", "height":"50px", "padding-left":"10px","box-sizing":"border-box", "line-height":"50px", "background":"url('/img/longOne.png') no-repeat"});
 
@@ -986,20 +987,22 @@ console.log(pat);
 	newEnd.text(msg);
 	newDiv.append(newEnd);
 	newEnd.css({"width":"100%", "height":"100%", "background":"url('/img/longTwo.png') right 0 no-repeat", "display":"block", "color":"#FF3636"});
-
+	
 	$("div.message").append(newDiv);
 	$("div.message").append(newButton);
-
+	
 	newButton.click(function(){
-		newDiv.remove();
-		newButton.remove();
+	//	newDiv.remove();
+	//	newButton.remove();
 		pat.attr("class", "input");
 	});
-	
-	setTimeout(function(){
-		newDiv.remove();
-		newButton.remove();		
+	*/
+	tCnt = setTimeout(function(){
+	//	newDiv.remove();
+	//	newButton.remove();		
 		pat.attr("class", "input");
+		clearTimeout(tCnt);
 	}, 5000);
+	tCnt
 	
 }

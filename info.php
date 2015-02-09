@@ -25,7 +25,7 @@ if(strlen($_SESSION['idx']) <= 0){
 	/*body{background-color:#ededed;}*/
 </style>
 <div style = "clear:both"></div>
-<?=$user_profile."gdgd"?>
+<?=$user."gdgd"?>
 <form method="post" action="infoModify.php" class = "infoForm" enctype = "multipart/form-data">
 	<span class = "modify">회원정보수정</span>
 	<ul class="modiForm">

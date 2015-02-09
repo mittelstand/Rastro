@@ -57,7 +57,7 @@ ul.joinForm li.list{width:352px; clear:both; margin:0 auto 20px; position:relati
 ul.joinForm li.list > span.lab{width:100px; margin:5px 0; color:#FFF;}
 ul.joinForm li.list > span.input,span.radio{clear:both;}
 ul.joinForm li.list > span.input{}
-ul.joinForm li.list > span.input button.btnClose{right:20px; position:absolute;}
+ul.joinForm li.list > button.btnClose{right:20px; position:absolute;}
 ul.joinForm li.list > span.radio{width:160px; height:16px; margin:20px auto 0;}
 ul.joinForm li.list > span.radio label{float:left; margin:2px 7px 0 0;}
 ul.joinForm li.list > span.radio span.labR{color:#FFF; float:left}

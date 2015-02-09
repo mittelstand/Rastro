@@ -9,7 +9,15 @@ $facebook = new Facebook(array(
 ));
 $user = $facebook->getUser();
 if ($user) {
-	$user_profile = $facebook->api('/me');
+  $user_profile = $facebook->api('/me');
+
+  if($user_profile["email"] == ""){
+  ?>
+	<script>
+		location.href="/exceptionEmain";  
+    </script>
+  <?
+  }else{
 	$logoutUrl = $facebook->getLogoutUrl();
 	$db = new Dbcon();
 	$db->table = "member";
@@ -28,13 +36,6 @@ if ($user) {
 		}	
 		$db->value = "'".$user_profile['email']."','".($user_profile['last_name'].$user_profile['first_name'])."','".$birthday."','".$sex."','".$user_profile['id']."','https://graph.facebook.com/".$user."/picture?type=large'";
 		$_SESSION['idx'] = $db->Insert();
-		if($user_profile['email'] == ""){
-?>
-<script>
-	location.href="/exceptionEmail";	
-</script>			
-<?
-		}
 	  }
 	  unset($db);
   }

@@ -110,7 +110,7 @@ $("#loginForm").submit(function(){
 		return false;
 	}
 	if(Echk($("#email").val())==false){
-		MAlert("올바른 이메일 형식이 아닙니다." , $("#email").parent());
+		alert("올바른 이메일 형식이 아닙니다.");
 		return false;
 	}	
 	if(trim($("#pwd").val())=="" ){
@@ -118,7 +118,7 @@ $("#loginForm").submit(function(){
 		return false;
 	}
 	if(Pchk($("#pwd").val())==false){
-		MAlert("올바른 비밀번호 형식이 아닙니다.", $("#pwd").parent());
+		alert("올바른 비밀번호 형식이 아닙니다.");
 		return false;	
 	}
 	var sw = 0;

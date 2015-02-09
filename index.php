@@ -191,7 +191,7 @@ $("#joinForm").submit(function(){
 		return false;
 	};
 	if(Nchk($("#Nname").val())==false){
-		MAlert("올바른 실명 형식이 아닙니다.", $("#Nname").parent());
+		alert("올바른 실명 형식이 아닙니다.");
 		return false;	
 	};
 	if(trim($("#email").val())==""){
@@ -199,7 +199,7 @@ $("#joinForm").submit(function(){
 		return false;
 	};
 	if(Echk($("#email").val())==false){
-		MAlert("올바른 이메일 형식이 아닙니다.", $("#email").parent());
+		alert("올바른 이메일 형식이 아닙니다.");
 		return false;
 	};
 	if(trim($("#pwd").val())==""){
@@ -207,7 +207,7 @@ $("#joinForm").submit(function(){
 		return false;
 	}
 	if(Pchk($("#pwd").val())==false){
-		MAlert("올바른 비밀번호 형식이 아닙니다.", $("#pwd").parent());
+		alert("올바른 비밀번호 형식이 아닙니다.");
 		return false;	
 	}
 	sw = 0

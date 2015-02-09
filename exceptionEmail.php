@@ -1,5 +1,5 @@
 <?
-$title = "회원가입";
+$title = "회원정보수정";
 $dir = $_SERVER["DOCUMENT_ROOT"];
 include $dir."/inc/header/mainHeader.php";
 $facebook = new Facebook(array(
@@ -8,13 +8,14 @@ $facebook = new Facebook(array(
 ));
 $user = $facebook->getUser();
 
-$db = new Dbcon();
-$db->table = "member";
-$db->field = "email, name, dob, sex, fbcode, Ps";
-$db->where = "idx=".$_SESSION["idx"];
-$rel= $db->Select();
-$array = mysql_fetch_assoc($rel);
-$birth = explode("-",$array["dob"]);
+
+	$db = new Dbcon();
+	$db->table = "member";
+	$db->field = "email, name, dob, sex, fbcode, Ps";
+	$db->where = "idx=".$_SESSION["idx"];
+	$rel= $db->Select();
+	$array = mysql_fetch_assoc($rel);
+	$birth = explode("-",$array["dob"]);
 
 ?>
 <style>
@@ -55,8 +56,7 @@ $birth = explode("-",$array["dob"]);
 			<? } ?>
 		</li>
 		<li class="email list">
-			<span class="lab">이메일</span>
-			<span class="lab">죄송합니다! 이메일을 다시 한번 입력해주세요!</span>
+			<span class="lab">죄송합니다! 이메일을 입력해 주세요!</span>
 			<span class="modify"><input type="text" name="email" id="mEmail" value = "<?= $array["email"]?>"/></span>
 		</li>
 		<li class="name list">

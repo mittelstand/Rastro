@@ -6,6 +6,7 @@ $facebook = new Facebook(array(
   'appId'  => '782151931875268',
   'secret' => '0f67e1e25529fedaaa368e26e7e23331',
 ));
+$user = $facebook->getUser();
 
 if(strlen($_SESSION['idx']) <= 0){
 	MsgBox("로그인 해주세요.","login.php");

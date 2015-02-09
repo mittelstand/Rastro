@@ -992,13 +992,12 @@ console.log(pat);
 	
 	$("div.message").append(newDiv);
 	$("div.message").append(newButton);
-	
-	newButton.click(function(){
-	//	newDiv.remove();
-	//	newButton.remove();
-		pat.attr("class", "input");
-	});
 	*/
+	btnClose.click(function(){
+		pat.attr("class", "input");
+		btnClose.hide();
+	});
+	
 	tCnt = setTimeout(function(){
 	//	newDiv.remove();
 	//	newButton.remove();		

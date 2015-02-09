@@ -53,10 +53,11 @@ div.rightObj{width:100%; clear:both;}
 ul.joinForm{}
 ul.joinForm input{color:#000;}
 ul.joinForm span.desc{font-size:13px; color:#FFF; margin:0 0 0 4px; padding-top:10px;}
-ul.joinForm li.list{width:352px; clear:both; margin:0 auto 20px; }
+ul.joinForm li.list{width:352px; clear:both; margin:0 auto 20px; position:relative;}
 ul.joinForm li.list > span.lab{width:100px; margin:5px 0; color:#FFF;}
 ul.joinForm li.list > span.input,span.radio{clear:both;}
 ul.joinForm li.list > span.input{}
+ul.joinForm li.list > span.input button.btnClose{right:20px;}
 ul.joinForm li.list > span.radio{width:160px; height:16px; margin:20px auto 0;}
 ul.joinForm li.list > span.radio label{float:left; margin:2px 7px 0 0;}
 ul.joinForm li.list > span.radio span.labR{color:#FFF; float:left}
@@ -88,7 +89,7 @@ button.btnTopMyPage{width:50px; height:50px; float:right;}
 button.btnFlogin{width:351px; height:53px; text-indent:-1000em;font-weight:bold; font-size:15px; color:#FFF; background:url('/img/btnFlogin.png') no-repeat; clear:both; margin:15px auto 0; clear:both;}
 button.btnRegist{width:352px; height:52px; text-align:center; font-weight:bold; font-size:15px; color:#FFF; background:url('/img/btnRegist.png') no-repeat; clear:both; margin:29px auto 0; clear:both;}
 button.btnBack{width:132px; height:52px; text-align:center; font-weight:bold; font-size:15px; color:#FFF; background:url('/img/btnBack.png') no-repeat; clear:both; margin:29px auto 100px; clear:both; }
-button.btnClose{width:14px; height:14px; background:url('/img/xButton.png') no-repeat;}
+button.btnClose{width:14px; height:14px; background:url('/img/xButton.png') no-repeat; display:none;}
 
 span.textQ{width:321px; color:#FFF; margin:15px auto 0; text-align:center; }
 span.textQ a{display:inline; color:#FFF; font-weight:bold; }

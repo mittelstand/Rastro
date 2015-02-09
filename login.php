@@ -63,7 +63,7 @@ exit();
 		</ul>
 		<button type="submit" class="btnLogin">로그인</button>
 		<span class="textQ" style="text-align:left;">비밀번호를 잊으셨나요? <a href="#">비밀번호 찾기</a></span>
-		<button type="button" class="btnFJoin" onclick="location.href='<?=$loginUrl?>'">페이스북으로 가입하기</button>
+		<button type="button" class="btnFJoin" onclick="location.href='<?=$loginUrl?>'">페이스북으로 로그인</button>
 		<!--button type="button" class="btnFlogin">페이스북으로 로그인</button-->
 	</div>
 </form>

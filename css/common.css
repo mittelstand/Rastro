@@ -4,7 +4,7 @@ form.infoForm > span.modify{color:#028ad9; font-size:27px; margin-top:52px; text
 form.infoForm > ul.modiForm{width:770px; margin: 70px auto 0;}
 form.infoForm > ul.modiForm > li{margin-top:25px;}
 form.infoForm > ul.modiForm > li > span.lab{font-weight: bold; font-size:16px; color:#485676; margin:0 0 10px 12px; width:50%;}
-form.infoForm > ul.modiForm > li > span.modify > input[type='text']{ width:770px; height:40px; background:url('/img/inputBar.png') no-repeat;}
+form.infoForm > ul.modiForm > li > span.modify > input[type='text']{ width:770px; height:40px; border-radius:4px; background-color:#f5f9fa; box-shadow:2px 2px 1px lightgray inset;}
 form.infoForm > ul.modiForm > li:last-child{margin-top:68px;}
  
 form.infoForm > ul.modiForm > li:last-child > span.radio {width:100%; margin-top:23px;}
@@ -13,11 +13,11 @@ form.infoForm > ul.modiForm > li:last-child > span.radio > label.chm {margin-lef
 form.infoForm > ul.modiForm > li:last-child > span.radio > label.chf {margin-left:52px;}
 form.infoForm > ul.modiForm > li:last-child > span.radio >span.labR{float:left; margin-left:9px;}
 
-form.infoForm > button{text-indent:-1000em; margin-top:128px; }
+form.infoForm > button{background-color:#0198f1; color:#FFFFFF; margin-top:128px; }
 div.btn{width:284px; margin:0 auto;}
-div.btn > button{text-indent:-1000em; margin-top:128px; }
-button.mPass{width:132px; height:40px; background-color:#0198f1; float:left; margin-left:0; border-radius:4px;}
-button.infoSave{width:132px; height:40px; background-color:#0198f1; float:left; margin-left:20px; border-radius:4px;}
+div.btn > button{text-indent:-1000em; float:left; margin-top:128px; width:132px; height:40px;  border-radius:4px;}
+button.mPass{  margin-left:0;}
+button.infoSave{margin-left:20px;}
 
 ul.period > li.month > span.birthselect{margin-left:25px;}
 ul.period > li.theDay > span.birthselect{margin-left:25px;}

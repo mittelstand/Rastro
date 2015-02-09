@@ -34,5 +34,5 @@ unset($db);
 
 ?>
 <script>
-location.href = "/info.php";
+location.href = "/info";
 </script>

@@ -12,14 +12,12 @@ if(strlen($_SESSION['idx']) <= 0){
 	MsgBox("로그인 해주세요.","login.php");
 	exit();
 }
-	
 	$db = new Dbcon();
 	$db->table = "member";
 	$db->field = "email, name, dob, sex, fbcode, Ps";
 	$db->where = "idx=".$_SESSION["idx"];
 	$rel= $db->Select();
 	$array = mysql_fetch_assoc($rel);
-
 	$birth = explode("-",$array["dob"]);
 
 ?>
@@ -27,6 +25,7 @@ if(strlen($_SESSION['idx']) <= 0){
 	/*body{background-color:#ededed;}*/
 </style>
 <div style = "clear:both"></div>
+<?=$user_profile."gdgd"?>
 <form method="post" action="infoModify.php" class = "infoForm" enctype = "multipart/form-data">
 	<span class = "modify">회원정보수정</span>
 	<ul class="modiForm">

@@ -13,6 +13,3 @@
 
 
 ?>
-<Script>
-	location.href="info.php";
-</script>

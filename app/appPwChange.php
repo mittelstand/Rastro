@@ -16,9 +16,9 @@ if($_POST['type']=="not"){
 	$db->where = "idx='".$_POST['idx']."'";
 	$sel = $db->Select();
 	$row =mysql_fetch_array($sel);
-	if($row!=$nopwd){
+	if($row['pwd']!=$nopwd){
 
-		echo fail.",".$nopwd;
+		echo fail;
 	}else{
 	$db->field = "pwd='".$pwd."'";
 	$db->where = "idx='".$_POST['idx']."'";

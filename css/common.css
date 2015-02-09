@@ -13,11 +13,11 @@ form.infoForm > ul.modiForm > li:last-child > span.radio > label.chm {margin-lef
 form.infoForm > ul.modiForm > li:last-child > span.radio > label.chf {margin-left:52px;}
 form.infoForm > ul.modiForm > li:last-child > span.radio >span.labR{float:left; margin-left:9px;}
 
-form.infoForm > button{text-indent:-1000em; margin-top:128px; }
+form.infoForm > button{margin-top:128px; }
 div.btn{width:284px; margin:0 auto;}
 div.btn > button{margin-top:128px; float:left; width:132px; height:40px; background-color:#0198f1; color:#FFFFFF;}
-button.mPass{width:132px; height:40px; background:url('/img/infoButton.png') no-repeat; float:left; margin-left:0;}
-button.infoSave{width:132px; height:40px; background:url('/img/infoButton.png') no-repeat -152px 0; float:left; margin-left:20px;}
+button.mPass{width:132px; height:40px; margin-left:0;}
+button.infoSave{width:132px; height:40px; margin-left:20px;}
 
 
 ul.period > li.month > span.birthselect{margin-left:25px;}

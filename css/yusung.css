@@ -39,7 +39,7 @@ h2{width:321px; text-align:center; font-size:25px; margin:50px auto 35px; color:
 #wrap{Box-sizing: border-box; position:relative; min-width:996px ; background:url('/img/bgMain.png') no-repeat;}
 #header{width:100%; min-width:996px ; height:92px; background:url('/img/bgMainTop.png') repeat-x;  }
 #header div.logOutBox{width:996px; height:100%; margin: 0 auto; padding:15px 20px 0; Box-sizing: border-box; position:relative; }
-#header div.logOutBox div.button{position:absolute; right:0; top:20px;}
+#header div.logOutBox div.button{position:absolute; right:20px; top:20px;}
 #header button.btnTopLogin{float:right; text-align:center;}
 #container{width:996px; margin: 28px auto 0; padding-bottom:100px; padding:0 20px; Box-sizing: border-box;}
 div.leftObj{width:100%;   Box-sizing: border-box; clear:both;  text-align:center; font-weight:bold; color:#FFF; margin-bottom:57px;}
@@ -52,11 +52,11 @@ div.leftObj span.text3{font-size:21px; color:#00078b; margin-top:53px; text-alig
 div.rightObj{width:100%; clear:both;}
 ul.joinForm{}
 ul.joinForm input{color:#000;}
-ul.joinForm span.desc{font-size:13px; color:#FFF; margin:10px 0 0 4px;}
+ul.joinForm span.desc{font-size:13px; color:#FFF; margin:0 0 0 4px; padding-top:10px;}
 ul.joinForm li.list{width:352px; clear:both; margin:0 auto 20px; }
 ul.joinForm li.list > span.lab{width:100px; margin:5px 0; color:#FFF;}
 ul.joinForm li.list > span.input,span.radio{clear:both;}
-ul.joinForm li.list > span.input{width:100%; height:45px; background:url('/img/inputF1.png') no-repeat;}
+ul.joinForm li.list > span.input{}
 ul.joinForm li.list > span.radio{width:160px; height:16px; margin:20px auto 0;}
 ul.joinForm li.list > span.radio label{float:left; margin:2px 7px 0 0;}
 ul.joinForm li.list > span.radio span.labR{color:#FFF; float:left}
@@ -81,8 +81,10 @@ span.copyRight a{display:inline; color:#dfdfdf;}
 
 button.btnJoin{width:351px; height:50px; text-indent:-1000em; background:url('/img/btnJoin.png') no-repeat; clear:both; margin:32px auto 0;}
 button.btnFJoin{width:351px; height:54px; text-align:center; font-weight:bold; font-size:15px; color:#FFF; background:url('/img/btnFJoin.png') no-repeat; clear:both; margin:15px auto 0; clear:both; padding-left:55px;}
-button.btnLogin{width:351px; height:50px; text-align:center; font-weight:bold; font-size:15px; color:#FFF; background:url('/img/btnRegist.png') no-repeat; clear:both; margin:32px auto 0;}
+button.btnLogin{width:351px; height:54px; text-align:center; font-weight:bold; font-size:15px; color:#FFF; background:url('/img/btnRegist.png') no-repeat; clear:both; margin:32px auto 0;}
 button.btnTopLogin{width:32px; height:50px; padding-top:2px; background:url('/img/btnTopLogin.png') no-repeat; vertical-align:middel; position:relative; text-indent:-1000em;}
+button.btnTopLogOut{width:59px; height:50px; float:right;}
+button.btnTopMyPage{width:50px; height:50px; float:right;}
 button.btnFlogin{width:351px; height:53px; text-indent:-1000em;font-weight:bold; font-size:15px; color:#FFF; background:url('/img/btnFlogin.png') no-repeat; clear:both; margin:15px auto 0; clear:both;}
 button.btnRegist{width:352px; height:52px; text-align:center; font-weight:bold; font-size:15px; color:#FFF; background:url('/img/btnRegist.png') no-repeat; clear:both; margin:29px auto 0; clear:both;}
 button.btnBack{width:132px; height:52px; text-align:center; font-weight:bold; font-size:15px; color:#FFF; background:url('/img/btnBack.png') no-repeat; clear:both; margin:29px auto 100px; clear:both; }
@@ -90,9 +92,9 @@ button.btnBack{width:132px; height:52px; text-align:center; font-weight:bold; fo
 
 span.textQ{width:321px; color:#FFF; margin:15px auto 0; text-align:center; }
 span.textQ a{display:inline; color:#FFF; font-weight:bold; }
-span.input{background:url('/img/inputF1.png') no-repeat;}
+span.input{width:331px; height:45px; float:right; background:url('/img/inputB3.png') no-repeat right 0; position:relative;}
 span.inputOn{width:100%; height:45px; background:url('/img/inputF2.png') no-repeat;}
-span.input input{width:100% !important; height:100% !important; background:url('/img/inputB1.png') no-repeat right 0; Box-sizing: border-box; }
+span.input input{width:351px !important; height:100% !important; background:url('/img/inputF3.png') no-repeat 0 0; Box-sizing: border-box; position:relative; left:-21px}
 span.inputOn input{width:100% !important; height:100% !important; background:url('/img/inputB2.png') no-repeat right 0; Box-sizing: border-box; }
 
 

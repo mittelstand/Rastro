@@ -10,19 +10,12 @@ $facebook = new Facebook(array(
 $user = $facebook->getUser();
 if ($user) {
   $user_profile = $facebook->api('/me');
-
-  if($user_profile["email"] == ""){
-  ?>
-	<script>
-		location.href="/exceptionEmain";  
-    </script>
-  <?
-  }else{
-	$logoutUrl = $facebook->getLogoutUrl();
+  $logoutUrl = $facebook->getLogoutUrl();
 	$db = new Dbcon();
 	$db->table = "member";
 	$db->keyfield = "idx";	
 	$db->where = "email='".$user_profile['email']."'";
+	  
 	  if($db->TotalCnt() > 0){
 		$row = mysql_fetch_array($db->Select());
 		$db->field = "idx";
@@ -38,7 +31,7 @@ if ($user) {
 		$_SESSION['idx'] = $db->Insert();
 	  }
 	  unset($db);
-  }
+  
 } else {
   $loginUrl = $facebook->getLoginUrl(array('scope'=>'user_birthday,email'));
 }

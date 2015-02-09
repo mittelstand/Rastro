@@ -10,7 +10,7 @@
 
 	if($_FILES["picture"]){
 
-		if($_POST["fbChange"]){
+		if($_POST["fbChange"] != ""){
 			$db->field = "email = '".$_POST["email"]."', name='".$_POST["name"]."', dob='".$birth."', sex='".$_POST["sex"]."', Ps='".$_POST["fbChange"]."'";
 		}else{
 			$exp = explode(".",$_FILES["picture"]["name"]);

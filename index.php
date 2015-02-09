@@ -49,23 +49,23 @@ exit();
 		<span class="text1">손쉽게 이력서를 작성하세요.</span>
 		<span class="text2">단순한 기록 방식, 다양한 항목 저장, 안전한 보관 및 관리<br/>	
 							그리고 중요한 항목만 추출하여 작성하는 <span class="b">나만의 이력서</span>가 필요하신가요?
-		</span
-		<span class="text3">라스트로는 영원히 무료 서비스입니다.</span>
+		</span>
+        <span class="text3">라스트로는 영원히 무료 서비스입니다.</span>
 	</div>
 	<div class="rightObj">
 		<ul class="joinForm">
 			<li class="name list">
 				<!--span class="lab">이름</span--> 
-				<span class="input"><input type="text" name="name" id="Nname" placeholder="실명을 입력하세요."/></span>
+				<span class="input"><input type="text" name="name" id="Nname" placeholder="실명을 입력하세요."/></span><div style="clear:both"></div>
 			</li>
 			<li class="email list">
 				<!--span class="lab">E-mail</span-->
-				<span class="input"><input type="text" name="email" id="email" placeholder="이메일을 입력하세요."/></span>
+				<span class="input"><input type="text" name="email" id="email" placeholder="이메일을 입력하세요."/></span><div style="clear:both"></div>
 			</li>
 			<li class="password list">
 				<!--span class="lab">비밀번호</span-->
 				<span class="input"><input type="password" name="pwd" id="pwd" placeholder="비밀번호를 입력하세요."/></span>
-				<span class="desc">비밀번호는 영문/숫자 포함하여 8 ~ 16자리</span>
+				<span class="desc" style="clear:both">비밀번호는 영문/숫자 포함하여 8 ~ 16자리</span><div style="clear:both"></div>
 			</li>
 			
 			<!--li class="births list">

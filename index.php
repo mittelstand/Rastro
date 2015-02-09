@@ -10,26 +10,35 @@ $facebook = new Facebook(array(
 $user = $facebook->getUser();
 if ($user) {
   $user_profile = $facebook->api('/me');
-  $logoutUrl = $facebook->getLogoutUrl();
-  $db = new Dbcon();
-  $db->table = "member";
-  $db->keyfield = "idx";	
-  $db->where = "email='".$user_profile['email']."'";
-  if($db->TotalCnt() > 0){
-	$row = mysql_fetch_array($db->Select());
-	$db->field = "idx";
-	$_SESSION['idx'] = $row['idx'];
-  }else if($user_profile['email']){
-    $db->field = "email,name,dob,sex,fbcode,Ps";
-	$sex = ($user_profile['gender']=="male") ? "남성" : "여성";
-	if($user_profile['birthday']){
-		$b = explode("/",$user_profile['birthday']);
-		$birthday = $b[2]."-".$b[0]."-".$b[1];
-	}	
-	$db->value = "'".$user_profile['email']."','".($user_profile['last_name'].$user_profile['first_name'])."','".$birthday."','".$sex."','".$user_profile['id']."','https://graph.facebook.com/".$user."/picture?type=large'";
-	$_SESSION['idx'] = $db->Insert();
+
+  if($user_profile["email"] == ""){
+  ?>
+	<script>
+		location.href="/neEmailinfo";  
+    </script>
+  <?
+  }else{
+	$logoutUrl = $facebook->getLogoutUrl();
+	$db = new Dbcon();
+	$db->table = "member";
+	$db->keyfield = "idx";	
+	$db->where = "email='".$user_profile['email']."'";
+	  if($db->TotalCnt() > 0){
+		$row = mysql_fetch_array($db->Select());
+		$db->field = "idx";
+		$_SESSION['idx'] = $row['idx'];
+	  }else if($user_profile['email']){
+		$db->field = "email,name,dob,sex,fbcode,Ps";
+		$sex = ($user_profile['gender']=="male") ? "남성" : "여성";
+		if($user_profile['birthday']){
+			$b = explode("/",$user_profile['birthday']);
+			$birthday = $b[2]."-".$b[0]."-".$b[1];
+		}	
+		$db->value = "'".$user_profile['email']."','".($user_profile['last_name'].$user_profile['first_name'])."','".$birthday."','".$sex."','".$user_profile['id']."','https://graph.facebook.com/".$user."/picture?type=large'";
+		$_SESSION['idx'] = $db->Insert();
+	  }
+	  unset($db);
   }
-  unset($db);
 } else {
   $loginUrl = $facebook->getLoginUrl(array('scope'=>'user_birthday,email'));
 }

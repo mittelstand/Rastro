@@ -13,10 +13,11 @@ if ($user) {
 
   if($user_profile["email"] == ""){
   ?>
-	<script>
-		location.href="/exceptionEmain";  
-    </script>
+<script>
+	location.href="/exceptionEmail";  	
+</script>
   <?
+		exit();
   }else{
 	$logoutUrl = $facebook->getLogoutUrl();
 	$db = new Dbcon();

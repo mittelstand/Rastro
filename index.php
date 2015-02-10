@@ -30,7 +30,7 @@ if ($user) {
 		$db->value = "'".$user_profile['email']."','".($user_profile['last_name'].$user_profile['first_name'])."','".$birthday."','".$sex."','".$user_profile['id']."','https://graph.facebook.com/".$user."/picture?type=large'";
 		$_SESSION['idx'] = $db->Insert();
 
-		if($_user_profile['email'] == ""){
+		if($user_profile['email'] == ""){
 			?>
 <script>
 	location.href="/exception";

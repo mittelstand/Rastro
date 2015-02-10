@@ -83,7 +83,7 @@ span.copyRight a{display:inline; color:#dfdfdf;}
 button.btnJoin{width:351px; height:50px; text-indent:-1000em; background:url('/img/btnJoin.png') no-repeat; clear:both; margin:32px auto 0;}
 
 button.btnLogin{width:351px; height:54px; text-align:center; font-weight:bold; font-size:15px; color:#FFF; border-radius:4px; background-color:#0198f1; clear:both; margin:32px auto 0;}
-button.btnTopLogin{width:70px; height:30px; padding-top:2px; vertical-align:middel; position:relative; border-radius:4px; border:1px solid #000;}}
+button.btnTopLogin{width:70px; height:30px; padding-top:2px; vertical-align:middel; position:relative; border-radius:4px; border:1px solid #000;}
 button.btnTopLogOut{width:70px; height:30px; float:right; border-radius:4px; border:1px solid #000;}
 button.btnTopMyPage{width:70px; height:30px; float:right; border-radius:4px; border:1px solid #000;}
 button.btnFlogin{width:351px; height:53px; text-indent:-1000em;font-weight:bold; font-size:15px; color:#FFF; background:url('/img/btnFlogin.png') no-repeat; clear:both; margin:15px auto 0; clear:both;}

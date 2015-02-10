@@ -33,7 +33,7 @@ if ($user) {
 		if($user_profile['email'] == ""){
 			?>
 <script>
-	location.href="/exception";
+	location.href="/exceptionEmail";
 </script>
 			<?
 		}

@@ -34,7 +34,7 @@ div.bottom{clear:both;}
 label.chk{width:16px; height:16px; background:url('/img/radioSet1.png') no-repeat 0 0; display:block; text-indent:-1000em;}
 label.chk2{width:16px; height:16px; background:url('/img/radioSet2.png') no-repeat 0 0; display:block; text-indent:-1000em;}
 
-h1{width:109px; height:57px; background:url('/img/rastroLogo.png') no-repeat 0 0; margin:2px auto 0;}
+h1{width:109px; height:57px; background:url('/img/rastroLogo.png') no-repeat 0 0;}
 h2{width:321px; text-align:center; font-size:25px; margin:50px auto 35px; color:#FFF;}
 #wrap{Box-sizing: border-box; position:relative; min-width:996px ; background:url('/img/bgMain.png') no-repeat;}
 #header{width:100%; min-width:996px ; height:59px; background:url('/img/bgMainTop.png') repeat-x 0 bottom;}

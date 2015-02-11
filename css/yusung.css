@@ -78,7 +78,7 @@ div.loginBox ul.joinForm li.list{width:100%;}
 
 #wrap{min-height:100%;}
 
-span.copyRight a{display:inline; color:#dfdfdf; font-weight:bold;}
+span.copyRight a{display:inline; color:#dfdfdf; }
 
 button.btnJoin{width:351px; height:50px; text-indent:-1000em; background:url('/img/btnJoin.png') no-repeat; clear:both; margin:32px auto 0;}
 

@@ -78,8 +78,8 @@ div.loginBox ul.joinForm li.list{width:100%;}
 
 #wrap{min-height:100%;}
 
-span.copyRight a{display:inline; color:#dfdfdf; }
-span.copyRight a:hover{color:#dfdfdf;}
+span.copyRight a{display:inline; color:#FFF }
+span.copyRight a:hover{color:#FFF;}
 button.btnJoin{width:351px; height:50px; text-indent:-1000em; background:url('/img/btnJoin.png') no-repeat; clear:both; margin:32px auto 0;}
 
 button.btnLogin{width:351px; height:54px; text-align:center; font-weight:bold; font-size:15px; color:#FFF; border-radius:4px; background-color:#0198f1; clear:both; margin:32px auto 0;}

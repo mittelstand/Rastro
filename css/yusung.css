@@ -34,11 +34,11 @@ div.bottom{clear:both;}
 label.chk{width:16px; height:16px; background:url('/img/radioSet1.png') no-repeat 0 0; display:block; text-indent:-1000em;}
 label.chk2{width:16px; height:16px; background:url('/img/radioSet2.png') no-repeat 0 0; display:block; text-indent:-1000em;}
 
-h1{width:109px; height:57px; background:url('/img/rastroLogo.png') no-repeat 0 0;}
+h1{width:109px; height:57px; background:url('/img/rastroLogo.png') no-repeat 0 0; margin:0 auto;}
 h2{width:321px; text-align:center; font-size:25px; margin:50px auto 35px; color:#FFF;}
 #wrap{Box-sizing: border-box; position:relative; min-width:996px ; background:url('/img/bgMain.png') no-repeat;}
 #header{width:100%; min-width:996px ; height:59px; background:url('/img/bgMainTop.png') repeat-x 0 bottom;}
-#header div.logOutBox{width:996px; height:100%; margin: 0 auto; padding:15px 20px 0; Box-sizing: border-box; position:relative; }
+#header div.logOutBox{width:996px; height:100%; margin: 0 auto; padding:6px 20px 0; Box-sizing: border-box; position:relative; }
 #header div.logOutBox div.button{position:absolute; right:20px; top:20px;}
 #header button.btnTopLogin{float:right; text-align:center;}
 #container{width:996px; margin: 28px auto 0; padding-bottom:100px; padding:0 20px; Box-sizing: border-box;}
@@ -83,7 +83,7 @@ span.copyRight a{display:inline; color:#dfdfdf;}
 button.btnJoin{width:351px; height:50px; text-indent:-1000em; background:url('/img/btnJoin.png') no-repeat; clear:both; margin:32px auto 0;}
 
 button.btnLogin{width:351px; height:54px; text-align:center; font-weight:bold; font-size:15px; color:#FFF; border-radius:4px; background-color:#0198f1; clear:both; margin:32px auto 0;}
-button.btnTopLogin{width:70px; height:30px; padding-top:2px; vertical-align:middle; position:relative; color:#2f2f2f; font-family:"나눔고딕"; font-weight:bold; font-size:16px; margin-top:10px;}
+button.btnTopLogin{width:70px; height:30px; padding-top:2px; vertical-align:middle; position:relative; color:#2f2f2f; font-family:"나눔고딕"; font-weight:bold; font-size:16px;}
 button.btnTopLogOut{width:70px; height:30px; float:right; border-radius:4px; border:1px solid #000; margin-top:10px;}
 button.btnTopMyPage{width:70px; height:30px; float:right; border-radius:4px; border:1px solid #000; margin-top:10px;}
 button.btnFlogin{width:351px; height:53px; text-indent:-1000em;font-weight:bold; font-size:15px; color:#FFF; background:url('/img/btnFlogin.png') no-repeat; clear:both; margin:15px auto 0; clear:both;}

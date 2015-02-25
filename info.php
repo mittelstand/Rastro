@@ -75,7 +75,7 @@ if(strlen($_SESSION['idx']) <= 0){
 				<div style="clear:both;"></div>
 			</li>
 			<li class="births list">
-				<span class="lab">생년월일</span>
+				<span class="lab birth">생년월일</span>
 				<ul class="period start">
 					<li class="year">
 						<span class="select selectYear">

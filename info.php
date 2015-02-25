@@ -176,7 +176,7 @@ function Nchk(m)
 }
 
 $("div.circle").hover(function(){
-	$(this).css('background', "rgba(151, 149, 149, 0.5)");
+	$(this).css('background', "rgba(0, 0, 0, 0.5)");
 });
 
 $("#fbImg").click(function(){

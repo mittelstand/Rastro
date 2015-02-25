@@ -74,3 +74,29 @@ span.birthselect ul li a{padding:8px 0px 0 0px; ;}
 span.birthselect ul li:last-child a{height:40px !important;}
 span.birthselect ul li:last-child{height:51px !important; }
 
+span.selectYear {width:163px; height:46px !important; background:url('/img/select/selectYear.png') no-repeat;}
+span.selectYear button span{padding:11px 0px 0 0px; ; }
+span.selectYear ul{width:100%; height:197px !important;  top:36px; background:none;}
+span.selectYear div.bg{width:100%; height:202px; background:url('/img/select/selectYear_back.png') no-repeat; top:40px;}
+span.selectYear ul li{width:100% !important; height:46px !important; background:none;  }
+span.selectYear ul li a{padding:11px 0px 0 0px; ;}
+span.selectYear ul li:last-child a{height:46px !important;}
+span.selectYear ul li:last-child{height:57px !important;}
+
+span.selectMonth {width:88px; height:46px !important; background:url('/img/select/selectMonth.png') no-repeat;}
+span.selectMonth button span{padding:11px 0px 0 0px; ; }
+span.selectMonth div.bg{width:100%; height:202px; background:url('/img/select/selectMonth_back.png') no-repeat; top:40px;}
+span.selectMonth ul{width:100%; height:197px !important;  top:36px}
+span.selectMonth ul li{width:100% !important; height:46px !important;background:none; }
+span.selectMonth ul li a{padding:11px 0px 0 0px; ;}
+span.selectMonth ul li:last-child a{height:46px !important;}
+span.selectMonth ul li:last-child{height:57px !important;}
+
+span.selectDay {width:85px; height:46px !important; background:url('/img/select/selectDay.png') no-repeat;}
+span.selectDay button span{padding:11px 0px 0 0px; ; }
+span.selectDay div.bg{width:100%; height:202px; background:url('/img/select/selectDay_back.png') no-repeat; top:40px;}
+span.selectDay ul{width:100%; height:197px !important;  top:36px; background:none;}
+span.selectDay ul li{width:100% !important; height:46px !important; background:none; }
+span.selectDay ul li a{padding:11px 0px 0 0px; ;}
+span.selectDay ul li:last-child a{height:46px !important;}
+span.selectDay ul li:last-child{height:57px !important;}

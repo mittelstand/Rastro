@@ -27,50 +27,54 @@ if(strlen($_SESSION['idx']) <= 0){
 <div style = "clear:both"></div>
 
 <form method="post" action="infoModify.php" class = "infoForm" enctype = "multipart/form-data">
-	<span class = "modify">회원정보수정</span>
-	<ul class="modiForm">
+	<input type="hidden" name="lastPic" value="<? echo $array["Ps"]=="" ? "":str_replace("/HCK/rastro.kr/public_html","",$array['Ps'])?>" />
+	<div class="circle" style="z-index:1; position:relative;">
+		<label for="picture" class="pic">
+			<input type="file" name="picture" id="picture" value=""/>
+		</label>
+	</div>
+	<?
+		if($array["fbcode"]){
+	?>
+	<button type = "button" id = "fbImg">페이스북 사진</button>
+	<input type = "hidden" name="fbChange" id = "fbChange"/>
+	<?
+		}
+	?>
+	<? if($array['Ps']){ ?>
+	<input type="hidden" name="imgModi" value="y" />
+	<script>
+		imagef = new Image();
+		imagef.src = '<?=str_replace("/HCK/rastro.kr/public_html","",$array['Ps'])?>';
+		$("label[for='picture']").css("background","url('<?=str_replace("/HCK/rastro.kr/public_html","",$array['Ps'])?>') no-repeat 0 0");
+		imagef.onload = function(){
+			if(imagef.width > imagef.height){
+				$("label[for='picture']").css('background-size',"auto 100%");
+			}else{
+				$("label[for='picture']").css('background-size',"100% auto");
+			}
+		}
+	</script>
+	<? } ?>
+	<ul class="modiForm" style="z-index:1; position:relative;">
 		<li class="email list">
-			<span class="lab">프로필 사진</span>
-			<input type="hidden" name="lastPic" value="<? echo $array["Ps"]=="" ? "":str_replace("/HCK/rastro.kr/public_html","",$array['Ps'])?>" />
-			<label for="picture" class="pic">
-				<input type="file" name="picture" id="picture" value=""/>
-			</label>
-			<?
-				if($array["fbcode"]){
-			?>
-			<button type = "button" id = "fbImg">페이스북 사진</button>
-			<input type = "hidden" name="fbChange" id = "fbChange"/>
-			<?
-				}
-			?>
-			<? if($array['Ps']){ ?>
-			<input type="hidden" name="imgModi" value="y" />
-			<script>
-				imagef = new Image();
-				imagef.src = '<?=str_replace("/HCK/rastro.kr/public_html","",$array['Ps'])?>';
-				$("label[for='picture']").css("background","url('<?=str_replace("/HCK/rastro.kr/public_html","",$array['Ps'])?>') no-repeat 0 0");
-				
-				if(imagef.width > imagef.height){
-					$("label[for='picture']").css('background-size',"auto 100%");
-				}else{
-					$("label[for='picture']").css('background-size',"100% auto");
-				}
-			</script>
-			<? } ?>
+			
 		</li>
 		<li class="email list">
 			<span class="lab">이메일</span>
 			<span class="modify"><input type="text" name="email" id="mEmail" value = "<?= $array["email"]?>"/></span>
+			<div style="clear:both;"></div>
 		</li>
 		<li class="name list">
 			<span class="lab">이름</span> 
 			<span class="modify"><input type="text" name="name" id="mName" value = "<?= $array["name"]?>"/></span>
+			<div style="clear:both;"></div>
 		</li>
 		<li class="births list">
 			<span class="lab">생년월일</span>
 			<ul class="period start">
 				<li class="year">
-					<span class="select birthselect">
+					<span class="select selectYear">
 						<input type="hidden" name="birthYear" class="value" value="<? echo $array["dob"] == "" ? $row['eventDateS']['y'] : $birth[0]?>" >
 						<button type="button" class="selectBtn" id="selectBtn">
 							<span class="selectText yellow peple">년</span>
@@ -82,7 +86,7 @@ if(strlen($_SESSION['idx']) <= 0){
 					</span>
 				</li>
 				<li class="month">
-					<span class="select birthselect">
+					<span class="select selectMonth">
 						<input type="hidden" name="birthMonth" class="value" value="<? echo $array["dob"] == "" ? $row['eventDateS']['m'] : $birth[1]?>" >
 						<button type="button" class="selectBtn" id="selectBtn">
 							<span class="selectText yellow peple">월</span>
@@ -94,7 +98,7 @@ if(strlen($_SESSION['idx']) <= 0){
 					</span>
 				</li>
 				<li class="theDay">
-					<span class="select birthselect">
+					<span class="select selectDay">
 						<input type="hidden" name="birthDay" class="value" value="<? echo $array["dob"] == "" ? $row['eventDateS']['d'] : $birth[2]?>" >
 						<button type="button" class="selectBtn" id="selectBtn">
 							<span class="selectText yellow peple">일</span>
@@ -115,11 +119,13 @@ if(strlen($_SESSION['idx']) <= 0){
 			</span>
 		</li>
 	</ul>
-	<div style = "clear:both"></div>
-	<div class="btn">
+	<div style = "clear:both;"></div>
+	<div class="btn" style="z-index:1; position:relative;">
 		<button class = "mPass">비밀번호변경</button>
 		<button type="submit" class = "infoSave">저장</button>
 	</div>
+	
+	<div style="width:100%; height:100%; background-color:#FFFFFF; opacity:0.5; position:absolute; top:0; left:0; z-index:0"></div>
 </form>
 <script>
 var date    = new Date();
@@ -162,21 +168,7 @@ function Nchk(m)
 		return (!st2);
 	}
 }
-function readURL(input,obj) { 
-	if (input.files && input.files[0]) {
-		var image =  new Image();
-		var reader = new FileReader(); 
-		reader.onload = function (e) {
-			image.src = e.target.result;
-			//alert(obj.attr(""))
-			obj.css('background',"url('"+image.src+"') no-repeat");
-			
-			obj.css('background-size',"100% auto");
-		} 
-		reader.readAsDataURL(input.files[0]);
-	}
-	$("#imgModi").val("n");
-}
+
 
 $("#fbImg").click(function(){
 	var fbImage = new Image();
@@ -333,10 +325,16 @@ function readURL(input,obj) {
 		var reader = new FileReader(); 
 		reader.onload = function (e) {
 			image.src = e.target.result;
-			//alert(obj.attr(""))
-			obj.css('background',"url('"+image.src+"') no-repeat");
-			
-			obj.css('background-size',"100% auto");
+			//alert(obj.attr(""))			
+			image.onload = function(){
+				obj.css('background',"url('"+image.src+"') no-repeat");	
+				
+				if(image.width > image.height){
+					obj.css('background-size',"auto 100%");
+				}else{
+					obj.css('background-size',"100% auto");
+				}
+			}
 		} 
 		reader.readAsDataURL(input.files[0]);
 	}

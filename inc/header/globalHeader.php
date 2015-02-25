@@ -36,11 +36,8 @@ if((strpos($_SERVER["HTTP_HOST"],"www.rastro")===0)){
 <script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="/js/jquery-ui-1.10.3.custom.min.js"></script>
 <script type="text/javascript" src="/js/function.js"></script>
-<script type='text/javascript' src='/js/moment.min.js'></script>
-<script type='text/javascript' src='/js/fullcalendar.min.js'></script>
 <script type="text/javascript" src="/setest/js/HuskyEZCreator.js" charset="utf-8"></script>
 
-<link rel='stylesheet' type='text/css' href='/css/fullcalendar.css' />
 <link rel="SHORTCUT ICON" href="/p.ico"> 
 
 <script>

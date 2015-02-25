@@ -186,26 +186,35 @@ $("#joinForm").submit(function(){
 	
 	if(trim($("#Nname").val())==""){
 		MAlert("실명을 입력하세요.", $("#Nname").parent());
+		$("#Nname").focus();
 		return false;
 	};
 	if(Nchk($("#Nname").val())==false){
+		alert("올바른 실명 형식이 아닙니다.");
 		MAlert("올바른 실명 형식이 아닙니다.", $("#Nname").parent());
+		$("#Nname").focus();
 		return false;	
 	};
 	if(trim($("#email").val())==""){
 		MAlert("이메일을 입력하세요.", $("#email").parent());
+		$("#Nname").focus();
 		return false;
 	};
 	if(Echk($("#email").val())==false){
+		alert("올바른 이메일 형식이 아닙니다.");
 		MAlert("올바른 이메일 형식이 아닙니다.", $("#email").parent());
+		$("#Nname").focus();
 		return false;
 	};
 	if(trim($("#pwd").val())==""){
 		MAlert("비밀번호를 입력하세요.", $("#pwd").parent());
+		$("#Nname").focus();
 		return false;
 	}
 	if(Pchk($("#pwd").val())==false){
+		alert("올바른 비밀번호 형식이 아닙니다.");
 		MAlert("올바른 비밀번호 형식이 아닙니다.", $("#pwd").parent());
+		$("#Nname").focus();
 		return false;	
 	}
 	sw = 0

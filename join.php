@@ -1,78 +1,135 @@
 <?
+session_start();
+
 $dir = $_SERVER["DOCUMENT_ROOT"];
 include $dir."/inc/header/mainHeader.php";
+$facebook = new Facebook(array(
+  'appId'  => '782151931875268',
+  'secret' => '0f67e1e25529fedaaa368e26e7e23331',
+));
+$user = $facebook->getUser();
+if ($user) {
+  $user_profile = $facebook->api('/me');
+  $logoutUrl = $facebook->getLogoutUrl();
+	$db = new Dbcon();
+	$db->table = "member";
+	$db->keyfield = "idx";	
+	$db->where = "email='".$user_profile['email']."'";
+	  
+	  if($db->TotalCnt() > 0){
+		$row = mysql_fetch_array($db->Select());
+		$db->field = "idx";
+		$_SESSION['idx'] = $row['idx'];
+	  }else if($user_profile['email']){
+		$db->field = "email,name,dob,sex,fbcode,Ps";
+		$sex = ($user_profile['gender']=="male") ? "남성" : "여성";
+		if($user_profile['birthday']){
+			$b = explode("/",$user_profile['birthday']);
+			$birthday = $b[2]."-".$b[0]."-".$b[1];
+		}	
+		$db->value = "'".$user_profile['email']."','".($user_profile['last_name'].$user_profile['first_name'])."','".$birthday."','".$sex."','".$user_profile['id']."','https://graph.facebook.com/".$user."/picture?type=large'";
+		$_SESSION['idx'] = $db->Insert();
+	  }else{
 ?>
-
-<form method="post" action="/joinInsert.php" id="joinForm">
-	<ul class="joinForm">
-		<li class="email list">
-			<span class="lab">E-mail</span>
-			<span class="input"><input type="text" name="email" id="email"/></span>
-		</li>
-		<li class="password list">
-			<span class="lab">비밀번호</span>
-			<span class="input"><input type="password" name="pwd" id="pwd"/></span>
-		</li>
-		<li class="name list">
-			<span class="lab">이름</span> 
-			<span class="input"><input type="text" name="name" id="Nname"/></span>
-		</li>
-		<li class="gender list">
-			<span class="lab">성별</span>
-			<span class="select selectH">
-				<input type="hidden" name="sex" id="sex" class="value" value="<?=$row['sex']?>"/>
-				<button type="button" class="selectBtn">
-					<span class="selectSex">성별 선택</span>
-				</button>
-				<ul class="selectUl1" style="display:none;">
-					<li><a href="javascript:;">남자</a></li>
-					<li><a href="javascript:;">여자</a></li>
-				</ul>									
-			</span>
-		</li>
-		<li class="births list">
-			<span class="lab">생년월일</span>
-			<ul class="period start">
-				<li class="year">
-					<span class="select selectH">
-						<input type="hidden" name="birthYear" class="value" value="<?=$row['eventDateS']['y']?>" >
-						<button type="button" class="selectBtn" id="selectBtn">
-							<span class="selectText yellow peple">년</span>
-						</button>
-						<div class="bg" style="display:none;"></div>
-						<ul class="selectUl2 limitL" style="display:none;">
-							<li><a href="javascript:;"></a></li>
-						</ul>
-					</span>
-				</li>
-				<li class="month">
-					<span class="select selectH">
-						<input type="hidden" name="birthMonth" class="value" value="<?=$row['eventDateS']['m']?>" >
-						<button type="button" class="selectBtn" id="selectBtn">
-							<span class="selectText yellow peple">월</span>
-						</button>							
-						<div class="bg" style="display:none;"></div>
-						<ul class="selectUl2 limitL" style="display:none;">
-							<li><a href="javascript:;"></a></li>
-						</ul>
-					</span>
-				</li>
-				<li class="theDay">
-					<span class="select selectH">
-						<input type="hidden" name="birthDay" class="value" value="<?=$row['eventDateS']['d']?>" >
-						<button type="button" class="selectBtn" id="selectBtn">
-							<span class="selectText yellow peple">일</span>
-						</button>							
-						<div class="bg" style="display:none;"></div>
-						<ul class="selectUl2 limitL" style="display:none;">
-							<li><a href="javascript:;"></a></li>
-						</ul>
-					</span>
-				</li>				
-			</ul>
-		</li>
-	</ul>
-	<button type="submit">가입</button>
+<script>
+	location.href="/exceptionEmail";	
+</script>  
+ <?
+	  }
+	  unset($db);
+  
+} else {
+  $loginUrl = $facebook->getLoginUrl(array('scope'=>'user_birthday,email'));
+}
+//ㄴㅇㄴㅇㄴㅇ
+unset($facebook);
+if($_SESSION['idx']){
+?>
+<script>
+	location.href = "info.php";
+</script>
+<?
+exit();
+}?>
+<div class = "message"></div>
+<form method="post" action="/joinInsert.php" id="joinForm">	
+	<div class="rightObj">
+		<h2 style="color:#323232; margin-bottom:70px;">회원가입</h2>
+		<ul class="joinForm">
+			<li class="name list">
+				<!--span class="lab">이름</span--> 
+				<span class="input"><input type="text" name="name" id="Nname" placeholder="실명을 입력하세요."/></span><div style="clear:both"></div>
+				<button type="button" class="btnClose"></button>
+			</li>
+			<li class="email list">
+				<!--span class="lab">E-mail</span-->
+				<span class="input"><input type="text" name="email" id="email" placeholder="이메일을 입력하세요."/></span><div style="clear:both"></div>
+				<button type="button" class="btnClose"></button>
+			</li>
+			<li class="password list">
+				<!--span class="lab">비밀번호</span-->
+				<span class="input"><input type="password" name="pwd" id="pwd" placeholder="비밀번호를 입력하세요."/></span>
+				<span class="desc" style="clear:both">비밀번호는 영문/숫자 포함하여 8 ~ 16자리</span><div style="clear:both"></div>
+				<button type="button" class="btnClose"></button>
+			</li>
+			
+			<!--li class="births list">
+				<span class="lab">생년월일</span>
+				<ul class="period start">
+					<li class="year">
+						<span class="select selectR">
+							<input type="hidden" name="birthYear" class="value" value="<?=$row['eventDateS']['y']?>" >
+							<button type="button" class="selectBtn" id="selectBtn">
+								<span class="selectText yellow peple">년</span>
+							</button>
+							<div class="bg" style="display:none;"></div>
+							<ul class="selectUl2 limitL" style="display:none;">
+								<li><a href="javascript:;"></a></li>
+							</ul>
+						</span>
+					</li>
+					<li class="month">
+						<span class="select selectR">
+							<input type="hidden" name="birthMonth" class="value" value="<?=$row['eventDateS']['m']?>" >
+							<button type="button" class="selectBtn" id="selectBtn">
+								<span class="selectText yellow peple">월</span>
+							</button>							
+							<div class="bg" style="display:none;"></div>
+							<ul class="selectUl2 limitL" style="display:none;">
+								<li><a href="javascript:;"></a></li>
+							</ul>
+						</span>
+					</li>
+					<li class="theDay">
+						<span class="select selectR">
+							<input type="hidden" name="birthDay" class="value" value="<?=$row['eventDateS']['d']?>" >
+							<button type="button" class="selectBtn" id="selectBtn">
+								<span class="selectText yellow peple">일</span>
+							</button>							
+							<div class="bg" style="display:none;"></div>
+							<ul class="selectUl2 limitL" style="display:none;">
+								<li><a href="javascript:;"></a></li>
+							</ul>
+						</span>
+					</li>				
+				</ul>
+			</li-->
+			<!--li class="gender list">
+				<span class="lab">성별</span>
+				<span class="radio">
+					<label for="male" class="chk"><input type="radio" name="sex" value="남성" id="male" global="0"/></label><span class="labR m" style="margin-right:50px">남성</span>
+					<label for="fmale" class="chk"><input type="radio" name="sex" value="여성" id="fmale" global="0"/></label><span class="labR f">여성</span> 
+				</span>
+			</li-->
+			
+		</ul>
+		<button type="submit" class="btnRegist">라스트로 시작하기</button>
+		<button type="button" class="btnFJoin" onclick="location.href='<?=$loginUrl?>'">페이스북으로 가입하기</button>
+		<span class="agreeDesc">‘라스트로 등록하기’를 클릭하시면 라스트로의 <a href="terms" style="color:#FFF; display:inline;"><b>이용약관</b></a>과<br/>
+<a href="policy" style="color:#FFF; display:inline;"><b>개인정보취급방침</b></a>에 동의하시는 것으로 간주합니다.</span>
+		
+		<!--span class="loginQ textQ">이미 가입하셨나요? <a href="login.php">로그인하기</a></span-->
+	</div>
 </form>
 <script>
 var date    = new Date();
@@ -118,55 +175,62 @@ function Nchk(m)
 
 
 $("#joinForm").submit(function(){
-	if(trim($("#email").val())==""){
-		alert("이메일을 입력하세요.");
-		return false;
-	};
-	if(Echk($("#email").val())==false){
-		alert("올바른 이메일형식이 아닙니다.");
-		return false;
-	};	
-	if(trim($("#pwd").val())==""){
-		alert("비밀번호를 입력하세요.");
-		return false;
-	};
-	if(Pchk($("#pwd").val())==false){
-		alert("올바른 비밀번호형식이 아닙니다.");
-		return false;	
-	};
+	//alert($("#email").val());
+	
+	
 	if(trim($("#Nname").val())==""){
-		alert("이름을 입력하세요.");
+		MAlert("실명을 입력하세요.", $("#Nname").parent());
+		$("#Nname").focus();
 		return false;
 	};
 	if(Nchk($("#Nname").val())==false){
-		alert("올바른 이름형식이 아닙니다.");
+		alert("올바른 실명 형식이 아닙니다.");
+		MAlert("올바른 실명 형식이 아닙니다.", $("#Nname").parent());
+		$("#Nname").focus();
 		return false;	
 	};
-	
-	if($("#sex").val()==""){
-		alert("성별을 선택하세요.");
+	if(trim($("#email").val())==""){
+		MAlert("이메일을 입력하세요.", $("#email").parent());
+		$("#Nname").focus();
 		return false;
 	};
-	if(($("input[name='birthYear']").val()=="") || ($("input[name='birthMonth']").val()=="") || ($("input[name='birthDay']").val()=="")){
-		alert("생년월일을 입력하세요.");
+	if(Echk($("#email").val())==false){
+		alert("올바른 이메일 형식이 아닙니다.");
+		MAlert("올바른 이메일 형식이 아닙니다.", $("#email").parent());
+		$("#Nname").focus();
 		return false;
 	};
+	if(trim($("#pwd").val())==""){
+		MAlert("비밀번호를 입력하세요.", $("#pwd").parent());
+		$("#Nname").focus();
+		return false;
+	}
+	if(Pchk($("#pwd").val())==false){
+		alert("올바른 비밀번호 형식이 아닙니다.");
+		MAlert("올바른 비밀번호 형식이 아닙니다.", $("#pwd").parent());
+		$("#Nname").focus();
+		return false;	
+	}
+	sw = 0
 	$.ajax({
 		type : "POST",
 		url : "/mailChk.ax.php",
 		dataType : 'json',
 		async : false,
 		data : {
-			email : $("#email").val(), 
-			pwd : $("#pwd").val()
+			email : $("#email").val()
 		},success : function(result){
-			if(result.idChk=="true"){
+			if(result.loginChk=="true"){
 				sw = 1;
 			};
 		},error : function(result,a,b){
 		
 		}		
 	});
+	if(sw===1){
+		alert("이미 존재하는 메일입니다.");
+		return false;
+	}
 });
 function addDate(obj,yObj,mbObj,nDate){
 	var year  = parseInt(yObj.find("input.value").attr("value"));
@@ -183,8 +247,7 @@ function addDate(obj,yObj,mbObj,nDate){
 	}else{
 		lastDay = lastDayArr[month];
 	};
-	return lastDay;
-	
+	return lastDay;	
 }
 function addDateT(y,m){
 	var lastDayArr = Array(0,31,28,31,30,31,30,31,31,30,31,30,31);
@@ -275,7 +338,7 @@ $(document).ready(function(){
 	var eventSM = $("ul.start li.month span.select");
 	var eventSD = $("ul.start li.theDay span.select");
 
-	appendNum(eventSY,Nyear,Nyear2,"",1);
+	appendNum(eventSY,Nyear2,Nyear,"",-1);
 	appendNum(eventSM,1,12,"",1);
 	appendNum(eventSD,1,addDate(eventSD,eventSY,eventSM,Nday),"",1);
 	

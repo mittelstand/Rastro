@@ -178,7 +178,7 @@ function Nchk(m)
 }
 
 $("div.circle").hover(function(){
-	$(this).css('opacity', "1");
+	$("div.circleTwo").css('display', "block");
 });
 
 $("#fbImg").click(function(){

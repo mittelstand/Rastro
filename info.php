@@ -31,13 +31,14 @@ if(strlen($_SESSION['idx']) <= 0){
 	<div class = "info">
 		<span>내 정보 수정</span>
 	</div>
+	<div class="circle, circleTwo" style="z-index:1; position:relative;">
+	</div>
 	<div class="circle" style="z-index:1; position:relative;">
 		<label for="picture" class="pic">
 			<input type="file" name="picture" id="picture" value=""/>
 		</label>
 	</div>
-	<div class="circle, circleTwo" style="z-index:1; position:relative;">
-	</div>
+
 	<!--<?
 		//if($array["fbcode"]){
 	?>
@@ -178,7 +179,7 @@ function Nchk(m)
 }
 
 $("div.circle").hover(function(){
-	$("div.circleTwo").css('display', "block");
+	$("label.pic").css('opacity', "0.6");
 });
 
 $("#fbImg").click(function(){

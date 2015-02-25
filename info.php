@@ -125,7 +125,7 @@ if(strlen($_SESSION['idx']) <= 0){
 		<button type="submit" class = "infoSave">저장</button>
 	</div>
 	
-	<div style="width:100%; height:100%; background-color:#FFFFFF; opacity:0.5; position:absolute; top:0; left:0; z-index:0"></div>
+	<div style="width:100%; height:100%; background-color:#FFFFFF; opacity:0.5; position:absolute; top:260px; left:0; z-index:0"></div>
 </form>
 <script>
 var date    = new Date();

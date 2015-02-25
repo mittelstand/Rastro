@@ -3,7 +3,7 @@ form.infoForm{margin: 0 auto; width:970px; height:527px;  padding:20px; position
 form.infoForm  > div.opacity{width:970px; height:527px; background:rgba(255,255,255,0.5); position:absolute; top:260px; bottom:95px; margin:0 auto;}
 
 form.infoForm > div.opacity > span.modify{color:#028ad9; font-size:27px; margin-top:52px; text-align:center; Box-sizing: border-box;}
-form.infoForm > div.opacity > ul.modiForm{width:431px; margin: 128px auto 0;}
+form.infoForm > div.opacity > ul.modiForm{width:432px; margin: 128px auto 0;}
 form.infoForm > div.opacity > ul.modiForm > li{margin-top:25px; clear:both;}
 form.infoForm > div.opacity > ul.modiForm > li > span.lab{font-weight: bold; font-size: 16px; color: #212121; margin: 16px 18px 0 0; width: 62px; float: left;}
 form.infoForm > div.opacity > ul.modiForm > li > span.birth{margin-right:17px;}
@@ -43,7 +43,7 @@ button {display:block; padding:0; margin:0; border:0;  border:none; selector-dum
 span.select button{text-indent:0;}
 a:active, a:focus, area:active, area:focus, button:active, button:focus  { outline:none; }
 
-a {outline:none; selector-dummy:expression(this.hideFocus=true); text-decoration: none;  cursor:pointer; font-family:"Helvetica Neue", "Apple SD 산돌고딕 Neo", "Apple SD Gothic Neo", "나눔고딕", "Nanum Gothic", "돋움", "Dotum", Helvetica, Arial, sans-serif;}
+a {outline:none; selector-dummy:expression(this.hideFocus= true); text-decoration: none;  cursor:pointer; font-family:"Helvetica Neue", "Apple SD 산돌고딕 Neo", "Apple SD Gothic Neo", "나눔고딕", "Nanum Gothic", "돋움", "Dotum", Helvetica, Arial, sans-serif;}
 span {display:block; font-family:"Helvetica Neue", "Apple SD 산돌고딕 Neo", "Apple SD Gothic Neo", "나눔고딕", "Nanum Gothic", "돋움", "Dotum", Helvetica, Arial, sans-serif;}
 span > a, li > a {display:block; width:100%; text-align:left;}
 input, select, textarea{ font-family:"Helvetica Neue", "Apple SD 산돌고딕 Neo", "Apple SD Gothic Neo", "나눔고딕", "Nanum Gothic", "돋움", "Dotum", Helvetica, Arial, sans-serif; font-size:14px; color:#777; border:none; resize:none; background:none;}
@@ -92,7 +92,7 @@ ul.joinForm input{color:#000;}
 ul.joinForm span.desc{font-size:13px; color:#FFF; margin:0 0 0 4px; padding-top:10px;}
 ul.joinForm li.list{width:352px; clear:both; margin:0 auto 20px; position:relative;}
 ul.joinForm li.list > span.lab{width:100px; margin:5px 0; color:#FFF;}
-ul.joinForm li.list > span.input,span.radio{clear:both;}
+ul.joinForm li.list > span.input,span.radio{float:left;}
 ul.joinForm li.list > span.input{}
 ul.joinForm li.list > button.btnClose{top:15px; right:10px; position:absolute;}
 ul.joinForm li.list > span.radio{width:160px; height:16px; margin:20px auto 0;}

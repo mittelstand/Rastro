@@ -36,6 +36,8 @@ if(strlen($_SESSION['idx']) <= 0){
 			<input type="file" name="picture" id="picture" value=""/>
 		</label>
 	</div>
+	<div class=" circle circleTwo" style="z-index:1; position:relative;">
+	</div>
 	<!--<?
 		//if($array["fbcode"]){
 	?>
@@ -175,7 +177,7 @@ function Nchk(m)
 	}
 }
 
-$("div.circle").hover(function(){
+$("div.circleTwo").hover(function(){
 	$(this).css('background', "rgba(0, 0, 0, 0.5)");
 });
 

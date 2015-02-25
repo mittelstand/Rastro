@@ -1,21 +1,23 @@
 /* info */
 form.infoForm{margin: 0 auto; width:970px; height:527px;  padding:20px; position:relative; }
-form.infoForm > span.modify{color:#028ad9; font-size:27px; margin-top:52px; text-align:center; Box-sizing: border-box;}
-form.infoForm > ul.modiForm{width:770px; margin: 70px auto 0;}
-form.infoForm > ul.modiForm > li{margin-top:25px; clear:both;}
-form.infoForm > ul.modiForm > li > span.lab{font-weight: bold; font-size:16px; color:#485676; margin:0 0 0 12px; width:80px; float:left;}
-form.infoForm > ul.modiForm > li > span.modify{width:350px; float:left;}
-form.infoForm > ul.modiForm > li > span.modify > input[type='text']{ width:350px; height:40px; border-radius:4px; background-color:#f5f9fa; box-shadow:2px 2px 1px lightgray inset;}
-form.infoForm > ul.modiForm > li:last-child{margin-top:68px;}
+form.infoForm  > div.opacity{width:970px; height:527px; background:rgba(255,255,255,0.5); position:absolute; top:260px; bottom:95px; margin:0 auto;}
+
+form.infoForm > div.opacity > span.modify{color:#028ad9; font-size:27px; margin-top:52px; text-align:center; Box-sizing: border-box;}
+form.infoForm > div.opacity > ul.modiForm{width:770px; margin: 70px auto 0;}
+form.infoForm > div.opacity > ul.modiForm > li{margin-top:25px; clear:both;}
+form.infoForm > div.opacity > ul.modiForm > li > span.lab{font-weight: bold; font-size:16px; color:#485676; margin:0 0 0 12px; width:80px; float:left;}
+form.infoForm > div.opacity > ul.modiForm > li > span.modify{width:350px; float:left;}
+form.infoForm > div.opacity > ul.modiForm > li > span.modify > input[type='text']{ width:350px; height:40px; border-radius:4px; background-color:#f5f9fa; box-shadow:2px 2px 1px lightgray inset;}
+form.infoForm > div.opacity > ul.modiForm > li:last-child{margin-top:68px;}
  
-form.infoForm > ul.modiForm > li:last-child > span.radio {width:100%; margin-top:23px;}
-form.infoForm > ul.modiForm > li:last-child > span.radio > label.chk2 {float:left; }
-form.infoForm > ul.modiForm > li:last-child > span.radio > label.chm {margin-left:19px;}
-form.infoForm > ul.modiForm > li:last-child > span.radio > label.chf {margin-left:52px;}
-form.infoForm > ul.modiForm > li:last-child > span.radio >span.labR{float:left; margin-left:9px;}
+form.infoForm > div.opacity > ul.modiForm > li:last-child > span.radio {width:100%; margin-top:23px;}
+form.infoForm > div.opacity > ul.modiForm > li:last-child > span.radio > label.chk2 {float:left; }
+form.infoForm > div.opacity > ul.modiForm > li:last-child > span.radio > label.chm {margin-left:19px;}
+form.infoForm > div.opacity > ul.modiForm > li:last-child > span.radio > label.chf {margin-left:52px;}
+form.infoForm > div.opacity > ul.modiForm > li:last-child > span.radio >span.labR{float:left; margin-left:9px;}
 
 form.infoForm > button{margin-top:128px; }
-form.infoForm  > div.opacity{width:970px; height:527px; background:rgba(255,255,255,0.5); position:absolute; top:260px; bottom:95px; margin:0 auto;}
+
 div.btn{width:284px; margin:0 auto;}
 div.btn > button{margin-top:128px; float:left; width:132px; height:40px; background-color:#0198f1; color:#FFFFFF; border-radius:4px; font-size:14px;}
 button.mPass{width:132px; height:40px; margin-left:0;}

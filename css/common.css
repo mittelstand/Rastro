@@ -14,7 +14,7 @@ form.infoForm > div.opacity > ul.modiForm > li >ul.period > li > span.selectMont
 form.infoForm > div.opacity > ul.modiForm > li >ul.period > li > span.selectDay{margin-left:8px;}
 
 
-form.infoForm > div.opacity > ul.modiForm > li:last-child > span.radio {width:100%; margin-top:23px;}
+form.infoForm > div.opacity > ul.modiForm > li:last-child > span.radio {width:200px; margin-top:31px;}
 form.infoForm > div.opacity > ul.modiForm > li:last-child > span.radio > label.chk2 {float:left; }
 form.infoForm > div.opacity > ul.modiForm > li:last-child > span.radio > label.chm {margin-left:19px;}
 form.infoForm > div.opacity > ul.modiForm > li:last-child > span.radio > label.chf {margin-left:52px;}

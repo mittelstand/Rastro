@@ -175,6 +175,9 @@ function Nchk(m)
 	}
 }
 
+$("div.circle").hover(function(){
+	$(this).css('background', "rgba(151, 149, 149, 0.5)");
+});
 
 $("#fbImg").click(function(){
 	var fbImage = new Image();
@@ -368,7 +371,6 @@ $(document).ready(function(){
 		eventSY.find("input.value").change();
 	});
 	eventSY.find("input.value").change();
-
 });
 
 

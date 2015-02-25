@@ -121,11 +121,15 @@ span.copyRight a{display:inline; color:#FFF }
 span.copyRight a:hover{color:#FFF;}
 button.btnJoin{width:351px; height:50px; text-indent:-1000em; background:url('/img/btnJoin.png') no-repeat; clear:both; margin:32px auto 0;}
 
+
 button.btnLogin{width:351px; height:54px; text-align:center; font-weight:bold; font-size:15px; color:#FFF; border-radius:4px; background-color:#0198f1; clear:both; margin:48px auto 0;}
 button.btnTopLogin{width:70px; height:30px;  vertical-align:middle; position:relative; color:#2f2f2f; font-family:"나눔고딕"; font-size:14px; border-radius:4px; border:1px solid #000000;}
 button.btnTopLogin:hover{background-color:#949494;}
-button.btnTopLogOut{width:70px; height:30px; float:right; border-radius:4px; border:1px solid #000; color:#2f2f2f; font-family:"나눔고딕"; font-weight:bold; font-size:14px;}
-button.btnTopMyPage{width:70px; height:30px; float:right; border-radius:4px; border:1px solid #000; color:#2f2f2f; font-family:"나눔고딕"; font-weight:bold; font-size:14px;}
+button.btnTopLogOut{width:70px; height:30px; float:right; border-radius:4px; border:1px solid #000; color:#2f2f2f; font-family:"나눔고딕"; font-size:14px;}
+button.btnTopLogOut:hover{background-color:#949494;}
+button.btnTopMyPage{width:70px; height:30px; float:right; border-radius:4px; border:1px solid #000; color:#2f2f2f; font-family:"나눔고딕"; font-size:14px;}
+button.btnTopMyPage:hover{background-color:#949494;}
+
 button.btnFlogin{width:351px; height:53px; text-indent:-1000em;font-weight:bold; font-size:15px; color:#FFF; background:url('/img/btnFlogin.png') no-repeat; clear:both; margin:15px auto 0; clear:both;}
 button.btnRegist{width:352px; height:52px; text-align:center; font-weight:bold; font-size:15px; color:#FFF; border-radius:4px; background-color:#0198f1; clear:both; margin:29px auto 0; clear:both;}
 button.btnBack{width:132px; height:52px; text-align:center; font-weight:bold; font-size:15px; color:#FFF; background:url('/img/btnBack.png') no-repeat; clear:both; margin:29px auto 100px; clear:both; }

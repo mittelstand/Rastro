@@ -63,7 +63,7 @@ if(strlen($_SESSION['idx']) <= 0){
 	</script>
 	<? } ?>
 	<div class = "opacity">
-		<ul class="modiForm" style="z-index:1; position:relative;">
+		<ul class="modiForm" style="z-index:8; position:relative;">
 			<li class="email list">
 				
 			</li>

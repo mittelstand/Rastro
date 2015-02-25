@@ -14,7 +14,8 @@ form.infoForm > ul.modiForm > li:last-child > span.radio > label.chm {margin-lef
 form.infoForm > ul.modiForm > li:last-child > span.radio > label.chf {margin-left:52px;}
 form.infoForm > ul.modiForm > li:last-child > span.radio >span.labR{float:left; margin-left:9px;}
 
-
+form.infoForm > button{margin-top:128px; }
+form.infoForm  > div.opacity{background-color:#FFFFFF; background:rgba(0,0,0,0.5);}
 div.btn{width:284px; margin:0 auto;}
 div.btn > button{margin-top:128px; float:left; width:132px; height:40px; background-color:#0198f1; color:#FFFFFF; border-radius:4px; font-size:14px;}
 button.mPass{width:132px; height:40px; margin-left:0;}

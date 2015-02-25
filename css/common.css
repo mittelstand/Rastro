@@ -1,6 +1,6 @@
 /* info */
-form.infoForm{margin: 0 auto; width:970px; height:874px;  padding:20px; position:relative; }
-form.infoForm  > div.opacity{width:970px; height:527px; background:rgba(255,255,255,0.5); position:absolute; top:100px; margin:0 auto 95px;}
+form.infoForm{margin: 0 auto; width:970px; padding:20px; position:relative; }
+form.infoForm  > div.opacity{width:970px; height:527px; background:rgba(255,255,255,0.5); position:absolute; top:100px; margin:0 auto;}
 
 form.infoForm > div.opacity > span.modify{color:#028ad9; font-size:27px; margin-top:52px; text-align:center; Box-sizing: border-box;}
 form.infoForm > div.opacity > ul.modiForm{width:432px; margin: 128px auto 0;}

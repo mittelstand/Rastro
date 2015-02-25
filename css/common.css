@@ -34,7 +34,7 @@ div.info{margin:81px auto 45px;}
 div.info > span{font-size:29px; color:#323232; font-weight:600; text-align:center;}
 label.pic{width:100%; height:100%; display:block; text-indent:-1000em;  cursor:pointer; background:url('/img/profile.gif') no-repeat; background-size:100% 100%;}
 div.circleTwo{margin: 0 auto;  width:136px; height:136px; border-radius:68px;  border:2px solid #FFFFFF; overflow:hidden; background-color:#979595; visibility:hidden;}
-div.circle{margin: 0 auto; top:-140px; width:136px; height:136px; border-radius:68px;  border:2px solid #FFFFFF; overflow:hidden;}
+div.circle{margin: 0 auto; top:-140px; width:136px; height:136px; border-radius:68px; -moz-border-radius: 45px; border:2px solid #FFFFFF; overflow:hidden; }
 
 
 @import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
@@ -124,11 +124,11 @@ button.btnJoin{width:351px; height:50px; text-indent:-1000em; background:url('/i
 
 button.btnLogin{width:351px; height:54px; text-align:center; font-weight:bold; font-size:15px; color:#FFF; border-radius:4px; background-color:#0198f1; clear:both; margin:48px auto 0;}
 button.btnTopLogin{width:70px; height:30px;  vertical-align:middle; position:relative; color:#2f2f2f; font-family:"나눔고딕"; font-size:14px; border-radius:4px; border:1px solid #000000;}
-button.btnTopLogin:hover{background-color:#b5b5b5;}
+button.btnTopLogin:hover{background-color:#cdcdcd;}
 button.btnTopLogOut{width:70px; height:30px; float:right; border-radius:4px; border:1px solid #000; color:#2f2f2f; font-family:"나눔고딕"; font-size:14px;}
-button.btnTopLogOut:hover{background-color:#b5b5b5;}
+button.btnTopLogOut:hover{background-color:#cdcdcd;}
 button.btnTopMyPage{width:70px; height:30px; float:right; border-radius:4px; border:1px solid #000; color:#2f2f2f; font-family:"나눔고딕"; font-size:14px;}
-button.btnTopMyPage:hover{background-color:#b5b5b5;}
+button.btnTopMyPage:hover{background-color:#cdcdcd;}
 
 button.btnFlogin{width:351px; height:53px; text-indent:-1000em;font-weight:bold; font-size:15px; color:#FFF; background:url('/img/btnFlogin.png') no-repeat; clear:both; margin:15px auto 0; clear:both;}
 button.btnRegist{width:352px; height:52px; text-align:center; font-weight:bold; font-size:15px; color:#FFF; border-radius:4px; background-color:#0198f1; clear:both; margin:29px auto 0; clear:both;}

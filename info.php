@@ -28,6 +28,9 @@ if(strlen($_SESSION['idx']) <= 0){
 
 <form method="post" action="infoModify.php" class = "infoForm" enctype = "multipart/form-data">
 	<input type="hidden" name="lastPic" value="<? echo $array["Ps"]=="" ? "":str_replace("/HCK/rastro.kr/public_html","",$array['Ps'])?>" />
+	<div class = "info">
+		<span>내 정보 수정</span>
+	</div>
 	<div class="circle" style="z-index:1; position:relative;">
 		<label for="picture" class="pic">
 			<input type="file" name="picture" id="picture" value=""/>

@@ -36,7 +36,7 @@ unset($facebook);
 if($_SESSION['idx']){
 ?>
 <script>
-	location.href = "info.php";
+	location.href = "info";
 </script>
 <?
 exit();

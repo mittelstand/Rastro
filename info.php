@@ -9,7 +9,7 @@ $facebook = new Facebook(array(
 $user = $facebook->getUser();
 
 if(strlen($_SESSION['idx']) <= 0){
-	MsgBox("로그인 해주세요.","login.php");
+	MsgBox("로그인 해주세요.","login");
 	exit();
 }
 	$db = new Dbcon();

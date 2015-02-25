@@ -66,7 +66,7 @@ strike{text-decoration:none; background:url('/img/line.png') no-repeat 0 center;
 div.contentBox{padding:40px 0 70px 0; min-height:457px;}
 div.bottom{clear:both;}
 label.chk{width:18px; height:18px; background:url('/img/radioSet3.png') no-repeat 0 0; display:block; text-indent:-1000em;}
-label.chk2{width:18px; height:18px; background:url('/img/radioSet3.png') no-repeat 0 19; display:block; text-indent:-1000em;}
+label.chk2{width:18px; height:18px; background:url('/img/radioSet3.png') no-repeat 0 19px; display:block; text-indent:-1000em;}
 
 h1{width:71px; height:57px; background:url('/img/rastroLogo.png') no-repeat 0 0; margin:0 auto;}
 h2{width:321px; text-align:center; font-size:25px; margin:50px auto 35px; color:#FFF;}

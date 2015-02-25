@@ -180,9 +180,11 @@ function Nchk(m)
 
 $("div.circle").mouseover(function(){
 	$("label.pic").css('opacity', "0.6");
+	$("div.circleTwo").css('display',"block");
 });
 $("div.circle").mouseout (function(){
 	$("label.pic").css('opacity', "1");
+	$("div.circleTwo").css('display',"none");
 });
 
 

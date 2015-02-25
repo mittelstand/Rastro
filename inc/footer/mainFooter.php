@@ -161,7 +161,7 @@ $(document).ready(function(){
 	});	
 $("[type='radio']").change(function(){
 		$("[name='"+$(this).attr("name")+"']").each(function(){
-			radioChnage($(this),21);
+			radioChnage($(this),19);
 						
 		});		
 	});			 

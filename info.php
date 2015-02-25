@@ -36,14 +36,14 @@ if(strlen($_SESSION['idx']) <= 0){
 			<input type="file" name="picture" id="picture" value=""/>
 		</label>
 	</div>
-	<?
-		if($array["fbcode"]){
+	<!--<?
+		//if($array["fbcode"]){
 	?>
 	<button type = "button" id = "fbImg">페이스북 사진</button>
 	<input type = "hidden" name="fbChange" id = "fbChange"/>
 	<?
-		}
-	?>
+		//}
+	?>-->
 	<? if($array['Ps']){ ?>
 	<input type="hidden" name="imgModi" value="y" />
 	<script>
@@ -59,69 +59,71 @@ if(strlen($_SESSION['idx']) <= 0){
 		}
 	</script>
 	<? } ?>
-	<ul class="modiForm" style="z-index:1; position:relative;">
-		<li class="email list">
-			
-		</li>
-		<li class="email list">
-			<span class="lab">이메일</span>
-			<span class="modify"><input type="text" name="email" id="mEmail" value = "<?= $array["email"]?>"/></span>
-			<div style="clear:both;"></div>
-		</li>
-		<li class="name list">
-			<span class="lab">이름</span> 
-			<span class="modify"><input type="text" name="name" id="mName" value = "<?= $array["name"]?>"/></span>
-			<div style="clear:both;"></div>
-		</li>
-		<li class="births list">
-			<span class="lab">생년월일</span>
-			<ul class="period start">
-				<li class="year">
-					<span class="select selectYear">
-						<input type="hidden" name="birthYear" class="value" value="<? echo $array["dob"] == "" ? $row['eventDateS']['y'] : $birth[0]?>" >
-						<button type="button" class="selectBtn" id="selectBtn">
-							<span class="selectText yellow peple">년</span>
-						</button>
-						<div class="bg" style="display:none;"></div>
-						<ul class="selectUl2 limitL" style="display:none;">
-							<li><a href="javascript:;"></a></li>
-						</ul>
-					</span>
-				</li>
-				<li class="month">
-					<span class="select selectMonth">
-						<input type="hidden" name="birthMonth" class="value" value="<? echo $array["dob"] == "" ? $row['eventDateS']['m'] : $birth[1]?>" >
-						<button type="button" class="selectBtn" id="selectBtn">
-							<span class="selectText yellow peple">월</span>
-						</button>							
-						<div class="bg" style="display:none;"></div>
-						<ul class="selectUl2 limitL" style="display:none;">
-							<li><a href="javascript:;"></a></li>
-						</ul>
-					</span>
-				</li>
-				<li class="theDay">
-					<span class="select selectDay">
-						<input type="hidden" name="birthDay" class="value" value="<? echo $array["dob"] == "" ? $row['eventDateS']['d'] : $birth[2]?>" >
-						<button type="button" class="selectBtn" id="selectBtn">
-							<span class="selectText yellow peple">일</span>
-						</button>							
-						<div class="bg" style="display:none;"></div>
-						<ul class="selectUl2 limitL" style="display:none;">
-							<li><a href="javascript:;"></a></li>
-						</ul>
-					</span>
-				</li>				
-			</ul>
-		</li>	
-		<li class="gender list">
-			<span class="lab">성별</span>
-			<span class="radio">
-				<label for="male" class="chk2 chm"><input type="radio" name="sex" value="남성" id="male" global="0" <? echo $array["sex"]=="남성" ? "checked='checked'":""?>/></label><span class="labR m">남성</span>
-				<label for="fmale" class="chk2 chf"><input type="radio" name="sex" value="여성" id="fmale" global="0" <? echo $array["sex"]=="여성" ? "checked='checked'":""?>/></label><span class="labR f">여성</span> 
-			</span>
-		</li>
-	</ul>
+	<div class = "opacity">
+		<ul class="modiForm" style="z-index:1; position:relative;">
+			<li class="email list">
+				
+			</li>
+			<li class="email list">
+				<span class="lab">이메일</span>
+				<span class="modify"><input type="text" name="email" id="mEmail" value = "<?= $array["email"]?>"/></span>
+				<div style="clear:both;"></div>
+			</li>
+			<li class="name list">
+				<span class="lab">이름</span> 
+				<span class="modify"><input type="text" name="name" id="mName" value = "<?= $array["name"]?>"/></span>
+				<div style="clear:both;"></div>
+			</li>
+			<li class="births list">
+				<span class="lab">생년월일</span>
+				<ul class="period start">
+					<li class="year">
+						<span class="select selectYear">
+							<input type="hidden" name="birthYear" class="value" value="<? echo $array["dob"] == "" ? $row['eventDateS']['y'] : $birth[0]?>" >
+							<button type="button" class="selectBtn" id="selectBtn">
+								<span class="selectText yellow peple">년</span>
+							</button>
+							<div class="bg" style="display:none;"></div>
+							<ul class="selectUl2 limitL" style="display:none;">
+								<li><a href="javascript:;"></a></li>
+							</ul>
+						</span>
+					</li>
+					<li class="month">
+						<span class="select selectMonth">
+							<input type="hidden" name="birthMonth" class="value" value="<? echo $array["dob"] == "" ? $row['eventDateS']['m'] : $birth[1]?>" >
+							<button type="button" class="selectBtn" id="selectBtn">
+								<span class="selectText yellow peple">월</span>
+							</button>							
+							<div class="bg" style="display:none;"></div>
+							<ul class="selectUl2 limitL" style="display:none;">
+								<li><a href="javascript:;"></a></li>
+							</ul>
+						</span>
+					</li>
+					<li class="theDay">
+						<span class="select selectDay">
+							<input type="hidden" name="birthDay" class="value" value="<? echo $array["dob"] == "" ? $row['eventDateS']['d'] : $birth[2]?>" >
+							<button type="button" class="selectBtn" id="selectBtn">
+								<span class="selectText yellow peple">일</span>
+							</button>							
+							<div class="bg" style="display:none;"></div>
+							<ul class="selectUl2 limitL" style="display:none;">
+								<li><a href="javascript:;"></a></li>
+							</ul>
+						</span>
+					</li>				
+				</ul>
+			</li>	
+			<li class="gender list">
+				<span class="lab">성별</span>
+				<span class="radio">
+					<label for="male" class="chk2 chm"><input type="radio" name="sex" value="남성" id="male" global="0" <? echo $array["sex"]=="남성" ? "checked='checked'":""?>/></label><span class="labR m">남성</span>
+					<label for="fmale" class="chk2 chf"><input type="radio" name="sex" value="여성" id="fmale" global="0" <? echo $array["sex"]=="여성" ? "checked='checked'":""?>/></label><span class="labR f">여성</span> 
+				</span>
+			</li>
+		</ul>
+	</div>
 	<div style = "clear:both;"></div>
 	<div class="btn" style="z-index:1; position:relative;">
 		<button class = "mPass">비밀번호변경</button>

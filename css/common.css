@@ -16,7 +16,7 @@ form.infoForm > div.opacity > ul.modiForm > li:last-child > span.radio > label.c
 form.infoForm > div.opacity > ul.modiForm > li:last-child > span.radio > label.chf {margin-left:52px;}
 form.infoForm > div.opacity > ul.modiForm > li:last-child > span.radio >span.labR{float:left; margin-left:9px;}
 
-form.infoForm > div.opacity > div.btn{margin-top:128px; width:284px; margin:0 auto;}
+form.infoForm > div.opacity > div.btn{width:284px; margin:68px auto 0;}
 form.infoForm > div.opacity >  div.btn > button{float:left; width:123px; height:41px; background-color:#0198f1; color:#FFFFFF; border-radius:8px; font-size:15px; border:1px solid #1271a9;}
 form.infoForm > div.opacity >  div.btn > button.mPass{width:132px; height:40px; margin-left:0;}
 form.infoForm > div.opacity >  div.btn > button.infoSave{width:132px; height:40px; margin-left:20px;}

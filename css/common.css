@@ -3,7 +3,7 @@ form.infoForm{margin: 0 auto; width:970px; height:527px;  padding:20px; position
 form.infoForm  > div.opacity{width:970px; height:527px; background:rgba(255,255,255,0.5); position:absolute; top:260px; bottom:95px; margin:0 auto;}
 
 form.infoForm > div.opacity > span.modify{color:#028ad9; font-size:27px; margin-top:52px; text-align:center; Box-sizing: border-box;}
-form.infoForm > div.opacity > ul.modiForm{width:770px; margin: 70px auto 0;}
+form.infoForm > div.opacity > ul.modiForm{width:431px; margin: 128px auto 0;}
 form.infoForm > div.opacity > ul.modiForm > li{margin-top:25px; clear:both;}
 form.infoForm > div.opacity > ul.modiForm > li > span.lab{font-weight: bold; font-size: 16px; color: #212121; margin: 16px 18px 0 0; width: 62px; float: left;}
 

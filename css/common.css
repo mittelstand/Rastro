@@ -7,6 +7,7 @@ form.infoForm > div.opacity > ul.modiForm{width:432px; margin: 128px auto 0;}
 form.infoForm > div.opacity > ul.modiForm > li{margin-top:25px; clear:both;}
 form.infoForm > div.opacity > ul.modiForm > li > span.lab{font-weight: bold; font-size: 16px; color: #212121; margin: 16px 18px 0 0; width: 62px; float: left;}
 form.infoForm > div.opacity > ul.modiForm > li > span.birth{margin-right:17px;}
+form.infoForm > div.opacity > ul.modiForm > li > span.gender{margin-right:47px;}
 form.infoForm > div.opacity > ul.modiForm > li > span.modify{width:350px; float:left;}
 form.infoForm > div.opacity > ul.modiForm > li > span.modify > input[type='text']{ width:351px; height:45px; border-radius:4px; background-color:#dff2f7; border:1px solid #FFFFFF; box-shadow:2px 2px 1px lightgray inset;}
 form.infoForm > div.opacity > ul.modiForm > li:last-child{margin-top:68px;}

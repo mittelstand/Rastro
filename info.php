@@ -116,7 +116,7 @@ if(strlen($_SESSION['idx']) <= 0){
 				</ul>
 			</li>	
 			<li class="gender list">
-				<span class="lab">성별</span>
+				<span class="lab gender">성별</span>
 				<span class="radio">
 					<label for="male" class="chk2 chm"><input type="radio" name="sex" value="남성" id="male" global="0" <? echo $array["sex"]=="남성" ? "checked='checked'":""?>/></label><span class="labR m">남성</span>
 					<label for="fmale" class="chk2 chf"><input type="radio" name="sex" value="여성" id="fmale" global="0" <? echo $array["sex"]=="여성" ? "checked='checked'":""?>/></label><span class="labR f">여성</span> 

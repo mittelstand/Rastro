@@ -178,9 +178,13 @@ function Nchk(m)
 	}
 }
 
-$("div.circle").hover(function(){
+$("div.circle").mouseover(function(){
 	$("label.pic").css('opacity', "0.6");
 });
+$("div.circle").mouseout (function(){
+	$("label.pic").css('opacity', "1");
+});
+
 
 $("#fbImg").click(function(){
 	var fbImage = new Image();

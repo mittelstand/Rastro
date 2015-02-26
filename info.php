@@ -187,8 +187,7 @@ $("div.circle").mouseout (function(){
 	
 });
 $("div.circle").click(function(e){
-	$("div.popImgMsg").css("top",e.clientY);
-	$("div.popImgMsg").css("left",e.clientX);	
+	
 	$("div.popImgMsg").show();
 	$("div.popImgMsg").mouseleave(function(){
 		$("*").focus(function(){

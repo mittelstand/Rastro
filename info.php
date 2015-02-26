@@ -190,18 +190,20 @@ $("div.circle").click(function(e){
 	
 	$("div.popImgMsg").show();
 	$(this).mouseleave(function(){
-		$("*").focus(function(){
+		$("*").focus(function(e){
+			console.log("a");
 			$("div.popImgMsg").hide();
 			$(window).unbind("click");
 			$("*").unbind("focus");
 		});
 		$(window).click(function(e){
-			console.log(e);
+			console.log("b");
 			$("div.popImgMsg").hide();
 			$(window).unbind("click");
 			$("*").unbind("focus");
 		});
-		$(this).hover(function(){
+		$(this).hover(function(e){
+			console.log("c");
 			$(window).unbind("click");
 			$("*").unbind("focus");		
 		});	

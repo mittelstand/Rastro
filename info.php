@@ -210,7 +210,7 @@ $("#pcImage").click(function(){
 	$("*").unbind("focus");	
 });
 
-$("#imgDelete").click(function(){;
+$("#imgDelete").click(function(){
 	var del = "<input type = 'hidden' name = 'del' value = 'http://rastro.kr/img/profile.gif'>"
 	$("label[for='picture']").css("background","url('http://rastro.kr/img/profile.gif') no-repeat 0 0");
 

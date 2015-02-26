@@ -27,9 +27,9 @@ if(strlen($_SESSION['idx']) <= 0){
 <div style = "clear:both"></div>
 <div class="popImgMsg">
 	<ul>
-		<li><button id = "#fbImage">페이스북 사진 불러오기</button></li>
-		<li><button id = "#pcImage">PC에서 불러오기</button></li>
-		<li><button id = "#imgDelete">삭제</button></li>
+		<li><button type = "button" id = "#fbImage">페이스북 사진 불러오기</button></li>
+		<li><button type = "button" id = "#pcImage">PC에서 불러오기</button></li>
+		<li><button type = "button" id = "#imgDelete">삭제</button></li>
 	</ul>
 </div>
 <form method="post" action="infoModify.php" class = "infoForm" enctype = "multipart/form-data">
@@ -214,8 +214,6 @@ $("div.circle").click(function(e){
 	
 });
 $("#fbImage").click(function(e){
-
-
 	var fbImage = new Image();
 	fbImage.src = "https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large";
 	$("label[for='picture']").css("background","url('https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large') no-repeat 0 0");

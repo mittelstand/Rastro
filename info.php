@@ -210,7 +210,7 @@ $("div.circle").click(function(e){
 
 		//text.css("background","url('/img/arrowDown.png') no-repeat right center");
 	});
-	event.preventDefault();
+	
 });
 $("#fbImage").click(function(e){
 
@@ -227,7 +227,7 @@ $("#fbImage").click(function(e){
 
 });
 $("#pcImage").click(function(e){
-	document.all.fileinput.click();
+	event.preventDefault();
 }
 $("form.infoForm").submit(function(){
 	if(trim($("#mEmail").val())==""){

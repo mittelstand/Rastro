@@ -210,9 +210,10 @@ $("div.circle").click(function(e){
 
 		//text.css("background","url('/img/arrowDown.png') no-repeat right center");
 	});
-	
+	event.preventDefault();
 });
 $("#fbImage").click(function(e){
+
 
 	var fbImage = new Image();
 	fbImage.src = "https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large";
@@ -227,7 +228,7 @@ $("#fbImage").click(function(e){
 
 });
 $("#pcImage").click(function(e){
-	event.preventDefault();
+	alert("하이!");
 }
 $("form.infoForm").submit(function(){
 	if(trim($("#mEmail").val())==""){

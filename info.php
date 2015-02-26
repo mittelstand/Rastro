@@ -27,9 +27,9 @@ if(strlen($_SESSION['idx']) <= 0){
 <div style = "clear:both"></div>
 <div class="popImgMsg">
 	<ul>
-		<li>임시</li>
-		<li>임시</li>
-		<li>임시</li>
+		<li><button id = "#fbImg">페이스북 사진 불러오기</button></li>
+		<li><button id = "#pcImg">PC에서 불러오기</button></li>
+		<li><button id = "#delete">삭제</button></li>
 	</ul>
 </div>
 <form method="post" action="infoModify.php" class = "infoForm" enctype = "multipart/form-data">
@@ -38,7 +38,7 @@ if(strlen($_SESSION['idx']) <= 0){
 	<!--<div class = "info">
 		<span>내 정보 수정</span>
 	</div>-->
-	<div class="circle, circleTwo" style="z-index:1; position:relative;"></div>
+	<div class="circle, cicleTwo" style="z-index:1; position:relative;"></div>
 	<div class="circle" style="z-index:1; position:relative;">
 		<label for="picture" class="pic">
 			<input type="file" name="picture" id="picture" value=""/>

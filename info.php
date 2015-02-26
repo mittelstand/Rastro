@@ -187,12 +187,12 @@ $("div.circle").click(function(e){
 	$("div.popImgMsg").css("left",e.clientX);	
 	$("div.popImgMsg").show();
 	$("div.popImgMsg").mouseleave(function(){
-		$(window).click(function(){
+		$("*").focus(function(){
 			$("div.popImgMsg").hide();
-			$(window).unbind("click");	
+			$("*").unbind("focus");	
 		})
 		$(this).hover(function(){
-			$(window).unbind("click");		
+			$("*").unbind("click");		
 		});	
 		//text.css("background","url('/img/arrowDown.png') no-repeat right center");
 	});

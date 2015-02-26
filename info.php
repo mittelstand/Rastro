@@ -27,6 +27,7 @@ if(strlen($_SESSION['idx']) <= 0){
 <div style = "clear:both"></div>
 
 <form method="post" action="infoModify.php" class = "infoForm" enctype = "multipart/form-data">
+	<div class="popImgMsg"></div>
 	<input type="hidden" name="lastPic" value="<? echo $array["Ps"]=="" ? "":str_replace("/HCK/rastro.kr/public_html","",$array['Ps'])?>" />
 	<!--<div class = "info">
 		<span>내 정보 수정</span>
@@ -181,7 +182,14 @@ $("div.circle").mouseout (function(){
 	$("div.circleTwo").css('visibility',"hidden");
 });
 
-$("#fbImg").click(function(){
+$("#fbImg").click(function(e){
+	$("div.popImgMsg").css("top",e.clientY);
+	$("div.popImgMsg").css("left",e.clientX);
+	$("div.popImgMsg").show();
+
+	
+	
+	/*
 	var fbImage = new Image();
 	fbImage.src = "https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large";
 	$("label[for='picture']").css("background","url('https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large') no-repeat 0 0");
@@ -191,7 +199,8 @@ $("#fbImg").click(function(){
 		$("label[for='picture']").css('background-size',"auto 100%");
 	}else{
 		$("label[for='picture']").css('background-size',"100% auto");
-	}	
+	}
+	*/
 
 });
 
@@ -371,7 +380,7 @@ $(document).ready(function(){
 	});
 	eventSD.find("input.value").change(function(){
 		eventSY.find("input.value").change();
-	});
+	}); 
 	eventSY.find("input.value").change();
 });
 

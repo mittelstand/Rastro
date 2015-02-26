@@ -27,13 +27,19 @@ if(strlen($_SESSION['idx']) <= 0){
 <div style = "clear:both"></div>
 <div class="popImgMsg">
 	<ul>
-		<li><button type = "button" id = "fbImage">페이스북 사진 불러오기<input type = "hidden" name="fbChange" id = "fbChange"/></button></li>
-		<li><button type = "button" id = "pcImage">PC에서 불러오기</button></li>
-		<li><button type = "button" id = "imgDelete">삭제</button></li>
+<?
+	if($array["fbcode"]){
+?>
+	<li><button type = "button" id = "fbImage">페이스북 사진 불러오기</button></li>
+<?
+	}
+?>
+	<li><button type = "button" id = "pcImage">PC에서 불러오기</button></li>
+	<li><button type = "button" id = "imgDelete">삭제</button></li>
 	</ul>
 </div>
 <form method="post" action="infoModify.php" class = "infoForm" enctype = "multipart/form-data">
-	
+	<input type = "hidden" name="fbChange" id = "fbChange"/>
 	<input type="hidden" name="lastPic" value="<? echo $array["Ps"]=="" ? "":str_replace("/HCK/rastro.kr/public_html","",$array['Ps'])?>" />
 	<!--<div class = "info">
 		<span>내 정보 수정</span>
@@ -45,13 +51,7 @@ if(strlen($_SESSION['idx']) <= 0){
 		</label>
 	</div>
 
-	<!--<?
-		//if($array["fbcode"]){
-	?>
-	<button type = "button" id = "fbImg">페이스북 사진</button>
-	<?
-		//}
-	?>-->
+
 	<? if($array['Ps']){ ?>
 	<input type="hidden" name="imgModi" value="y" />
 	<script>

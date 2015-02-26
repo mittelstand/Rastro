@@ -211,16 +211,22 @@ $("div.circle").click(function(e){
 	$("#fbImage").click(function(){
 		var fbImage = new Image();
 		fbImage.src = "https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large";
-		$("label[for='picture']").css("background","url('https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large') no-repeat 0 0");
-		$("#fbChange").attr("value","https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large");
-					
-		if(fbImage.width > fbImage.height){
-			$("label[for='picture']").css('background-size',"auto 100%");
-		}else{
-			$("label[for='picture']").css('background-size',"100% auto");
+		fbImage.onload = function (e) {
+				 $("label[for='picture']").css("background","url('https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large') no-repeat 0 0");
+				 $("#fbChange").attr("value","https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large");
+						  
+				 if(fbImage.width > fbImage.height){
+					$("label[for='picture']").css('background-size',"auto 100%");
+				 }else{
+					$("label[for='picture']").css('background-size',"100% auto");
+				 }
 		}
 
 	});
+	$("#pcImage").click(function(){;
+		
+	});
+
 	$("#imgDelete").click(function(){;
 		var del = "<input type = 'hidden' name = 'del' value = 'http://rastro.kr/img/profile.gif'>"
 		$("label[for='picture']").css("background","url('http://rastro.kr/img/profile.gif') no-repeat 0 0");

@@ -27,9 +27,9 @@ if(strlen($_SESSION['idx']) <= 0){
 <div style = "clear:both"></div>
 <div class="popImgMsg">
 	<ul>
-		<li>임시</li>
-		<li>임시</li>
-		<li>임시</li>
+		<li><button id = "#fbImage">페이스북 사진 불러오기</button></li>
+		<li><button id = "#pcImage">PC에서 불러오기</button></li>
+		<li><button id = "#imgDelete">삭제</button></li>
 	</ul>
 </div>
 <form method="post" action="infoModify.php" class = "infoForm" enctype = "multipart/form-data">
@@ -38,7 +38,7 @@ if(strlen($_SESSION['idx']) <= 0){
 	<!--<div class = "info">
 		<span>내 정보 수정</span>
 	</div>-->
-	<div class="circle, ci제cleTwo" style="z-index:1; position:relative;"></div>
+	<div class="circle, circleTwo" style="z-index:1; position:relative;"></div>
 	<div class="circle" style="z-index:1; position:relative;">
 		<label for="picture" class="pic">
 			<input type="file" name="picture" id="picture" value=""/>
@@ -211,14 +211,10 @@ $("div.circle").click(function(e){
 		//text.css("background","url('/img/arrowDown.png') no-repeat right center");
 	});
 	event.preventDefault();
-	
 });
-$("#fbImg").click(function(e){
+$("#fbImage").click(function(e){
 
 
-
-	
-	
 	var fbImage = new Image();
 	fbImage.src = "https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large";
 	$("label[for='picture']").css("background","url('https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large') no-repeat 0 0");

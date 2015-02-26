@@ -187,8 +187,8 @@ $("div.circle").click(function(e){
 	$("div.popImgMsg").css("left",e.clientX);	
 	$("div.popImgMsg").show();
 	$(window).click(function(){
-		$("div.popImgMsg").hide();
-		$(window).unbind("click");
+		//$("div.popImgMsg").hide();
+		//$(window).unbind("click");
 	});
 	event.preventDefault();
 	

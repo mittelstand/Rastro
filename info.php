@@ -190,6 +190,7 @@ $("div.circle").click(function(e){
 		$("div.popImgMsg").hide();
 		$(window).unbind("click");
 	});
+	event.preventDefault();
 	
 });
 $("#fbImg").click(function(e){

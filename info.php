@@ -27,9 +27,9 @@ if(strlen($_SESSION['idx']) <= 0){
 <div style = "clear:both"></div>
 <div class="popImgMsg">
 	<ul>
-		<li><button type = "button" id = "#fbImage">페이스북 사진 불러오기</button></li>
-		<li><button type = "button" id = "#pcImage">PC에서 불러오기</button></li>
-		<li><button type = "button" id = "#imgDelete">삭제</button></li>
+		<li><button type = "button" id = "fbImage">페이스북 사진 불러오기</button></li>
+		<li><button type = "button" id = "pcImage">PC에서 불러오기</button></li>
+		<li><button type = "button" id = "imgDelete">삭제</button></li>
 	</ul>
 </div>
 <form method="post" action="infoModify.php" class = "infoForm" enctype = "multipart/form-data">

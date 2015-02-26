@@ -181,11 +181,13 @@ $("div.circle").mouseout (function(){
 	$("label.pic").css('opacity', "1");
 	$("div.circleTwo").css('visibility',"hidden");
 });
-
-$("#fbImg").click(function(e){
+$("div.circle").click(function(e){
 	$("div.popImgMsg").css("top",e.clientY);
 	$("div.popImgMsg").css("left",e.clientX);
-	$("div.popImgMsg").show();
+});
+$("#fbImg").click(function(e){
+
+
 
 	
 	

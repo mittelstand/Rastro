@@ -211,6 +211,7 @@ $("div.circle").click(function(e){
 		//text.css("background","url('/img/arrowDown.png') no-repeat right center");
 	});
 	event.preventDefault();
+	
 });
 $("#fbImage").click(function(e){
 
@@ -227,9 +228,7 @@ $("#fbImage").click(function(e){
 	}
 
 });
-$("#pcImage").click(function(e){
-	alert("하이!");
-}
+
 $("form.infoForm").submit(function(){
 	if(trim($("#mEmail").val())==""){
 		alert("이메일을 입력하세요.");

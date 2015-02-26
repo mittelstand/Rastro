@@ -31,8 +31,7 @@ if(strlen($_SESSION['idx']) <= 0){
 	<!--<div class = "info">
 		<span>내 정보 수정</span>
 	</div>-->
-	<div class="circle, circleTwo" style="z-index:1; position:relative;">
-	</div>
+	<div class="circle, circleTwo" style="z-index:1; position:relative;"></div>
 	<div class="circle" style="z-index:1; position:relative;">
 		<label for="picture" class="pic">
 			<input type="file" name="picture" id="picture" value=""/>
@@ -64,9 +63,7 @@ if(strlen($_SESSION['idx']) <= 0){
 	<? } ?>
 	<div class = "opacity">
 		<ul class="modiForm" style="z-index:8; position:relative;">
-			<li class="email list">
-				
-			</li>
+			<li class="email list"></li>
 			<li class="email list">
 				<span class="lab">이메일</span>
 				<span class="modify"><input type="text" name="email" id="mEmail" value = "<?= $array["email"]?>"/></span>
@@ -126,12 +123,12 @@ if(strlen($_SESSION['idx']) <= 0){
 				</span>
 			</li>
 		</ul>
-	<div style = "clear:both;"></div>
-	<div class="btn" style="z-index:1; position:relative;">
-		<button class = "mPass">비밀번호변경</button>
-		<button type="submit" class = "infoSave">저장</button>
-	</div>
-	
+		<div style = "clear:both;"></div>
+		<div class="btn" style="z-index:1; position:relative;">
+			<button class = "mPass">비밀번호변경</button>
+			<button type="submit" class = "infoSave">저장</button>
+		</div>
+	</div>	
 </form>
 <script>
 var date    = new Date();

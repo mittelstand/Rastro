@@ -222,7 +222,7 @@ $("div.circle").click(function(e){
 		}
 
 	});
-	$("pcImage").click(function(){
+	$("#imgDelete").click(function(){
 		var image = new Image();
 		image.src = "http://rastro.kr/img/profile.gif";
 		$("label[for='picture']").css("background","url('http://rastro.kr/img/profile.gif') no-repeat 0 0");

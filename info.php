@@ -213,7 +213,6 @@ $("#fbImg").click(function(e){
 
 	
 	
-	/*
 	var fbImage = new Image();
 	fbImage.src = "https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large";
 	$("label[for='picture']").css("background","url('https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large') no-repeat 0 0");
@@ -224,7 +223,6 @@ $("#fbImg").click(function(e){
 	}else{
 		$("label[for='picture']").css('background-size',"100% auto");
 	}
-	*/
 
 });
 

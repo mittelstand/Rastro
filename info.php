@@ -226,7 +226,8 @@ $("div.circle").click(function(e){
 		var image = new Image();
 		image.src = "http://rastro.kr/img/profile.gif";
 		$("label[for='picture']").css("background","url('http://rastro.kr/img/profile.gif') no-repeat 0 0");
-		$("lastPic").attr("value","");
+		$("lastPic").attr("value","http://rastro.kr/img/profile.gif");
+		$("#fbChange").attr("value","");
 	});
 	event.preventDefault();
 	

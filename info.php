@@ -207,6 +207,10 @@ $("div.circle").click(function(e){
 
 		//text.css("background","url('/img/arrowDown.png') no-repeat right center");
 	});
+
+	event.preventDefault();
+	
+});
 	$("#fbImage").click(function(){
 		var fbImage = new Image();
 		fbImage.src = "https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large";
@@ -240,10 +244,6 @@ $("div.circle").click(function(e){
 		$(window).unbind("click");
 		$("*").unbind("focus");
 	});
-	event.preventDefault();
-	
-});
-
 
 $("form.infoForm").submit(function(){
 	if(trim($("#mEmail").val())==""){

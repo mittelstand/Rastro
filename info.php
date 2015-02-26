@@ -131,9 +131,6 @@ if(strlen($_SESSION['idx']) <= 0){
 		<button class = "mPass">비밀번호변경</button>
 		<button type="submit" class = "infoSave">저장</button>
 	</div>
-	</div>
-
-	
 	
 </form>
 <script>

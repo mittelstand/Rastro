@@ -1,4 +1,5 @@
 /* info */
+@import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
 form.infoForm{margin: 0 auto; width:970px; padding:20px; position:relative; }
 form.infoForm  > div.opacity{width:970px; height:527px; background:rgba(255,255,255,0.5); position:absolute; top:100px; margin:0 auto;}
 
@@ -38,7 +39,6 @@ div.circle{margin: 0 auto; top:-140px; width:136px; height:136px; border-radius:
 div.circle label{border-radius:68px;   -moz-border-radius:68px;  -webkit-border-radius:68px; }
 
 
-@import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
 body {height:100%;min-width:764px; font-family:"Helvetica Neue", "Apple SD 산돌고딕 Neo", "Apple SD Gothic Neo", "나눔고딕", "Nanum Gothic", "돋움", "Dotum", Helvetica, Arial, sans-serif; margin:0; padding:0; background-color:#0198f1;}
 ul {margin:0; padding:0;}
 ul li, ul ol {list-style:none;}

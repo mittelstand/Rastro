@@ -25,9 +25,9 @@ if(strlen($_SESSION['idx']) <= 0){
 	/*body{background-color:#ededed;}*/
 </style>
 <div style = "clear:both"></div>
-
+<div class="popImgMsg"></div>
 <form method="post" action="infoModify.php" class = "infoForm" enctype = "multipart/form-data">
-	<div class="popImgMsg"></div>
+	
 	<input type="hidden" name="lastPic" value="<? echo $array["Ps"]=="" ? "":str_replace("/HCK/rastro.kr/public_html","",$array['Ps'])?>" />
 	<!--<div class = "info">
 		<span>내 정보 수정</span>

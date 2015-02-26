@@ -189,11 +189,19 @@ $("div.circle").click(function(e){
 	$("div.popImgMsg").mouseleave(function(){
 		$("*").focus(function(){
 			$("div.popImgMsg").hide();
-			$("*").unbind("focus");	
-		})
+			$(window).unbind("click");
+			$("*").unbind("focus");
+		});
+		$(window).click(function(){
+			$("div.popImgMsg").hide();
+			$(window).unbind("click");
+			$("*").unbind("focus");
+		});
 		$(this).hover(function(){
-			$("*").unbind("click");		
+			$(window).unbind("click");
+			$("*").unbind("focus");		
 		});	
+
 		//text.css("background","url('/img/arrowDown.png') no-repeat right center");
 	});
 	event.preventDefault();

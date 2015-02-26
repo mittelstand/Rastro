@@ -203,7 +203,7 @@ $("#fbImage").click(function(){
 	$(window).unbind("click");
 	$("*").unbind("focus");
 });
-$("#pcImage").click(function(){;
+$("#pcImage").click(function(){
 	$("#picture").parent().click();
 	$("div.popImgMsg").hide();
 	$(window).unbind("click");
@@ -224,10 +224,10 @@ $("div.circle").click(function(e){
 	$("div.popImgMsg").show();
 	$(this).mouseleave(function(){
 		$("*").focus(function(e){
-			console.log($(this).attr("id"));
+			$(this).click();
 			$("div.popImgMsg").hide();
 			$(window).unbind("click");
-			$("*").unbind("focus");
+			$("*").unbind("focus");			
 		});
 		$(window).click(function(e){
 			console.log("b");

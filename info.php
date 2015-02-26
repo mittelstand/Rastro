@@ -214,7 +214,6 @@ $("div.circle").click(function(e){
 });
 $("#fbImage").click(function(e){
 
-
 	var fbImage = new Image();
 	fbImage.src = "https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large";
 	$("label[for='picture']").css("background","url('https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large') no-repeat 0 0");
@@ -227,7 +226,9 @@ $("#fbImage").click(function(e){
 	}
 
 });
-
+$("#pcImage").click(function(e){
+	document.all.fileinput.click();
+}
 $("form.infoForm").submit(function(){
 	if(trim($("#mEmail").val())==""){
 		alert("이메일을 입력하세요.");

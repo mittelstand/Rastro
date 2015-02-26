@@ -195,7 +195,8 @@ $("div.circle").click(function(e){
 			$(window).unbind("click");
 			$("*").unbind("focus");
 		});
-		$(window).click(function(){
+		$(window).click(function(e){
+			console.log(e);
 			$("div.popImgMsg").hide();
 			$(window).unbind("click");
 			$("*").unbind("focus");

@@ -81,7 +81,7 @@ h2{width:321px; text-align:center; font-size:25px; margin:50px auto 35px; color:
 #header div.logOutBox{width:996px; height:100%; margin: 0 auto; padding:6px 20px 0; Box-sizing: border-box; position:relative; }
 #header div.logOutBox div.button{position:absolute; right:20px; top:12px;}
 #header button.btnTopLogin{float:right; text-align:center;}
-#container{width:996px; margin: 28px auto 0; padding-bottom:100px; padding:0 20px; Box-sizing: border-box;}
+#container{width:996px; margin: 28px auto 0; padding-bottom:100px;  Box-sizing: border-box;}
 div.leftObj{width:100%;   Box-sizing: border-box; clear:both;  text-align:center; font-weight:bold; color:#FFF; margin-bottom:57px;}
 div.leftObj span span{display:inline;}
 div.leftObj span.text1{font-weight:bold; font-size:29px; color:#323232; text-align:center;}
@@ -159,3 +159,4 @@ div.termsAll div.area textarea{width:100%; height:100%; font-size:11px; margin:0
 
 
 div.popImgMsg{position:absolute; width:100px; height:100px; display:none; background-color:#FFF; z-index:999;}
+

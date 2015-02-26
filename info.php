@@ -226,7 +226,7 @@ $("div.circle").click(function(e){
 		$("*").unbind("focus");
 	});
 	$("#pcImage").click(function(){;
-		$("#picture").change();
+		$("#picture").parent().click();
 		$("div.popImgMsg").hide();
 		$(window).unbind("click");
 		$("*").unbind("focus");	

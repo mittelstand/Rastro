@@ -40,7 +40,6 @@ if(strlen($_SESSION['idx']) <= 0){
 </div>
 <form method="post" action="infoModify.php" class = "infoForm" enctype = "multipart/form-data">
 	<input type = "hidden" name="fbChange" id = "fbChange"/>
-	
 	<!--<div class = "info">
 		<span>내 정보 수정</span>
 	</div>-->
@@ -222,12 +221,11 @@ $("div.circle").click(function(e){
 		}
 
 	});
-	$("#imgDelete").click(function(){
-		var image = new Image();
-		image.src = "http://rastro.kr/img/profile.gif";
+	$("#imgDelete").click(function(){;
+		var del = "<input type = 'hidden' name = 'del' value = 'http://rastro.kr/img/profile.gif'>"
 		$("label[for='picture']").css("background","url('http://rastro.kr/img/profile.gif') no-repeat 0 0");
-		$("#lastPic").attr("value","http://rastro.kr/img/profile.gif");
-		$("#fbChange").attr("value"," ");
+
+		$("form.infoForm").append(del);
 	});
 	event.preventDefault();
 	

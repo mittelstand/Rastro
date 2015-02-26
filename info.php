@@ -190,7 +190,6 @@ $("div.circle").click(function(e){
 		$("div.popImgMsg").hide();
 		$(window).unbind("focus");
 	});
-	event.preventDefault();
 	
 });
 $("#fbImg").click(function(e){

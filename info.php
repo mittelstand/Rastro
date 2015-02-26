@@ -189,7 +189,7 @@ $("div.circle").mouseout (function(){
 $("div.circle").click(function(e){
 	
 	$("div.popImgMsg").show();
-	$("div.popImgMsg").mouseleave(function(){
+	$(this).mouseleave(function(){
 		$("*").focus(function(){
 			$("div.popImgMsg").hide();
 			$(window).unbind("click");

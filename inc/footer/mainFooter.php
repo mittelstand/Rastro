@@ -68,6 +68,7 @@ function select(){
 				back.css("display","none");
 				ul.css("display","none");
 				ul.attr("global","");
+				$(window).unbind("click");	
 			})
 			$(this).hover(function(){
 				$(window).unbind("click");		

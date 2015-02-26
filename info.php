@@ -186,12 +186,45 @@ $("div.circle").mouseout (function(){
 	$("div.circleTwo").css('visibility',"hidden");
 	
 });
+$("#fbImage").click(function(){
+	var fbImage = new Image();
+	fbImage.src = "https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large";
+	fbImage.onload = function (e) {
+			 $("label[for='picture']").css("background","url('https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large') no-repeat 0 0");
+			 $("#fbChange").attr("value","https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large");
+					  
+			 if(fbImage.width > fbImage.height){
+				$("label[for='picture']").css('background-size',"auto 100%");
+			 }else{
+				$("label[for='picture']").css('background-size',"100% auto");
+			 }
+	}
+	$("div.popImgMsg").hide();
+	$(window).unbind("click");
+	$("*").unbind("focus");
+});
+$("#pcImage").click(function(){;
+	$("#picture").parent().click();
+	$("div.popImgMsg").hide();
+	$(window).unbind("click");
+	$("*").unbind("focus");	
+});
+
+$("#imgDelete").click(function(){;
+	var del = "<input type = 'hidden' name = 'del' value = 'http://rastro.kr/img/profile.gif'>"
+	$("label[for='picture']").css("background","url('http://rastro.kr/img/profile.gif') no-repeat 0 0");
+
+	$("form.infoForm").append(del);
+	$("div.popImgMsg").hide();
+	$(window).unbind("click");
+	$("*").unbind("focus");
+});
 $("div.circle").click(function(e){
 	
 	$("div.popImgMsg").show();
 	$(this).mouseleave(function(){
 		$("*").focus(function(e){
-			console.log("a");
+			console.log($(this).attr("id"));
 			$("div.popImgMsg").hide();
 			$(window).unbind("click");
 			$("*").unbind("focus");
@@ -210,39 +243,7 @@ $("div.circle").click(function(e){
 
 		//text.css("background","url('/img/arrowDown.png') no-repeat right center");
 	});
-	$("#fbImage").click(function(){
-		var fbImage = new Image();
-		fbImage.src = "https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large";
-		fbImage.onload = function (e) {
-				 $("label[for='picture']").css("background","url('https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large') no-repeat 0 0");
-				 $("#fbChange").attr("value","https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large");
-						  
-				 if(fbImage.width > fbImage.height){
-					$("label[for='picture']").css('background-size',"auto 100%");
-				 }else{
-					$("label[for='picture']").css('background-size',"100% auto");
-				 }
-		}
-		$("div.popImgMsg").hide();
-		$(window).unbind("click");
-		$("*").unbind("focus");
-	});
-	$("#pcImage").click(function(){;
-		$("#picture").parent().click();
-		$("div.popImgMsg").hide();
-		$(window).unbind("click");
-		$("*").unbind("focus");	
-	});
 
-	$("#imgDelete").click(function(){;
-		var del = "<input type = 'hidden' name = 'del' value = 'http://rastro.kr/img/profile.gif'>"
-		$("label[for='picture']").css("background","url('http://rastro.kr/img/profile.gif') no-repeat 0 0");
-
-		$("form.infoForm").append(del);
-		$("div.popImgMsg").hide();
-		$(window).unbind("click");
-		$("*").unbind("focus");
-	});
 	event.preventDefault();
 	
 });

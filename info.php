@@ -186,9 +186,15 @@ $("div.circle").click(function(e){
 	$("div.popImgMsg").css("top",e.clientY);
 	$("div.popImgMsg").css("left",e.clientX);	
 	$("div.popImgMsg").show();
-	$(window).click(function(){
-		//$("div.popImgMsg").hide();
-		//$(window).unbind("click");
+	$("div.popImgMsg").mouseleave(function(){
+		$(window).click(function(){
+			$("div.popImgMsg").hide();
+			$(window).unbind("click");	
+		})
+		$(this).hover(function(){
+			$(window).unbind("click");		
+		});	
+		//text.css("background","url('/img/arrowDown.png') no-repeat right center");
 	});
 	event.preventDefault();
 	

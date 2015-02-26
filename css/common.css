@@ -158,4 +158,4 @@ div.termsAll div.area{width:100%; height:396px; Box-sizing: border-box;backgroun
 div.termsAll div.area textarea{width:100%; height:100%; font-size:11px; margin:0; line-height:15px;}
 
 
-div.popImgMsg{position:absolute; width:100px; height:100px; display:none; background-color:#FFF; }
+div.popImgMsg{position:absolute; width:100px; height:100px; display:none; background-color:#FFF; z-index:999;}

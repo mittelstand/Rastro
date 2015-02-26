@@ -40,7 +40,7 @@ if(strlen($_SESSION['idx']) <= 0){
 </div>
 <form method="post" action="infoModify.php" class = "infoForm" enctype = "multipart/form-data">
 	<input type = "hidden" name="fbChange" id = "fbChange"/>
-	<input type="hidden" name="lastPic" value="<? echo $array["Ps"]=="" ? "":str_replace("/HCK/rastro.kr/public_html","",$array['Ps'])?>" />
+	<input type="hidden" name="lastPic" id = "#lastPic" value="<? echo $array["Ps"]=="" ? "":str_replace("/HCK/rastro.kr/public_html","",$array['Ps'])?>" />
 	<!--<div class = "info">
 		<span>내 정보 수정</span>
 	</div>-->
@@ -226,8 +226,8 @@ $("div.circle").click(function(e){
 		var image = new Image();
 		image.src = "http://rastro.kr/img/profile.gif";
 		$("label[for='picture']").css("background","url('http://rastro.kr/img/profile.gif') no-repeat 0 0");
-		$("lastPic").attr("value","http://rastro.kr/img/profile.gif");
-		$("#fbChange").attr("value","");
+		$("#lastPic").attr("value","http://rastro.kr/img/profile.gif");
+		$("#fbChange").attr("value"," ");
 	});
 	event.preventDefault();
 	

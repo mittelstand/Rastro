@@ -213,7 +213,7 @@ $("div.circle").click(function(e){
 	event.preventDefault();
 	
 });
-$("#fbImage").click(function(e){
+$("#fbImage").click(function(){
 	var fbImage = new Image();
 	fbImage.src = "https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large";
 	$("label[for='picture']").css("background","url('https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large') no-repeat 0 0");

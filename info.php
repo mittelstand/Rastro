@@ -195,7 +195,8 @@ $("div.circle").click(function(e){
 			$(window).unbind("click");
 			$("*").unbind("focus");
 		});
-		$(window).click(function(){
+		$(window).click(function(e){
+			alert(e.attr("id"));
 			$("div.popImgMsg").hide();
 			$(window).unbind("click");
 			$("*").unbind("focus");
@@ -204,7 +205,7 @@ $("div.circle").click(function(e){
 			$(window).unbind("click");
 			$("*").unbind("focus");		
 		});	
-
+		
 		//text.css("background","url('/img/arrowDown.png') no-repeat right center");
 	});
 	$("#fbImage").click(function(){

@@ -221,10 +221,15 @@ $("div.circle").click(function(e){
 					$("label[for='picture']").css('background-size',"100% auto");
 				 }
 		}
-
+		$("div.popImgMsg").hide();
+		$(window).unbind("click");
+		$("*").unbind("focus");
 	});
 	$("#pcImage").click(function(){;
-		
+		$("#picture").change();
+		$("div.popImgMsg").hide();
+		$(window).unbind("click");
+		$("*").unbind("focus");	
 	});
 
 	$("#imgDelete").click(function(){;
@@ -232,6 +237,9 @@ $("div.circle").click(function(e){
 		$("label[for='picture']").css("background","url('http://rastro.kr/img/profile.gif') no-repeat 0 0");
 
 		$("form.infoForm").append(del);
+		$("div.popImgMsg").hide();
+		$(window).unbind("click");
+		$("*").unbind("focus");
 	});
 	event.preventDefault();
 	

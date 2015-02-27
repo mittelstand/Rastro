@@ -220,17 +220,18 @@ $("#imgDelete").click(function(){
 	$(window).unbind("click");
 	$("*").unbind("focus");
 });
+$("*").focus(function(e){
+	console.log("a");
+	$(this).click();
+	$("div.popImgMsg").hide();
+	$(window).unbind("click");
+	$("*").unbind("focus");			
+});
 $("div.circle").click(function(e){
 	
 	$("div.popImgMsg").show();
 	$(this).mouseleave(function(){
-		$("*").focus(function(e){
-			console.log("a");
-			$(this).click();
-			$("div.popImgMsg").hide();
-			$(window).unbind("click");
-			$("*").unbind("focus");			
-		});
+		
 		$(window).click(function(e){
 			console.log("b");
 			$("div.popImgMsg").hide();

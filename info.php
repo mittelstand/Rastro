@@ -252,7 +252,7 @@ $("div.circle").click(function(e){
 		//text.css("background","url('/img/arrowDown.png') no-repeat right center");
 	});
 	event.returnValue = false;
-	//event.preventDefault();
+	event.preventDefault();
 	
 });
 

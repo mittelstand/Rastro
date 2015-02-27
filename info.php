@@ -225,6 +225,7 @@ $("div.circle").click(function(e){
 	$("div.popImgMsg").show();
 	$(this).mouseleave(function(){
 		$("*").focus(function(e){
+			console.log("a");
 			$(this).click();
 			$("div.popImgMsg").hide();
 			$(window).unbind("click");

@@ -205,7 +205,7 @@ $("#fbImage").click(function(){
 });
 $("#pcImage").click(function(){
 	//$("#picture").click();
-	console.log("img");
+	console.log($("#picture"));
 	$("div.popImgMsg").hide();
 	$(window).unbind("click");
 	$("*").unbind("focus");	

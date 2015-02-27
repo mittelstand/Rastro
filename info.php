@@ -208,7 +208,7 @@ $("#pcImage").click(function(){
 	console.log($("#picture").click());
 	$("div.popImgMsg").hide();
 	$(window).unbind("click");
-	//$("*").unbind("focus");	
+	$("*").unbind("focus");	
 });
 
 $("#imgDelete").click(function(){
@@ -218,25 +218,24 @@ $("#imgDelete").click(function(){
 	$("form.infoForm").append(del);
 	$("div.popImgMsg").hide();
 	$(window).unbind("click");
-	//$("*").unbind("focus");
-});
-$("*").focus(function(e){
-	console.log("a");
-	$(this).click();
-	$("div.popImgMsg").hide();
-	$(window).unbind("click");
-	//$("*").unbind("focus");			
+	$("*").unbind("focus");
 });
 $("div.circle").click(function(e){
 	
 	$("div.popImgMsg").show();
 	$(this).mouseleave(function(){
-		
+		$("*").focus(function(e){
+			console.log("a");
+			$(this).click();
+			$("div.popImgMsg").hide();
+			$(window).unbind("click");
+			$("div.circle").unbind("mouseleave");			
+		});
 		$(window).click(function(e){
 			console.log("b");
 			$("div.popImgMsg").hide();
 			$(window).unbind("click");
-			//$("*").unbind("focus");
+			$("div.circle").unbind("mouseleave");
 		});
 		/*
 		$(this).hover(function(e){

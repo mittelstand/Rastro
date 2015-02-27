@@ -235,11 +235,13 @@ $("div.circle").click(function(e){
 			$(window).unbind("click");
 			$("*").unbind("focus");
 		});
+		/*
 		$(this).hover(function(e){
 			console.log("c");
 			$(window).unbind("click");
 			$("*").unbind("focus");		
 		});	
+		*/
 
 		//text.css("background","url('/img/arrowDown.png') no-repeat right center");
 	});

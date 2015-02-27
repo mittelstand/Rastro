@@ -34,7 +34,7 @@ if(strlen($_SESSION['idx']) <= 0){
 <?
 	}
 ?>
-	<li><button type = "button" id = "pcImage">PC에서 불러오기</button></li>
+	<li><label for="picture">PC에서 불러오기</label></li>
 	<li><button type = "button" id = "imgDelete">삭제</button></li>
 	</ul>
 </div>

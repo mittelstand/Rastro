@@ -34,7 +34,7 @@ if(strlen($_SESSION['idx']) <= 0){
 <?
 	}
 ?>
-	<li><button type = "button" id = "pcImage">PC에서 불러오기</button></li>
+	<li><button type = "button" id = "pcImage" onclick="document.getElementById('picture').click();">PC에서 불러오기</button></li>
 	<li><button type = "button" id = "imgDelete">삭제</button></li>
 	</ul>
 </div>
@@ -204,7 +204,7 @@ $("#fbImage").click(function(){
 	$("*").unbind("focus");
 });
 $("#pcImage").click(function(){
-	$("#picture").click();
+	//$("#picture").click();
 	$("div.popImgMsg").hide();
 	$(window).unbind("click");
 	$("*").unbind("focus");	

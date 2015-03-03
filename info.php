@@ -165,7 +165,7 @@ function Pchk(m)
 }
 function Nchk(m)
 { 
-	var rg = m;
+	var rg = m;86
 	var re=/[0-9]/ig;
 	var st=re.test(rg); 
 	if(st==true){
@@ -249,9 +249,9 @@ $("div.circle").click(function(e){
 
 		//text.css("background","url('/img/arrowDown.png') no-repeat right center");
 	});
-	if(event.preventDefault){
+	if(e.preventDefault){
 
-        event.preventDefault(); //FF
+        e.preventDefault(); //FF
 
     } else {
 
@@ -259,7 +259,7 @@ $("div.circle").click(function(e){
 
     }
 
-	event.preventDefault();
+	//event.preventDefault();
 	
 
 });

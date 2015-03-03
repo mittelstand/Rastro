@@ -263,7 +263,7 @@ $("div.circle").click(function(e){
 
 
 
-	event.preventDefault();
+	e.preventDefault();
 
 });
 

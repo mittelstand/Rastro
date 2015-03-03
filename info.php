@@ -222,7 +222,7 @@ $("#imgDelete").click(function(){
 	$(window).unbind("click");
 	$("*").unbind("focus");
 });
-$("div.circle").click(function(event){
+$("div.circle").click(function(e){
 	
 	$("div.popImgMsg").show();
 	$(this).mouseleave(function(){
@@ -249,9 +249,9 @@ $("div.circle").click(function(event){
 
 		//text.css("background","url('/img/arrowDown.png') no-repeat right center");
 	});
-	if(event.preventDefault){
+	if(e.preventDefault){
 
-        event.preventDefault(); //FF
+        e.preventDefault(); //FF
 
     } else {
 
@@ -259,7 +259,7 @@ $("div.circle").click(function(event){
 
     }
 
-	event.preventDefault();
+	//event.preventDefault();
 	
 
 });

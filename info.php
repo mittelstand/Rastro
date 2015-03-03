@@ -205,8 +205,8 @@ $("#fbImage").click(function(){
 	$("div.circle").unbind("mouseleave");	
 });
 $("#pcImage").click(function(){
-	//$("#picture").click();
-	console.log($("#picture").click());
+	$("#picture").click();
+	
 	$("div.popImgMsg").hide();
 	$(window).unbind("click");
 	$("*").unbind("focus");
@@ -227,7 +227,6 @@ $("div.circle").click(function(e){
 	$("div.popImgMsg").show();
 	$(this).mouseleave(function(){
 		$("*").focus(function(e){
-			console.log("a");
 			$(this).click();
 			$("div.popImgMsg").hide();
 			$(window).unbind("click");
@@ -235,7 +234,6 @@ $("div.circle").click(function(e){
 			$("div.circle").unbind("mouseleave");			
 		});
 		$(window).click(function(e){
-			console.log("b");
 			$("div.popImgMsg").hide();
 			$(window).unbind("click");
 			$("*").unbind("focus");

@@ -225,7 +225,7 @@ $("#imgDelete").click(function(){
 $("div.circle").click(function(e){
 	
 	$("div.popImgMsg").show();
-	$(this).mouseleave(function(){
+	$(this).mouseleave(function(e){
 		$("*").focus(function(e){
 			$(this).click();
 			$("div.popImgMsg").hide();

@@ -43,11 +43,10 @@ if(strlen($_SESSION['idx']) <= 0){
 	<!--<div class = "info">
 		<span>내 정보 수정</span>
 	</div>-->
+	<input type="file" name="picture" id="picture" value=""/>
 	<div class="circle, circleTwo" style="z-index:1; position:relative;"></div>
 	<div class="circle" style="z-index:1; position:relative;">
-		<label for="picture" class="pic">
-			<input type="file" name="picture" id="picture" value=""/>
-		</label>
+		<div class = "pic"></div>
 	</div>
 
 
@@ -190,13 +189,13 @@ $("#fbImage").click(function(){
 	var fbImage = new Image();
 	fbImage.src = "https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large";
 	fbImage.onload = function (e) {
-			 $("label[for='picture']").css("background","url('https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large') no-repeat 0 0");
+			 $("div.pic").css("background","url('https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large') no-repeat 0 0");
 			 $("#fbChange").attr("value","https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large");
 					  
 			 if(fbImage.width > fbImage.height){
-				$("label[for='picture']").css('background-size',"auto 100%");
+				$("div.pic").css('background-size',"auto 100%");
 			 }else{
-				$("label[for='picture']").css('background-size',"100% auto");
+				$("div.pic").css('background-size',"100% auto");
 			 }
 	}
 	$("div.popImgMsg").hide();

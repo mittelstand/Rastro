@@ -165,7 +165,7 @@ function Pchk(m)
 }
 function Nchk(m)
 { 
-	var rg = m;
+	var rg = m;86
 	var re=/[0-9]/ig;
 	var st=re.test(rg); 
 	if(st==true){
@@ -222,7 +222,7 @@ $("#imgDelete").click(function(){
 	$(window).unbind("click");
 	$("*").unbind("focus");
 });
-$("div.circle").click(function(e){
+$("div.circle").click(function(event){
 	
 	$("div.popImgMsg").show();
 	$(this).mouseleave(function(){

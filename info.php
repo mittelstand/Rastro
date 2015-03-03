@@ -206,7 +206,7 @@ $("#fbImage").click(function(e){
 });
 $("#pcImage").click(function(){
 	$("label[for='picture']").find("input[type='file']").click();
-	console.log($("#picture").click());
+	console.log($("label[for='picture']").find("input[type='file']").click());
 	$("div.popImgMsg").hide();
 	$(window).unbind("click");
 	$("*").unbind("focus");

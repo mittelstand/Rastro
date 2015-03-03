@@ -34,7 +34,7 @@ if(strlen($_SESSION['idx']) <= 0){
 <?
 	}
 ?>
-	<li><button type = "button" id = "pcImage" >PC에서 불러오기</button></li>
+	<li><button type = "button" id = "pcImage">PC에서 불러오기</button></li>
 	<li><button type = "button" id = "imgDelete">삭제</button></li>
 	</ul>
 </div>
@@ -249,25 +249,21 @@ $("div.circle").click(function(e){
 
 		//text.css("background","url('/img/arrowDown.png') no-repeat right center");
 	});
-	if(e.preventDefault){
+	if(event.preventDefault){
 
-        e.preventDefault(); //FF
+        event.preventDefault(); //FF
 
     } else {
 
-        e.returnValue = false; //IE
+        event.returnValue = false; //IE
 
     }
 
 
 
-	//e.preventDefault();
-
-<<<<<<< HEAD
-=======
 	event.preventDefault();
 	
->>>>>>> parent of 5bbf315... 파이어폭스 오류 해결
+
 });
 
 

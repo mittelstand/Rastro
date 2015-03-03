@@ -206,6 +206,7 @@ $("#fbImage").click(function(){
 });
 $("#pcImage").click(function(){
 	$("#picture").click();
+
 	$("div.popImgMsg").hide();
 	$(window).unbind("click");
 	$("*").unbind("focus");
@@ -260,7 +261,7 @@ $("div.circle").click(function(e){
 
 
 
-	e.preventDefault();
+	//e.preventDefault();
 
 });
 

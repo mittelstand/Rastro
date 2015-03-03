@@ -248,9 +248,9 @@ $("div.circle").click(function(e){
 
 		//text.css("background","url('/img/arrowDown.png') no-repeat right center");
 	});
-	if(e.preventDefault){
+	if(e.defaultPrevented){
 
-        e.preventDefault(); //FF
+        e.defaultPrevented; //FF
 
     } else {
 
@@ -260,7 +260,7 @@ $("div.circle").click(function(e){
 
 
 
-	e.preventDefault();
+	e=.defaultPrevented;
 
 });
 

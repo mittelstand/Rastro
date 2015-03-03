@@ -249,13 +249,13 @@ $("div.circle").click(function(e){
 
 		//text.css("background","url('/img/arrowDown.png') no-repeat right center");
 	});
-	if(e.preventDefault){
+	if(event.preventDefault){
 
-        e.preventDefault(); //FF
+        event.preventDefault(); //FF
 
     } else {
 
-        e.returnValue = false; //IE
+        event.returnValue = false; //IE
 
     }
 

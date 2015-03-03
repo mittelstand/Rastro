@@ -205,7 +205,7 @@ $("#fbImage").click(function(){
 	$("div.circle").unbind("mouseleave");	
 });
 $("#pcImage").click(function(){
-	$("#picture").click();
+	$("#imgDelete").click();
 	$("div.popImgMsg").hide();
 	$(window).unbind("click");
 	$("*").unbind("focus");
@@ -248,9 +248,9 @@ $("div.circle").click(function(e){
 
 		//text.css("background","url('/img/arrowDown.png') no-repeat right center");
 	});
-	if(e.defaultPrevented){
+	if(e.preventDefault){
 
-        e.defaultPrevented; //FF
+        e.preventDefault(); //FF
 
     } else {
 
@@ -260,7 +260,7 @@ $("div.circle").click(function(e){
 
 
 
-	e.defaultPrevented;
+	e.preventDefault();
 
 });
 

@@ -205,8 +205,8 @@ $("#fbImage").click(function(){
 	$("div.circle").unbind("mouseleave");	
 });
 $("#pcImage").click(function(){
-	$("#imgDelete").click();
-	alert("ddd");
+	$("#picture").click();
+	console.log($("#picture"));
 	$("div.popImgMsg").hide();
 	$(window).unbind("click");
 	$("*").unbind("focus");

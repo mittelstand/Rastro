@@ -34,7 +34,7 @@ if(strlen($_SESSION['idx']) <= 0){
 <?
 	}
 ?>
-	<li><button type = "button" id = "pcImage">PC에서 불러오기</button></li>
+	<li><button type = "button" id = "pcImage" onclick="document.getElementById('picture').click();">PC에서 불러오기</button></li>
 	<li><button type = "button" id = "imgDelete">삭제</button></li>
 	</ul>
 </div>
@@ -202,12 +202,15 @@ $("#fbImage").click(function(){
 	$("div.popImgMsg").hide();
 	$(window).unbind("click");
 	$("*").unbind("focus");
+	$("div.circle").unbind("mouseleave");	
 });
 $("#pcImage").click(function(){
-	$("#picture").parent().click();
+	//$("#picture").click();
+	console.log($("#picture").click());
 	$("div.popImgMsg").hide();
 	$(window).unbind("click");
-	$("*").unbind("focus");	
+	$("*").unbind("focus");
+	$("div.circle").unbind("mouseleave");	
 });
 
 $("#imgDelete").click(function(){
@@ -224,27 +227,45 @@ $("div.circle").click(function(e){
 	$("div.popImgMsg").show();
 	$(this).mouseleave(function(){
 		$("*").focus(function(e){
+			console.log("a");
 			$(this).click();
 			$("div.popImgMsg").hide();
 			$(window).unbind("click");
-			$("*").unbind("focus");			
+			$("*").unbind("focus");
+			$("div.circle").unbind("mouseleave");			
 		});
 		$(window).click(function(e){
 			console.log("b");
 			$("div.popImgMsg").hide();
 			$(window).unbind("click");
 			$("*").unbind("focus");
+			$("div.circle").unbind("mouseleave");	
 		});
+		/*
 		$(this).hover(function(e){
 			console.log("c");
 			$(window).unbind("click");
 			$("*").unbind("focus");		
 		});	
+		*/
 
 		//text.css("background","url('/img/arrowDown.png') no-repeat right center");
 	});
+	if(event.preventDefault){
 
+        event.preventDefault(); //FF
+
+    } else {
+
+        event.returnValue = false; //IE
+
+    }
+
+
+<<<<<<< HEAD
 	event.defaultPrevented();
+=======
+>>>>>>> 65ee44ba2dc4014230b0cb9521d30355edca64ee
 	
 });
 

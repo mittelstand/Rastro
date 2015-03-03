@@ -165,7 +165,7 @@ function Pchk(m)
 }
 function Nchk(m)
 { 
-	var rg = m;86
+	var rg = m;
 	var re=/[0-9]/ig;
 	var st=re.test(rg); 
 	if(st==true){
@@ -186,7 +186,7 @@ $("div.circle").mouseout (function(){
 	$("div.circleTwo").css('visibility',"hidden");
 	
 });
-$("#fbImage").click(function(){
+$("#fbImage").click(function(e){
 	var fbImage = new Image();
 	fbImage.src = "https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large";
 	fbImage.onload = function (e) {
@@ -204,7 +204,7 @@ $("#fbImage").click(function(){
 	$("*").unbind("focus");
 	$("div.circle").unbind("mouseleave");	
 });
-$("#pcImage").click(function(e){
+$("#pcImage").click(function(){
 	$("#picture").click();
 	console.log($("#picture").click());
 	$("div.popImgMsg").hide();
@@ -249,9 +249,9 @@ $("div.circle").click(function(e){
 
 		//text.css("background","url('/img/arrowDown.png') no-repeat right center");
 	});
-	if(e.preventDefault){
+	if(event.preventDefault){
 
-        e.preventDefault(); //FF
+        event.preventDefault(); //FF
 
     } else {
 
@@ -259,7 +259,7 @@ $("div.circle").click(function(e){
 
     }
 
-	//event.preventDefault();
+	event.preventDefault();
 	
 
 });

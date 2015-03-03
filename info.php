@@ -45,9 +45,9 @@ if(strlen($_SESSION['idx']) <= 0){
 	</div>-->
 	<div class="circle, circleTwo" style="z-index:1; position:relative;"></div>
 	<div class="circle" style="z-index:1; position:relative;">
-		<label for="picture" class="pic">
+		<div class="picture">
 			<input type="file" name="picture" id="picture" value=""/>
-		</label>
+		</div>
 	</div>
 
 

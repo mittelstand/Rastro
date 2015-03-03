@@ -251,9 +251,9 @@ $("div.circle").click(function(e){
 
 		//text.css("background","url('/img/arrowDown.png') no-repeat right center");
 	});
-	if(event.preventDefault){
+	if(event.defaultPrevented){
 
-        event.preventDefault(); //FF
+        event.defaultPrevented(); //FF
 
     } else {
 

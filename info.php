@@ -261,12 +261,8 @@ $("div.circle").click(function(e){
 
     }
 
-
-<<<<<<< HEAD
 	event.defaultPrevented();
-=======
->>>>>>> 65ee44ba2dc4014230b0cb9521d30355edca64ee
-	
+
 });
 
 

@@ -5,7 +5,7 @@ $db = new Dbcon();
 $db->table="member";
 $db->where = "email='".$_POST['email']."'";
 $cnt = $db->TotalCnt();
-if($cnt<0){
+if($cnt<=0){
  echo "fail";
 
 }else{

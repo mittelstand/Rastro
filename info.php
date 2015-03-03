@@ -251,17 +251,19 @@ $("div.circle").click(function(e){
 
 		//text.css("background","url('/img/arrowDown.png') no-repeat right center");
 	});
-	if(event.defaultPrevented){
+	if(e.preventDefault){
 
-        event.defaultPrevented(); //FF
+        e.preventDefault(); //FF
 
     } else {
 
-        event.returnValue = false; //IE
+        e.returnValue = false; //IE
 
     }
 
-	event.defaultPrevented();
+
+
+	event.preventDefault();
 
 });
 

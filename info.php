@@ -45,9 +45,9 @@ if(strlen($_SESSION['idx']) <= 0){
 	</div>-->
 	<div class="circle, circleTwo" style="z-index:1; position:relative;"></div>
 	<div class="circle" style="z-index:1; position:relative;">
-		<div class="picture">
+		<label for="picture" class="pic">
 			<input type="file" name="picture" id="picture" value=""/>
-		</div>
+		</label>
 	</div>
 
 
@@ -190,7 +190,7 @@ $("#fbImage").click(function(){
 	var fbImage = new Image();
 	fbImage.src = "https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large";
 	fbImage.onload = function (e) {
-			 $("label[for='picture']").css("background","url('https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large') no-repeat 0 0");
+			 //$("label[for='picture']").css("background","url('https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large') no-repeat 0 0");
 			 $("#fbChange").attr("value","https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large");
 					  
 			 if(fbImage.width > fbImage.height){
@@ -215,7 +215,7 @@ $("#pcImage").click(function(){
 
 $("#imgDelete").click(function(){
 	var del = "<input type = 'hidden' name = 'del' value = 'http://rastro.kr/img/profile.gif'>"
-	$("label[for='picture']").css("background","url('http://rastro.kr/img/profile.gif') no-repeat 0 0");
+	//$("label[for='picture']").css("background","url('http://rastro.kr/img/profile.gif') no-repeat 0 0");
 
 	$("form.infoForm").append(del);
 	$("div.popImgMsg").hide();
@@ -249,13 +249,13 @@ $("div.circle").click(function(e){
 
 		//text.css("background","url('/img/arrowDown.png') no-repeat right center");
 	});
-	if(event.preventDefault){
+	if(e.preventDefault){
 
-        event.preventDefault(); //FF
+        e.preventDefault(); //FF
 
     } else {
 
-        event.returnValue = false; //IE
+        e.returnValue = false; //IE
 
     }
 

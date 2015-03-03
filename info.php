@@ -263,6 +263,11 @@ $("div.circle").click(function(e){
 
 	//e.preventDefault();
 
+<<<<<<< HEAD
+=======
+	event.preventDefault();
+	
+>>>>>>> parent of 5bbf315... 파이어폭스 오류 해결
 });
 
 

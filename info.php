@@ -43,10 +43,11 @@ if(strlen($_SESSION['idx']) <= 0){
 	<!--<div class = "info">
 		<span>내 정보 수정</span>
 	</div>-->
-	<input type="file" name="picture" id="picture" value=""/>
 	<div class="circle, circleTwo" style="z-index:1; position:relative;"></div>
 	<div class="circle" style="z-index:1; position:relative;">
-		<div class = "pic"></div>
+		<label for="picture" class="pic">
+			<input type="file" name="picture" id="picture" value=""/>
+		</label>
 	</div>
 
 
@@ -164,7 +165,7 @@ function Pchk(m)
 }
 function Nchk(m)
 { 
-	var rg = m;86
+	var rg = m;
 	var re=/[0-9]/ig;
 	var st=re.test(rg); 
 	if(st==true){
@@ -185,17 +186,17 @@ $("div.circle").mouseout (function(){
 	$("div.circleTwo").css('visibility',"hidden");
 	
 });
-$("#fbImage").click(function(){
+$("#fbImage").click(function(e){
 	var fbImage = new Image();
 	fbImage.src = "https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large";
 	fbImage.onload = function (e) {
-			 $("div.pic").css("background","url('https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large') no-repeat 0 0");
+			 $("label[for='picture']").css("background","url('https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large') no-repeat 0 0");
 			 $("#fbChange").attr("value","https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large");
 					  
 			 if(fbImage.width > fbImage.height){
-				$("div.pic").css('background-size',"auto 100%");
+				$("label[for='picture']").css('background-size',"auto 100%");
 			 }else{
-				$("div.pic").css('background-size',"100% auto");
+				$("label[for='picture']").css('background-size',"100% auto");
 			 }
 	}
 	$("div.popImgMsg").hide();
@@ -203,7 +204,7 @@ $("#fbImage").click(function(){
 	$("*").unbind("focus");
 	$("div.circle").unbind("mouseleave");	
 });
-$("#pcImage").click(function(e){
+$("#pcImage").click(function(){
 	$("#picture").click();
 	console.log($("#picture").click());
 	$("div.popImgMsg").hide();
@@ -258,7 +259,7 @@ $("div.circle").click(function(e){
 
     }
 
-	//event.preventDefault();
+	event.preventDefault();
 	
 
 });

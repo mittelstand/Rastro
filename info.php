@@ -260,7 +260,7 @@ $("div.circle").click(function(e){
 
 
 
-	e=.defaultPrevented;
+	e.defaultPrevented;
 
 });
 

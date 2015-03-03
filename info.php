@@ -222,11 +222,11 @@ $("#imgDelete").click(function(){
 	$(window).unbind("click");
 	$("*").unbind("focus");
 });
-$("div.circle").click(function(event){
+$("div.circle").click(function(e){
 	
 	$("div.popImgMsg").show();
 	$(this).mouseleave(function(){
-		$("*").focus(function(event){
+		$("*").focus(function(e){
 			$(this).click();
 			$("div.popImgMsg").hide();
 			$(window).unbind("click");

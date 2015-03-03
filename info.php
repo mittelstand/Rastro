@@ -205,7 +205,7 @@ $("#fbImage").click(function(e){
 	$("div.circle").unbind("mouseleave");	
 });
 $("#pcImage").click(function(){
-	$("#picture").click();
+	$("label[for='picture']").find("input[type='file']").click();
 	console.log($("#picture").click());
 	$("div.popImgMsg").hide();
 	$(window).unbind("click");

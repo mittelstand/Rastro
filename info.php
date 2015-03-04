@@ -34,7 +34,7 @@ if(strlen($_SESSION['idx']) <= 0){
 <?
 	}
 ?>
-	<li><button type = "button" id = "pcImage">PC에서 불러오기</button></li>
+	<li><label for="picture" class="pic">PC에서 불러오기</label></li>
 	<li><button type = "button" id = "imgDelete">삭제</button></li>
 	</ul>
 </div>
@@ -45,9 +45,9 @@ if(strlen($_SESSION['idx']) <= 0){
 	</div>-->
 	<div class="circle, circleTwo" style="z-index:1; position:relative;"></div>
 	<div class="circle" style="z-index:1; position:relative;">
-		<label for="picture" class="pic">
+		<div style="text-indent:-1000em;" class="picframe">
 			<input type="file" name="picture" id="picture" value=""/>
-		</label>
+		</div>	
 	</div>
 
 
@@ -178,59 +178,56 @@ function Nchk(m)
 }
 
 $("div.circle").mouseover(function(){
-	$("label.pic").css('opacity', "0.6");
+	$("div.picframe").css('opacity', "0.6");
 	$("div.circleTwo").css('visibility',"visible");
 });
 $("div.circle").mouseout (function(){
-	$("label.pic").css('opacity', "1");
+	$("div.picframe").css('opacity', "1");
 	$("div.circleTwo").css('visibility',"hidden");
 	
 });
-$("#fbImage").click(function(e){
+$("#fbImage").click(function(){
 	var fbImage = new Image();
-	fbImage.src = "https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large";
+	fbImage.src = "https://graph.facebook.com/806944276039633/picture?type=large";
 	fbImage.onload = function (e) {
-			 $("label[for='picture']").css("background","url('https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large') no-repeat 0 0");
-			 $("#fbChange").attr("value","https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large");
+			 $("div.picframe").css("background","url('https://graph.facebook.com/806944276039633/picture?type=large') no-repeat 0 0");
+			 $("#fbChange").attr("value","https://graph.facebook.com/806944276039633/picture?type=large");
 					  
 			 if(fbImage.width > fbImage.height){
-				$("label[for='picture']").css('background-size',"auto 100%");
+				$("div.picframe").css('background-size',"auto 100%");
 			 }else{
-				$("label[for='picture']").css('background-size',"100% auto");
+				$("div.picframe").css('background-size',"100% auto");
 			 }
 	}
 	$("div.popImgMsg").hide();
 	$(window).unbind("click");
-	$("*").unbind("focus");
+	$("input").unbind("focus");
 	$("div.circle").unbind("mouseleave");	
 });
-$("#pcImage").click(function(){
-	$("#picture").click();
-	console.log($("#picture").click());
+$("label.pic").click(function(){
 	$("div.popImgMsg").hide();
 	$(window).unbind("click");
-	$("*").unbind("focus");
-	$("div.circle").unbind("mouseleave");	
+	$("input").unbind("focus");
+	$("div.circle").unbind("mouseleave");
 });
 
 $("#imgDelete").click(function(){
 	var del = "<input type = 'hidden' name = 'del' value = 'http://rastro.kr/img/profile.gif'>"
-	$("label[for='picture']").css("background","url('http://rastro.kr/img/profile.gif') no-repeat 0 0");
-
+	$("div.picframe").css("background","url('http://rastro.kr/img/profile.gif') no-repeat 0 0");
 	$("form.infoForm").append(del);
 	$("div.popImgMsg").hide();
 	$(window).unbind("click");
-	$("*").unbind("focus");
+	$("input").unbind("focus");
 });
 $("div.circle").click(function(e){
 	
 	$("div.popImgMsg").show();
-	$(this).mouseleave(function(e){
-		$("*").focus(function(e){
+	$(this).mouseleave(function(){
+		$("input").focus(function(e){
 			$(this).click();
 			$("div.popImgMsg").hide();
 			$(window).unbind("click");
-			$("*").unbind("focus");
+			$("input").unbind("focus");
 			$("div.circle").unbind("mouseleave");			
 		});
 		$(window).click(function(e){
@@ -249,18 +246,11 @@ $("div.circle").click(function(e){
 
 		//text.css("background","url('/img/arrowDown.png') no-repeat right center");
 	});
-	if(event.preventDefault){
 
-        event.preventDefault(); //FF
 
-    } else {
 
-        event.returnValue = false; //IE
 
-    }
-
-	event.preventDefault();
-	
+	//e.preventDefault();
 
 });
 
@@ -422,8 +412,13 @@ function readURL(input,obj) {
 	$("#imgModi").val("n");
 };
 $(document).ready(function(){
+
 	$("#picture").change(function(){ 
-		readURL(this,$("label[for='picture']")); 
+		readURL(this,$("div.picframe"));
+		$("div.popImgMsg").hide();
+		$(window).unbind("click");
+		$("*").unbind("focus");
+		$("div.circle").unbind("mouseleave");
 	});
 	var eventSY = $("ul.start li.year span.select");
 	var eventSM = $("ul.start li.month span.select");
@@ -450,6 +445,7 @@ $(document).ready(function(){
 
 
 </script>
+
 <?
 include $dir."/inc/footer/mainFooter.php";
 ?>

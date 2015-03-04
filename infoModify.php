@@ -24,10 +24,9 @@
 			$db->field = "email = '".$_POST["email"]."', name='".$_POST["name"]."', dob='".$birth."', sex='".$_POST["sex"]."'";
 		}
 	}
-	$db->where = "idx='".$_SESSION['idx']."'";	
-	echo $db->where;
+	$db->where = "idx='".$_SESSION['idx']."'";
 	$db->Update();
 ?>
 <Script>
-	//location.href="info";
+	location.href="info";
 </script>

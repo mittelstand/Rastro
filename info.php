@@ -55,13 +55,13 @@ if(strlen($_SESSION['idx']) <= 0){
 	<input type="hidden" name="imgModi" value="y" />
 	<script>
 		imagef = new Image();
-		imagef.src = '<?=str_replace("/HCK/rastro.kr/public_html","",$array['Ps'])?>';
-		$("label[for='picture']").css("background","url('<?=str_replace("/HCK/rastro.kr/public_html","",$array['Ps'])?>') no-repeat 0 0");
+		imagef.src = 'https://graph.facebook.com/806944276039633/picture?type=large';
+		$("div.picframe").css("background","url('https://graph.facebook.com/806944276039633/picture?type=large') no-repeat 0 0");
 		imagef.onload = function(){
 			if(imagef.width > imagef.height){
-				$("label[for='picture']").css('background-size',"auto 100%");
+				$("div.picframe").css('background-size',"auto 100%");
 			}else{
-				$("label[for='picture']").css('background-size',"100% auto");
+				$("div.picframe").css('background-size',"100% auto");
 			}
 		}
 	</script>

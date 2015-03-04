@@ -13,7 +13,7 @@
 		$exp = explode(".",$_FILES["picture"]["name"]);
 		$newName = $uploadDir.time().$_SESSION["idx"].".".$exp[1];		
 		$db->field = "email = '".$_POST["email"]."', name='".$_POST["name"]."', dob='".$birth."', sex='".$_POST["sex"]."', Ps='".$newName."'";
-		
+		echo $db->field;
 		move_uploaded_file($_FILES['picture']['tmp_name'], $newName);
 	}else{
 		if($_POST["fbChange"]){
@@ -28,5 +28,5 @@
 	$db->Update();
 ?>
 <Script>
-	location.href="info";
+	//location.href="info";
 </script>

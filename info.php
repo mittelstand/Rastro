@@ -55,8 +55,8 @@ if(strlen($_SESSION['idx']) <= 0){
 	<input type="hidden" name="imgModi" value="y" />
 	<script>
 		imagef = new Image();
-		imagef.src = 'https://graph.facebook.com/<?=$array["fbcode"]?>/picture?type=large';
-		$("div.picframe").css("background","url('https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large') no-repeat 0 0");
+		imagef.src = '<?=$array["Ps"]?>';
+		$("div.picframe").css("background","url('<?=$array['Ps']?>') no-repeat 0 0");
 		imagef.onload = function(){
 			if(imagef.width > imagef.height){
 				$("div.picframe").css('background-size',"auto 100%");

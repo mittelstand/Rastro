@@ -188,10 +188,10 @@ $("div.circle").mouseout (function(){
 });
 $("#fbImage").click(function(){
 	var fbImage = new Image();
-	fbImage.src = "https://graph.facebook.com/806944276039633/picture?type=large";
+	fbImage.src = "https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large";
 	fbImage.onload = function (e) {
-			 $("div.picframe").css("background","url('https://graph.facebook.com/806944276039633/picture?type=large') no-repeat 0 0");
-			 $("#fbChange").attr("value","https://graph.facebook.com/806944276039633/picture?type=large");
+			 $("div.picframe").css("background","url('https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large') no-repeat 0 0");
+			 $("#fbChange").attr("value","https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large");
 					  
 			 if(fbImage.width > fbImage.height){
 				$("div.picframe").css('background-size',"auto 100%");

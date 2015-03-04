@@ -218,6 +218,7 @@ $("#imgDelete").click(function(){
 	$("div.popImgMsg").hide();
 	$(window).unbind("click");
 	$("input").unbind("focus");
+	$("div.circle").unbind("mouseleave");
 });
 $("div.circle").click(function(e){
 	

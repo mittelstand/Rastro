@@ -9,7 +9,7 @@
 	$uploadDir = $dir."/file/";
 
 	if($_FILES["picture"]["name"]){
-
+		echo "test";
 		$exp = explode(".",$_FILES["picture"]["name"]);
 		$newName = $uploadDir.time().$_SESSION["idx"].".".$exp[1];		
 		$db->field = "email = '".$_POST["email"]."', name='".$_POST["name"]."', dob='".$birth."', sex='".$_POST["sex"]."', Ps='".$newName."'";
@@ -24,9 +24,9 @@
 			$db->field = "email = '".$_POST["email"]."', name='".$_POST["name"]."', dob='".$birth."', sex='".$_POST["sex"]."'";
 		}
 	}
-	$db->where = "idx=".$_SESSION['idx'];	
+	$db->where = "idx='".$_SESSION['idx']."'";	
 	$db->Update();
 ?>
 <Script>
-	location.href="info";
+	//location.href="info";
 </script>

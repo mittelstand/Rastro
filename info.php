@@ -46,7 +46,7 @@ if(strlen($_SESSION['idx']) <= 0){
 	<div class="circle, circleTwo" style="z-index:1; position:relative;"></div>
 	<div class="circle" style="z-index:1; position:relative;">
 		<div style="text-indent:-1000em;" class="picframe">
-			<input type="file" name="picture" id="picture" value=""/>
+			<input type="file" name="picture" id="picture" value="" accept="image/*" />
 		</div>	
 	</div>
 
@@ -204,11 +204,13 @@ $("#fbImage").click(function(){
 	$("input").unbind("focus");
 	$("div.circle").unbind("mouseleave");	
 });
+var chCode = 1;
 $("label.pic").click(function(){
 	$("div.popImgMsg").hide();
 	$(window).unbind("click");
 	$("input").unbind("focus");
 	$("div.circle").unbind("mouseleave");
+	chCode = 0;
 });
 
 $("#imgDelete").click(function(){
@@ -221,34 +223,36 @@ $("#imgDelete").click(function(){
 	$("div.circle").unbind("mouseleave");
 });
 $("div.circle").click(function(e){
+	if(chCode > 0){
+		$("div.popImgMsg").show();
+		$(this).mouseleave(function(){
+			$("input").focus(function(e){
+				$(this).click();
+				$("div.popImgMsg").hide();
+				$(window).unbind("click");
+				$("input").unbind("focus");
+				$("div.circle").unbind("mouseleave");			
+			});
+			$(window).click(function(e){
+				$("div.popImgMsg").hide();
+				$(window).unbind("click");
+				$("*").unbind("focus");
+				$("div.circle").unbind("mouseleave");	
+			});
+			/*
+			$(this).hover(function(e){
+				console.log("c");
+				$(window).unbind("click");
+				$("*").unbind("focus");		
+			});	
+			*/
+
+			//text.css("background","url('/img/arrowDown.png') no-repeat right center");
+		});
+	}else{
+		chCode = 1;
+	}
 	
-	$("div.popImgMsg").show();
-	$(this).mouseleave(function(){
-		$("input").focus(function(e){
-			$(this).click();
-			$("div.popImgMsg").hide();
-			$(window).unbind("click");
-			$("input").unbind("focus");
-			$("div.circle").unbind("mouseleave");			
-		});
-		$(window).click(function(e){
-			$("div.popImgMsg").hide();
-			$(window).unbind("click");
-			$("*").unbind("focus");
-			$("div.circle").unbind("mouseleave");	
-		});
-		/*
-		$(this).hover(function(e){
-			console.log("c");
-			$(window).unbind("click");
-			$("*").unbind("focus");		
-		});	
-		*/
-
-		//text.css("background","url('/img/arrowDown.png') no-repeat right center");
-	});
-
-
 
 
 	//e.preventDefault();

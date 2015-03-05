@@ -140,6 +140,7 @@ button.btnClose{width:14px; height:14px; background:url('/img/xButton.png') no-r
 button.btnFJoin{width:351px; height:54px; text-align:center; font-weight:bold; font-size:15px; color:#FFF; background:url('/img/btnFJoin.png') no-repeat; clear:both; margin:15px auto 0; clear:both; padding-left:55px;}
 span.textQ{width:351px; color:#FFF; margin:24px auto 0; text-align:center; }
 span.textQ a{display:inline; color:#FFF; font-weight:bold; }
+div.messageFind{width:351px; color:#FFF; font-weight:bold; margin:0 auto; text-align:center;}
 /*
 span.input{width:331px; height:45px; float:right; background:url('/img/inputB3.png') no-repeat right 0; position:relative;}
 span.inputOn{width:100%; height:45px; background:url('/img/inputF2.png') no-repeat;}

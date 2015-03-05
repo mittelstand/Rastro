@@ -1,6 +1,5 @@
 <?
 session_start();
-
 $dir = $_SERVER["DOCUMENT_ROOT"];
 include $dir."/inc/header/mainHeader.php";
 $facebook = new Facebook(array(
@@ -34,7 +33,7 @@ if ($user) {
 				if(confirm("이미 가입하셨습니다.\n로그인하시겠습니까?")){
 					location.href = "/info";
 				}else{
-					location.href = "/logOut?return=join";
+					location.href = "/logOut.php";
 				}
 			})
 		</script>
@@ -67,7 +66,7 @@ if ($user) {
 }
 //ㄴㅇㄴㅇㄴㅇ
 unset($facebook);
-}?>
+?>
 <div class = "message"></div>
 <form method="post" action="/joinInsert.php" id="joinForm">	
 	<div class="rightObj">

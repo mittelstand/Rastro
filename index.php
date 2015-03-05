@@ -16,10 +16,20 @@ if ($user) {
 	$db->keyfield = "idx";	
 	$db->where = "email='".$user_profile['email']."'";
 	  
-	  if($db->TotalCnt() > 0){
-		$row = mysql_fetch_array($db->Select());
+	  if($db->TotalCnt() > 0){		
 		$db->field = "idx";
+		$row = mysql_fetch_array($db->Select());
 		$_SESSION['idx'] = $row['idx'];
+		?>
+		<script>
+			if(confirm("이미 가입하셨습니다.\n로그인하시겠습니까?")){
+				location.href = "/info";
+			}else{
+				location.href = "/logOut.php";
+			}
+		</script>
+		<?
+		exit;
 	  }else if($user_profile['email']){
 		$db->field = "email,name,dob,sex,fbcode,Ps";
 		$sex = ($user_profile['gender']=="male") ? "남성" : "여성";
@@ -37,7 +47,7 @@ if ($user) {
  <?
 	  }
 	  unset($db);
-  
+	  exit;
 } else {
   $loginUrl = $facebook->getLoginUrl(array('scope'=>'user_birthday,email'));
 }

@@ -31,8 +31,8 @@ if($db->TotalCnt() > 0){
 		$m = new MAIL;
 		$m->From('yusng00@naver.com',"라스트로");
 		$m->AddTo($email);
-		$m->Subject('메일 인증입니다.');
-		$m->Html("<a href = 'http://rastro.kr/findAc?code=".$code."'>인증하기</a>");
+		$m->Subject('임시 비밀번호 입니다.');
+		$m->Html($code);
 		$c = $m->Connect('smtp.gmail.com', 465, 'ysmin0914@gmail.com', 'messagebox11', 'tls', 10, 'localhost', null, 'plain') or die(print_r($m->Result));
 		$m->Send($c);
 		$m->Disconnect();

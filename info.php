@@ -23,7 +23,7 @@ if(strlen($_SESSION['idx']) <= 0){
 ?>
 <style>
 	/*body{background-color:#ededed;}*/	
-	#container{min-height:800px;}
+	#container{min-height:729px;}
 </style>
 <div style = "clear:both"></div>
 <div class="popImgMsg">

@@ -156,6 +156,7 @@ div.termsAll{width:946px;}
 /*
 div.termsAll h2{width:100%; height:25px; font-size:20px; text-align:center; color:#FFF; font-weight:normal;}
 */
+div.termsAll h2{color:#323232;}
 div.termsAll div.area{width:100%; height:396px; Box-sizing: border-box;background-color:#FFF;  padding:21px 27px; }
 div.termsAll div.area textarea{width:100%; height:100%; font-size:11px; margin:0; line-height:15px;}
 

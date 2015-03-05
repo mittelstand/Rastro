@@ -34,8 +34,8 @@ if ($user) {
 					location.href = "/info";
 				}else{
 					location.href = "/logOut.php?return=join";
-				}
-			})
+				};
+			});
 		</script>
 		<?
 	  }else if($user_profile['email']){

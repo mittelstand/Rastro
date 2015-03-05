@@ -31,7 +31,6 @@ if ($user) {
 			})
 		</script>
 		<?
-		exit;
 	  }else if($user_profile['email']){
 		$db->field = "email,name,dob,sex,fbcode,Ps";
 		$sex = ($user_profile['gender']=="male") ? "남성" : "여성";
@@ -41,6 +40,12 @@ if ($user) {
 		}	
 		$db->value = "'".$user_profile['email']."','".($user_profile['last_name'].$user_profile['first_name'])."','".$birthday."','".$sex."','".$user_profile['id']."','https://graph.facebook.com/".$user."/picture?type=large'";
 		$_SESSION['idx'] = $db->Insert();
+		?>
+		<script>
+			location.href = "info";
+		</script>
+		<?
+		exit();
 	  }else{
 ?>
 <script>
@@ -55,14 +60,7 @@ if ($user) {
 }
 //ㄴㅇㄴㅇㄴㅇ
 unset($facebook);
-if($_SESSION['idx']){
 ?>
-<script>
-	location.href = "info";
-</script>
-<?
-exit();
-}?>
 <div class = "message"></div>
 <form method="post" action="/joinInsert.php" id="joinForm">
 	<div class="leftObj">

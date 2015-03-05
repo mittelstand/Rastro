@@ -22,7 +22,7 @@ if ($user) {
 		$_SESSION['idx'] = $row['idx'];
 		?>
 		<script>
-			$(document).reaady(function(){
+			$(document).ready(function(){
 				if(confirm("이미 가입하셨습니다.\n로그인하시겠습니까?")){
 					location.href = "/info";
 				}else{
@@ -54,7 +54,6 @@ if ($user) {
  <?
 	  }
 	  unset($db);
-	  exit;
 } else {
   $loginUrl = $facebook->getLoginUrl(array('scope'=>'user_birthday,email'));
 }

@@ -30,7 +30,7 @@ if ($user) {
 		?>
 		<script>
 			$(document).ready(function(){
-				if(confirm("ÀÌ¹Ì °¡ÀÔÇÏ¼Ì½À´Ï´Ù.\n·Î±×ÀÎÇÏ½Ã°Ú½À´Ï±î?")){
+				if(confirm("ì´ë¯¸ ê°€ì…í•˜ì…¨ìŠµë‹ˆë‹¤.\në¡œê·¸ì¸í•˜ì‹œê² ìŠµë‹ˆê¹Œ?")){
 					location.href = "/info";
 				}else{
 					location.href = "/logOut.php?return=join";
@@ -40,7 +40,7 @@ if ($user) {
 		<?
 	  }else if($user_profile['email']){
 		$db->field = "email,name,dob,sex,fbcode,Ps";
-		$sex = ($user_profile['gender']=="male") ? "³²¼º" : "¿©¼º";
+		$sex = ($user_profile['gender']=="male") ? "ë‚¨ì„±" : "ì—¬ì„±";
 		if($user_profile['birthday']){
 			$b = explode("/",$user_profile['birthday']);
 			$birthday = $b[2]."-".$b[0]."-".$b[1];
@@ -64,23 +64,23 @@ if ($user) {
 } else {
   $loginUrl = $facebook->getLoginUrl(array('scope'=>'user_birthday,email'));
 }
-//¤¤¤·¤¤¤·¤¤¤·
+//ã„´ã…‡ã„´ã…‡ã„´ã…‡
 unset($facebook);
 ?>
 <div class = "message"></div>
 <form method="post" action="/findEmailProc.php" id="joinForm">	
 	<div class="rightObj">
-		<h2 style="color:#323232; margin-bottom:70px;">ºñ¹Ğ¹øÈ£Ã£±â</h2>
+		<h2 style="color:#323232; margin-bottom:70px;">ë¹„ë°€ë²ˆí˜¸ì°¾ê¸°</h2>
 		<ul class="joinForm">
 			
 			<li class="email list">
 				<!--span class="lab">E-mail</span-->
-				<span class="input"><input type="text" name="email" id="email" placeholder="ÀÌ¸ŞÀÏÀ» ÀÔ·ÂÇÏ¼¼¿ä."/></span><div style="clear:both"></div>
+				<span class="input"><input type="text" name="email" id="email" placeholder="ì´ë©”ì¼ì„ ì…ë ¥í•˜ì„¸ìš”."/></span><div style="clear:both"></div>
 				<button type="button" class="btnClose"></button>
 			</li>
 			
 		</ul>
-		<button type="submit" class="btnRegist">ºñ¹Ğ¹øÈ£Ã£±â</button>
+		<button type="submit" class="btnRegist">ë¹„ë°€ë²ˆí˜¸ì°¾ê¸°</button>
 	</div>
 </form>
 <script>
@@ -119,7 +119,7 @@ function Nchk(m)
 	if(st==true){
 		return (!st);
 	}else{
-		re=/[^a-zA-Z°¡-ÆR]+/;
+		re=/[^a-zA-Zê°€-í£]+/;
 		var st2=re.test(rg);
 		return (!st2);
 	}
@@ -129,13 +129,13 @@ function Nchk(m)
 $("#joinForm").submit(function(){
 	//alert($("#email").val());	
 	if(trim($("#email").val())==""){
-		MAlert("ÀÌ¸ŞÀÏÀ» ÀÔ·ÂÇÏ¼¼¿ä.", $("#email").parent());
+		MAlert("ì´ë©”ì¼ì„ ì…ë ¥í•˜ì„¸ìš”.", $("#email").parent());
 		$("#Nname").focus();
 		return false;
 	};
 	if(Echk($("#email").val())==false){
-		alert("¿Ã¹Ù¸¥ ÀÌ¸ŞÀÏ Çü½ÄÀÌ ¾Æ´Õ´Ï´Ù.");
-		MAlert("¿Ã¹Ù¸¥ ÀÌ¸ŞÀÏ Çü½ÄÀÌ ¾Æ´Õ´Ï´Ù.", $("#email").parent());
+		alert("ì˜¬ë°”ë¥¸ ì´ë©”ì¼ í˜•ì‹ì´ ì•„ë‹™ë‹ˆë‹¤.");
+		MAlert("ì˜¬ë°”ë¥¸ ì´ë©”ì¼ í˜•ì‹ì´ ì•„ë‹™ë‹ˆë‹¤.", $("#email").parent());
 		$("#Nname").focus();
 		return false;
 	};	

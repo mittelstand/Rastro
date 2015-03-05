@@ -8,6 +8,14 @@ $facebook = new Facebook(array(
   'secret' => '0f67e1e25529fedaaa368e26e7e23331',
 ));
 $user = $facebook->getUser();
+if($_SESSION['idx']){
+?>
+	<script>
+		location.href = "info";
+	</script>
+<?
+	exit();
+}
 if ($user) {
   $user_profile = $facebook->api('/me');
   $logoutUrl = $facebook->getLogoutUrl();

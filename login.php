@@ -14,33 +14,52 @@ if ($user) {
   $db->table = "member";
   $db->keyfield = "idx";	
   $db->where = "email='".$user_profile['email']."'";
-  if($db->TotalCnt() > 0){
-	$row = mysql_fetch_array($db->Select());
+  if($db->TotalCnt() > 0){	
 	$db->field = "idx";
+	$row = mysql_fetch_array($db->Select());
 	$_SESSION['idx'] = $row['idx'];
+	?>
+	<script>
+		location.href = "info";
+	</script>
+	<?
+	unset($db);
+	exit();
   }else if($user_profile['email']){
-    $db->field = "email,name,dob,sex,fbcode,Ps";
-	$sex = ($user_profile['gender']=="male") ? "남성" : "여성";
-	if($user_profile['birthday']){
-		$b = explode("/",$user_profile['birthday']);
-		$birthday = $b[2]."-".$b[0]."-".$b[1];
-	}	
-	$db->value = "'".$user_profile['email']."','".($user_profile['last_name'].$user_profile['first_name'])."','".$birthday."','".$sex."','".$user_profile['id']."','https://graph.facebook.com/".$user."/picture?type=large'";
-	$_SESSION['idx'] = $db->Insert();
+	if($_GET['join']==1){
+		$db->field = "email,name,dob,sex,fbcode,Ps";
+		$sex = ($user_profile['gender']=="male") ? "남성" : "여성";
+		if($user_profile['birthday']){
+			$b = explode("/",$user_profile['birthday']);
+			$birthday = $b[2]."-".$b[0]."-".$b[1];
+		}	
+		$db->value = "'".$user_profile['email']."','".($user_profile['last_name'].$user_profile['first_name'])."','".$birthday."','".$sex."','".$user_profile['id']."','https://graph.facebook.com/".$user."/picture?type=large'";
+		$_SESSION['idx'] = $db->Insert();
+	?>
+	<script>
+		location.href = "info";
+	</script>
+	<?
+		unset($db);
+		exit();
+	}else{
+		?>
+	<script>
+		$(document).ready(function(){
+			if(confirm("아직 가입하지 않으셨습니다.\n가입하시겠습니까?")){
+				location.href = "/login?join=1";
+			}
+		})
+	</script>
+		<?
+	}
   }
   unset($db);
 } else {
   $loginUrl = $facebook->getLoginUrl(array('scope'=>'publish_stream,email,user_birthday'));
 }
 unset($facebook);
-if($_SESSION['idx']){
 ?>
-<script>
-	location.href = "info";
-</script>
-<?
-exit();
-}?>
 <div class = "message"></div>
 <form method="post" action="/loginProc.php" id="loginForm">
 	<h2 style="color:#323232; margin-bottom:70px;">로그인</h2>

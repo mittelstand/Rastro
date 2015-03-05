@@ -40,7 +40,7 @@ $bUrl = AddParam("/board/index.php","type=",$_GET['type']);
 				<button type="button" class="btnTopLogin" onclick='location.href = "/login"'>로그인</button>
 				<? }else{ ?>
 				<button type="button" class="btnTopLogOut" onclick='location.href = "/logOut.php"'>로그아웃</button>
-				<button type="button" class="btnTopMyPage" onclick='location.href = "/info"' style="margin-right:20px;">MyPage</button>
+				<!--button type="button" class="btnTopMyPage" onclick='location.href = "/info"' style="margin-right:20px;">MyPage</button-->
 				<? } ?>
 			</div>
 		</div>

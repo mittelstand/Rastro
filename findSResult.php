@@ -4,7 +4,7 @@ $dir = $_SERVER["DOCUMENT_ROOT"];
 include $dir."/inc/header/mainHeader.php";
 
 ?>
-<div class = "message">юс╫ц╨Я╧п╧Ьхё╟║ ╧ъ╠ч╣г╬З╫ю╢о╢ы. ╥н╠вюн го╫ц╟з╫ю╢о╠Н?</div>
+<div class = "message">Л·└Л▀°К╧└К╟─К╡┬М≤╦Й╟─ К╟°Й╦┴К░≤Л≈┬Л┼╣К▀┬К▀╓. К║°Й╥╦Л²╦ М∙≤Л▀°Й╡═Л┼╣К▀┬Й╧▄?</div>
 
 
 <?

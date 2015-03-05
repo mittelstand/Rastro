@@ -6,9 +6,12 @@ $db->table = "member";
 $db->keyfield = "idx";
 $db->field = "idx";
 $db->where = "email='".$_POST['email']."' and pwd='".md5($_POST['pwd'])."'";
+
 if($db->TotalCnt() > 0){
 	$row = mysql_fetch_array($db->Select());
 	$_SESSION['idx'] = $row['idx'];
+	$db->field = "pwdTemp=''";
+	$db->Update();
 ?>
 <script>
 	location.href = "/info";

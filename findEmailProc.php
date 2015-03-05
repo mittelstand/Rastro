@@ -36,7 +36,7 @@ if($db->TotalCnt() > 0){
 		$c = $m->Connect('smtp.gmail.com', 465, 'ysmin0914@gmail.com', 'messagebox11', 'tls', 10, 'localhost', null, 'plain') or die(print_r($m->Result));
 		$m->Send($c);
 		$m->Disconnect();
-		$db->field = "pwChaCode='".$code."',pwChaChk='n'";
+		$db->field = "pwdTemp='".$code."'";
 		$db->Update();
 		unset($db);
 	?>

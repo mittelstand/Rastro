@@ -86,7 +86,7 @@ unset($facebook);
 		<button type="submit" class="btnLogin">로그인</button>
 		<button type="button" class="btnFJoin" onclick="location.href='<?=$loginUrl?>'" style="margin-bottom:9px;">페이스북으로 로그인</button>		
 		<span class="textQ">비밀번호를 잊으셨나요? <a href="#">비밀번호 찾기</a></span>
-		<span class="textQ">아직 회원이 아니시라면 <a href="#">가입하기</a></span>
+		<span class="textQ">아직 회원이 아니시라면 <a href="/join">가입하기</a></span>
 		<!--button type="button" class="btnFlogin">페이스북으로 로그인</button-->
 	</div>
 </form>

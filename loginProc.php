@@ -18,7 +18,18 @@ if($db->TotalCnt() > 0){
 </script>
 <?
 }else{
-	msgBox("아이디 또는 비밀번호를 다시 확인하세요.".md5($_POST['pwd']),"back");
+	$db->where = "email='".$_POST['email']."' and pwdTemp='".$_POST['pwd']."'";	
+	if($db->TotalCnt() > 0){
+		$row = mysql_fetch_array($db->Select());
+		$_SESSION['idx'] = $row['idx'];
+	?>
+<script>
+	location.href = "/info";
+</script>
+	<?
+	}else{
+		msgBox("아이디 또는 비밀번호를 다시 확인하세요.".md5($_POST['pwd']),"back");
+	}
 }
 unset($db);
 

@@ -41,7 +41,7 @@ if($db->TotalCnt() > 0){
 		unset($db);
 	?>
 <script>
-	location.href = "/findFAResult";
+	location.href = "/findSResult";
 </script>	
 	<?
 		exit();
@@ -50,7 +50,7 @@ if($db->TotalCnt() > 0){
 	unset($db);
 ?>
 <script>
-	location.href = "/findSResult";
+	location.href = "/findFAResult";
 </script>
 <?
 	exit();

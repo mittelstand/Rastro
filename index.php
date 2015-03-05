@@ -22,11 +22,13 @@ if ($user) {
 		$_SESSION['idx'] = $row['idx'];
 		?>
 		<script>
-			if(confirm("이미 가입하셨습니다.\n로그인하시겠습니까?")){
-				location.href = "/info";
-			}else{
-				location.href = "/logOut.php";
-			}
+			$(document).reaady(function(){
+				if(confirm("이미 가입하셨습니다.\n로그인하시겠습니까?")){
+					location.href = "/info";
+				}else{
+					location.href = "/logOut.php";
+				}
+			})
 		</script>
 		<?
 		exit;

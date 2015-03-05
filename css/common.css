@@ -133,7 +133,7 @@ button.btnTopMyPage:hover{background-color:#cdcdcd;}
 
 button.btnFlogin{width:351px; height:53px; text-indent:-1000em;font-weight:bold; font-size:15px; color:#FFF; background:url('/img/btnFlogin.png') no-repeat; clear:both; margin:15px auto 0; clear:both;}
 button.btnRegist{width:352px; height:52px; text-align:center; font-weight:bold; font-size:15px; color:#FFF; border-radius:4px; background-color:#0198f1; clear:both; margin:29px auto 0; clear:both;}
-button.btnBack{width:132px; height:52px; text-align:center; font-weight:bold; font-size:15px; color:#FFF; background:url('/img/btnBack.png') no-repeat; clear:both; margin:29px auto 100px; clear:both; }
+button.btnBack{width:132px; height:52px; text-align:center; font-weight:bold; font-size:15px; color:#FFF;  clear:both; margin:29px auto 100px; clear:both; }
 button.btnClose{width:14px; height:14px; background:url('/img/xButton.png') no-repeat; display:none;}
 
 

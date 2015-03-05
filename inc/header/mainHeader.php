@@ -2,9 +2,7 @@
 include $dir."/inc/header/globalHeader.php";
 $bUrl = AddParam("/board/index.php","type=",$_GET['type']);
 
-?>
-
-	<script>
+?>	<script>
 		var gap = 25;
 		var ret = 0;
 		$(document).ready(function(){
@@ -12,14 +10,6 @@ $bUrl = AddParam("/board/index.php","type=",$_GET['type']);
 			
 		});	
 
-		$('ul.tnb li.login a').click(function(){
-			$('div.bgLogin').show();
-			$('div.bgLogin').css("top",$(window).scrollTop())
-			$('div.layerLogin').css("top",($(window).scrollTop()+400)+"px");
-			$('div.layerLogin').show();
-			$('body').css("overflow","hidden");
-			$("div.layerLogin input[name='returnUrl']").val("");
-		});
 		$("button.logClose").click(function(){
 			$('div.bgLogin').click()
 		})

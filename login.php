@@ -48,6 +48,8 @@ if ($user) {
 		$(document).ready(function(){
 			if(confirm("아직 가입하지 않으셨습니다.\n가입하시겠습니까?")){
 				location.href = "/login?join=1";
+			}else{
+				location.href = "/logOut?return=login";
 			}
 		})
 	</script>

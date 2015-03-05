@@ -9,7 +9,17 @@ unset($_SESSION['fb_782151931875268_code']);
 unset($_SESSION['fb_782151931875268_access_token']);
 unset($_SESSION['fb_782151931875268_user_id']);
 unset($_SESSION['idx']);
+if($_GET['return']){
+?>
+<script>
+	location.href = "/<?=$_GET['return']?>";
+</script>
+<?
+}else{
 ?>
 <script>
 	location.href = "/";
 </script>
+<?
+}	
+?>

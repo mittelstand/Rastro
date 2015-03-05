@@ -8,6 +8,14 @@ $facebook = new Facebook(array(
   'secret' => '0f67e1e25529fedaaa368e26e7e23331',
 ));
 $user = $facebook->getUser();
+if($_SESSION['idx']){
+?>
+	<script>
+		location.href = "info";
+	</script>
+<?
+	exit();
+}
 if ($user) {
   $user_profile = $facebook->api('/me');
   $logoutUrl = $facebook->getLogoutUrl();
@@ -16,10 +24,21 @@ if ($user) {
 	$db->keyfield = "idx";	
 	$db->where = "email='".$user_profile['email']."'";
 	  
-	  if($db->TotalCnt() > 0){
-		$row = mysql_fetch_array($db->Select());
+	  if($db->TotalCnt() > 0){		
 		$db->field = "idx";
+		$row = mysql_fetch_array($db->Select());
 		$_SESSION['idx'] = $row['idx'];
+		?>
+		<script>
+			$(document).ready(function(){
+				if(confirm("이미 가입하셨습니다.\n로그인하시겠습니까?")){
+					location.href = "/info";
+				}else{
+					location.href = "/logOut?return=join";
+				}
+			})
+		</script>
+		<?
 	  }else if($user_profile['email']){
 		$db->field = "email,name,dob,sex,fbcode,Ps";
 		$sex = ($user_profile['gender']=="male") ? "남성" : "여성";
@@ -29,6 +48,12 @@ if ($user) {
 		}	
 		$db->value = "'".$user_profile['email']."','".($user_profile['last_name'].$user_profile['first_name'])."','".$birthday."','".$sex."','".$user_profile['id']."','https://graph.facebook.com/".$user."/picture?type=large'";
 		$_SESSION['idx'] = $db->Insert();
+		?>
+		<script>
+			location.href = "info";
+		</script>
+		<?
+		exit();
 	  }else{
 ?>
 <script>
@@ -37,19 +62,11 @@ if ($user) {
  <?
 	  }
 	  unset($db);
-  
 } else {
   $loginUrl = $facebook->getLoginUrl(array('scope'=>'user_birthday,email'));
 }
 //ㄴㅇㄴㅇㄴㅇ
 unset($facebook);
-if($_SESSION['idx']){
-?>
-<script>
-	location.href = "info.php";
-</script>
-<?
-exit();
 }?>
 <div class = "message"></div>
 <form method="post" action="/joinInsert.php" id="joinForm">	

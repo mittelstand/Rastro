@@ -22,7 +22,8 @@ if(strlen($_SESSION['idx']) <= 0){
 
 ?>
 <style>
-	/*body{background-color:#ededed;}*/
+	/*body{background-color:#ededed;}*/	
+	#container{min-height:800px;}
 </style>
 <div style = "clear:both"></div>
 <div class="popImgMsg">
@@ -135,6 +136,7 @@ if(strlen($_SESSION['idx']) <= 0){
 		</div>
 	</div>	
 </form>
+<div style="clear:both;"></div>
 <script>
 var date    = new Date();
 var Nyear   = (date.getFullYear()-70);

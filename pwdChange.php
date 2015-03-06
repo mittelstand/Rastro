@@ -21,7 +21,7 @@ $birth = explode("-",$array["dob"]);
 	<h2 style="color:#323232; margin-bottom:70px;">비밀번호변경</h2>
 	<div class="loginBox">
 		<ul class="joinForm">
-			<?if(!$array['pwd']){?>
+			<?if($array['pwd']){?>
 			<li class="password list">
 				<!--span class="lab">비밀번호</span-->
 				<span class="input"><input type="password" name="nowPwd" id="nowPwd" placeholder="현재 비밀번호를 입력하세요."/></span><div style="clear:both"></div>

@@ -15,7 +15,10 @@ if($_POST['idx']){
 
 $db->value="'".$_POST['idx']."','".$_POST['name']."','".$_POST['Pname']."','".$_POST['Pinst']."','".$_POST['Pdetails']."','".$uploadFile."',now()";
 $i =$db->Insert();
-echo $i;
+$db ->field="idx,src";
+$db->where = "idx='".$i."'";
+$db->ExportJson();
+
 move_uploaded_file($_FILES['uploadedfile']['tmp_name'],$uploadFile);
 }
 unset($db);

@@ -17,6 +17,8 @@ if($db->TotalCnt() > 0){
 	location.href = "/info";
 </script>
 <?
+	unset($db);
+	exit();
 }else{
 	$db->where = "email='".$_POST['email']."' and pwdTemp='".$_POST['pwd']."'";	
 	if($db->TotalCnt() > 0){
@@ -24,14 +26,16 @@ if($db->TotalCnt() > 0){
 		$_SESSION['idx'] = $row['idx'];
 	?>
 <script>
-	location.href = "/info";
+	location.href = "/pwdChange";
 </script>
 	<?
+		unset($db);
+		exit();
 	}else{
 		msgBox("아이디 또는 비밀번호를 다시 확인하세요.".md5($_POST['pwd']),"back");
+		unset($db);
+		exit();
 	}
 }
-unset($db);
-
 ?>
 

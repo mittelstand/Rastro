@@ -131,7 +131,7 @@ if(strlen($_SESSION['idx']) <= 0){
 		</ul>
 		<div style = "clear:both;"></div>
 		<div class="btn" style="z-index:1; position:relative;">
-			<button class = "mPass">비밀번호변경</button>
+			<button class = "mPass" onclick="location.href = '/pwdChange'">비밀번호변경</button>
 			<button type="submit" class = "infoSave">저장</button>
 		</div>
 	</div>	

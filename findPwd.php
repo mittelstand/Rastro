@@ -1,5 +1,6 @@
 <?
 session_start();
+$title = "비밀번호찾기";
 $dir = $_SERVER["DOCUMENT_ROOT"];
 include $dir."/inc/header/mainHeader.php";
 ?>

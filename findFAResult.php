@@ -3,8 +3,8 @@ session_start();
 $dir = $_SERVER["DOCUMENT_ROOT"];
 include $dir."/inc/header/mainHeader.php";
 ?>
-<div class = "messageFind">╬фаВ х╦©Ьюл ╬ф╢у╢о╢ы.<br/> ╟║ют го╫ц╟з╫ю╢о╠Н?</div>
-<button type="button" class="btnRegist" onclick="location.href = '/join'">╟║ютго╠Б</button>
+<div class = "messageFind">Л∙└Л╖│ М ▄Л⌡░Л²╢ Л∙└К▀≥К▀┬К▀╓.<br/> Й╟─Л·┘ М∙≤Л▀°Й╡═Л┼╣К▀┬Й╧▄?</div>
+<button type="button" class="btnRegist" onclick="location.href = '/join'">Й╟─Л·┘М∙≤Й╦╟</button>
 <?
 include $dir."/inc/footer/mainFooter.php";
 ?>

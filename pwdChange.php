@@ -82,7 +82,7 @@ function Nchk(m)
 
 $("#loginForm").submit(function(){
 	//alert($("#email").val());
-	<? if($array['fbcode'] <= 0){ ?>
+	<? if($array['pwd']){ ?>
 	if(trim($("#nowPwd").val())=="" ){
 		MAlert("현재 비밀번호를 입력하세요.", $("#nowPwd").parent());
 		return false;

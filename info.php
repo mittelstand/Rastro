@@ -26,24 +26,25 @@ $birth = explode("-",$array["dob"]);
 	#container{min-height:729px;}
 </style>
 <div style = "clear:both"></div>
-<div class="popImgMsg">
-	<ul>
-<?
-	if($array["fbcode"]){
-?>
-	<li><button type = "button" id = "fbImage">페이스북 사진 불러오기</button></li>
-<?
-	}
-?>
-	<li><label for="picture" class="pic">PC에서 불러오기</label></li>
-	<li><button type = "button" id = "imgDelete">삭제</button></li>
-	</ul>
-</div>
+
 <form method="post" action="infoModify.php" class = "infoForm" enctype = "multipart/form-data">
 	<input type = "hidden" name="fbChange" id = "fbChange"/>
 	<!--<div class = "info">
 		<span>내 정보 수정</span>
 	</div>-->
+	<div class="popImgMsg">
+		<ul>
+	<?
+		if($array["fbcode"]){
+	?>
+		<li><button type = "button" id = "fbImage">페이스북 사진 불러오기</button></li>
+	<?
+		}
+	?>
+		<li><label for="picture" class="pic">PC에서 불러오기</label></li>
+		<li><button type = "button" id = "imgDelete">삭제</button></li>
+		</ul>
+	</div>
 	<div class="circle, circleTwo" style="z-index:1; position:relative;"></div>
 	<div class="circle" style="z-index:1; position:relative;">
 		<div style="text-indent:-1000em;" class="picframe">

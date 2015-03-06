@@ -192,7 +192,7 @@ $("div.circle").mouseout (function(){
 });
 $("button.chMail").click(function(){
 	if(confirm("정말 이메일을 변경하시겠습니까?")){
-	
+		location.href = "/chMail";
 	}
 });
 

@@ -10,11 +10,11 @@ include $dir."/inc/header/mainHeader.php";
 		<ul class="joinForm">			
 			<li class="email list">
 				<!--span class="lab">E-mail</span-->
-				<span class="input"><input type="text" name="email" id="email" placeholder="ÀÌ¸ŞÀÏÀ» ÀÔ·ÂÇÏ¼¼¿ä."/></span><div style="clear:both"></div>
+				<span class="input"><input type="text" name="email" id="email" placeholder="ì´ë©”ì¼ì„ ì…ë ¥í•˜ì„¸ìš”."/></span><div style="clear:both"></div>
 				<button type="button" class="btnClose"></button>
 			</li>			
 		</ul>
-		<button type="submit" class="btnRegist">ÀÌ¸ŞÀÏ ÀÎÁõ ¹× º¯°æÇÏ±â</button>
+		<button type="submit" class="btnRegist">ì´ë©”ì¼ ì¸ì¦ ë° ë³€ê²½í•˜ê¸°</button>
 	</div>
 </form>
 <script>
@@ -53,7 +53,7 @@ function Nchk(m)
 	if(st==true){
 		return (!st);
 	}else{
-		re=/[^a-zA-Z°¡-ÆR]+/;
+		re=/[^a-zA-Zê°€-í£]+/;
 		var st2=re.test(rg);
 		return (!st2);
 	}
@@ -64,13 +64,13 @@ $("#joinForm").submit(function(){
 	//alert($("#email").val());
 	
 	if(trim($("#email").val())==""){
-		MAlert("ÀÌ¸ŞÀÏÀ» ÀÔ·ÂÇÏ¼¼¿ä.", $("#email").parent());
+		MAlert("ì´ë©”ì¼ì„ ì…ë ¥í•˜ì„¸ìš”.", $("#email").parent());
 		$("#Nname").focus();
 		return false;
 	};
 	if(Echk($("#email").val())==false){
-		alert("¿Ã¹Ù¸¥ ÀÌ¸ŞÀÏ Çü½ÄÀÌ ¾Æ´Õ´Ï´Ù.");
-		MAlert("¿Ã¹Ù¸¥ ÀÌ¸ŞÀÏ Çü½ÄÀÌ ¾Æ´Õ´Ï´Ù.", $("#email").parent());
+		alert("ì˜¬ë°”ë¥¸ ì´ë©”ì¼ í˜•ì‹ì´ ì•„ë‹™ë‹ˆë‹¤.");
+		MAlert("ì˜¬ë°”ë¥¸ ì´ë©”ì¼ í˜•ì‹ì´ ì•„ë‹™ë‹ˆë‹¤.", $("#email").parent());
 		$("#Nname").focus();
 		return false;
 	};

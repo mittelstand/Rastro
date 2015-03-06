@@ -12,13 +12,13 @@ if(($db->TotalCnt() > 0) or ($row['fbcode'] > 0)){
 	$db->field = "pwd='".md5($_POST['pwd'])."'";
 	$db->Update();
 }else{
-	MagBox("현재 비밀번호가 틀립니다.","back");
+	MsgBox("현재 비밀번호가 틀립니다.","back");
 	unset($db);
 	exit();
 }
 unset($db);
 ?>
 
-<Script>
+<script>
 	location.href="info";
 </script>

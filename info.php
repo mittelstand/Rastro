@@ -74,7 +74,7 @@ $birth = explode("-",$array["dob"]);
 			<li class="email list">
 				<span class="lab">이메일</span>
 				<!--span class="modify"><input type="text" name="email" id="mEmail" value = "<?= $array["email"]?>"/></span-->
-				<span class="modify" style="padding-top:5px;"><?= $array["email"]?></span>
+				<span class="modify" style="padding-top:10px;"><?= $array["email"]?></span>
 
 				<div style="clear:both;"></div>
 			</li>

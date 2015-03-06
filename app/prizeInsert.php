@@ -13,7 +13,7 @@ $db->field = "fidx,writer,pname,pinstitution,pdetail,src,cdate";
 $db->value="'".$_POST['idx']."','".$_POST['name']."','".$_POST['Pname']."','".$_POST['Pinst']."','".$_POST['Pdetails']."','".$uploadFile."',now()";
 $i =$db->Insert();
 
-echo $i.",".$uploadFile;
+echo $i.",";
 move_uploaded_file($_FILES['uploadedfile']['tmp_name'],$uploadFile);
 unset($db);
 ?>

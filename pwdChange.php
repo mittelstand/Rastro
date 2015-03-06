@@ -17,7 +17,7 @@ $birth = explode("-",$array["dob"]);
 
 ?>
 <div class = "message"></div>
-<form method="post" action="/loginProc.php" id="loginForm">
+<form method="post" action="/pwdCProc.php" id="loginForm">
 	<h2 style="color:#323232; margin-bottom:70px;">비밀번호변경</h2>
 	<div class="loginBox">
 		<ul class="joinForm">

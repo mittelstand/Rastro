@@ -115,6 +115,26 @@ $("#loginForm").submit(function(){
 		alert("비밀번호가 일치하지 않습니다.");
 		return false;
 	}
+	var sw = 0;
+	$.ajax({
+		type : "POST",
+		url : "/pwdChange.ax.php",
+		dataType : 'json',
+		async : false,
+		data : {
+			pwd : $("#pwd").val()
+		},success : function(result){
+			if(result.loginChk=="true"){
+				sw = 1;
+			};
+		},error : function(result,a,b){
+		
+		}		
+	});
+	if(sw===0){
+		alert("아이디 또는 비밀번호를 다시 확인하세요.");
+		return false;
+	};	
 
 });
 </script>

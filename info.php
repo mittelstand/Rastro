@@ -70,12 +70,11 @@ $birth = explode("-",$array["dob"]);
 	<? } ?>
 	<div class = "opacity">
 		<ul class="modiForm" style="z-index:8; position:relative;">
-			<li class="email list"></li>
 			<li class="email list">
 				<span class="lab">이메일</span>
 				<!--span class="modify"><input type="text" name="email" id="mEmail" value = "<?= $array["email"]?>"/></span-->
-				<span class="modify" style="padding-top:13px;"><?= $array["email"]?></span>
-
+				<span class="modify" style="width:200px; padding-top:13px; "><?= $array["email"]?></span>
+				<button type="button" style="" class="chMail" >이메일변경</button>
 				<div style="clear:both;"></div>
 			</li>
 			<li class="name list">

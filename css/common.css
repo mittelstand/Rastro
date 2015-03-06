@@ -5,6 +5,7 @@ form.infoForm  > div.opacity{width:953px; height:527px; background:rgba(255,255,
 
 form.infoForm > div.opacity > span.modify{color:#028ad9; font-size:27px; margin-top:52px; text-align:center; Box-sizing: border-box;}
 form.infoForm > div.opacity > ul.modiForm{width:432px; margin: 128px auto 0;}
+form.infoForm > div.opacity > ul.modiForm button.chMail{width:120px; height:41px; display:block; border-radius:8px; float:left; margin-left:20px; background-color:#dff2f7;}
 form.infoForm > div.opacity > ul.modiForm > li{margin-top:25px; clear:both;}
 form.infoForm > div.opacity > ul.modiForm > li > span.lab{font-weight: bold; font-size: 16px; color: #212121; margin: 16px 18px 0 0; width: 62px; float: left;}
 form.infoForm > div.opacity > ul.modiForm > li > span.birth{margin-right:17px;}

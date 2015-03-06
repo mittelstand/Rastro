@@ -15,7 +15,7 @@ if(($db->TotalCnt() > 0)){
 	$db->field = "fbcode";
 	$db->where = "idx = '".$_SESSION['idx']."'";
 	$row = mysql_fetch_array($db->Select());
-	if($array['pwd']){
+	if(!$array['pwd']){
 		$db->field = "pwdTemp='',pwd='".md5($_POST['pwd'])."'";
 		$db->Update();
 	}else{

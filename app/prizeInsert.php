@@ -7,7 +7,7 @@ $uploadDir = $dir."/file/";
 $fileName = $_POST['fName'];
 $uploadFile = $uploadDir.time().".jpg";
 
-
+move_uploaded_file($_FILES['uploadedfile']['tmp_name'],$uploadFile);
 $db= new Dbcon();
 $db->table="prize";
 $db->field = "fidx,writer,pname,pinstitution,pdetail,src,cdate";
@@ -19,7 +19,7 @@ $db ->field="idx,src";
 $db->where = "idx='".$i."'";
 $db->ExportJson();
 
-move_uploaded_file($_FILES['uploadedfile']['tmp_name'],$uploadFile);
+
 }
 unset($db);
 ?>

@@ -11,8 +11,8 @@ $uploadFile = $uploadDir.time().".jpg";
 $db= new Dbcon();
 $db->table="prize";
 $db->field = "fidx,writer,pname,pinstitution,pdetail,src,cdate";
-if($_POST['idx']==""){
-}else{
+if($_POST['idx']){
+
 $db->value="'".$_POST['idx']."','".$_POST['name']."','".$_POST['Pname']."','".$_POST['Pinst']."','".$_POST['Pdetails']."','".$uploadFile."',now()";
 $i =$db->Insert();
 echo $i;

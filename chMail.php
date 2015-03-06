@@ -1,75 +1,11 @@
 <?
 session_start();
-
 $dir = $_SERVER["DOCUMENT_ROOT"];
 include $dir."/inc/header/mainHeader.php";
-$facebook = new Facebook(array(
-  'appId'  => '782151931875268',
-  'secret' => '0f67e1e25529fedaaa368e26e7e23331',
-));
-$user = $facebook->getUser();
-if($_SESSION['idx']){
-?>
-	<script>
-		location.href = "info";
-	</script>
-<?
-	exit();
-}
-if ($user) {
-  $user_profile = $facebook->api('/me');
-  $logoutUrl = $facebook->getLogoutUrl();
-	$db = new Dbcon();
-	$db->table = "member";
-	$db->keyfield = "idx";	
-	$db->where = "email='".$user_profile['email']."'";
-	  
-	  if($db->TotalCnt() > 0){		
-		$db->field = "idx";
-		$row = mysql_fetch_array($db->Select());
-		$_SESSION['idx'] = $row['idx'];
-		?>
-		<script>
-			$(document).ready(function(){
-				if(confirm("이미 가입하셨습니다.\n로그인하시겠습니까?")){
-					location.href = "/info";
-				}else{
-					location.href = "/logOut.php";
-				}
-			})
-		</script>
-		<?
-	  }else if($user_profile['email']){
-		$db->field = "email,name,dob,sex,fbcode,Ps";
-		$sex = ($user_profile['gender']=="male") ? "남성" : "여성";
-		if($user_profile['birthday']){
-			$b = explode("/",$user_profile['birthday']);
-			$birthday = $b[2]."-".$b[0]."-".$b[1];
-		}	
-		$db->value = "'".$user_profile['email']."','".($user_profile['last_name'].$user_profile['first_name'])."','".$birthday."','".$sex."','".$user_profile['id']."','https://graph.facebook.com/".$user."/picture?type=large'";
-		$_SESSION['idx'] = $db->Insert();
-		?>
-		<script>
-			location.href = "info";
-		</script>
-		<?
-		exit();
-	  }else{
-?>
-<script>
-	location.href="/exceptionEmail";	
-</script>  
- <?
-	  }
-	  unset($db);
-} else {
-  $loginUrl = $facebook->getLoginUrl(array('scope'=>'user_birthday,email'));
-}
-//ㄴㅇㄴㅇㄴㅇ
-unset($facebook);
+
 ?>
 <div class = "message"></div>
-<form method="post" action="/joinInsert.php" id="joinForm">	
+<form method="post" action="/chMailProc.php" id="joinForm">	
 	<div class="rightObj">
 		<ul class="joinForm">			
 			<li class="email list">
@@ -78,7 +14,7 @@ unset($facebook);
 				<button type="button" class="btnClose"></button>
 			</li>			
 		</ul>
-		<button type="submit" class="btnRegist">라스트로 시작하기</button>
+		<button type="submit" class="btnRegist">이메일 인증 및 변경하기</button>
 	</div>
 </form>
 <script>
@@ -127,18 +63,6 @@ function Nchk(m)
 $("#joinForm").submit(function(){
 	//alert($("#email").val());
 	
-	
-	if(trim($("#Nname").val())==""){
-		MAlert("실명을 입력하세요.", $("#Nname").parent());
-		$("#Nname").focus();
-		return false;
-	};
-	if(Nchk($("#Nname").val())==false){
-		alert("올바른 실명 형식이 아닙니다.");
-		MAlert("올바른 실명 형식이 아닙니다.", $("#Nname").parent());
-		$("#Nname").focus();
-		return false;	
-	};
 	if(trim($("#email").val())==""){
 		MAlert("이메일을 입력하세요.", $("#email").parent());
 		$("#Nname").focus();
@@ -150,37 +74,8 @@ $("#joinForm").submit(function(){
 		$("#Nname").focus();
 		return false;
 	};
-	if(trim($("#pwd").val())==""){
-		MAlert("비밀번호를 입력하세요.", $("#pwd").parent());
-		$("#Nname").focus();
-		return false;
-	}
-	if(Pchk($("#pwd").val())==false){
-		alert("올바른 비밀번호 형식이 아닙니다.");
-		MAlert("올바른 비밀번호 형식이 아닙니다.", $("#pwd").parent());
-		$("#Nname").focus();
-		return false;	
-	}
-	sw = 0
-	$.ajax({
-		type : "POST",
-		url : "/mailChk.ax.php",
-		dataType : 'json',
-		async : false,
-		data : {
-			email : $("#email").val()
-		},success : function(result){
-			if(result.loginChk=="true"){
-				sw = 1;
-			};
-		},error : function(result,a,b){
-		
-		}		
-	});
-	if(sw===1){
-		alert("이미 존재하는 메일입니다.");
-		return false;
-	}
+	
+	
 });
 function addDate(obj,yObj,mbObj,nDate){
 	var year  = parseInt(yObj.find("input.value").attr("value"));

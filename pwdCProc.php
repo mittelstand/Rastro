@@ -8,7 +8,7 @@ $db->keyfield = "idx";
 $db->where = "idx = '".$_SESSION['idx']."' and ((pwd = '".md5($_POST['nowPwd'])."') or (pwdTemp='".$_POST['nowPwd']."'))";
 
 if(($db->TotalCnt() > 0)){
-	$db->field = "pwd='".md5($_POST['pwd'])."'";
+	$db->field = "pwdTemp='',pwd='".md5($_POST['pwd'])."'";
 	$db->Update();
 }else{
 	
@@ -16,7 +16,7 @@ if(($db->TotalCnt() > 0)){
 	$db->where = "idx = '".$_SESSION['idx']."'";
 	$row = mysql_fetch_array($db->Select());
 	if($row['fbcode'] > 0){
-		$db->field = "pwd='".md5($_POST['pwd'])."'";
+		$db->field = "pwdTemp='',pwd='".md5($_POST['pwd'])."'";
 		$db->Update();
 	}else{
 		MsgBox("현재 비밀번호가 틀립니다.","back");

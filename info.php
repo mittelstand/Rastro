@@ -190,18 +190,24 @@ $("div.circle").mouseout (function(){
 	$("div.circleTwo").css('visibility',"hidden");
 	
 });
+$("button.chMail").click(function(){
+	if(confirm("정말 이메일을 변경하시겠습니까?")){
+	
+	}
+});
+
 $("#fbImage").click(function(){
 	var fbImage = new Image();
 	fbImage.src = "https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large";
 	fbImage.onload = function (e) {
-			 $("div.picframe").css("background","url('https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large') no-repeat 0 0");
-			 $("#fbChange").attr("value","https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large");
-					  
-			 if(fbImage.width > fbImage.height){
-				$("div.picframe").css('background-size',"auto 100%");
-			 }else{
-				$("div.picframe").css('background-size',"100% auto");
-			 }
+		 $("div.picframe").css("background","url('https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large') no-repeat 0 0");
+		 $("#fbChange").attr("value","https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large");
+				  
+		 if(fbImage.width > fbImage.height){
+			$("div.picframe").css('background-size',"auto 100%");
+		 }else{
+			$("div.picframe").css('background-size',"100% auto");
+		 }
 	}
 	$("div.popImgMsg").hide();
 	$(window).unbind("click");
@@ -256,23 +262,12 @@ $("div.circle").click(function(e){
 	}else{
 		chCode = 1;
 	}
-	
-
-
 	//e.preventDefault();
-
 });
 
 
 $("form.infoForm").submit(function(){
-	if(trim($("#mEmail").val())==""){
-		alert("이메일을 입력하세요.");
-		return false;
-	}
-	if(Echk($("#mEmail").val())==false){
-		alert("올바른 이메일형식이 아닙니다.");
-		return false;
-	}	
+		
 	if(trim($("#mName").val())==""){
 		alert("이름을 입력하세요.");
 		return false;
@@ -280,8 +275,7 @@ $("form.infoForm").submit(function(){
 	if(Nchk($("#mName").val())==false){
 		alert("올바른 이름형식이 아닙니다.");
 		return false;	
-	}
-	
+	}	
 	if($("#sex").val()==""){
 		alert("성별을 선택하세요.");
 		return false;
@@ -290,26 +284,7 @@ $("form.infoForm").submit(function(){
 		alert("생년월일을 입력하세요.");
 		return false;
 	}
-	sw = 0
-	$.ajax({
-		type : "POST",
-		url : "/modMailChk.ax.php",
-		dataType : 'json',
-		async : false,
-		data : {
-			email : $("#mEmail").val()
-		},success : function(result){
-			if(result.loginChk=="true"){
-				sw = 1;
-			};
-		},error : function(result,a,b){
-		
-		}		
-	});
-	if(sw===1){
-		alert("이미 존재하는 메일입니다.");
-		return false;
-	}
+	
 });
 
 

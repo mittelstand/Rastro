@@ -2,6 +2,18 @@
 $title = "비밀번호변경";
 $dir = $_SERVER["DOCUMENT_ROOT"];
 include $dir."/inc/header/mainHeader.php";
+if(strlen($_SESSION['idx']) <= 0){
+	MsgBox("로그인 해주세요.","login");
+	exit();
+}
+$db = new Dbcon();
+$db->table = "member";
+$db->field = "email, name, dob, sex, fbcode, Ps";
+$db->where = "idx=".$_SESSION["idx"];
+$rel= $db->Select();
+$array = mysql_fetch_assoc($rel);
+$birth = explode("-",$array["dob"]);
+
 
 ?>
 <div class = "message"></div>
@@ -9,12 +21,13 @@ include $dir."/inc/header/mainHeader.php";
 	<h2 style="color:#323232; margin-bottom:70px;">비밀번호변경</h2>
 	<div class="loginBox">
 		<ul class="joinForm">
-		
+			<?if($array['fbcode'] <= 0){?>
 			<li class="password list">
 				<!--span class="lab">비밀번호</span-->
 				<span class="input"><input type="password" name="nowPwd" id="nowPwd" placeholder="현재 비밀번호를 입력하세요."/></span><div style="clear:both"></div>
 				<!--span class="desc">비밀번호는 영문/숫자 포함하여 8 ~ 16자리</span-->
 			</li>
+			<? } ?>
 			<li class="password list">
 				<!--span class="lab">비밀번호</span-->
 				<span class="input"><input type="password" name="pwd" id="pwd" placeholder="새 비밀번호를 입력하세요."/></span><div style="clear:both"></div>
@@ -69,15 +82,16 @@ function Nchk(m)
 
 $("#loginForm").submit(function(){
 	//alert($("#email").val());
-	
+	<? if($array['fbcode'] <= 0){ ?>
 	if(trim($("#nowPwd").val())=="" ){
-		MAlert("비밀번호를 입력하세요.", $("#nowPwd").parent());
+		MAlert("현재 비밀번호를 입력하세요.", $("#nowPwd").parent());
 		return false;
 	}
-	if(Pchk($("#pwd").val())==false){
+	if(Pchk($("#nowPwd").val())==false){
 		alert("올바른 비밀번호 형식이 아닙니다.");
 		return false;	
 	}
+	<? } ?>
 	
 	if(trim($("#pwd").val())=="" ){
 		MAlert("비밀번호를 입력하세요.", $("#pwd").parent());

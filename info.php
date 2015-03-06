@@ -12,13 +12,13 @@ if(strlen($_SESSION['idx']) <= 0){
 	MsgBox("로그인 해주세요.","login");
 	exit();
 }
-	$db = new Dbcon();
-	$db->table = "member";
-	$db->field = "email, name, dob, sex, fbcode, Ps";
-	$db->where = "idx=".$_SESSION["idx"];
-	$rel= $db->Select();
-	$array = mysql_fetch_assoc($rel);
-	$birth = explode("-",$array["dob"]);
+$db = new Dbcon();
+$db->table = "member";
+$db->field = "email, name, dob, sex, fbcode, Ps";
+$db->where = "idx=".$_SESSION["idx"];
+$rel= $db->Select();
+$array = mysql_fetch_assoc($rel);
+$birth = explode("-",$array["dob"]);
 
 ?>
 <style>

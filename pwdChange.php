@@ -132,7 +132,7 @@ $("#loginForm").submit(function(){
 		}		
 	});
 	if(sw===0){
-		alert("아이디 또는 비밀번호를 다시 확인하세요.");
+		alert("현재비밀번호를 다시 확인하세요.");
 		return false;
 	};	
 

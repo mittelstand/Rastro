@@ -14,7 +14,7 @@ if(strlen($_SESSION['idx']) <= 0){
 }
 $db = new Dbcon();
 $db->table = "member";
-$db->field = "email, name, dob, sex, fbcode, Ps";
+$db->field = "email, name, dob, sex, fbcode, Ps, tempEmail";
 $db->where = "idx=".$_SESSION["idx"];
 $rel= $db->Select();
 $array = mysql_fetch_assoc($rel);
@@ -73,8 +73,13 @@ $birth = explode("-",$array["dob"]);
 			<li class="email list">
 				<span class="lab">이메일</span>
 				<!--span class="modify"><input type="text" name="email" id="mEmail" value = "<?= $array["email"]?>"/></span-->
-				<span class="modify"><?= $array["email"]?></span>
+				<? if($array['tempEmail']){ ?>
+				<span class="modify"><?=$array["tempEmail"]?></span>
+				<span class="msg"></span>
+				<? }else{ ?>
+				<span class="modify"><?=$array["email"]?></span>
 				<button type="button" class="chMail" >이메일변경</button>
+				<? } ?>
 				<div style="clear:both;"></div>
 			</li>
 			<li class="name list">

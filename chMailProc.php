@@ -14,7 +14,7 @@ $m = new MAIL;
 $m->From('yusng00@naver.com',"민유성");
 $m->AddTo($email);
 $m->Subject('라스트로 인증메일 입니다.');
-$m->Html("<a href = 'http://rastro.kr/pwEmailAc.php?code=".$code."'>인증하기</a>");
+$m->Html("<a href = 'http://rastro.kr/pwEmailAc.php?code=".$code."&code2=".$_SESSION["idx"]."'>인증하기</a>");
 $c = $m->Connect('smtp.gmail.com', 465, 'ysmin0914@gmail.com', 'messagebox11', 'tls', 10, 'localhost', null, 'plain') or die(print_r($m->Result));
 $m->Send($c);
 $m->Disconnect();

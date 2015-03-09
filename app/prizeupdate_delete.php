@@ -17,10 +17,11 @@ if($_POST['division']=="del"){
 	echo "del";
 }else if($_POST['division']=="modify"){
 	move_uploaded_file($_FILES['uploadedfile']['tmp_name'],$uploadFile);
-	
+
 	$db->field="pname='".$_POST['Pname']."',writer='".$_POST['name']."',pinstitution='".$_POST['Pinst']."',pdetail='".$_POST['Pdetails']."',src='".$uploadFile."',cdate=now()";
 	$db->where="fidx='".$_POST['fidx']."' and idx = '".$_POST['idx']."'";
 	$db->Update();
+	echo "111";
 
 }
 

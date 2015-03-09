@@ -74,7 +74,26 @@ $("#joinForm").submit(function(){
 		$("#Nname").focus();
 		return false;
 	};
-	
+	sw = 0
+	$.ajax({
+		type : "POST",
+		url : "/mailChk.ax.php",
+		dataType : 'json',
+		async : false,
+		data : {
+			email : $("#email").val()
+		},success : function(result){
+			if(result.loginChk=="true"){
+				sw = 1;
+			};
+		},error : function(result,a,b){
+		
+		}		
+	});
+	if(sw===1){
+		alert("이미 존재하는 메일입니다.");
+		return false;
+	};
 	
 });
 function addDate(obj,yObj,mbObj,nDate){

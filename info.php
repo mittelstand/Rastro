@@ -75,7 +75,7 @@ $birth = explode("-",$array["dob"]);
 				<!--span class="modify"><input type="text" name="email" id="mEmail" value = "<?= $array["email"]?>"/></span-->
 				<? if($array['tempEmail']){ ?>
 				<span class="modify"><?=$array["tempEmail"]?></span>
-				<span class="msg"></span>
+				<span class="msg">인증 메일이 발송되었습니다. <br />24시간 이내에 확인하시면 변경이 됩니다. </span>
 				<? }else{ ?>
 				<span class="modify"><?=$array["email"]?></span>
 				<button type="button" class="chMail" >이메일변경</button>

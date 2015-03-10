@@ -6,7 +6,7 @@ $db->block="";
 
 $db->table = "prize";
 if($_POST['div']=="pd"){
-$db->where = "fidx='".$_POST['idx']."' and idx='".$_POST['fidx']."'";	
+$db->where = "fidx='".$_POST['fidx']."' and idx='".$_POST['idx']."'";	
 $db->ExportJson();
 }else{
 $db->where = "fidx='".$_POST['fidx']."'";

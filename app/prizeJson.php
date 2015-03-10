@@ -6,7 +6,7 @@ $db->block="";
 
 $db->table = "prize";
 if($_POST['div']=="pd"){
-$db->where = "fidx='".$_POST['pidx']."' and idx='".$_POST['idx']."'";	
+$db->where = "fidx='".$_POST['idx']."' and idx='".$_POST['pidx']."'";	
 }else{
 $db->where = "fidx='".$_POST['pidx']."'";	
 }

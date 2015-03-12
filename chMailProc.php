@@ -19,6 +19,10 @@ $c = $m->Connect('smtp.gmail.com', 465, 'ysmin0914@gmail.com', 'messagebox11', '
 $m->Send($c);
 $m->Disconnect();
 
+
+
+$time = time()+86400;
+$date = date("Y-m-d H:i:s",$time);
 $db = new Dbcon();
 $db->table = "member";
 $db->field = "tempEmail='".$email."',emailCode='".$code."'";

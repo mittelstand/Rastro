@@ -18,6 +18,11 @@ if ($user) {
 	$db->field = "idx";
 	$row = mysql_fetch_array($db->Select());
 	$_SESSION['idx'] = $row['idx'];
+	$db->where = "tempEDate > now()";
+	if($db->TotalCnt() > 0){
+		$db->field = "tempEmail=''";
+		$db->Update();
+	}
 	?>
 	<script>
 		location.href = "info";

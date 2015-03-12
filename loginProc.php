@@ -12,6 +12,11 @@ if($db->TotalCnt() > 0){
 	$_SESSION['idx'] = $row['idx'];
 	$db->field = "pwdTemp=''";
 	$db->Update();
+	$db->where = "tempEDate > now()";
+	if($db->TotalCnt() > 0){
+		$db->field = "tempEmail=''";
+		$db->Update();
+	}
 ?>
 <script>
 	location.href = "/info";

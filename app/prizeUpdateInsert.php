@@ -18,8 +18,8 @@ if($_POST['div']=="insert"){
 		$fwidth = $aSize[0]; //이미지의 가로길이
 		$fheight = $aSize[1]; //이미지의 세로길이
 		
-		$fw=500;// 가로 사이즈
-		$fh=500; //세로 사이즈 
+		$fw=1000;// 가로 사이즈
+		$fh=1000; //세로 사이즈 
 		$canvas=imagecreatetruecolor($fw,$fh); //imagecreatetruecolor : 지정된 크기의 검은 이미지를 만듬 
 		$dc = imagecolorallocate($canvas, 255, 255, 255);
 		$bc = imagecolorallocatealpha($canvas, 255, 255, 255, 127);
@@ -29,13 +29,13 @@ if($_POST['div']=="insert"){
 		if($upfileExt == 'gif' || $upfileExt == 'GIF'){          
 			 $newImage=imagecreatefromgif($uploadFile);                                     
 			 imagecopyresampled($canvas,$newImage,0,0,0,0,$fw,$fh,$fwidth,$fheight);
-			 $thum = $uploadDir."/file/".time().".gif";   
+			 $thum = $uploadDir.time().".gif";   
 			 imagegif($canvas,$thum);                  
 		}else if($upfileExt == 'jpeg' || $upfileExt == 'jpg' || $upfileExt == 'JPEG' || $upfileExt == 'JPG'){
 
 			 $newImage=imagecreatefromjpeg($uploadFile);
 			 imagecopyresampled($canvas,$newImage,0,0,0,0,$fw,$fh,$fwidth,$fheight);
-			 $thum = $uploadDir."/file/".time().".jpg";    
+			 $thum = $uploadDir.time().".jpg";    
 			 imagejpeg($canvas,$thum);      
 			 
 		}else if($upfileExt == 'png' || $upfileExt == 'PNG'){
@@ -43,7 +43,7 @@ if($_POST['div']=="insert"){
 			 $newImage=imagecreatefrompng($uploadFile);                                     
 
 			 imagecopyresampled($canvas,$newImage,0,0,0,0,$fw,$fh,$fwidth,$fheight);
-			 $thum = $uploadDir."/file/".time().".png";   
+			 $thum = $uploadDir.time().".png";   
 			 imagepng($canvas,$thum); 
 		}
 	}

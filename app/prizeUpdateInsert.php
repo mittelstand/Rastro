@@ -18,8 +18,8 @@ if($_POST['div']=="insert"){
 		$fwidth = $aSize[0]; //이미지의 가로길이
 		$fheight = $aSize[1]; //이미지의 세로길이
 		
-		$fw=1000;// 섬네일 가로 사이즈
-		$fh=1000; // 섬네일 세로 사이즈 
+		$fw=500;// 가로 사이즈
+		$fh=500; //세로 사이즈 
 		$canvas=imagecreatetruecolor($fw,$fh); //imagecreatetruecolor : 지정된 크기의 검은 이미지를 만듬 
 		$dc = imagecolorallocate($canvas, 255, 255, 255);
 		$bc = imagecolorallocatealpha($canvas, 255, 255, 255, 127);
@@ -45,6 +45,7 @@ if($_POST['div']=="insert"){
 			 imagecopyresampled($canvas,$newImage,0,0,0,0,$fw,$fh,$fwidth,$fheight);
 			 $thum = $uploadDir."/file/".time().".png";   
 			 imagepng($canvas,$thum); 
+		}
 	}
 	$db->table="prize";
 	$db->field = "fidx,writer,pname,pinstitution,pdetail,src,cdate";

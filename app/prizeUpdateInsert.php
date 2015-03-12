@@ -13,7 +13,7 @@ $db= new Dbcon();
 if($_POST['div']=="insert"){
 	if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'],$uploadFile)){
 		$aSize = GetImageSize($uploadFile); 
-
+		
 		$fwidth = $aSize[0]; //이미지의 가로길이
 		$fheight = $aSize[1]; //이미지의 세로길이
 		
@@ -26,13 +26,10 @@ if($_POST['div']=="insert"){
 		 
 
 		if($upfileExt == 'gif' || $upfileExt == 'GIF'){          
-			
 			 $newImage=imagecreatefromgif($uploadFile);                                     
-
 			 imagecopyresampled($canvas,$newImage,0,0,0,0,$fw,$fh,$fwidth,$fheight);
 			 $thum = $uploadDir."/file/".time().".gif";   
 			 imagegif($canvas,$thum);                  
-
 		}else if($upfileExt == 'jpeg' || $upfileExt == 'jpg' || $upfileExt == 'JPEG' || $upfileExt == 'JPG'){
 
 			 $newImage=imagecreatefromjpeg($uploadFile);

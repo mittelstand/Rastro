@@ -50,12 +50,12 @@ if($_POST['div']=="insert"){
 	$db->table="prize";
 	$db->field = "fidx,writer,pname,pinstitution,pdetail,src,cdate";
 	if($_POST['idx']){
-	
-	$db->value="'".$_POST['idx']."','".$_POST['name']."','".$_POST['Pname']."','".$_POST['Pinst']."','".$_POST['Pdetails']."','".$uploadFile."',now()";
-	$i =$db->Insert();
-	$db ->field="idx,src";
-	$db->where = "idx='".$i."'";
-	$db->ExportJson();
+		$db->value="'".$_POST['idx']."','".$_POST['name']."','".$_POST['Pname']."','".$_POST['Pinst']."','".$_POST['Pdetails']."','".$uploadFile."',now()";
+		$i =$db->Insert();
+		$db ->field="idx,src";
+		$db->where = "idx='".$i."'";
+		$db->ExportJson();
+	}
 }else if($_POST['div']=="update"){
 	
 }

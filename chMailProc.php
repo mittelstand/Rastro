@@ -25,7 +25,7 @@ $time = time()+86400;
 $date = date("Y-m-d H:i:s",$time);
 $db = new Dbcon();
 $db->table = "member";
-$db->field = "tempEmail='".$email."',emailCode='".$code."'";
+$db->field = "tempEmail='".$email."',emailCode='".$code."', tempEDate='".$date."'";
 $db->where = "idx = '".$_SESSION["idx"]."'";
 $i=$db->Update();
 

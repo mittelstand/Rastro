@@ -6,6 +6,8 @@ include $dir."/inc/header/inc.php";
 $uploadDir = $dir."/file/";
 $fileName = $_POST['fName'];
 $uploadFile = $uploadDir.time().".jpg";
+$upfile = explode(".", $_FILES['uploadedfile']['name']);
+			$upfileExt = $upfile[1]; //이미지 이름의 확장자
 
 $db= new Dbcon();
 if($_POST['div']=="insert"){

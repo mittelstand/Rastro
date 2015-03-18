@@ -12,13 +12,13 @@ if(strlen($_SESSION['idx']) <= 0){
 	MsgBox("로그인 해주세요.","login");
 	exit();
 }
-	$db = new Dbcon();
-	$db->table = "member";
-	$db->field = "email, name, dob, sex, fbcode, Ps";
-	$db->where = "idx=".$_SESSION["idx"];
-	$rel= $db->Select();
-	$array = mysql_fetch_assoc($rel);
-	$birth = explode("-",$array["dob"]);
+$db = new Dbcon();
+$db->table = "member";
+$db->field = "email, name, dob, sex, fbcode, Ps, tempEmail";
+$db->where = "idx=".$_SESSION["idx"];
+$rel= $db->Select();
+$array = mysql_fetch_assoc($rel);
+$birth = explode("-",$array["dob"]);
 
 ?>
 <style>
@@ -26,24 +26,25 @@ if(strlen($_SESSION['idx']) <= 0){
 	#container{min-height:729px;}
 </style>
 <div style = "clear:both"></div>
-<div class="popImgMsg">
-	<ul>
-<?
-	if($array["fbcode"]){
-?>
-	<li><button type = "button" id = "fbImage">페이스북 사진 불러오기</button></li>
-<?
-	}
-?>
-	<li><label for="picture" class="pic">PC에서 불러오기</label></li>
-	<li><button type = "button" id = "imgDelete">삭제</button></li>
-	</ul>
-</div>
+
 <form method="post" action="infoModify.php" class = "infoForm" enctype = "multipart/form-data">
 	<input type = "hidden" name="fbChange" id = "fbChange"/>
 	<!--<div class = "info">
 		<span>내 정보 수정</span>
 	</div>-->
+	<div class="popImgMsg">
+		<ul>
+	<?
+		if($array["fbcode"]){
+	?>
+		<li><button type = "button" id = "fbImage">페이스북 사진 불러오기</button></li>
+	<?
+		}
+	?>
+		<li><label for="picture" class="pic">PC에서 불러오기</label></li>
+		<li><button type = "button" id = "imgDelete">삭제</button></li>
+		</ul>
+	</div>
 	<div class="circle, circleTwo" style="z-index:1; position:relative;"></div>
 	<div class="circle" style="z-index:1; position:relative;">
 		<div style="text-indent:-1000em;" class="picframe">
@@ -69,10 +70,16 @@ if(strlen($_SESSION['idx']) <= 0){
 	<? } ?>
 	<div class = "opacity">
 		<ul class="modiForm" style="z-index:8; position:relative;">
-			<li class="email list"></li>
 			<li class="email list">
 				<span class="lab">이메일</span>
-				<span class="modify"><input type="text" name="email" id="mEmail" value = "<?= $array["email"]?>"/></span>
+				<!--span class="modify"><input type="text" name="email" id="mEmail" value = "<?= $array["email"]?>"/></span-->
+				<? if($array['tempEmail']){ ?>
+				<span class="modify modify2"><?=$array["tempEmail"]?><span class="msg">인증 메일이 발송되었습니다. <br />24시간 이내에 확인하시면 변경이 됩니다. </span></span>
+				
+				<? }else{ ?>
+				<span class="modify modify1"><?=$array["email"]?></span>
+				<button type="button" class="chMail" >이메일변경</button>
+				<? } ?>
 				<div style="clear:both;"></div>
 			</li>
 			<li class="name list">
@@ -131,7 +138,7 @@ if(strlen($_SESSION['idx']) <= 0){
 		</ul>
 		<div style = "clear:both;"></div>
 		<div class="btn" style="z-index:1; position:relative;">
-			<button class = "mPass">비밀번호변경</button>
+			<button type="button" class = "mPass" onclick="location.href = '/pwdChange'">비밀번호변경</button>
 			<button type="submit" class = "infoSave">저장</button>
 		</div>
 	</div>	
@@ -188,18 +195,24 @@ $("div.circle").mouseout (function(){
 	$("div.circleTwo").css('visibility',"hidden");
 	
 });
+$("button.chMail").click(function(){
+	if(confirm("정말 이메일을 변경하시겠습니까?")){
+		location.href = "/chMail";
+	}
+});
+
 $("#fbImage").click(function(){
 	var fbImage = new Image();
 	fbImage.src = "https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large";
 	fbImage.onload = function (e) {
-			 $("div.picframe").css("background","url('https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large') no-repeat 0 0");
-			 $("#fbChange").attr("value","https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large");
-					  
-			 if(fbImage.width > fbImage.height){
-				$("div.picframe").css('background-size',"auto 100%");
-			 }else{
-				$("div.picframe").css('background-size',"100% auto");
-			 }
+		 $("div.picframe").css("background","url('https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large') no-repeat 0 0");
+		 $("#fbChange").attr("value","https://graph.facebook.com/<?=$array['fbcode']?>/picture?type=large");
+				  
+		 if(fbImage.width > fbImage.height){
+			$("div.picframe").css('background-size',"auto 100%");
+		 }else{
+			$("div.picframe").css('background-size',"100% auto");
+		 }
 	}
 	$("div.popImgMsg").hide();
 	$(window).unbind("click");
@@ -254,23 +267,12 @@ $("div.circle").click(function(e){
 	}else{
 		chCode = 1;
 	}
-	
-
-
 	//e.preventDefault();
-
 });
 
 
 $("form.infoForm").submit(function(){
-	if(trim($("#mEmail").val())==""){
-		alert("이메일을 입력하세요.");
-		return false;
-	}
-	if(Echk($("#mEmail").val())==false){
-		alert("올바른 이메일형식이 아닙니다.");
-		return false;
-	}	
+		
 	if(trim($("#mName").val())==""){
 		alert("이름을 입력하세요.");
 		return false;
@@ -278,8 +280,7 @@ $("form.infoForm").submit(function(){
 	if(Nchk($("#mName").val())==false){
 		alert("올바른 이름형식이 아닙니다.");
 		return false;	
-	}
-	
+	}	
 	if($("#sex").val()==""){
 		alert("성별을 선택하세요.");
 		return false;
@@ -288,26 +289,7 @@ $("form.infoForm").submit(function(){
 		alert("생년월일을 입력하세요.");
 		return false;
 	}
-	sw = 0
-	$.ajax({
-		type : "POST",
-		url : "/modMailChk.ax.php",
-		dataType : 'json',
-		async : false,
-		data : {
-			email : $("#mEmail").val()
-		},success : function(result){
-			if(result.loginChk=="true"){
-				sw = 1;
-			};
-		},error : function(result,a,b){
-		
-		}		
-	});
-	if(sw===1){
-		alert("이미 존재하는 메일입니다.");
-		return false;
-	}
+	
 });
 
 

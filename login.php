@@ -13,11 +13,16 @@ if ($user) {
   $db = new Dbcon();
   $db->table = "member";
   $db->keyfield = "idx";	
-  $db->where = "email='".$user_profile['email']."'";
+  $db->where = "fbcode='".$user_profile['id']."'";
   if($db->TotalCnt() > 0){	
 	$db->field = "idx";
 	$row = mysql_fetch_array($db->Select());
 	$_SESSION['idx'] = $row['idx'];
+	$db->where = "tempEDate > now()";
+	if($db->TotalCnt() > 0){
+		$db->field = "tempEmail=''";
+		$db->Update();
+	}
 	?>
 	<script>
 		location.href = "info";
@@ -85,8 +90,8 @@ unset($facebook);
 		</ul>
 		<button type="submit" class="btnLogin">로그인</button>
 		<button type="button" class="btnFJoin" onclick="location.href='<?=$loginUrl?>'" style="margin-bottom:9px;">페이스북으로 로그인</button>		
-		<span class="textQ">비밀번호를 잊으셨나요? <a href="#">비밀번호 찾기</a></span>
-		<span class="textQ">아직 회원이 아니시라면 <a href="#">가입하기</a></span>
+		<span class="textQ">비밀번호를 잊으셨나요? <a href="/findPwd">비밀번호 찾기</a></span>
+		<span class="textQ">아직 회원이 아니시라면 <a href="/join">가입하기</a></span>
 		<!--button type="button" class="btnFlogin">페이스북으로 로그인</button-->
 	</div>
 </form>

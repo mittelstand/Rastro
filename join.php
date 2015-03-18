@@ -21,12 +21,17 @@ if ($user) {
 	$db = new Dbcon();
 	$db->table = "member";
 	$db->keyfield = "idx";	
-	$db->where = "email='".$user_profile['email']."'";
+	$db->where = "fbcode='".$user_profile['id']."'";
 	  
 	  if($db->TotalCnt() > 0){		
 		$db->field = "idx";
 		$row = mysql_fetch_array($db->Select());
 		$_SESSION['idx'] = $row['idx'];
+		$db->where = "tempEDate > now()";
+		if($db->TotalCnt() > 0){
+			$db->field = "tempEmail=''";
+			$db->Update();
+		}
 		?>
 		<script>
 			$(document).ready(function(){

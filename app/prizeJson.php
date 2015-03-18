@@ -5,9 +5,15 @@ $db = new Dbcon();
 $db->block="";
 
 $db->table = "prize";
-
-$db->where = "fidx='".$_POST['pidx']."'";
+if($_POST['div']=="pd"){
+$db->where = "fidx='".$_POST['fidx']."' and idx='".$_POST['idx']."'";	
 $db->ExportJson();
+}else{
+$db->where = "fidx='".$_POST['fidx']."'";
+$db->ExportJson();
+}
+
+
 
 unset($db);
   

@@ -4,7 +4,7 @@ include $dir."/inc/header/inc.php";
 $db = new Dbcon();
 $db->table = "member";
 $db->keyfield = "idx";
-$db->where = "email='".$_POST['email']."' and ((pwd='".md5($_POST['pwd'])."') or (pwdTemp='".$_POST['pwd']."'))";
+$db->where = "idx='".$_SESSION['idx']."' and ((pwd='".md5($_POST['pwd'])."') or (pwdTemp='".$_POST['pwd']."'))";
 if($db->TotalCnt() > 0){
 	echo "{\"loginChk\":\"true\"}";
 }else{

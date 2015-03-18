@@ -239,7 +239,7 @@ function preload() {
 	} 
 } 
 preload(<?=$all?>)
-
+//주석
 
 
 $("#selectImgS").change(function(){

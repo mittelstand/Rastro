@@ -16,7 +16,7 @@ include $dir."/inc/header/mainHeader.php";
 	$count = $total - (($page-1)*$block); //count = 2 첫번째 페이지에 있는 게시글 수 
 	unset($db);
 	$abc
-	$name = "123123";
+
 ?>
 <style>
 ul.main {width:900px;}

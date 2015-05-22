@@ -7,7 +7,9 @@ $db = new Dbcon();
 $db->table = "personalList";
 $db->field = "(select Count(idx) from presonalList) as a";
 $db->where = "type='sc'";
-$db->ExportJson();
+$sel = $db->Select();
+$row =mysql_fetch_array($sel);
+echo $row['a'];
 }
 
 

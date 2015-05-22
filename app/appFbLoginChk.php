@@ -16,6 +16,8 @@ if($cnt<=0){
 $db->field = "email,dob,name,sex,idx,Ps,fbcode,pwd";
 $db->where = "idx='".$row['idx']."'";
 $db->ExportJson();
+
+
 }
 unset($db);
 ?>

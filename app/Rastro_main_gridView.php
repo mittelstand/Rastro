@@ -4,29 +4,30 @@ include $dir."/inc/header/inc.php";
 $db = new Dbcon();
 
 $db->table = "personalList";
-$db->where = "type='sc'";
+$db->where = "type='sc' and midx='".$_POST['midx']."'";
 $cnt=$db->TotalCnt();
-$val['sc']= $cnt;
 
-$db->where = "type='ca'";
-$cnt=$db->TotalCnt();
-$val['ca']= $cnt;
+$val['type']= $cnt;
 
-$db->where = "type='tr'";
+$db->where = "type='ca' and midx='".$_POST['midx']."'";
 $cnt=$db->TotalCnt();
-$val['tr']= $cnt;
+$val['type']= $cnt;
 
-$db->where = "type='qu'";
+$db->where = "type='tr' and midx='".$_POST['midx']."'";
 $cnt=$db->TotalCnt();
-$val['qu']= $cnt;
+$val['type']= $cnt;
 
-$db->where = "type='cp'";
+$db->where = "type='qu' and midx='".$_POST['midx']."'";
 $cnt=$db->TotalCnt();
-$val['cp']= $cnt;
+$val['type']= $cnt;
 
-$db->where = "type='se'";
+$db->where = "type='cp' and midx='".$_POST['midx']."'";
 $cnt=$db->TotalCnt();
-$val['se']= $cnt;
+$val['type']= $cnt;
+
+$db->where = "type='se' and midx='".$_POST['midx']."'";
+$cnt=$db->TotalCnt();
+$val['type']= $cnt;
 
 
 echo json_encode($val);

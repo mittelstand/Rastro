@@ -12,7 +12,7 @@ $db->where = "type='ca'";
 $cnt=$db->TotalCnt();
 $val['ca']= $cnt;
 
-$db->where = "type='tr";
+$db->where = "type='tr'";
 $cnt=$db->TotalCnt();
 $val['tr']= $cnt;
 

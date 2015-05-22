@@ -7,28 +7,27 @@ $db->table = "personalList";
 $db->where = "type='sc' and midx='".$_POST['midx']."'";
 $cnt=$db->TotalCnt();
 
-$val['type']= $cnt;
+echo '"{type":"'. $cnt.'"}';
 
 $db->where = "type='ca' and midx='".$_POST['midx']."'";
 $cnt=$db->TotalCnt();
-$val['type']= $cnt;
+echo '"{type":"'. $cnt.'"}';
 
 $db->where = "type='tr' and midx='".$_POST['midx']."'";
 $cnt=$db->TotalCnt();
-$val['type']= $cnt;
+echo '"{type":"'. $cnt.'"}';
 
 $db->where = "type='qu' and midx='".$_POST['midx']."'";
 $cnt=$db->TotalCnt();
-$val['type']= $cnt;
+echo '"{type":"'. $cnt.'"}';
 
 $db->where = "type='cp' and midx='".$_POST['midx']."'";
 $cnt=$db->TotalCnt();
-$val['type']= $cnt;
+echo '"{type":"'. $cnt.'"}';
 
 $db->where = "type='se' and midx='".$_POST['midx']."'";
 $cnt=$db->TotalCnt();
-$val['type']= $cnt;
-
+echo '"{type":"'. $cnt.'"}';
 
 echo json_encode($val);
 

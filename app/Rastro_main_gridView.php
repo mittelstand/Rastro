@@ -5,7 +5,7 @@ $db = new Dbcon();
 
 
 $db->table = "personalList";
-$db->field = "select Count(idx) from presonalList";
+$db->field = "select Count(idx) from presonalList as a";
 $db->where = "type='sc'";
 $db->ExportJson();
 }

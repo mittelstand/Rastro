@@ -7,7 +7,7 @@ $db->where = "type='sc'";
 $cnt=$db->TotalCnt();
 echo $cnt;
 
-}
+
 
 
 

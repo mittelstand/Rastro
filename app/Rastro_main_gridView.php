@@ -29,7 +29,7 @@ $db->where = "type='se' and midx='".$_POST['midx']."'";
 $cnt=$db->TotalCnt();
 echo '{"type":"'. $cnt.'"}';
 
-echo json_encode($val);
+
 
 
 
